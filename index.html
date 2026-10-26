@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legends of Eternia 3D - v1.6.0 (3v3 Isometric MOBA)</title>
+  <title>Legends of Eternia 3D - v1.7.0 (3v3 Isometric MOBA)</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
@@ -57,7 +57,7 @@ body {
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base md:text-lg font-black tracking-wider text-white">LEGENDS OF ETERNIA 3D</h1>
-            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v1.6.0</span>
+            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v1.7.0</span>
           </div>
           <div id="lobby-rank-summary" class="text-xs font-bold text-slate-300"></div>
         </div>
@@ -100,7 +100,7 @@ body {
           <div class="space-y-2.5">
             <button onclick="window.UI.openModal('modal-heroes')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
               <span class="flex items-center gap-2.5">🦸 <span>NHÂN VẬT (HEROES)</span></span>
-              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">13 Tướng</span>
+              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">14 Tướng</span>
             </button>
 
             <button onclick="window.UI.openModal('modal-shop')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
@@ -177,23 +177,23 @@ body {
 
     <!-- Lobby Footer -->
     <footer class="z-20 px-6 py-2 bg-slate-950/90 border-t border-slate-800/80 flex flex-wrap justify-between items-center text-[11px] text-slate-400">
-      <div>Bản đồ 3v3 Isometric v1.6.0: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
+      <div>Bản đồ 3v3 Isometric v1.7.0: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
       <div>Thưởng trận: Thắng +500–800 Vàng | Thua +50–120 Vàng</div>
     </footer>
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODAL 1: NHÂN VẬT (13 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
+  <!-- MODAL 1: NHÂN VẬT (14 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
   <!-- ===================================================================== -->
   <div id="modal-heroes" class="hidden fixed inset-0 z-40 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
     <div class="w-full max-w-6xl max-h-[90vh] bg-slate-900 border border-slate-700 rounded-3xl flex flex-col overflow-hidden shadow-2xl">
       <div class="px-6 py-4 bg-slate-950 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (13 HEROES ROSTER)</h3>
+          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (14 HEROES ROSTER)</h3>
           <p class="text-xs text-slate-400">Xem tướng Đã Sở Hữu / Chưa Sở Hữu, Ngoại hình 3D riêng biệt và bộ 3 Kỹ Năng + 1 Nội Tại</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (13)</button>
+          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (14)</button>
           <button onclick="window.UI.setHeroRoleFilter('Support')" class="px-3 py-1.5 rounded-xl bg-teal-900/60 hover:bg-teal-800 text-xs font-bold text-teal-300">Hỗ Trợ (Support)</button>
           <button onclick="window.UI.setHeroRoleFilter('Marksman')" class="px-3 py-1.5 rounded-xl bg-emerald-900/60 hover:bg-emerald-800 text-xs font-bold text-emerald-300">Xạ Thủ (Marksman)</button>
           <button onclick="window.UI.setHeroRoleFilter('Mage')" class="px-3 py-1.5 rounded-xl bg-sky-900/60 hover:bg-sky-800 text-xs font-bold text-sky-300">Pháp Sư (Mage)</button>
@@ -342,7 +342,7 @@ body {
       </div>
       <div id="hud-buffs-line" class="flex flex-wrap gap-1 empty:hidden"></div>
       <div class="flex justify-between items-center text-xs">
-        <span id="hud-hero-name" class="font-extrabold text-white">Shisui (Lv.1)</span>
+        <span id="hud-hero-name" class="font-extrabold text-white">Grock (Lv.1)</span>
         <span id="hud-stats-line" class="text-[10px] text-slate-300"></span>
         <span class="font-bold text-amber-300">KDA: <span id="hud-kda">0/0/0</span></span>
       </div>
@@ -449,11 +449,11 @@ body {
 
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v1.6.0 MASTER GAME DATA
+// LEGENDS OF ETERNIA 3D - v1.7.0 MASTER GAME DATA
 // ============================================================================
-// 13 Heroes (including Miya, Helen, Pain, Nagato & Shisui), 32 Unique Items, 14 Rank Tiers, Preset Builds
+// 14 Heroes (including Miya, Helen, Pain, Nagato, Shisui & Grock), 32 Unique Items, 14 Rank Tiers, Preset Builds
 window.GAME_DATA = {
-  version: "1.6.0",
+  version: "1.7.0",
 
   defaultResources: {
     gold: 12500,
@@ -479,7 +479,7 @@ window.GAME_DATA = {
     { id: 13, name: "Thách Thần Chí Tôn", subTiers: ["Đỉnh Cao (500+★)"], starsPerSub: 999, maxProtect: 1000, winPts: 5, lossPts: 60, color: "#ffffff", badge: "🏆", aiDifficulty: 2.65, aiTierName: "Đỉnh Cao Tối Thượng" }
   ],
 
-  // 13 HEROES ACROSS 6 ROLES (Mage, Assassin, Tank, Fighter, Marksman, Support)
+  // 14 HEROES ACROSS 6 ROLES (Mage, Assassin, Tank, Fighter, Marksman, Support)
   // All 10 heroes have deep multi-layered passives, % HP scaling, hit counters & level-scaling cooldowns
   heroes: [
     {
@@ -792,15 +792,15 @@ window.GAME_DATA = {
       summonPortraitImg: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCACOANwDASIAAhEBAxEB/8QAHAAAAgMAAwEAAAAAAAAAAAAABQYDBAcAAggB/8QAThAAAgECBQEEBQgGBggEBwAAAQIDBBEABQYSITEHE0FRFCJhcYEIGCMykZOh0xVCUlWx0hYXQ3LB4SUzYpKio7PwJkWC0TRGU2Nzg/H/xAAbAQACAwEBAQAAAAAAAAAAAAAEBQIDBgEAB//EADIRAAICAQMDAgQFBAIDAAAAAAECAAMRBBIhBRMxQVEiMnGRFBVhgbEGI0LwocFS0fH/2gAMAwEAAhEDEQA/AIe3PtS1tpztJzTK8n1LXUNHFHTmOGIR7VLRKT1UnkknGep239pgJLa1zM2/2Yv5MFPlIAf1v50b/wBlS/8AQTGZE2S4weqrtBxIR+h7c+0ZjZtZ5jfp9WL+TGuaN13qptNS5rU6orsx7wHY8qooBBtwAo8b/ZjzXllKaushhFlMrhAx6Ak/549AaWymppNDUVFI0budzLt8QHPn7MDaxtlJI8xD1+9q6VVGwSfT2nTtO7T9aZPlGVTZfqKupZnLGUoI/XB6Xup6Wxmknbz2kI4Q6xzIe3bF/Jgh2vzh89p4RyIKKNSPIkk/4jGWTqxcm9ucToTFKk8mMelhhpkLnJIzNAft17TD9XWeZ289sX8mPv8AXt2mR/W1lmJ/9MX8mEOnDN4HnxxFVNsYhzfE9oxnEYTSIO3ftFc86wzL/di/kwUy3tl7Rs0rYKKLWFaktRIkSO4jCKSbXPqdMJOR6Rk1HmNRT5StZPBTot5BBZ4wRwZFHQXNri/T24aKXs/nyLPMlpMxaeM5hHE8MkdvUmJF0bysfwtiaFTwRKH1NakoTziegNKa21Aciekz2vmXNaR2pqkhlvfqrAgeINwbeWPtVqXOausjqIs/zGKL6xp4ygDbfEkrextyP4YHZjSR+mVjBR6QVWPvVP17XIB8+pt78CYKtxNTCRSoG9PjhTfqStmB4nzq3qepttJRyo+v3x/1D1F2gZ69Kvf5nP3k0jWuFBAvYW4xQzTVmpszo54YNUZhlkiTKI5YljY2F7g3XocLdppq6huSV3E/8WO07yt3FM9g80rNx4+AwuXVWL+0j+M1CsHS05+phXNdRa3odKVXc6rrDmwmWSNyyMFQ+rt+pze4PTg4B6UzjtWzOrmoc21hmdBMl2YskTMgANuNluSV+GDlTPT0syU86797rJe9j6p4Hu4wdjqC0xQP9a9z4kdRhtTqQcqfMPo/qLU117H5Y859oj6v1lrnS2TUzvrPM56pqgpLIojChdpIUDZ5jrhCl7bu0Rb7dYZkbf7MX8mNO1ZS0dZprO56oOUgiMibRfnkcj44w98lGX5rTQZke4SqgWojkRrtGrcozDw4HTyOC9LYLK9zDnJmn6H1BtTpe5by2TNfyTWXaTLoTPM4n1RVzzPTxGhK92WR912t6nXbx49cZpP249pkLkHWWZgjgqyxC3/BjeaKmoKrTxioBEq1kTzKq/UkZlvuHlci9h7ceX58pzHUVbUVUNOtMGcl+9chd3jYtycdDqc8SPTepd9rS3ABjC/b/wBo63H9Mcxv/di/kw9wdqGvl7KDqGq1TmKVhrjFDJaP6SNgAL+r4EEjGNQaLr0zumoa2mqNk5AElOpbr4g28D1x6Lo9G5ZTaTynTmZ061dPQIssu9iFMouWJA6j1jx7MVPcq4Jk+pdRSgIwPk+ntMjk7eO0hf8A5yzIX6erFz/wY4nbr2lMR/4zzL3bYv5MAe0vNKHOdRiqy0wiiEKxRQwoFSFFJAAAHxPtOFylYq3N7A9cXqQfSM6rC6ByMZmjP24dpdxt1jmQB8dsX8mLP9dPaR3V/wCmOY3/ALsX8mESGIOAxN747OCH4bjxGCAi+SJKOb9uHaQi3/pjmV/7sX8mI/67+0w8jWOZf7sX8mEeoe/A8MV+9byxAqo9Jyan8oqFpO2TOfIxUtvuExnTUDTP3cfgCSfIAXJ+AxqnygNh7XM4H63d03/RTCRlsXd5lTWmEO+QRtIyggKxsbg+zFldeawZB2wCYc01oKoqY46s0aItL3KqxLAzmUblk549W4FhbwxpceYRwZ2lEjk00caxAj9UjgNgzLKtLl0zPwkSBI0/ZA4B+wYU9Mp6VVNUuw2mQk+wDGf1+oLbUHrMFbrW19mWHAi72u5K8OYVeau24TJCVRf1Leq3w4FvfjIKgXlsD18MPPaFn8+aZijzSSEMgfazXHJNunHS3uwkFRLJuI5GHKAhApM3GhRkpVXPMtUkLFbY6VOWs7qAtyxsABe5xbgXYBe9jjQOyg95q6mhYCRFjkl2MARuC8H2Hnri1wAhJ9JdqLe1U1hHgZh/sGyBcmlzCpr5NlXWA0kCnkEoQzDdf61yOPsw95zUSSpTT2UrDOBJuUHafPnocJutMkg0tkNVUZbU1vd1MymWKPgQN+pKtuQR0PnxgllufVuY6eX0qHu64xItZEykHdYESW9o5998KdW4NfcU8TEdVA1GNbU3B4+kOZjUVDUc8UR3VCLwPGy2IOBL136Qy1axDaSGRXkQdQeh+3EsLz1sEUolCVEVgH6cgWF/YRgXW5ZX0xnnhQwCUFXjXoQeowrts3fEPESisKAM4hWpTuqqg7i22RyV9xxWWojlzgzNIqw0i3ufZx+JwCWeuaWOkfvO8gU7VPG0dcFMt01X5hl1Zm5hLU1EhklN7b/JR7cU9zJG0TopJ4HnEsemd4JamcBjK2yO/h54KPVbJIDDIbiGze88WwHp4nzOsjcIBDSqqtGOm8+H2/wwXhqYqSodkRZnv9Zh6t/MDE/APOP1kSoYAHzK2rKeaHS8tLJAwjqTZiw4kYi4X2AWuW8+MYXSpWiuElIjNUwbm29SQvUc9eOLY9Cy5285CvJu4sV8PsxVTJciSVsyGUUi1KG4kRNpLHx44w202uqrTYBwJoOm9WTR1Glq+P8Av9ZfysbYKRVjKpHAhC22lbIDa3himvdFz3FJTRMx3ErELk388WpswUTwvc3nWxJPj0wBqMzeOK0Z9cYT3Xn0PGYuqqG5mz5jFTVktPUCSVydiFjzx7Md6WVKzvkmN4WjbvObdRb/ABwpUGbSsKnvI2YBOp94xakzl46MB02mVrDb5D/PEK7yGBz45knUZAEUNQ9hc9UIf6NzwVMcSENFUSBJeTcG/RutvDGbzadqaOoq6Opp5IamkNpo3XlOQOftx6HyWuZHV0kO7FjtCymCv0rV5jSwUq1jvC0pey9+qkrsY+XrG3wxoNFre7gMOY96b1ewv2LufYzzpTUvdrYriGpiUEta2CFTMKdnRgFZCQQfA+WF/MMwEhsDa3lhzYVUTTTm6EP61zifZA3PPOA8RaSXr1wRhhlMY5tgdXz6ThmofKJl2dsGcDx7ul/6CYS8szFKCspqmWIVCRSB2jY8MB4Yc/lGKn9b2bk2J7ulv9wmINJ9nUma5i0VXFM2VyRrLBXqu0SLf9UefW4PS2O1vtQZ9oNq766ay9p4mk5rUNmWQw1NMjqKymSVIm4ZCRwp+GKuisuWrD0j74meJ1JUcrdSL+/nH3UMsuWxxyU59UWURnoVAsB9gx2p9bUmncpmz2ria0ZCbAg7x2bgKD0PvOM1ZizU8T5/oNxOa1+Y8TJ+0PL6Km1FLltAHNPQxJTLI/WQqLE399x8MA6fTs8NFJWTI3dKyDchDbQwO0t5Xtx8cENa6qGp9RNmSKkYliQGNAQsZA5Uf99Th27KqynzZ63J6vLqZ4Wp425juHZD4nzsSR7jjRlgte4jxN9fqG0+n7pXOPMVdI6HqtV10tHM8mXrGpk710PICk2A8edv241HQWkqjSJb0iopqhzHs3xra24XIBPJAIIwTlOX6fu1JSqZ5vV5YttHl/liSSt3UksMndpNt7z1Bbbbw9+FGo6huyoMyOr63bqVKqPhMhzDUzmpMMBKAcKAOo9vniSEvVwVDSxxxZj3LJC6uFbnkAi9uv8AHAeWUJEawACQHbH7/E4pKj1ILNI6lVLu3jbCerUWI27Oc+npAQpUBl9Ify2mroGSfNe5QSRhvUsHBP6rKOCB5/ZgjQvl2T1E89XE9bllagAdWP0Tj+B8PbxhZo62WWMROr8jjd4j44YNO014aihqhvpZ1N47838x7cFV3d58KuMyq6/LbsD6Y4gyYUUkvpEIkeHcYAxIFgSCOfZjmZ6zzOmyxcg7tYKcHcFSw3XNwTx62Lq5KIKV6SWeMQbyySdWAPFiPPFWXL8tNWsrS95JCCsaL61rdCfP8McetwPaDUWBCTk+0uvSfoHJkhZt8rjvXceLMOPwJwIGYKVZQbHBfUlbDVwRiSYRtIofaDdlFrdBx54B0tExhMiRinQ9ZZzdm9wxVqRhgqeBLahkb59pX3zMQTf24Iw1iJTxowJLOzG5+GBsEtNGXjRZHk2kh2NrkDwGB6VUhVnW7W/C+BQdo8w3IYZEOT1C1PqKPWhbvUsfDxGB2Z1EMNRKkJ5vuX3HnA0ZrPSFZIwpIbkeeLGbIJJaStgC7ZY+g8CDYg475Q4kvlb6yzl9WXinTuiHZR18eRiTNl7yYRxfViTZfwJ8fxxzJZhG00tRtASMlQf1jfgYjDGrlG3i5ucefhB7mVPcFY5lrIaedGu/ItxgrrOlqK7s9zalQqZj3bIGPX1xx+GKVM0+5Y6cFiPrADgDDJT0/peWVNPJ3d5oygL2IUgXv8LYYdKH9wQRNds1CMPQzynU1QIJLc+I8sT0Okq3N8knzWiSSfu5WjZFW+2wU/aQx/3Tjrn9AYc1q4+67s981kv0ueMbX2LZXVw6drUneOmoqqM06GnkDHvb2LnqN1m/DD+58DLT6PqtUKau5MFNNLSsUdGR14II5BxYjlcL4HBjM6af9J1kNWzS1Eczo7sLFiDa/wCGKgp0T1ScErWcZEIByAZsPbBDk9T231tNmcfNQIoVexO1npVWMkDqA5vfDJpWKoyXIY8tqImhqKQyxncbhzuF3X/ZN7jHXWOWSSdt+oMwSKCWmSkp45mlZC0MgijZGVfrDjxt1BxbqJQY4IkkLyRDcN3G/d1XCnVXlUAExP8AU2sG/wDDCLGqcwllqY0IsF628cB9XZdVZ1pemhog7bZ2mZFjLF9q8AW9+GLMMmepqu9iZWQ8lHNmX2G+L9dny6O01NUU0cc1RGLxoZQitKegueoA5Puwn0jt+I3+ZXoG7Zr7fJnn6ppGpKkqxDWJXpYgjqCDyCDg/pbVNVpqo9IgjVxdXIJtyP8AI2wuVOc1mazvJX1LzSl2a7G9iTc2x274rHbzxrVwy4abtqxYmywZBnoGkqYM0aDNoj9BND36A8246fA/wwPAPp9i9+9VlHtuMA+ySrkznJavL5JRaia0VhztcEkfaPxwdpkRahWBu8Tck+zGS12mNNmMcEz5nqKjptTZR7ePoeRIqsS09PTqyGwQufif8sT5b3VTBUSSXKoFLDz54HxNsS6pqmWaI04BiliDD2YgyygnqsvnaAFn3qSoPNhfoMDbSlhVecf+p17B2QMy5Ty0+YxmnrSA4N45fL2YG1kk2W1ixtuTbyGHQ+0HECSTekdzJGVZTYkjBiDJ6vMYGkdN9KDa7HofNfbj1Zawbccj/eYOUFfxek6VNc2axiTvoo5j9fvEvf2g4jSA3G6qeoJ/soV2g+8+WOlNkdQld6JvBVhuEngV9mDOYUn6Oy8LGF7tjYshuWI8zibK5U2MPEh8BYKsGWjV2qJWSaYdF/UTyA88Qz1jVUg3Ft/mTj5TqTINql2PgPHHapyaZnEpkWBTydx6YFXuOOBxLFYIcMZxSIHEu0MF68YqU8DQ181PwYageq3kDyp+3BKM0aAQqJauQ8EILDHyuyurEffqIYtqWSANdrdcECo7cj0l6Wh/EXZIe5kfvDtKkhgcRTMyuphJaw6HoMEJYDmkYmFjVKPXjP8Aae0e3H2mgWRdkilGHgR1xR+kINwxz5nfLy0yevbaTewxdmSNIjsbax8cV6B2pHMW3cWPDW6Ykz2sqKepFPTybIoxZjYcnxxIAFct6QDHdsxOstfG6KsbmNh6si36nzxboqw06SRPM3dSrtYKbG3swNywwTwVMU31CVctblfC492Lb5HOQrQSI9OvrGYHgD2+WLcWAiyvyIT+HT04IiDrHRtRDIa3v5KyKWT/AOItcRr4Bh1B/wDbGl9ltEMv0tSUEpQTRzyyKwNwVLYC02bCGqSBm3KWsfAEYMZdWtT5hGskSU4Vwqogso564ZnqndqCuvOYw1PULrqBQ45BzmJ/ahpI5XnE1fDURSRTBZJFvZ1LdD7b/hjPHpm3Hr9uHftSzv0/URoqRJZTT/RsFBO4jgcfA4SROq3DmzA2I8saahs1jM1miLmhS/nE9BauMy9sWpxNHGsDwUSpILbmXu03A+PUYo6hJooppDywJtbDZr/KKZdV5vVuzGoq1iRXbpEojXgfEX+Jxn+dGvnoyqo0k8Y2yJ4t5MPPGT1lmGIPr4mH6qVu6g36HH2lLINQVk9QY5JRIpPCyAG2BfbA/pDxRsr91SpH9RfUUuD19pP8MWdN5fUT1gDU8iNfklSLYe88yjLq/Is29JjQxSwhpW8CY/qn/DHOm2BLMtGmksqo1Ktj7TzSadb7l88dJu8Y2sRbi2Nh0v2Z0dTkOYViwRS1kjOlA9TKwjABtvsOth0J4vgDnHZbm+T5dSTPTGoqaktuEMqlIgOm4nz9+NJ3K+RnE09fUtOzFN2CJ37LaxaKrgjiVIpK1JI2ZT9Z0syk/DdzjRa6OFZGqYxEHl6qjgi/icJmnNISaWpDmGYPEayqUxwxxtu7tPEk+Z6Y+z1MiTgBifZjP9UtQvsXmYzqlFeo1bW0tx7+5/3iGK0SSOkbE2tZeeBgxQ01P+jUgeR4ZGYkSqehGAFFUEuvpBJHUnrtwypCZKKSIWZwO8jI8R7MLKs7iwHpEmp3VEK0jlizEAR1EUWYxDgSj1ZQPf4/jgrltfFHSLSpu9QH6Kf1OvTrwbHxGFiCtnpmYBmUr7bYPZUlRVUzVT1QNm2iIqDfj24K0mo3v8IOZOwcZMqS5pBSVUNOZ1LL6xl6qGve3uxbaspKsbCzTk2tFTgsBboL9BinPDTGupJpKdBvlaKWMCysQLj7cOOWafqc6OyGQ0sPd7xJGoCjjpbF6BmDL5E8tPdZVrGWMT6s5lAfoIYMvhPAZ+XOKS+gs2+qrZqt16qoIH44ZaLRldmOemjqzJJHHEWba4U3PQ3N7eNx1PhgDn+lJdNagmEtUpjnQGCmD73jS/VjYDki4wE9mV3Y4/X/AHEYt01vwxsc4IOJ1qc67lFjpYEgTxsOTgdLmEkjAqxDgg7ieuLQppUPrQlg36x4AxUnipaWQM8izN+xGePicDu9j8k8RdXtX5ZDXM0MiyQm6SG62/VPiMXqCpnqdiTxrMSbDdww+OIY8szCrjNbJGkcKm0cZ9UH+6MQSZkMty3MK5LNLTwO6g+DWsPxIxetRawDxmGWUC4BR83Ag3OO0alyjNlo4qCJo0ezzSSEhRfg2HXFii1Hl2p6mWGOeKGrB9eEuAHPmhPUezrjF6zMJp5XknbfK5uzYiooaiqq4YIkLSSuI1XzJNhjQWdPpZduMfSaw/05plrG34Wx5m9JS1FJUKUhd4xwwC8MD1wQaeTJ+7jfmGVfH9ZDhQi0LmWW0FNLNXxpILpOizOpRrnayuvBFgODhjllDUFJFUVTVMRjWJ5zclZR43P/AGcLL9MlI+F8mIrKkqOEs3eniD6mKCkqXVzdgbq3mPA4JSZgs7UtSwPNg394f9jEOaZdahgeQB5oz3bEeXUH7MR5ZAe5kp2uxP0kYP7Q6j7MAEEHaPWQdcpuhhchy3Ks9eumnSohnJcxbSGkPNgx8hc4zvV2is2izuU5VQU8lA4DwMiKCFPg1/EG4+GHGvqmnllS/Mc4F/IEf5YYINTZNlFPFT5jWQxyld6hzztPQ/aDhtptbb3SFGRiX6bX6itsjnjxGftSmCaiqG3WCIg+O0H/ABxlFZqmpScoqJLGDYK/h7j1GNQ7S4opdWV8ZYtvSLvEH1l+jFmXzxlGc6emjnJpXSZW5vuCkfA4X6tiXOZQ6VnV3Gz/AMj/ADGTTlVFXsj1EEqqWtt70kHDFm3dzQ05Mq02WxgM8ZB3VJvdVXzA8b4W8ijaipkEtpJxwscZub+Zti/mE0qSQRsTLNHGEgi8Il/abyJOLdNZsBKiC1Pi5gvj0l2s1VFQRhKeJGqCOj892Pd0+HhhezCWvq39Jq5d0Z5LyGygf9+WKEvouXSuzN6VUNc8/UU/44qqa/OdyysxQeJO1FH8Bih2Zz8R/aFLUq8/8wvmWcU2YMssRVo1UKDtsRby9mB1M8cLNJ3CySsfVdxcL8PPEUWV0scwppMxRA3Pqi4B8r4K02RTloYBLHJK/O1Lnux5sceIdjuxOs1SLtkMdPI0gbl5HPl1wd05nVHUzSRQ93OtKpPeK3R7gEAeQ8/PCtnurNP6bqpaSSulr5Il/wBRRiwkb9mSU9B7F8uuBGkc7hm1Ws9Esi006d3UbuBdhYHnyNh7euHGk0JrU2N5xJno736d7HGOMiP9dBT1EzNHWQEMb7ahNpHs3DElO01PGY6eSlBPUCe4PwIwNrI5BMyFCLdQRi9pwU1LJP6QqhpF9VmHt558MJ6rN12CME+szbK20CD8/NasETOqBEk3rJG+71/MnzxoOWatoq/s4rEpjNBLTUxSax2O8pHG3zucI+dejLHWMj3SQqiL03kck2/xxd0ukUlAsd0VwrAbuga/W3nbpixd3eNefMY6TXto1J2gnx94DymqzWvmaWmqHiqAou6yWIt588jE9RmOphma0tbmscsD2vcgte3Fybnj2Y65jNBlNTUmkpzFPIx3liCB7gMBgamqqIo6UCSeRy5LtbcFBJ587A8YEO5WImiz3tNjHzD+YzT0XekpWZlCLDgbixxUjlynLAzbXrJf1d4soPuwNnfc+9iQbdfLEYhNYRbcR7BziPePlV5+8zNdRXkniXJ80qc2mvO5CL9ULwB7sWDQ01RlObT1UQKpTszHwkI5Fx58YrrRNAtnYReQPJPuHXHXPM/TTum53qEdWqW7imjI9aQ9WY+Qt/HDDp6O1wLw1K2d0SvySJj2c5VszqqDKAveFhYW4PI4wyaTlyChVKir9Kp62ne4eJQ6zKSCBY/VIt1HngMqmQ7zyW5POO8qKkdhwca/sArgz6DZRvr7bGatSVkWYtPEtRHPTcd53d7p4hh52vjrLRSUBaMqaikflivIPtHkcZZQZvX0M6eg1U0MpNl7tupPhbxw36dqNQv3tZW5lWwRbrAiTmTzVVHHxwg1XTUrBYNx/wAzN6zpYoBcMMfr5jSayKly2SOZ2aIqDBIRy1j9U+0YBrmconEsZtt5U+WL+o658zeHvH2/RLZfInqffiGrK0kVPTPB3kAhU3AswJFyQcKbAM8HgRVVkL48yWkrVzAZpV1AVWSP0ju0Ft5UXIX2nGa19TmOf1LV1RB3rvwCsfCgdFHu6Y09qlIocvCgzQuhCuo2yKQfPzx2q2y9Khg1HNA36yrKV58Ta3F8MtFqq6M7xz7wvp+oWhmYpnMZu20yxaxqZU3gFYvXU9CIxjPGz+ueXY0wkA6d4oa3xxo3a5nNJR65zKGYSKe7huQAyt9GvUYQhU5Mjd8ggJPPELfw6YW3n+42feR1PF1gZM8n+Yf0zW1zRl3IXeQqbUCljf8A9sDqrM6rMa6aCJGMe8k2PXnqxwWyqpSVI5fXQyEWd+NqdOB4AnjE09CSzwZf6IVjYqyxMJHBHW488WU1O6nHgRVVYBYzbYCSOJntHE1ZMvFwD3a/Hxx1ny+eomQTVKjyii9Yj4DgYsPTVKTsr0lZP/8AkNlH/pXHETM5bx+jvHH0Com0YiQF4IhYsB5zLNLl9BSu00neSNGv1Us8hPQAeC+83thY1ENRVcEpoPSoKJPVljgcjxtd26km/T2dBhxpIKLJUjqs0rYKJSbDfJtufL/+YTNadpMuc1Jjy9EXL4hsjVxe7An6W3gTfob4ddMr/wAisZdJRnt3Kuf1Pj9pmmZUrwylf2SRx54s6fzR8qq0qjAspjII3MRbnrx1w0ae0c2qoZZY6gtKOqKBdCTYE4E1+RT5JVFXEbshYWK3BIJBBB8iMNMBmIE0o1FVrNSDyPIm5V0lNWEVTz1UJdVYGFgysCL3sfZgPUmhkOw5pmJubWCC5Pl1wO09nkecZTTUSPTjMKaLbJTI4JCDow8xa1/LFjuKiKshm7kkxsGt4G2Mpqt62kET58+mNLlG4IluPTtJvKLNWJUvcJ34FmPkbdDj5k2Xyrumkq54LkhViTde3Un2YvZlm1GrQTMe5AlEkjyMLgDwAHXHXJM7oq2OdZCAjFgUPBsW3D3jzGONTXvBBEDZbGG9hBNbTyCclq6JyzAWli2nnElFTT0GZUNUJaH6Odd480Pqt+DHHbMCtRLeYu+zoxXbfysPZiHL2FRmNLJKA0azKSrcgjcOvngVrfixjiO69Q3A8QhUZPUQyyo9ZQKVZl4UGwBxXeOnpFU1GazSj9iBdoOOmpDI+c1jxHcglY8YowJPKpAidz/dvbHhfj5VgBQqSc+svDPoKcqlDRLEx4M0nrPhQ7TjK9Hlss1Ql7yyeuTuYmwAH2HDMlNGZAal0Qjoincx+GM87RM3qKzPaijkjjWlpm7qnBX1lC8Hn2m98Numb3s3E+Iz6NV3NUGX/H/5BmX1G6+88dMS1Dgmy8nAuJ0ReW2m18TRzqFJDcjrjTK/GJt8wxpXKWr83jV0lCgNJ3wPCBRzxbk+Xvw7VCTzbY6SnYQwJtCrztHmT+N8LGhpm/S1P3dRbvHEfcjnvgwINh7sNOcf6MybM2rS8cLqIrG4MjbgbDz4BOEXUqy9yp6GZ3qW5r1T3nKmJHWBZKykEkUQEh79PVNzwefLE0lbFU5OF9IiqJKeQRq8fPqkE2v0OMilK3sNoW/Hu8MNeQ6iyumpZaWWNoodvfBoxubeBZlI8fMHEb+mhEJQ5Mjf0vtoCpJIj5E6/oulikgdlRTIGjILJc+I8iMS5hV0da8M5pZAWiAJLcmxIufsxmWc6pglzKnrqKR12WKxsfqgAAXt48dMWo+0bOEWwmhdb+r3kQcqPIE82x1OmuVBDD95R+UWsAyn7zZ+2HJqOv11Xu85SUpDcB1/+mvgcKdPk1FlMffzWcbrAyMG5Hko64f+0nLMqzPX9ZDPInpRWG8e7aT9GLfhjKc71JQ0MVZIk9PW1VKpEdIjfRRHrZ3HHwHJ8xgG3TsXJHqYDett2psrQnG4/wA+8v5vqWHKaRq+o2xqATSwuRvqJPBrfsr18uLYy/MdXVVXtdpuUIa6NZma9t1+vOFPNM7r84r3r62oeWoc33dLDwAHgB4AYp72ta/jfDTShaE2gczT6HplemTHkzTcz7Wc1UQpR1tRB3dmZGsbkX4vbkW8DgrprtirswqEgzODL3BsNwYxO5J/VtcX9hAxjhZmNySTji3JAW5PhbHbNrjBEnb0zTOmwoJsHaT2gUOY0f6JoKmeALKjTQyU454vu3hje37Nh+GK0uQ02X5Gs+dVM2XTSIXp1WnLtNfkFwPqA8AX5POKPZd2ez5rWNX5rQzJRp9V5FAFxzex6noPicPmsKfS0FXJnedVMndkAmgWTb6RIpQIV8bC3IsRyceS8V4ReIqOor07ro6CcDzjnn2mfaY14+m62rek7vvmUxiKf6ji4tyPEc4tZ3nNXqLNZ62jomTL++AVyu1RvNyxPkbHnFjXGhqDMcp/pJp+tSqRnkkYxpYd31F7eINwfhgBo6uz3TEj51TwS1VG6CCoUspjYG2wOD+r7bcXxMXkMWHmMEapydTUBv8AHPH7QzldNJp/U2W1NSyxMSZRtHDx9Da/W4JGHjPYmScvCSVvxz1HgcUNeVInGTs9HHKjOFKutxtZlDRi3I4PUdL3wUzhqSnSKCjBWKGMRqrNuKheLX8emFPUbe6oY+Zm9fqGvNdjDk5H2i9MryybWJt5YlMpigKL08cTEq6i1lY47RZfLPDLKm36MXIbi+FYGcSIIbA9pUpa7MIZg6TzLGnhu4v5YtJn1aA4aUHnqyg462ZKbuwjMTz0xCuU13oq1YiHozSbT+1f3YtVt2YQjJbuLAQkufVq3PfWv1sAMQCvq5n3GeSQHwLG2K7UVRIQBC9j7MXcroKpcwpl7l9veLe48L4godiAYGQijMJ02VSUa01TN6rTPfYeth44BZCKHUq1uXVW1cwpp2qldlUiRGutm9l7e3xw15stamar3sL9yG2obcYR9KZRmuV1mYZlX5fPRs/0axtyZD03D/ZsB9uGNRNO8pKtK5Ndlm7DcY+/+5iRrfTdZpySMNDUhKlpFjLjghCN1rdRyCD5YU1rJkPEjAWtja+0WuzCbTdAlHC71UlSQjBb92gUhufAG4GEbTnZvmVfnFNEJ6VU3FppGXesaAXJ2kc+VsHUahrEDHiavQdSDabuaggEZ9faN/ZdldTUaEzbM8sfdnchekppeC1Ovqk28ibnnrgRV6azmLJMwzTPap2FBLErCZ3IVXurhL9WBth105klPo+apqqaGrp4JoljZJiN0z3uJGVfVSwuABzzzi/qSlpu0DInyaStencuJYnBuocA2DDxHOKzrQlm0mJT1Rl1RI+RiOccge085GscEqrEqDxfwxwVsobcDzY3PnfHSrppKKqlppl2yQuY2HkQbHEWC9x95shgiXTmTMDdV5GImrH42sw4HjivjmO72nsT0n2+9okGQdpOfZYKIJUCCBfSV9Z3DQKbC/C9bE+WPODzM28A7UZtxRT6t/dj1p2y/Ji1X2i9oWY6kyzNcjp6WqSBUjqZJRINkSob7YyOqnxwk/Mr11+/dNfez/lYrAA8SmrTpWzMo5bkzz7jmPQXzK9dfv3TX3s/5WOfMr11+/dNfez/AJWOy+efcS0tQ9JUxVEYUvEwcbhcXGN9+ZXrr9+6a+9n/Kxz5leuv37pr72f8rHp48xVy3tbSDTNLSPuNYsrCRV4Gzklr+3ywA1DrGlz9lMlOwNOwaNr22gNf1uDe9/DGkj5Fmux0z3TX3s/5WPvzLddi/8Ap7TXP/3Z/wArFIoUNv8AWAJ06hH3qOYq5FqnJYqBstpFljNV3kjo0lkQulrXPmev+eKmma3JMtoJafM54JWsYTGxJsqPfkmw6hbe7DsnyMNeody5/psHzE0/5WOzfIy18y7Tn+mrXv8A62fk+f8AqsSavPiQPTl5AY8xfm1hRemiFGkBDjcHYeI4NvDqOcR1Os8upgu2KFu8NlZ2Jv7fdhj+Zjr4lidQabJbreafn/lY+r8jLXykH9PaaO0EC8s5t/ysUHSA+sq/JqcjmI1RrxJKNXQRrMtnjCIOSDYg+yxOLUHaBNVOI4JJNltzhBYE9FH24bPmWa7/AH7pr72f8rEkXyNe0CAFY9QabVSQSBNPyR0/sse/CLjiWflVIHAidmWurQXiqLPvMZu3l1Pu4I9+JU1/IlofSD3AJI3W2F7C9j7jhoPyLddnrnumj/8Atn/Kx9+Zfr3aF/T+m9ouQO+nsP8AlY8NIo9Zxek0AYxE9e0lNtnm23XcQvkD5+0YZ6XWtKUyurkqkpkkZ2kd2HRV3AWHIPQfHFg/Is12f/PdNfez/lY7j5Gev1tbUGmxbgfTT8e76LEhplHgyq3olDjjiV8x7XsuWAI8/fE7lVjz3dx1/hhKbtSrJIwvpZAkCsxP9nzytvHph6PyLddkWOfaa+9n/Kx8+ZXrr9+6a+9n/KxLsA+Tmdo6HpahjGfrE5O1jMq+SSmV0WmWJ1QEAF2IsCf44s13a3OmWPQqyxVRk7iSRLEFbESNcDnnp7sNI+RZrteme6a+9n/Kx8PyLNdH/wA90197P+ViYrEt/KNLkfD4iXN2wVZanKpBKkcBVlkU2Z2PN/d54Ar2hVoImQLHIr71CD6xsOvsHNgPHGpfMr11+/dNfez/AJWOfMr11+/dNfez/lY52U9RLa+m6ZPlWYJX1suY1s1XO26SZi7H24gx6C+ZXrr9+6a+9n/Kxz5leuv37pr72f8AKxbDQABgTz7jmPQXzK9dfv3TX3s/5WOfMr11+/dNfez/AJWPTs//2Q==",
       baseStats: { hp: 3380, mana: 620, ad: 88, ap: 0, armor: 102, mr: 98, moveSpeed: 5.15, atkSpeed: 1.15 },
       passive: {
-        name: "Ấn Chiến Thần & Susanoo Lục Bảo",
-        desc: "Đánh thường tầm trung (4.8m): Hiện cánh tay Susanoo Lục Bảo ra vợt mục tiêu. Khi tấn công kẻ địch đang bị đánh dấu 'Chiến Thần' (từ Chiêu 1 hoặc Chiêu 3 trong 8s), Shisui gây thêm 25% sát thương + 5% HP tối đa của mục tiêu, hồi 4% HP tối đa cho bản thân và giảm 0.5s hồi các chiêu."
+        name: "Ấn Chiến Thần & Thuấn Thân Ảo Thuật",
+        desc: "Đánh thường tầm trung (4.8m): Hiện cánh tay Susanoo Lục Bảo ra vợt mục tiêu. Nội tại: Khi sử dụng Ảo Thuật Vượt Trội (Chiêu 2) lên mục tiêu bị nhận 'Chiến Thần', giảm thời gian hồi chiêu đó còn 2s."
       },
       skills: [
         {
           key: "Q",
           name: "Hoả Độn",
-          cd: 15.0,
-          cdReducePerLevel: 0.2,
+          cd: 18.0,
+          cdReducePerLevel: 0.15,
           mana: 70,
           range: 15.0,
           radius: 15.0,
@@ -810,29 +810,29 @@ window.GAME_DATA = {
           adScale: 1.45,
           hpPctMax: 0.06,
           cc: "slow",
-          desc: "Phun 1 làn lửa lớn trong 3s với phạm vi 15m gây sát thương lớn liên tục. Bản thân đứng im trong 3s đó và mọi mục tiêu trúng chiêu bởi Hoả Độn sẽ bị đánh dấu 'Chiến Thần' trong 8s. (Hồi chiêu: 15s, mỗi cấp giảm 0.2s)."
+          desc: "Phun 1 làn lửa lớn trong 3s với phạm vi 15m gây sát thương lớn liên tục. Bản thân đứng im trong 3s đó và mọi mục tiêu trúng chiêu bởi Hoả Độn sẽ bị đánh dấu 'Chiến Thần' trong 8s. (Hồi chiêu: 18s, mỗi cấp giảm 0.15s)."
         },
         {
           key: "W",
           name: "Ảo Thuật Vượt Trội",
-          cd: 23.0,
-          cdReducePerLevel: 0.5,
+          cd: 29.0,
+          cdReducePerLevel: 0.4,
           mana: 85,
           range: 20.0,
           radius: 20.0,
           type: "shisui_w_genjutsu",
           dmgBase: 0,
           apScale: 0,
-          adScale: 3.0,
+          adScale: 1.5,
           hpPctMax: 0.15,
           cc: "stun",
-          desc: "Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất gây sát thương bằng 300% ATK + 15% HP tối đa của mục tiêu đó. (Hồi chiêu: 23s, mỗi cấp giảm 0.5s)."
+          desc: "Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất gây sát thương bằng 150% ATK + 15% HP tối đa của mục tiêu đó. Nếu mục tiêu đang có dấu ấn 'Chiến Thần', hồi chiêu giảm ngay còn 2s. (Hồi chiêu: 29s, mỗi cấp giảm 0.4s)."
         },
         {
           key: "E",
           name: "Kotoamatsukami",
-          cd: 50.0,
-          cdReducePerLevel: 0.8,
+          cd: 60.0,
+          cdReducePerLevel: 0.9,
           mana: 120,
           range: 50.0,
           radius: 50.0,
@@ -842,7 +842,74 @@ window.GAME_DATA = {
           adScale: 1.50,
           hpPctMax: 0.08,
           cc: "slow",
-          desc: "Kích hoạt Mangekyou Sharingan tối thượng & hiện thân Susanoo Lục Bảo: Đánh dấu toàn bộ mục tiêu trong bán kính 50m 'Chiến Thần' trong 8s kèm sóng ảo thuật diện rộng. (Hồi chiêu: 50s, mỗi cấp giảm 0.8s)."
+          desc: "Kích hoạt Mangekyou Sharingan tối thượng & hiện thân Susanoo Lục Bảo: Đánh dấu toàn bộ mục tiêu trong bán kính 50m 'Chiến Thần' trong 8s kèm sóng ảo thuật diện rộng. (Hồi chiêu: 60s, mỗi cấp giảm 0.9s)."
+        }
+      ]
+    },
+    {
+      id: "grock",
+      name: "Grock",
+      title: "Pháo Đài Thạch Thần Cổ Đại",
+      role: "Đỡ Đòn (Tank)",
+      roleKey: "Tank",
+      ownedByDefault: true,
+      priceGold: 0,
+      priceDiamonds: 0,
+      color: 0x65a30d,
+      accentColor: 0x3b82f6,
+      weaponType: "stone_pillar",
+      range: 3.0,
+      portraitImg: "data:image/jpeg;base64,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",
+      baseStats: { hp: 5100, mana: 560, ad: 105, ap: 0, armor: 210, mr: 185, moveSpeed: 4.85, atkSpeed: 0.92 },
+      passive: {
+        name: "Thạch Giáp Bất Khuất (Earthen Bastion)",
+        desc: "Đánh thường: Sử dụng cục đá khổng lồ liên tục quật mục tiêu. Nội tại: Mỗi 5% HP mất đi, Giáp và Kháng phép tăng 4%. Mỗi 1 lần gây sát thương lên kẻ địch được giảm 0.1s hồi chiêu cho toàn bộ kỹ năng."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Thạch Chấn Xung Kích",
+          cd: 8.0,
+          cdReducePerLevel: 0.1,
+          mana: 55,
+          range: 3.0,
+          radius: 2.2,
+          type: "grock_q_dash",
+          dmgBase: 260,
+          apScale: 0,
+          adScale: 1.0,
+          cc: "knockup",
+          desc: "Lướt lên đằng trước 3m với tốc độ 1.3m/s, hất tung kẻ địch trên đường lướt. Kẻ địch bị hất tung bị giảm 30% Tốc đánh. (Hồi chiêu: 8s, mỗi level giảm 0.1s hồi chiêu)."
+        },
+        {
+          key: "W",
+          name: "Hào Quang Thạch Khiên",
+          cd: 15.0,
+          cdReducePer3Levels: 0.7,
+          mana: 75,
+          range: 8.0,
+          radius: 8.0,
+          type: "grock_w_aura",
+          dmgBase: 0,
+          apScale: 0,
+          adScale: 0,
+          cc: "shield",
+          desc: "Trong phạm vi 8m, cung cấp cho bản thân và đồng đội Giáp ảo (500 + 12% HP tối đa) đồng thời tăng +20% Tốc chạy và +30% Tốc đánh. (Hồi chiêu: 15s, mỗi 3 level giảm 0.7s hồi chiêu)."
+        },
+        {
+          key: "E",
+          name: "Khổng Lồ Thạch Thần",
+          cd: 70.0,
+          cdReducePerLevel: 0.5,
+          mana: 120,
+          range: 5.0,
+          radius: 5.0,
+          type: "grock_e_ult",
+          dmgBase: 380,
+          apScale: 0,
+          adScale: 1.2,
+          cc: "knockup",
+          desc: "Biến hình trở nên to hơn, HP nhiều hơn (+1.500 HP tối đa), Giáp (+140) và Kháng phép (+140) cao hơn duy trì trong 15s. (Hồi chiêu: 70s, mỗi level giảm 0.5s hồi chiêu)."
         }
       ]
     }
@@ -983,6 +1050,10 @@ window.GAME_DATA = {
     shisui: {
       title: "Susanoo Lục Bảo Xuyên Phá & Sốc Sát Thương Ấn Chiến Thần",
       items: ["boots_cdr", "phy_omni_arms", "phy_titan_breaker", "phy_bloodthirster", "phy_fenrir_tooth", "tank_immortal_heart"]
+    },
+    grock: {
+      title: "Pháo Đài Thạch Thần Chống Chịu Tuyệt Đối & Giảm Hồi Chiêu",
+      items: ["boots_armor", "tank_aegis_valor", "tank_gaia_embrace", "tank_thornmail", "tank_longevity", "tank_immortal_heart"]
     }
   }
 };
@@ -1854,6 +1925,84 @@ function createHeroMesh(heroData, team, skinData) {
     const clawHand = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.35, 0.65), susanooGreenMat);
     clawHand.position.set(-1.55, 0.25, 0.55);
     weaponGroup.add(drillLance, clawHand);
+  } else if (hId === "grock") {
+    // --- GROCK (PHÁO ĐÀI THẠCH THẦN CỔ ĐẠI - DESIGNED FROM IMAGE 1) ---
+    const mossStoneMat = new THREE.MeshStandardMaterial({ color: 0x65a30d, roughness: 0.78, metalness: 0.12 });
+    const greyRockMat = new THREE.MeshStandardMaterial({ color: 0x78716c, roughness: 0.85, metalness: 0.18 });
+    const ochreRockMat = new THREE.MeshStandardMaterial({ color: 0xa16207, roughness: 0.75 });
+    const runeBlueMat = new THREE.MeshBasicMaterial({ color: 0x2563eb });
+    const brightBlueMat = new THREE.MeshBasicMaterial({ color: 0x60a5fa });
+
+    // Massive Stone Pillar Legs with Glowing Blue Rune Joints
+    const legGeo = new THREE.CylinderGeometry(0.34, 0.38, 1.05, 8);
+    const lLeg = new THREE.Mesh(legGeo, greyRockMat);
+    lLeg.position.set(-0.46, 0.52, 0);
+    const rLeg = new THREE.Mesh(legGeo, greyRockMat);
+    rLeg.position.set(0.46, 0.52, 0);
+    const lRune = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.05, 6, 12), runeBlueMat);
+    lRune.rotation.x = Math.PI / 2;
+    lRune.position.set(-0.46, 0.75, 0);
+    const rRune = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.05, 6, 12), runeBlueMat);
+    rRune.rotation.x = Math.PI / 2;
+    rRune.position.set(0.46, 0.75, 0);
+    bodyRoot.add(lLeg, rLeg, lRune, rRune);
+
+    // Colossal Hunched Stone-Fortress Torso & Mossy Back Bastion
+    const torso = new THREE.Mesh(new THREE.DodecahedronGeometry(1.18, 0), greyRockMat);
+    torso.position.set(0, 1.55, 0);
+    torso.scale.set(1.15, 1.05, 0.95);
+    const mossChest = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.95, 1.15), mossStoneMat);
+    mossChest.position.set(0, 1.85, -0.08);
+    bodyRoot.add(torso, mossChest);
+
+    // Giant Carved Mossy Stone Shoulder Pauldrons (matching Image 1)
+    const pauldronGeo = new THREE.BoxGeometry(0.92, 1.12, 0.95);
+    const leftPauldron = new THREE.Mesh(pauldronGeo, mossStoneMat);
+    leftPauldron.position.set(-1.12, 2.08, 0.05);
+    leftPauldron.rotation.z = 0.25;
+    const rightPauldron = new THREE.Mesh(pauldronGeo, mossStoneMat);
+    rightPauldron.position.set(1.12, 2.08, 0.05);
+    rightPauldron.rotation.z = -0.25;
+    const leftShoulderCore = new THREE.Mesh(new THREE.SphereGeometry(0.36, 8, 8), ochreRockMat);
+    leftShoulderCore.position.set(-1.18, 1.65, 0.25);
+    bodyRoot.add(leftPauldron, rightPauldron, leftShoulderCore);
+
+    // Stone Jaw Head, Glowing Blue Eyes & Blue Energy Collar Ring
+    const neckRing = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.06, 8, 18), runeBlueMat);
+    neckRing.rotation.x = Math.PI / 2;
+    neckRing.position.set(0, 2.15, 0.22);
+    const head = new THREE.Mesh(new THREE.DodecahedronGeometry(0.52, 0), greyRockMat);
+    head.position.set(0, 2.38, 0.32);
+    const jaw = new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.28, 0.52), mossStoneMat);
+    jaw.position.set(0, 2.18, 0.44);
+    const eyeL = new THREE.Mesh(new THREE.SphereGeometry(0.09, 8, 8), brightBlueMat);
+    eyeL.position.set(-0.18, 2.42, 0.72);
+    const eyeR = new THREE.Mesh(new THREE.SphereGeometry(0.09, 8, 8), brightBlueMat);
+    eyeR.position.set(0.18, 2.42, 0.72);
+    bodyRoot.add(neckRing, head, jaw, eyeL, eyeR);
+
+    // WeaponGroup: Giant Carved Stone Pillar ("Cục đá") with Dark-Blue Crystal Tip (Image 1)
+    const stonePillar = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.48, 0.42, 2.45, 8).rotateX(Math.PI / 2),
+      greyRockMat
+    );
+    stonePillar.position.set(0.35, 0.35, 0.65);
+    const mossBand1 = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.54, 0.54, 0.42, 8).rotateX(Math.PI / 2),
+      mossStoneMat
+    );
+    mossBand1.position.set(0.35, 0.35, 0.25);
+    const mossBand2 = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.54, 0.54, 0.42, 8).rotateX(Math.PI / 2),
+      mossStoneMat
+    );
+    mossBand2.position.set(0.35, 0.35, 1.15);
+    const blueCrystalTip = new THREE.Mesh(
+      new THREE.ConeGeometry(0.42, 0.85, 6).rotateX(Math.PI / 2),
+      runeBlueMat
+    );
+    blueCrystalTip.position.set(0.35, 0.35, 2.15);
+    weaponGroup.add(stonePillar, mossBand1, mossBand2, blueCrystalTip);
   }
 
   // 3. Aurelia Thiên Sứ (SS) Angel Wings
@@ -2553,16 +2702,37 @@ class MobaArena3D {
     const remaining = allHeroes.filter((h) => h.id !== pHero.id);
     const shuffled = remaining.slice().sort(() => Math.random() - 0.5);
     const blueBots = [shuffled[0], shuffled[1]];
-    const redBots = [shuffled[2], shuffled[3], shuffled[4]];
+    const redPool = shuffled.slice(2);
+
+    // v1.7.0 Chiến thuật: 1 bot ở team bạn (Red) có nhiệm vụ đi farm rừng (thường là Sát Thủ). Team mình (Blue) không có!
+    let redAssassinIdx = redPool.findIndex((h) => h.roleKey === "Assassin");
+    if (redAssassinIdx === -1) {
+      redAssassinIdx = 0;
+    }
+    const redJunglerHero = redPool.splice(redAssassinIdx, 1)[0];
+    const redBots = [redJunglerHero, redPool[0], redPool[1]];
 
     // Spawn Heroes near Fountain outside Main Core (±58)
     this.player = this.spawnHero(pHero, "blue", true, -62, 0, pSkin);
-    this.spawnHero(blueBots[0], "blue", false, -61, -3.2, null);
-    this.spawnHero(blueBots[1], "blue", false, -61, 3.2, null);
+    const bBot1 = this.spawnHero(blueBots[0], "blue", false, -61, -3.2, null);
+    const bBot2 = this.spawnHero(blueBots[1], "blue", false, -61, 3.2, null);
+    bBot1.isJungler = false;
+    bBot2.isJungler = false;
 
-    this.spawnHero(redBots[0], "red", false, 62, 0, null);
-    this.spawnHero(redBots[1], "red", false, 61, -3.2, null);
-    this.spawnHero(redBots[2], "red", false, 61, 3.2, null);
+    const rJungler = this.spawnHero(redBots[0], "red", false, 62, 2.5, null);
+    const rBot2 = this.spawnHero(redBots[1], "red", false, 61, -3.2, null);
+    const rBot3 = this.spawnHero(redBots[2], "red", false, 61, 0, null);
+
+    // Only 1 bot on enemy team is Jungler; Blue team has 0 junglers
+    rJungler.isJungler = true;
+    rJungler.name = `${rJungler.heroData.name} (Rừng Địch)`;
+    if (rJungler.hudEl) {
+      const nameSpan = rJungler.hudEl.querySelector(".hud-name");
+      if (nameSpan) nameSpan.textContent = `🌲 ${rJungler.heroData.name} (Rừng)`;
+    }
+    rBot2.isJungler = false;
+    rBot3.isJungler = false;
+    this.redJunglerBot = rJungler;
 
     // v1.6.0: Quái rừng xuất hiện đợt đầu ở giây 13; Lính xuất hiện đợt đầu ở giây 15
     this.initJungleCamps();
@@ -2631,6 +2801,13 @@ class MobaArena3D {
       shisuiSusanooTimer: 0, // 8s Shisui Skill 3 (Kotoamatsukami) Susanoo active
       lucSiBuffTimer: 0,     // 80s Bùa Lực Sĩ: +15% ST, +10% khả năng làm chậm
       thuatSiBuffTimer: 0,   // 80s Bùa Thuật Sĩ: +20% giảm hồi chiêu, +10% tốc chạy
+      grockDashTimer: 0,     // Grock Skill 1: 3m dash at 1.3m/s
+      grockDashSpeed: 1.3,
+      grockWBuffTimer: 0,    // Grock Skill 2: +20% MS & +30% AS in 8m
+      grockUltTimer: 0,      // Grock Skill 3: 15s Giant Transformation (+1500 HP, +140 Armor/MR)
+      grockAsSlowTimer: 0,   // Grock Skill 1 debuff: -30% Attack Speed on knocked-up enemies
+      grockAsSlowPct: 0.30,
+      isJungler: false,
       helenTetherTimer: 0, // Helen Skill 2 (5s Yellow-Blue tether healing ally 8% of Helen's current HP/sec)
       helenTetherTarget: null,
       helenTetherTick: 0,
@@ -2811,6 +2988,31 @@ class MobaArena3D {
     if (u.thuatSiBuffTimer > 0) {
       cdr += 0.20;
       moveSpeed = Number((moveSpeed * 1.10).toFixed(3));
+    }
+    // v1.7.0 Grock Skill 2 Buff (8m Aura): Tăng tốc chạy (+20%) + tốc đánh (+30%)
+    if (u.grockWBuffTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.20).toFixed(3));
+      atkSpeed += u.baseStats.atkSpeed * 0.30;
+    }
+    // v1.7.0 Grock Skill 3 Ultimate (15s): Biến hình to hơn, HP nhiều hơn (+1500 HP), Giáp và Kháng phép cao hơn (+140)
+    if (u.grockUltTimer > 0) {
+      maxHp += 1500;
+      armor += 140;
+      mr += 140;
+    }
+    // v1.7.0 Grock Nội Tại: Mỗi 5% HP mất đi, Giáp và Kháng phép tăng 4%
+    if (u.heroData && u.heroData.id === "grock") {
+      const missingPct = Math.max(0, (1 - hpPct) * 100);
+      const stacks5Pct = Math.floor((missingPct + 1e-6) / 5);
+      if (stacks5Pct > 0) {
+        const defMult = 1 + stacks5Pct * 0.04;
+        armor = Math.round(armor * defMult);
+        mr = Math.round(mr * defMult);
+      }
+    }
+    // v1.7.0 Grock Skill 1 Debuff: Kẻ địch bị hất tung bị giảm 30% Tốc đánh
+    if (u.grockAsSlowTimer > 0) {
+      atkSpeed = Number((atkSpeed * (1 - (u.grockAsSlowPct || 0.30))).toFixed(3));
     }
 
     u.maxHp = maxHp;
@@ -3682,6 +3884,58 @@ class MobaArena3D {
     this.applyDamage(kradusMob, target, Math.round(kradusMob.ad * 1.40), "physical", true);
   }
 
+  // Grock Basic Attack VFX ("Sử dụng cục đá liên tục quật") & Skill 1 Dash Sweep
+  spawnGrockRockSlamVfx(tx, tz) {
+    const group = new THREE.Group();
+    group.position.set(tx, 0, tz);
+    const rockMat = new THREE.MeshStandardMaterial({ color: 0x65a30d, roughness: 0.75 });
+    for (let i = 0; i < 5; i++) {
+      const a = (i / 5) * Math.PI * 2;
+      const shard = new THREE.Mesh(new THREE.DodecahedronGeometry(0.32, 0), rockMat);
+      shard.position.set(Math.cos(a) * 0.95, 0.35, Math.sin(a) * 0.95);
+      group.add(shard);
+    }
+    this.worldGroup.add(group);
+    this.vfxList.push({ mesh: group, timer: 0.32, maxTime: 0.32, type: "custom_aoe" });
+    this.spawnVfxRing(tx, tz, 1.55, 0x3b82f6, 0.28);
+  }
+
+  sweepGrockDashPath(caster, x0, z0, x1, z1) {
+    if (!caster || caster.dead) return;
+    if (!caster.grockDashHitIds) caster.grockDashHitIds = new Set();
+    const segDx = x1 - x0;
+    const segDz = z1 - z0;
+    const segLenSq = segDx * segDx + segDz * segDz;
+    const dmg = caster.grockDashRawDmg || (260 + caster.ad);
+
+    this.units.forEach((u) => {
+      if (u.dead || u.team === caster.team || caster.grockDashHitIds.has(u.id)) return;
+      let t = 0;
+      if (segLenSq > 0.0001) {
+        t = Math.max(0, Math.min(1, ((u.x - x0) * segDx + (u.z - z0) * segDz) / segLenSq));
+      }
+      const nearX = x0 + segDx * t;
+      const nearZ = z0 + segDz * t;
+      const dist = Math.hypot(u.x - nearX, u.z - nearZ);
+      if (dist <= 2.2 + (u.radius || 1.0)) {
+        caster.grockDashHitIds.add(u.id);
+        u.stunTimer = Math.max(u.stunTimer || 0, 1.25); // Hất tung kẻ địch trên đường lướt
+        u.grockAsSlowTimer = 4.0;                       // Kẻ địch bị hất tung bị giảm 30% Tốc đánh
+        u.grockAsSlowPct = 0.30;
+        if (u.isHero) {
+          this.recalcHeroStats(u);
+        } else {
+          if (!u.baseAtkSpeed) u.baseAtkSpeed = u.atkSpeed || 1.0;
+          u.atkSpeed = Number((u.baseAtkSpeed * 0.70).toFixed(2));
+        }
+        this.applyDamage(caster, u, dmg, "physical", true);
+        if (caster.isPlayer) {
+          this.spawnFloatingText(u.x, u.z, "🪨 HẤT TUNG & -30% TỐC ĐÁNH!", "text-cyan-300");
+        }
+      }
+    });
+  }
+
   setAttackPriorityMode(mode) {
     this.attackPriorityMode = mode; // "HERO" | "MINION_MONSTER" | "TOWER"
     if (this.player) {
@@ -3763,6 +4017,8 @@ class MobaArena3D {
       baseCd -= (lvl - 1) * skill.cdReducePerLevel;
     } else if (skill.cdReducePer2Levels) {
       baseCd -= Math.floor((lvl - 1) / 2) * skill.cdReducePer2Levels;
+    } else if (skill.cdReducePer3Levels) {
+      baseCd -= Math.floor((lvl - 1) / 3) * skill.cdReducePer3Levels;
     }
     return Math.max(1.0, Number((baseCd * (1 - (caster.cdr || 0))).toFixed(2)));
   }
@@ -3848,14 +4104,16 @@ class MobaArena3D {
     }
 
     if (skill.type === "shisui_w_genjutsu") {
-      // Kỹ năng 2: Ảo thuật vượt trội: Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất
-      // gây ST bằng 300% ATK + 15% HP tối đa của mục tiêu đó (hồi chiêu: 23s, mỗi cấp giảm 0.5s)
+      // v1.7.0 Kỹ năng 2 (Ảo Thuật Vượt Trội): Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất
+      // gây ST bằng 150% ATK + 15% HP tối đa của mục tiêu đó (Hồi chiêu: 29s, mỗi cấp giảm 0.4s).
+      // Nội tại mới: Khi sử dụng Ảo Thuật Vượt Trội lên mục tiêu bị nhận "Chiến Thần", giảm thời gian hồi chiêu đó còn 2s!
       const candidates = this.units
         .filter((u) => !u.dead && u.team !== caster.team && Math.hypot(u.x - caster.x, u.z - caster.z) <= 20.0 + (u.radius || 1.0))
         .sort((a, b) => (a.hp / a.maxHp) - (b.hp / b.maxHp));
 
       const victim = candidates[0] || null;
       if (victim) {
+        const hadChienThan = !!(victim.chienThanMarkTimer > 0 || victim.chienThanMark);
         this.spawnVfxRing(caster.x, caster.z, 2.4, 0xef4444, 0.45);
         caster.x = Math.max(-65, Math.min(65, victim.x));
         caster.z = Math.max(-26, Math.min(26, victim.z));
@@ -3864,12 +4122,17 @@ class MobaArena3D {
         this.spawnVfxRing(victim.x, victim.z, 3.6, 0x10b981, 0.65);
         this.spawnVfxPillar(victim.x, victim.z, 1.4, 5.2, 0xef4444, 0.55);
 
-        const genjutsuDmg = caster.ad * 3.0 + victim.maxHp * 0.15;
+        const genjutsuDmg = caster.ad * 1.5 + victim.maxHp * 0.15;
         this.applyDamage(caster, victim, genjutsuDmg, "physical", true);
         victim.stunTimer = Math.max(victim.stunTimer || 0, 0.85);
 
-        if (caster.isPlayer) {
-          this.spawnFloatingText(victim.x, victim.z, "👁️ ẢO THUẬT VƯỢT TRỘI (300% ATK + 15% Max HP)!", "text-emerald-300");
+        if (hadChienThan) {
+          caster.skillCds[1] = 2.0; // Nội tại v1.7.0: Giảm thời gian hồi chiêu Ảo Thuật Vượt Trội còn 2s!
+          if (caster.isPlayer) {
+            this.spawnFloatingText(victim.x, victim.z, "👁️ ẤN CHIẾN THẦN: Hồi Chiêu 2 Giảm Còn 2s!", "text-amber-300");
+          }
+        } else if (caster.isPlayer) {
+          this.spawnFloatingText(victim.x, victim.z, "👁️ ẢO THUẬT VƯỢT TRỘI (150% ATK + 15% Max HP)!", "text-emerald-300");
         }
       } else {
         caster.x = aimX;
@@ -3878,6 +4141,83 @@ class MobaArena3D {
         if (caster.isPlayer) {
           this.spawnFloatingText(caster.x, caster.z, "👁️ Thuấn Thân Ảo Thuật!", "text-emerald-300");
         }
+      }
+      return;
+    }
+
+    // --- GROCK SPECIAL SKILLS (Q: LƯỚT 3M 1.3M/S HẤT TUNG & -30% TỐC ĐÁNH, W: 8M GIÁP ẢO + TỐC CHẠY/ĐÁNH, E: BIẾN HÌNH 15S) ---
+    if (skill.type === "grock_q_dash") {
+      // Kỹ năng 1: Lướt lên đằng trước 3m với tốc độ 1.3m/s, hất tung kẻ địch trên đường lướt.
+      // Kẻ địch bị hất tung bị giảm 30% Tốc đánh. (Hồi chiêu: 8s, mỗi level giảm 0.1s hồi chiêu)
+      const dashDist = 3.0;
+      const dashSpeed = 1.3;
+      caster.grockDashDistRemaining = dashDist;
+      caster.grockDashSpeed = dashSpeed;
+      caster.grockDashTimer = Number((dashDist / dashSpeed).toFixed(3));
+      caster.grockDashDir = { x: dirX, z: dirZ };
+      caster.grockDashRawDmg = rawDmg;
+      caster.grockDashHitIds = new Set();
+
+      this.spawnVfxRing(caster.x, caster.z, 2.2, 0x65a30d, 0.55);
+
+      // Immediately check & knock up enemies currently on the 3m forward path, and continue sweeping during the 1.3m/s dash
+      this.sweepGrockDashPath(caster, caster.x, caster.z, caster.x + dirX * dashDist, caster.z + dirZ * dashDist);
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "🪨 LƯỚT THẠCH CHẤN (3m • 1.3m/s • Hất Tung & -30% Tốc Đánh)!", "text-lime-300");
+      }
+      return;
+    }
+
+    if (skill.type === "grock_w_aura") {
+      // Kỹ năng 2: Trong phạm vi 8m, cung cấp cho bản thân và đồng đội giáp ảo và tăng tốc chạy + tốc đánh.
+      // (Hồi chiêu: 15s, mỗi 3 level giảm 0.7s hồi chiêu)
+      const rad8m = 8.0;
+      this.spawnVfxRing(caster.x, caster.z, rad8m, 0x3b82f6, 0.85);
+      this.spawnVfxRing(caster.x, caster.z, rad8m * 0.55, 0x65a30d, 0.65);
+
+      const shieldVal = Math.round(500 + caster.maxHp * 0.12);
+      this.units.forEach((ally) => {
+        if (ally.dead || ally.team !== caster.team) return;
+        const d = Math.hypot(ally.x - caster.x, ally.z - caster.z);
+        if (d <= rad8m + (ally.radius || 1.0)) {
+          ally.shield = Math.max(ally.shield || 0, shieldVal);
+          ally.shieldTimer = 5.0;
+          ally.grockWBuffTimer = 5.0;
+          if (ally.isHero) {
+            this.recalcHeroStats(ally);
+          } else {
+            ally.atkSpeed = Number(((ally.atkSpeed || 1.0) * 1.30).toFixed(2));
+          }
+          this.spawnVfxRing(ally.x, ally.z, 1.8, 0x60a5fa, 0.5);
+        }
+      });
+
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, `🛡️ HÀO QUANG THẠCH KHIÊN (8m: +${shieldVal} Giáp Ảo, +Tốc Chạy & +Tốc Đánh)!`, "text-sky-300");
+      }
+      return;
+    }
+
+    if (skill.type === "grock_e_ult") {
+      // Kỹ năng 3: Biến hình trở nên to hơn, HP nhiều hơn, giáp và kháng phép cao hơn duy trì trong 15s.
+      // (Hồi chiêu 70s, mỗi level giảm 0.5s hồi chiêu)
+      const wasActive = caster.grockUltTimer > 0;
+      caster.grockUltTimer = 15.0;
+      if (caster.mesh) {
+        caster.mesh.scale.set(1.45, 1.45, 1.45);
+      }
+      const prevHp = caster.hp;
+      this.recalcHeroStats(caster);
+      if (!wasActive) {
+        caster.hp = Math.min(caster.maxHp, prevHp + 1500);
+      }
+
+      this.spawnHeroSpecificAoeVfx("gideon", caster.x, caster.z, 5.0, 0x65a30d, 0.95);
+      this.spawnVfxPillar(caster.x, caster.z, 2.4, 6.5, 0x3b82f6, 0.85);
+      this.damageEnemiesInArea(caster, caster.x, caster.z, 5.0, rawDmg, "physical", "knockup", skill);
+
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "🗿 KHỔNG LỒ THẠCH THẦN (15s: Biến Hình Khổng Lồ, +1500 HP, +140 Giáp/Kháng Phép)!", "text-amber-300");
       }
       return;
     }
@@ -4529,6 +4869,18 @@ class MobaArena3D {
       return;
     }
 
+    // Grock Basic Attack: Sử dụng cục đá khổng lồ liên tục quật mục tiêu!
+    if (attacker.isHero && attacker.heroData.id === "grock") {
+      if (attacker.mesh && attacker.mesh.userData && attacker.mesh.userData.weaponGroup) {
+        const wg = attacker.mesh.userData.weaponGroup;
+        wg.rotation.x = 1.28;
+        setTimeout(() => { wg.rotation.x = 0; }, 140);
+      }
+      this.spawnGrockRockSlamVfx(target.x, target.z);
+      this.applyDamage(attacker, target, attacker.ad, "physical", false);
+      return;
+    }
+
     // v1.6.0 Tower Shot Scaling: phát đầu 120 (Trụ Ngoài) hoặc 150 (Trụ Chính), mỗi phát tiếp theo +40% ST
     let attackDmgToUse = attacker.ad;
     if (attacker.isStructure) {
@@ -4654,11 +5006,9 @@ class MobaArena3D {
       }
     }
 
-    // v1.6.0: Shisui Nội Tại trên mục tiêu có dấu ấn "Chiến Thần" (trong 8s từ Chiêu 1 hoặc Chiêu 3)
-    if (attacker && attacker.isHero && attacker.heroData.id === "shisui" && target.chienThanMarkTimer > 0 && !target.isStructure) {
-      dmg = dmg * 1.25 + target.maxHp * 0.05;
-      attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(attacker.maxHp * 0.04));
-      attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, Number((c - 0.5).toFixed(2))));
+    // v1.7.0 Grock Nội Tại: 1 lần gây ST lên kẻ địch được giảm 0.1s hồi chiêu cho toàn bộ kỹ năng
+    if (attacker && attacker.isHero && attacker.heroData.id === "grock" && target.team !== attacker.team) {
+      attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, Number((c - 0.1).toFixed(2))));
     }
 
     let isCrit = false;
@@ -4787,6 +5137,12 @@ class MobaArena3D {
       if (target.heroData.id === "nagato") {
         target.nagatoHurtAsTimer = 2.0;
         this.recalcHeroStats(target);
+      }
+      // Grock Passive: Mỗi 5% HP mất đi, giáp và kháng phép tăng 4% (cập nhật ngay khi mất máu)
+      if (target.heroData.id === "grock") {
+        const exactHp = target.hp;
+        this.recalcHeroStats(target);
+        target.hp = exactHp;
       }
       if ((target.hp / target.maxHp) < 0.40 && target.gaiaCd <= 0) {
         if (target.heroData.id === "gideon" || (target.itemEffects && target.itemEffects.has("ice_barrier"))) {
@@ -5239,6 +5595,46 @@ class MobaArena3D {
       }
     }
 
+    // 5a. v1.7.0 CHIẾN THUẬT: 1 Bot Sát Thủ ở Team Bạn (Red) có nhiệm vụ chuyên đi Farm Rừng (Team mình không có!)
+    if (bot.team === "red" && bot.isJungler && (bot.hp / bot.maxHp) > 0.35) {
+      // Only interrupt jungle farming if an enemy hero is right next to the jungler (< 5.8m)
+      const urgentEnemyHero = this.units.find(
+        (u) => u.isHero && !u.dead && u.team !== bot.team && Math.hypot(u.x - bot.x, u.z - bot.z) <= 5.8
+      );
+      if (!urgentEnemyHero) {
+        const aliveMonsters = this.units
+          .filter((m) => m.isMonster && !m.dead && (!m.isKradus || bot.level >= 4))
+          .sort((a, b) => {
+            // Prefer Red-side jungle camps (x >= 0) first, then nearest camp
+            const aRedSide = a.x >= 0 ? 0 : 25;
+            const bRedSide = b.x >= 0 ? 0 : 25;
+            return (Math.hypot(a.x - bot.x, a.z - bot.z) + aRedSide) - (Math.hypot(b.x - bot.x, b.z - bot.z) + bRedSide);
+          });
+
+        if (aliveMonsters.length > 0) {
+          const targetMob = aliveMonsters[0];
+          const dMob = Math.hypot(targetMob.x - bot.x, targetMob.z - bot.z);
+          for (let sIdx = 2; sIdx >= 0; sIdx--) {
+            const sk = bot.heroData.skills[sIdx];
+            if (sk && bot.skillCds[sIdx] <= 0 && bot.mana >= sk.mana && dMob <= Math.min(sk.range, 5.2)) {
+              this.executeSkill(bot, sIdx, new THREE.Vector3(targetMob.x, 0, targetMob.z));
+              break;
+            }
+          }
+          if (dMob <= bot.heroData.range + (targetMob.radius || 1.0)) {
+            if (bot.atkCd <= 0) this.performBasicAttack(bot, targetMob);
+          } else {
+            this.moveUnitTowards(bot, targetMob.x, targetMob.z, dt);
+          }
+          return;
+        } else if (this.matchTime < 13.5) {
+          // Before 13s first jungle spawn, Red Jungler Bot heads straight to Red Lực Sĩ camp (x: 22, z: 16)
+          this.moveUnitTowards(bot, 22, 14, dt);
+          return;
+        }
+      }
+    }
+
     // 5. Combat Target Engagement
     const detectRange = 13.5;
     const target = this.findBestTarget(bot, detectRange);
@@ -5286,11 +5682,9 @@ class MobaArena3D {
       return;
     }
 
-    // 6. Opportunistic Jungle & Dragon Boss Farming (Diamond+ AI)
-    if (this.aiMult >= 0.85 && bot.level >= 3 && (bot.hp / bot.maxHp) > 0.65) {
-      const nearMob = this.units.find(
-        (m) => m.isMonster && !m.dead && Math.hypot(m.x - bot.x, m.z - bot.z) < (this.aiMult >= 1.65 ? 24 : 15)
-      );
+    // 6. Jungle Farming Restriction (v1.7.0: Only the designated Red Jungler Bot farms jungle; Blue team bots stay in lane!)
+    if (bot.team === "red" && bot.isJungler && (bot.hp / bot.maxHp) > 0.35) {
+      const nearMob = this.units.find((m) => m.isMonster && !m.dead);
       if (nearMob) {
         const dMob = Math.hypot(nearMob.x - bot.x, nearMob.z - bot.z);
         if (dMob <= bot.heroData.range + nearMob.radius) {
@@ -5549,6 +5943,40 @@ class MobaArena3D {
           u.thuatSiBuffTimer = 0;
           this.recalcHeroStats(u);
         }
+      }
+      if (u.grockWBuffTimer > 0) {
+        u.grockWBuffTimer -= dt;
+        if (u.grockWBuffTimer <= 0) {
+          u.grockWBuffTimer = 0;
+          if (u.isHero) this.recalcHeroStats(u);
+        }
+      }
+      if (u.grockAsSlowTimer > 0) {
+        u.grockAsSlowTimer -= dt;
+        if (u.grockAsSlowTimer <= 0) {
+          u.grockAsSlowTimer = 0;
+          if (u.isHero) this.recalcHeroStats(u);
+          else if (u.baseAtkSpeed) u.atkSpeed = u.baseAtkSpeed;
+        }
+      }
+      if (u.grockUltTimer > 0) {
+        u.grockUltTimer -= dt;
+        if (u.grockUltTimer <= 0) {
+          u.grockUltTimer = 0;
+          if (u.mesh) u.mesh.scale.set(1, 1, 1);
+          this.recalcHeroStats(u);
+        }
+      }
+      if (u.grockDashDistRemaining > 0 && !(u.stunTimer > 0)) {
+        const step = Math.min(u.grockDashDistRemaining, (u.grockDashSpeed || 1.3) * dt);
+        const prevX = u.x;
+        const prevZ = u.z;
+        const dDir = u.grockDashDir || { x: 1, z: 0 };
+        u.x = Math.max(-65, Math.min(65, u.x + dDir.x * step));
+        u.z = Math.max(-26, Math.min(26, u.z + dDir.z * step));
+        u.grockDashDistRemaining = Math.max(0, Number((u.grockDashDistRemaining - step).toFixed(4)));
+        if (u.mesh) u.mesh.position.set(u.x, 0, u.z);
+        this.sweepGrockDashPath(u, prevX, prevZ, u.x, u.z);
       }
       if (u.nagatoHurtAsTimer > 0) {
         u.nagatoHurtAsTimer -= dt;
@@ -6034,13 +6462,13 @@ window.MobaArena3D = MobaArena3D;
   </script>
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v1.6.0)
+// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v1.7.0)
 // ============================================================================
 
 class GameUIController {
   constructor() {
     this.state = this.loadState();
-    this.selectedHeroId = "shisui"; // Highlight new hero Miya or Aurelia
+    this.selectedHeroId = "grock"; // Highlight new hero Miya or Aurelia
     if (!this.state.ownedHeroes.includes(this.selectedHeroId)) {
       this.selectedHeroId = "aurelia";
     }
@@ -7180,6 +7608,12 @@ class GameUIController {
       }
       if (p.shisuiSusanooTimer > 0) {
         badges.push(`<span class="px-2 py-0.5 rounded bg-emerald-500/30 border border-emerald-400 text-emerald-200 text-[9px] font-bold">👁️ Kotoamatsukami: ${p.shisuiSusanooTimer.toFixed(1)}s</span>`);
+      }
+      if (p.grockUltTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-lime-500/30 border border-lime-400 text-lime-200 text-[9px] font-bold">🗿 Khổng Lồ Thạch Thần: ${p.grockUltTimer.toFixed(1)}s (+1500 HP, +140 Giáp/KP)</span>`);
+      }
+      if (p.grockWBuffTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-sky-500/30 border border-sky-400 text-sky-200 text-[9px] font-bold">🛡️ Hào Quang Thạch Khiên: ${p.grockWBuffTimer.toFixed(1)}s</span>`);
       }
       buffBox.innerHTML = badges.join(" ");
     }
