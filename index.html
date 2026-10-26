@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legends of Eternia 3D - v1.5.0 (3v3 Isometric MOBA)</title>
+  <title>Legends of Eternia 3D - v1.6.0 (3v3 Isometric MOBA)</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
@@ -57,7 +57,7 @@ body {
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base md:text-lg font-black tracking-wider text-white">LEGENDS OF ETERNIA 3D</h1>
-            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v1.5.0</span>
+            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v1.6.0</span>
           </div>
           <div id="lobby-rank-summary" class="text-xs font-bold text-slate-300"></div>
         </div>
@@ -100,7 +100,7 @@ body {
           <div class="space-y-2.5">
             <button onclick="window.UI.openModal('modal-heroes')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
               <span class="flex items-center gap-2.5">🦸 <span>NHÂN VẬT (HEROES)</span></span>
-              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">12 Tướng</span>
+              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">13 Tướng</span>
             </button>
 
             <button onclick="window.UI.openModal('modal-shop')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
@@ -145,6 +145,7 @@ body {
           <div class="text-slate-300">• <b>Di chuyển:</b> Phím <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">W</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">A</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">S</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">D</kbd> (hoặc Joystick trái)</div>
           <div class="text-slate-300">• <b>Tung chiêu:</b> Click chuột vào nút Chiêu thức trên màn hình (hoặc phím <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">3</kbd> / <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">Q</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">E</kbd>)</div>
           <div class="text-slate-300">• <b>Đánh thường:</b> Click chuột trái lên bản đồ hoặc phím <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">Space</kbd></div>
+          <div class="text-slate-300">• <b>Ưu tiên mục tiêu:</b> Phím <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-emerald-500 text-emerald-300">H</kbd> (Ưu tiên Quái & Lính) • Phím <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-amber-500 text-amber-300">T</kbd> (Ưu tiên Trụ)</div>
           <div class="text-slate-300">• <b>Biến về (3.7s) & Shop:</b> Phím <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">B</kbd> (Biến về) • Phím <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">P</kbd> (Shop đồ)</div>
         </div>
       </div>
@@ -176,23 +177,23 @@ body {
 
     <!-- Lobby Footer -->
     <footer class="z-20 px-6 py-2 bg-slate-950/90 border-t border-slate-800/80 flex flex-wrap justify-between items-center text-[11px] text-slate-400">
-      <div>Bản đồ 3v3 Isometric: 2 Trụ Ngoài + 1 Trụ Chính mỗi phe • Lính theo đợt & 5 Bãi Quái Rừng</div>
+      <div>Bản đồ 3v3 Isometric v1.6.0: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
       <div>Thưởng trận: Thắng +500–800 Vàng | Thua +50–120 Vàng</div>
     </footer>
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODAL 1: NHÂN VẬT (12 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
+  <!-- MODAL 1: NHÂN VẬT (13 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
   <!-- ===================================================================== -->
   <div id="modal-heroes" class="hidden fixed inset-0 z-40 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
     <div class="w-full max-w-6xl max-h-[90vh] bg-slate-900 border border-slate-700 rounded-3xl flex flex-col overflow-hidden shadow-2xl">
       <div class="px-6 py-4 bg-slate-950 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (12 HEROES ROSTER)</h3>
+          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (13 HEROES ROSTER)</h3>
           <p class="text-xs text-slate-400">Xem tướng Đã Sở Hữu / Chưa Sở Hữu, Ngoại hình 3D riêng biệt và bộ 3 Kỹ Năng + 1 Nội Tại</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (12)</button>
+          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (13)</button>
           <button onclick="window.UI.setHeroRoleFilter('Support')" class="px-3 py-1.5 rounded-xl bg-teal-900/60 hover:bg-teal-800 text-xs font-bold text-teal-300">Hỗ Trợ (Support)</button>
           <button onclick="window.UI.setHeroRoleFilter('Marksman')" class="px-3 py-1.5 rounded-xl bg-emerald-900/60 hover:bg-emerald-800 text-xs font-bold text-emerald-300">Xạ Thủ (Marksman)</button>
           <button onclick="window.UI.setHeroRoleFilter('Mage')" class="px-3 py-1.5 rounded-xl bg-sky-900/60 hover:bg-sky-800 text-xs font-bold text-sky-300">Pháp Sư (Mage)</button>
@@ -287,7 +288,7 @@ body {
     <div class="fixed top-3 left-3 z-30 flex items-start gap-3">
       <div class="p-1.5 rounded-2xl bg-slate-950/90 border border-slate-700 shadow-xl">
         <canvas id="minimap-canvas" width="160" height="76" class="rounded-xl block"></canvas>
-        <div class="text-[9px] text-center text-slate-400 mt-0.5 font-semibold">Bản Đồ 3v3 (2 Trụ Ngoài + 1 Trụ Chính)</div>
+        <div class="text-[9px] text-center text-slate-400 mt-0.5 font-semibold">Bản Đồ 3v3 (4 Trụ Ngoài + 1 Trụ Chính)</div>
       </div>
     </div>
 
@@ -329,8 +330,19 @@ body {
 
     <!-- Bottom-Center Hero Status, HP/Mana Bars & 6 Item Slots -->
     <div class="fixed bottom-3 left-1/2 -translate-x-1/2 z-30 w-[350px] md:w-[460px] p-3 rounded-2xl bg-slate-950/90 border border-slate-700/90 shadow-2xl flex flex-col gap-1.5">
+      <div class="flex flex-wrap items-center justify-between gap-1">
+        <div id="hud-priority-mode" class="px-2.5 py-0.5 rounded-lg bg-slate-900/85 border border-slate-700 text-[10px] font-bold text-slate-300">
+          ⚔️ Chế Độ Đánh: Ưu Tiên Tướng (Bấm [H] Quái/Lính • [T] Trụ)
+        </div>
+        <div class="flex items-center gap-1">
+          <button onclick="window.UI.arena3D.setAttackPriorityMode('MINION_MONSTER')" class="px-2 py-0.5 rounded bg-emerald-900/80 hover:bg-emerald-700 border border-emerald-500/60 text-[10px] font-extrabold text-emerald-200">[H] Quái/Lính</button>
+          <button onclick="window.UI.arena3D.setAttackPriorityMode('TOWER')" class="px-2 py-0.5 rounded bg-amber-900/80 hover:bg-amber-700 border border-amber-500/60 text-[10px] font-extrabold text-amber-200">[T] Trụ</button>
+          <button onclick="window.UI.arena3D.setAttackPriorityMode('HERO')" class="px-2 py-0.5 rounded bg-sky-900/80 hover:bg-sky-700 border border-sky-500/60 text-[10px] font-extrabold text-sky-200">[G] Tướng</button>
+        </div>
+      </div>
+      <div id="hud-buffs-line" class="flex flex-wrap gap-1 empty:hidden"></div>
       <div class="flex justify-between items-center text-xs">
-        <span id="hud-hero-name" class="font-extrabold text-white">Miya (Lv.1)</span>
+        <span id="hud-hero-name" class="font-extrabold text-white">Shisui (Lv.1)</span>
         <span id="hud-stats-line" class="text-[10px] text-slate-300"></span>
         <span class="font-bold text-amber-300">KDA: <span id="hud-kda">0/0/0</span></span>
       </div>
@@ -437,11 +449,11 @@ body {
 
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v1.4.0 MASTER GAME DATA
+// LEGENDS OF ETERNIA 3D - v1.6.0 MASTER GAME DATA
 // ============================================================================
-// 12 Heroes (including Miya, Helen, Pain & Nagato), 32 Unique Items, 14 Rank Tiers, Preset Builds
+// 13 Heroes (including Miya, Helen, Pain, Nagato & Shisui), 32 Unique Items, 14 Rank Tiers, Preset Builds
 window.GAME_DATA = {
-  version: "1.5.0",
+  version: "1.6.0",
 
   defaultResources: {
     gold: 12500,
@@ -467,7 +479,7 @@ window.GAME_DATA = {
     { id: 13, name: "Thách Thần Chí Tôn", subTiers: ["Đỉnh Cao (500+★)"], starsPerSub: 999, maxProtect: 1000, winPts: 5, lossPts: 60, color: "#ffffff", badge: "🏆", aiDifficulty: 2.65, aiTierName: "Đỉnh Cao Tối Thượng" }
   ],
 
-  // 12 HEROES ACROSS 6 ROLES (Mage, Assassin, Tank, Fighter, Marksman, Support)
+  // 13 HEROES ACROSS 6 ROLES (Mage, Assassin, Tank, Fighter, Marksman, Support)
   // All 10 heroes have deep multi-layered passives, % HP scaling, hit counters & level-scaling cooldowns
   heroes: [
     {
@@ -762,6 +774,77 @@ window.GAME_DATA = {
         { key: "W", name: "Lục Đạo Phân Thân", cd: 20.0, cdReducePerLevel: 0.5, mana: 85, range: 9.0, radius: 4.0, type: "nagato_w_clones", dmgBase: 0, apScale: 0, adScale: 0, cc: "none", desc: "Triệu hồi ra 3 phân thân tồn tại trong 20s; phân thân tự động tấn công và vẫn có thể dùng các kỹ năng của Nagato (trừ Kỹ năng 2). Hồi chiêu: 20s (giảm 0.5s mỗi level)." },
         { key: "E", name: "Ngoại Đạo Ma Tượng", cd: 90.0, cdReducePerLevel: 2.2, mana: 140, range: 12.0, radius: 4.5, type: "nagato_e_gedo", dmgBase: 480, apScale: 0, adScale: 1.50, cc: "knockup", desc: "Nhảy tới 1 kẻ địch gần nhất trong phạm vi 12m và triệu hồi 1 Ma Tượng (10.000 HP, tồn tại 20s, có chỉ số giống bản thân Nagato) liên tục đánh thường vào mục tiêu bị nhảy trúng. Hồi chiêu: 90s (giảm 2.2s mỗi level)." }
       ]
+    }    ,
+    {
+      id: "shisui",
+      name: "Shisui",
+      title: "Thuấn Thân Uchiha — Susanoo Lục Bảo",
+      role: "Sát Thủ / Đấu Sĩ (Assassin)",
+      roleKey: "Assassin",
+      ownedByDefault: true,
+      priceGold: 0,
+      priceDiamonds: 0,
+      color: 0x10b981,
+      accentColor: 0xef4444,
+      weaponType: "susanoo_lance",
+      range: 4.8,
+      portraitImg: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCADcAIUDASIAAhEBAxEB/8QAHAAAAQQDAQAAAAAAAAAAAAAABgQFBwgAAQMC/8QARBAAAQMDAgQDBAYHBwMFAQAAAQIDBAAFEQYhEjFBUQcTYRQiMnEjQlKBkbEVYnKUocHiCBgkM0PR4RZjgiU0VJPwwv/EABsBAAIDAQEBAAAAAAAAAAAAAAMFAgQGAQAH/8QALBEAAgIBBAIBBAEDBQAAAAAAAQIAAxEEEiExE0EFIjJRYRQGI3FCUoGhsf/aAAwDAQACEQMRAD8AftOWddl0la7O42syniua+jG4UsjhSfUJCfxrjcrhbbU4ptSTMlgbssfCj0Urv6VqZqS9lMlww4pkPpID7SiCgnrg89qRW+3ogwi/KGSVY23U4TzHz9a0VNfjQLPmGpu81heJxqGdKUQ1Ahx0424srNabvD3GG3W4jij9UpLavuzsac/IjxmUvugN8RwlOMqJ7Cne06PXe0F19tLEZIyt13YIH+9TZgoyYJK3c4QRgYh3q9SUsQ2UOOIVjylowW+xPp60R3K82PwviCRKS1Ov5R8LCCpLVdL7qqJZIy4enkhClI4XpyviXgdKhHVWr5am3G4nGEKzxyHd1KPoD+dJtTrS52p1G2i04NgWvk+z+I7Xjx4clPOLkWuQt1WcKWsDfpt2qJbrc37nNclvKPGs5NbdmpUCHGWlq+2chRpEpWV55J7VXAmr0uiroJKjk9zwUZ3J5d61w47V1WoEdBjtXPOalGIi2Ncri3HVEjz3mGCeJSUL4AdsZ2px0rdLhDuBagXj2BL6khbqiPex1OaYMA0pg3WTa30vRA2hxPJakBZz3GeVcIgrKVKkY7lg46FIZRl5chQSMuqO6z3r2pXltredcQy0jdxxZ4UoHqajrSfiKzGYeXeZM2bcFnhaZUEoZx34h/tmia1/pHVkhH6Yj+dbCrLbTaeBST/28fx4sg1W2zG2/HGlz5Tgf+zs/qVu9uv2uCzImMSGyy5NWkq8sfaSk/VGOu/YCmSFoSexK4bk4llAPJohZcHcHlijj2KJAcMOMWEMI2y2MA0tjeXKT7ItaP8AtOK/0z2+R/5r2YJtcVHjrGBE1njWi1xPZDAW6yg5bwvdOee9ZXR63LacU2pTvGk7gDYVlczKZa1jnEJLtZmrI4ln2pEhSR73Dtw+lND70aaqO0iQ2y60tWGnTw8YIGFA0UXGGvVc+Su1+WoMO+S4jhKCj1OedKTYGtLsokN2pV3uKtwsAKbY+6tC2oFaZY5Mk2kLOcDCiIGNOxLVKbu2oHUpYZaSmNHScqdOMk4+ZNN991PMvTbsdkeyQk8mUjIV2Kj1Ncbo3NkXP2u5pkl1Y240KAT6DoKaXXUw1urU6EoUN/e2SPWlN97WdyL2EDx1jAjNf57zEQIaZ4+IHCnB9Gk/dUSakQ77apUuUkrIypfDnh9ABUwXu9sMRnExnUOOFOC4hPGlvbqOp9KiG7P29y7RIQXxMNZdkrJ2V9bGaAO48+GUgZxzBeQtKVAIUV8XUjH4CuZbUeLdXu44sjGM17VMJmOyA2hRUSUhQ2Tn09K5KfX5JaO6VL8xWeajjG9FmoUTshAW24rIJQsJGO5rbLJfU6pAWoNjcITk/cKTtKccPkoJy4oJ7bk4qY9O6YTa7486hCW0OJYQj5Ywr8cfxrq5hRIfCgokDmOY6ittoDjnCVhA+0RmrNStB2PVb7cWbDgshQOZLiQjykgElRUN9qh/WPhoza3JDtgubNxitqUOFKuLI7pPUfd+NdzO4m/Dww7RdlG4PNiKpGR50dLiCcd9ympRtOrYF/jvR7WlxpxGQtKxhxxA+snH1e6eY61FmhIke+XCPFmeY0khaPcwCSnpv94qRZWlLbHbR+jw5ClNniQ+0o8ee57mhP3Mv8yaBbtcncYuWrJCG05WdgAOZpPP9rgWyTOhtiVIZGSn4kNDO5UB8RA3xyPfpXoSH48VsXLy0yXcpCIaT5ksdwk7IB6kbc/lXg2ydPcbcflKhhkhTMWMfcQRyKjzWfntuQAKBj3FNVddRD2cwR/TOo7mhKkzZ7yUZwUEgb/LG35VlHltU1c4aX4zJTuUOMt8mVjmnA5DqPSsrsO2qZTgLJ/itQlxvaIbTbbcgeaSE48wnqaSSVKG2cD0Fcb61dXIjbdnuES3lPxF1jzNugG4obXH10g5F1sMtIH+rGW2T94NX92OxCap93C8GEQkuBzh91ScciNqT3bT9v1Fa5kGVEYPtLSm+PgGU5HPlQyxeNYpWsGwWy4pb+vDmkcR7DjG5p+01qN25OGNOtFxtUkH4JLXuq9UrTkH8a6GVu5SoFqtkmVO1PpfU2iLpJajvTI6WiSQ04Rj1I6g880OWbTN91vcXzCaD7owp51xQQ2Ce57ntVvdaz9ET3DDv822cSfcAcdAWjuMjcfI0IaTtVjtMB1vTqkLhLkOLQ8lfFuVEZ4uuMBIqpe3hUmaT4/WC0lCvI9ys1509OsE9yBcWvJfaPvDOQc8iCOYPej3Snga/qOxMXWRdVQVP5UhvyeI8GdlH50S+IWkFag1dp+O0jIlEofWkboaQrKj+B/KpaitpjsobbSEobASgD6oHIVVt1J2Ar3H+nTdYFaV/keBtyYWl+1X60zltLyELJbVxA5x1325Gn62XhyDLdF8tk+FJjFJeUGy4yB0UCnfhO+Dyoo8SrVO/RwaslmYWp6QuTJlMNDz1Z4cJ4gOLGyjsetKrTpm7sWe3SZkpDV0aR5jDyjxZbUT9C51IONxzGx51JNQRGDaIYBE53Ceb3Cjv2gsTrfxpU/5CwoqAIPCR27jmeVN02LOmRZE+UkycbGSUEKI64yMgenIchyon/6OszyX73LD1lltlLZmWdCirzVcuJCRhadvrDqKFr5dtSKU/pq4Wu4SLi4yp2E8zHKRLYBwpwt80EdRvz6VYS8OOJQ1CGnJMYNHaNdDMe8nzI77rxejJCeIKRkk5Hrk/IUSu6wssGf5bp9qGSFrbwpto/8A947ClzLpXbVQ3m1JS80Euo3T05cPSg93w/jvy0uMynTGJypkDf5cXbHXpUS3MwTamvUWs1+cjqFEZTDzqpvnNSfaThM4HPEBySs+nLpjqOtKQS0paljyw3utSzwhHqTyFcbe1DtcJUSElBbIwoAe5nv6q/Wrm9DTKLPnrU8218LSjlAPfh5H7+VDzKdrVs2Wg9cZR0fcpCG3ZSvbMPhbD3ltqSclPCcHi5nesoyUIEhhpu626DMbbz5Htagjgz8QSSRkbD5VlSjauxWUNiKj4sajvzrkm3Q4FrtDSjmVNBVlI223GT8qbbh4yuom/S20zoaNscZaDh747ehpm1JpjWs9SVPWCeIzZwzGYayhsDlsOdBdwsl7jqKZVunsqBzwLjrBA74xRAW7MElIc5eTFE8ebQEI9ps86OMbBkoUAPlkUXac8TtP6h80w5LzZjNl1wSGy2EpBxknl171WxtBdjFLieFY2HEMH+NHHhnpxnU9vu9um+YmOsNkLQcEL7+v31I3FRkwdtKIpZYcaw8SNN3CA/bLfcoPmuJUl6QWioIGPhTt7yydh251EXhjrZrTV7k2K5yktQJaitt1wgJZd7KPQK5E9xUmay8PrfEtj82026KZo4fpZDvAgADBV2ztmq73SFHDryVcK15IK0L4gT3B61AsLgciNPiLFIOJZ6O3Ck+TKjraf4EqSh5CgrZXPBHelaFAdagLR/jbKsqGYF2tzT8NptDCVxvcW2lIwDwnZX8KmLT2q7PqmOHrTObkED3mvhcb+aTuKXW0snria/SKNwMe3HMcvxrkAjiCyCVDkT0+Va+I868KQ4shKFJ4lEJwo4TknnnpQMx2AMTjqa3alvlmt0PTskMs+2KE4JJClAYIJxzTg5I60ZaJsabaw5LktpdmEuMsuLHvtRw4ShviPbJJ77c8V6t0ZWmLZOky322gSnClKATxfCNz8xvXfTdjjWRTq4k6S/GeAJZce81tC+qkk7jPblTTRLyczJf1BqioWtT33I717IiRNRT5EiQhLXmJSeAhSyvgT7oSNyr0oaEi4HK3Ld/6cfjabOZCOylDkr9jp86fL9aIitZXS4FvjkvPkpWockjAHD9w515W1wpUhsgqPLepleTMFbctdh2iNXD5q0+V/iEODLakDIX/AM+nTrSc3UqkPQLU0i4XBoZCP9AKz8CljmrngDbpmldxtJ9jUHpDkZh1Q4w0SPMPYY3JPYbmmW5TZcOAqDZYjlvCATlKQXH0Y34CPhUOqeeORoYHPMNpa62O73+4LaxTLcuKZMpbz6HgVNFwZLYzu3jkkpO2BWUogakdsyFtLjsS0LIWA+jiCD1I+e34VlTxGxLDgAR3ma41U6kLRfLhnmSHCPyp80rq/VFzfWhu8uqlJZ+iL4CgRnJScimeexbbGj2WTJTMnJ2U2xs22f1lHn8hWaRklOqYDo4UtrWWwEjA3BrrH6eIvL7kO2PKvEaXLcUxdrNZbokKIV5scIVnlzHKinT950zarcm4QYSbWFNrkyWEulYSnOAQT3xsKinUdvftuo7iwOIJS8VpOPqq3H5121HOchwnrcSMKaYaI9AkKV/GvMSyyfjNgCg9xt1tre56rmuuSZLnsnESzGzhLaegIHM450Dy15NOMleSSTnrTRKXgE4JPYUVeBiaDS1KnCxqkJ4X1eteoc6VbZKJUOQ7HfQfdcaUUqpXOstxhxUzZzHsaHP8tL54Vufsp5kevKm1VdOCIzRv9sl3SHji6jy4Wp2y82cJ9taT7w/bT1+YqeNGRWb6y1dbZIiSoHHgqJ8wEY6dj6VSo/OiDSeutRaJdecsVzdiIfSUOtc21+pSeR7KG9VbNKGOV4l9Nc6jB5lifG7XDU2S3pmE4FMxlhyY4N0lz6rY/Z5n1I7Uz+GOuzpmX7E8hb8a5zWWEniwGTggqA/8kfxoU0rGsOt4ygxqFi13IkFcK4I4UqUeZQ4DhWT33+dPLljVpe+WyNcVND2dwznHI6vMSUAZSod88KaKibBxMfrbDbcfIOY6wtQNLu8yNMjuxZS33HFxzsDlR95B+WDtsc11vd3a04wmYlpc0rPukDhba/b659Bz70wuSLlfdT2tpqKn2ccYY8r3klBG6ivr65xjsKJbqwyw77EyjzyhPA4o78Ssb4Hahl8GJL6glgJGRB6Jrl+Y9wy0Galw8CAwgB1H7HTHofxp/eiOw/JdUPdc95ChtuPyIrxYLNarIoTGWGVKd95KW1cSAD+t/IdedOM579KyAVKzwjHu7BPoBXcZgNTau7gYxGVMCzuqU6Wo0N5Z4neNriS4e4549RyrKcHrI8pWWwVAjOwzWVzaYA3MTnmBM1+AFBMjT7kdZ3UWlrRv/wCWc/jSnTCrSrUMEsvzm3A8jhbdQlQJ/aB2praRcLddBBblyEJ85KTwuHBBI6Z7Gi6w2u5q1LAcdchvxzJCsqaSHEpJJ2OB/CpN1iPbLq9mD76j54h6UffLNyYWygKR5bpdVwDblkn8KjnX7Ljd3cWvywhwEtqQsKCwMAHY+lWfXbmJtu9nfZQ8lxOC0pOeIeuaGbZ4R6Zss9VxNvDr2coQ8suIa9Eg/wA815FYCRo/tAEjqV90z4Ual1eUPpQi2QFbmTJQcqHdKetPGpmtN+E+Lda436T1EUBSpktIUGARsQnlnsKkjxQ8WLfoxpVvt/BLuxThLZ3QztsV/wC1VquV0mXea/OnPrkSXlcbi18yf5YqJJYxnoqbtUd9vCfj8zlcJL92lOS57ipMhw5Ljh4iabZDjTBx5aFKPQClD8gMtlfYYA9aaXCpSiVczzoirNDwows2p4r+qgfJNdGS0vKXMgnkpI2HzFcOVexyookDCO0tNMMJbHvLUeJSh17Y9KOtO/pS+x30NtrfcSw1EaUT0UoAfwBqP9LsS7jcmLbHjrlOLUPLbRzJ7H06H51ZPwksDb7kuUvyVKaklpQbOUoWgY4R8ipdQdvQif5K0KvHZjyuzsaU06pUKKgyW2UtpON3F4wMn51GWqJL13W1abI65xgH25aF8SFE9Cvn3yBsal/xQbUzpOcWQlTiGwoIKSQrB3BA35dqjLSUq03CKmNb20xXkjK4xPvZ6kK5qH8RQQJnTlAbAMkTxp2zos9uEFbjrrSjlePqq7pHT5day6XmNpPhdkOKlB3/ACm2div9pR2R9+T6U/OM+WQEgZJA5c89KbZMqEHzbXQl+asngjgbNr6earfgHIdxUsYlSpja+6xczUa43O/MCU21LbiKJUx7MvylAHmlY6kYG/XNZSBy2y3lYubzgeRt5TKy021+qADv8zuayo74drqwcYETT4Tf/VMVbriGkOo4iSdtgd/uo48OrBPuT0W4PsqZYZGCVj41jbbvT0z4UwHdQpukklUBhstsRieLzSrnn09OtG7H+HSXTwsRmUlKUggDA7+lECZGTDCrcihvUXtlqCwftfaNQj4teNwthes2nXEOTvhdlJIKWPRPQq/Khfxg8flyn3rBpdZEdCi3KmDYud0tnt69ah8vJdSFA8QO+e9ddieI+0eiNmGt6/E3IfckOreedU66tRUta1ZUonmSTzrgtQ6KH3V4djJdPF7w64zz9KzhSEpSlOMcx1qEfBQMARJKyt1COmMmkz7ZSfTvS0p4pCiegAFc5SMsqNGXgQLN9UQV7SdsV4rY5V2Sh1obXStKS2v0XZWFqOPanXllTrqfshWMIHXAHzqyHhjry13eAFot7drQ7L9maaSRl1xSeInYD1qoUCcqIvJ95KviHepI8ONQlGobEwH/APDIuKX8Z+Fak8G//wC61FkHcU63SKy7wOZPnjHe0WnTTjpU4jjdbb4myAoZVzGdjy5daid9iNdlod4jDnhCXUvsAoUQfhVjmOXXcd6l3VPst2mRLXKwEz1uMNOlIPlPFBKFb9jUNabtUq1Xi6IuA85ZOC+FcSXFJUQrB75HI7igesiZ76TS1g7BnS9ai1HFiCNJcQhBHCqcyjCnR2J+qfljNLNB3J+UpcWQwXePYT1IHF6JVtlY7HmPWn9uIXo/nKS21EKSFqcGQo9gOppI7cxCuBtSG0QmFhKY0pJ2dUR/lqP1M9MfLrXQTArebEKY5jlKlx0qDUlLinGsoKkrAJA6E4OcchWU1vJU2QlbZSQN/nWVHcZT8mONssC23x7uKwUjCiPqj7I9TQr4m3E27SVzkkcCG46w2gcgSMDPrvyouiIBZStQ5bpHb1+dRX49XHytMqjBWDIeSjHcDJ/kKsMcACP3+1VX3iVK9nXMlu8OccZJJ6UrbYVEIQVhSFctsYNKYzJZZz1X7xPcmuU0H2dauRxQy3OJuatIq05PeJ7DxLXljZJ4T+0a4qA2x3/lXJYUWWXc++UBWa9NrUse8nGOvevESkjAznj6ZWewNenW+JJHQ1jgwsLPTY10R7zY26URTxK9v3RoeaLSwnmDW2GXZLyWWGnHXVnCUNpKlK+QG9P1n03L1Pcm7bCa43XOajsltI5qUegFT5ovQlp0ZEAitB2YsfSylj31n0+yn0FDtvWsfuXNLp2u/wASI7H4KanubSXZiWLY2rcCQcuY9Ujl99OsvwS1FZITt3gXBqT7OeIltpaccODz9OdTcFDFFuj+B61PsqwoeYoLSexHX0Iqp/KYmXrdDWqHjMh7SGtjfeG1X1oxbo0958dQOy8HIKFciRvt2xXWJboreqrg/b7iXfMw7JguJzxKUASrf4hk8xuORpg1bYhZL9Ns7icoZdy1k4+jV7yCD022yOxpmtlpcYuvAma+zIWDIhyMn4k/Ek9Qd81b2f6h1MTrfjxUruhwDJJkh1xRLpWSo8ONsBPYDpXJdtZnRi260hxlexB3yPSm9nVimYDyL+yph+OAsvMtlbb45ZAHI8vT5UySfEBi4KVBZcctcZ0hIlI99xA68QHJP7O49a9x6mcr0NrN3/zHeZcjZVphTrtBbdbGwdjKdeKenHg7HH3nnWUljachqQEXZlU8IA9nfaeAUWzvhW+CB0I6H0rK5L/kpT6TLHLkpZj5JCcDJJOKgDxvvSLjdoVvacSpLTKn1FKsg8Zwn+ANHPipqddusfsLCiH5uWwoHkgD3j/HFQHdp4m6mmEK4ksoYZTvyCU4x+NeySRD6Q+R1c9LBiU83HPCtQSQSAKRzHkKiOKSoEY5jpvUkWXwZVfGHrjc57sfzyVMNMoBUAeqifyFR/q7Slx0fcHLbNIWhwcTLyB7jyc8/QjqKmE4zNnX8qHBX9RC+ClplJPJtA/hWM/Ca9ThhzhPJOBSX2nyn1JUcJOBnttXjAVnEUkcWxr3FH0ZST8J/hXgHIzniB6jlXWOlan0JbaW6tR4QhAyVZ6Coq3M7auRmSBoni02WJyEkrd3eSB8aD9X7ufzqYo7zUqO3JYX5jTqQpKx9YVFICWmm07Z4RsD8O3KiHR199llfo184jSD9ETybc7fI/n86hqqNw3r3Lej1PiH6htnGTSq13eRaXlOMEELA40K5Kx/Ok6gcHPPNczgDrmlnUenaRmevEqwt6rtzOo7Z7z8VPlvtAe95fM59U5PzFAyba8WmZ6Iri4TBLSX/qlZG4z8sb9zUhWS7qtk7zBlTZ2dZPUd/mKXXqG3Y2C9BjpehKQpTTCRlC0k5U2Ry6kg+pHSmWlff/aPcyHzlJ8LFOpHDCmZjyI76OJh36NYI2IO1Ionh1abYpxUxTz+F8KGMZGB3/5oz09cmFS3mIOnEQ2nGllx9xzzF4xyGeQohXZIs5LjL7vkLWjjbe6BSRuFDsR+VFsoepgrdmYeouAFqbvMCpKkBmOyxGQ2y0nCEpGcD51lOi9MXUuuIRD91CsA8Q4T+yc7isqBznqVStueRBTxTvSXbu+oqJbhNcIH63M/yqM9EMm5aiRHeOTJdTx59Tv/ADpy11c1STwlX0klZdWOuM7Ux6Tlrg31qQ38aMLHqQc1NBgTR6SkrQSe5ZOOlKElCce7yHTHSoF8Z78i76oat0dwLZt6fLKhyLqj7w+4YH3VJGpdZvo0ku5WlHA+8sx0lY/ylY3I7+lV9BLslK1lSlqXlSlHJJzuTRvUt/GjK8xRPILy/Q4pqfHE8s+tPKYjs+SpDY2GVuKOwbSOZJ7V007pObrC7+x21BDSd3H1j3W05+I+vpQ8gcmMzYqDLHgRv0/a7le7g3AtrCn3Vn4OSUjuT0HrRtd3bboJpVrhSESr+6nhkSj8MZJHwo7H1509aiu1q8K7SbHYUpcu8hOXXz8SD9pXr2T0qH3FrkOLedcU4tZKipRyST3qAG7mCpsbUnfjCev3CCDep1vTwsPhSCc8C905705I1rMAAMSMpQ6gqG/fnQWMp6n8awkn6yvxogRoxDesS1elryjUmnoVzQQFuIw6kH4VjZQ/H86cCD2qGPAbVBiXKVpyQv6OZl+Pk8nEj3h94H8Km1KDnfNK7k2tzG+is3V4PqcXGg6kcRORyI5inW3XVZgLt0pBWEe804n4knp8xn8zSIIHatJSpp4Ot54gMYJ2I/lUFbawMW/LaV3rL0fd+Pz+out0J0XJzy4oSw42COE4KCSNiOfPkaI7hbymPxJ+JGFA4zuK5aenMTBwlADqDgoOMp9aIJTSVx1YGdqatYbfrPqfPPB+RgiQrdWL7EmuMCcHGkn6PzE8kncYxWUS6khrcfa8sLCkgpJSnOR0/Osp3TcjICRKLpYWJBlbLnab86j2+ZbphbVt5nlEpGCR0+VNlqdCLowoHPvcJx0zVlNMuhzT1vc2TxsheEnYZJOKadaaYs9wtMyabdGE5hsvNyEthKwpO/Mc/vrOC/6tpm5rpzXkQNey5oAY38u45H4f81HUbT8y5aiYhW5hbzkhziQkDYDrnsBzo1hu3C6Q29PwmPM9oe80JSCVE9N+go8jaPkWGG3YLNwr1Bc0ZkTOkNjqr07AdTVl2wMRSl/gyB2ZHbGknrzc/wDpLT6vMSwoKulxxlKlj6oP2QdgOpov1Rc7T4P6ZRa7S22bg8PowrdSldXFn+VGFzdsHg1o3DKErcxlPF/my3sdev8AsKrTqm5TbrcX7jd3C7cJJ4vKJ2YT0BHfHIUEDcYSlX1TjcfpH/f+YzTJb8+U7KlOqdfdUVLWo7kmuNbByelbNWl6mhAAGB1PBGKyvRFaxXZ2LbFMdt15hzI6uF9lwLbP6wq1dhuzOobPGukc4Q+gKUnPwK+sk/I1UhtZbdbUOYWCPxq0XhzIYf0RCltJSkxnHIkxKUgb8WUO/goA+nCelVtVTvGR2IejUeJhnqEgTithOa6KQQK0E4pTGxIM8NvOwXky2QVONblIPxp6j/aj6HObmwkOtq4kOJCh8jQHnY9Kd9JSVNsSISt0tr4mz+orf+BzVvS2YJWY35/SeMi9PfBnWW4y1KcLi0pBxjJrKTXiKw9KIkqQgg5SV8iDjl+FZTehlFYBMymw+hBmyMJj2aC2n4UsJxmlEprz2HI4SVF5CmwO5IxXYBLaEpSn3QAAMUVad0/wKEmSn6U/Ck78A/3pKlbO3E1n8pdPQAOWI4g5oXw8a0hbA+82mVdHkDiKdgD9kenc08yzB0TaJ12uT6DIcPmynyN1q5JQn0GwSKL3Uoit9zj76gPxn1siLP8AZ/PadfZGWWgcoYJ/1F919h051dZPURtWWfafuMjfxH1hJn3dU+eMTyP8HDO6YCOilDl5hHTpUZOuqdUpa1FalHiKlHJJ70snve0yHHQtx1SlFS3FnJUTzJpAreiquBNLp6BWgAmwcVhVXmsFEXqW8TfFWGvOaypTs2OYPap28KJ81DF1gRH1J40NTPKABCwBwLBHYpKfwqBlEgc6PNLXx+G9BuMWQuO82oIK0KwR0P8A+5V1W2nMqaxC9RUSxsJzDbbK1ZSpJLK1c1ADdJ/WTy9Rg96UHA2oNsOuYFwf8i/uuQlq+GYynLaVDktSOiu5HPrRYl4LUUFxla0AZWysLbWDyUkjmk9O3LpSvWVKH3p0Zb+F1xtrFdnYnpyvcGYLVJ89X+UshLhzugd/lXFSq8qCXW1NuDiSoEKHcVSDbTkRhr9EuqqNbQxet7U/hK1boHMDOc1lMekbsUQXIEpzL0JXlcRO60fUV94/KspkrDE+XWnwuamzkcRx0/Y1OuJkyE8h9Gg9PU0XICY7Z2+RrSWkR2hjAoI8SdeJ0jYJcttsvSEIyhoHqSACfTJqyqipce4yXcD+WMa/FnxIGl4K4kBSXLq8k8CTyZH2lfyqrdxTKuL6358tTziyVL/WJ70QXS5SbrNemzHVOSHlcS1E8z2+VDd5eLTCuH6xxXFGDkxjpKSp57jPOdRxhtkcKE9KRmvWeI14VzokdKMTRVWc60edYK8DzCTeK1W81qpT0znTtp+RwPLiknheHu47imoCvTDxYktOjYoWD/GuGRIyMSUIUvz4zaycqIwr5jY/lTvY71JsM9qS0oraT7rrOfjRnJA9eoobtLieNxsclYcT+R/lTgFkHGKAyA8TPlXot3J6k2syGZkdqTGcS6w8kLQtPVJ5GuuMCgbw3vY43bK6QMguxx0/WT/P8aPFDApTbXsbBm00WqGoqDDuNsyAp97zW3VNLI4VEfWA5fmfxrKWqOTyzWVEOw6nrPi9LYxd15MP9RXtu2xVKPvLOyEfaP8At3qFvE9a3tMSi+vjcfeaC1Y5+9nHyGNqsBO0Ra7hID76pRWBgYdwB/Cmi9+D2mr/AA/ZJhn+VxhfuP8ACcj7qY2bmcfiZvQ6TYrWP9x6/Upq4o4OBTNek5jE/ZOauIf7NOhVczd/3v8A4pO//Zb0BISUrVesHtM/pq3mepoYESkYNaUauj/dG8N/tX39+/prX90Xw3+1ff37+mu7oxAlLSa2DV0f7onhv9q+/v39NYP7IvhuPrX39+/prmeZ2UurYFXQ/ui+G/2r7+/f01v+6N4cfavv79/TUtwnpS+tEGro/wB0bw3+1ff37+ms/ujeHH2r7+/f017cJzErHY5IMeHIPwpHCr5cjRO4yni2NWCif2XdAw4/s7ar1wZJ96Znn/404J/s86MSlKeK7EJGN5X/ABUWOYs1mmZyGUyutmlm13qBM2AafSVqP2ScH86mp5BSsj1ogX/Z60Y4kpKrtgjH/uv+KKE+H1mShCMyzwpCcl3cgDrtVPUVl+RLvxIakkN1IuI35GsqUD4e2U//ACv/ALf+KyqvgaaEapMe5//Z",
+      summonPortraitImg: "data:image/jpeg;base64,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",
+      baseStats: { hp: 3380, mana: 620, ad: 88, ap: 0, armor: 102, mr: 98, moveSpeed: 5.15, atkSpeed: 1.15 },
+      passive: {
+        name: "Ấn Chiến Thần & Susanoo Lục Bảo",
+        desc: "Đánh thường tầm trung (4.8m): Hiện cánh tay Susanoo Lục Bảo ra vợt mục tiêu. Khi tấn công kẻ địch đang bị đánh dấu 'Chiến Thần' (từ Chiêu 1 hoặc Chiêu 3 trong 8s), Shisui gây thêm 25% sát thương + 5% HP tối đa của mục tiêu, hồi 4% HP tối đa cho bản thân và giảm 0.5s hồi các chiêu."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Hoả Độn",
+          cd: 15.0,
+          cdReducePerLevel: 0.2,
+          mana: 70,
+          range: 15.0,
+          radius: 15.0,
+          type: "shisui_q_fire",
+          dmgBase: 420,
+          apScale: 0,
+          adScale: 1.45,
+          hpPctMax: 0.06,
+          cc: "slow",
+          desc: "Phun 1 làn lửa lớn trong 3s với phạm vi 15m gây sát thương lớn liên tục. Bản thân đứng im trong 3s đó và mọi mục tiêu trúng chiêu bởi Hoả Độn sẽ bị đánh dấu 'Chiến Thần' trong 8s. (Hồi chiêu: 15s, mỗi cấp giảm 0.2s)."
+        },
+        {
+          key: "W",
+          name: "Ảo Thuật Vượt Trội",
+          cd: 23.0,
+          cdReducePerLevel: 0.5,
+          mana: 85,
+          range: 20.0,
+          radius: 20.0,
+          type: "shisui_w_genjutsu",
+          dmgBase: 0,
+          apScale: 0,
+          adScale: 3.0,
+          hpPctMax: 0.15,
+          cc: "stun",
+          desc: "Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất gây sát thương bằng 300% ATK + 15% HP tối đa của mục tiêu đó. (Hồi chiêu: 23s, mỗi cấp giảm 0.5s)."
+        },
+        {
+          key: "E",
+          name: "Kotoamatsukami",
+          cd: 50.0,
+          cdReducePerLevel: 0.8,
+          mana: 120,
+          range: 50.0,
+          radius: 50.0,
+          type: "shisui_e_koto",
+          dmgBase: 480,
+          apScale: 0,
+          adScale: 1.50,
+          hpPctMax: 0.08,
+          cc: "slow",
+          desc: "Kích hoạt Mangekyou Sharingan tối thượng & hiện thân Susanoo Lục Bảo: Đánh dấu toàn bộ mục tiêu trong bán kính 50m 'Chiến Thần' trong 8s kèm sóng ảo thuật diện rộng. (Hồi chiêu: 50s, mỗi cấp giảm 0.8s)."
+        }
+      ]
     }
   ],
 
@@ -896,11 +979,16 @@ window.GAME_DATA = {
     nagato: {
       title: "Rinnegan Liên Xạ Chí Mạng & Cường Hóa Ma Tượng",
       items: ["boots_atk", "phy_phantom_bow", "phy_blade_eternity", "phy_bloodthirster", "phy_titan_breaker", "phy_fenrir_tooth"]
+    },
+    shisui: {
+      title: "Susanoo Lục Bảo Xuyên Phá & Sốc Sát Thương Ấn Chiến Thần",
+      items: ["boots_cdr", "phy_omni_arms", "phy_titan_breaker", "phy_bloodthirster", "phy_fenrir_tooth", "tank_immortal_heart"]
     }
   }
 };
 
-
+  </script>
+  <script>
 // ============================================================================
 // LEGENDS OF ETERNIA 3D - v1.5.0 THREE.JS ISOMETRIC ENGINE
 // ============================================================================
@@ -1639,7 +1727,7 @@ function createHeroMesh(heroData, team, skinData) {
     const greatSword = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.10, 2.85), goldMat);
     greatSword.position.z = 1.2;
     weaponGroup.add(greatSword);
-  } else {
+  } else if (hId === "kael") {
     // KAEL: Cyber-Thunder Brawler with spiky cyan hair, back arc-reactor & giant gauntlets
     const suitMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.3, metalness: 0.5 });
     const elecMat = new THREE.MeshBasicMaterial({ color: accentColor });
@@ -1659,6 +1747,113 @@ function createHeroMesh(heroData, team, skinData) {
     const gLeft = new THREE.Mesh(new THREE.BoxGeometry(0.58, 0.58, 0.85), elecMat);
     gLeft.position.set(-1.64, 0, 0.45);
     weaponGroup.add(gRight, gLeft);
+  } else if (hId === "shisui") {
+    // --- SHISUI (THUẤN THÂN UCHIHA & SUSANOO LỤC BẢO - DESIGNED FROM IMAGE 1 & IMAGE 2) ---
+    const uchihaBlackMat = new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.55, metalness: 0.15 });
+    const darkPantsMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.6 });
+    const strapBrownMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.5 });
+    const metalPlateMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.85, roughness: 0.2 });
+    const sharinganRedMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
+    const susanooGreenMat = new THREE.MeshBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0.78 });
+    const susanooBrightMat = new THREE.MeshBasicMaterial({ color: 0x34d399, transparent: true, opacity: 0.9 });
+
+    // Legs & Shinobi Sandals
+    const legGeo = new THREE.CylinderGeometry(0.17, 0.14, 0.95, 10);
+    const leftLeg = new THREE.Mesh(legGeo, darkPantsMat);
+    leftLeg.position.set(-0.24, 0.48, 0);
+    const rightLeg = new THREE.Mesh(legGeo, darkPantsMat);
+    rightLeg.position.set(0.24, 0.48, 0);
+    bodyRoot.add(leftLeg, rightLeg);
+
+    // High-collared Black Uchiha Shirt & Diagonal Brown Strap (Image 1)
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.46, 0.38, 1.22, 12), uchihaBlackMat);
+    torso.position.y = 1.38;
+    const highCollar = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.46, 0.30, 12, 1, true), uchihaBlackMat);
+    highCollar.position.y = 2.02;
+    const diagStrap = new THREE.Mesh(new THREE.BoxGeometry(0.16, 1.26, 0.82), strapBrownMat);
+    diagStrap.position.set(0, 1.38, 0);
+    diagStrap.rotation.z = 0.42;
+    const belt = new THREE.Mesh(new THREE.CylinderGeometry(0.41, 0.41, 0.16, 12), strapBrownMat);
+    belt.position.y = 0.88;
+    bodyRoot.add(torso, highCollar, diagStrap, belt);
+
+    // Tantō Short Sword strapped on Shisui's back
+    const tantoSheath = new THREE.Mesh(new THREE.BoxGeometry(0.12, 1.05, 0.08), strapBrownMat);
+    tantoSheath.position.set(0.15, 1.55, -0.44);
+    tantoSheath.rotation.z = -0.35;
+    bodyRoot.add(tantoSheath);
+
+    // Head, Hidden Leaf Forehead Protector, Red Mangekyou Sharingan Eyes & Spiky Black Hair (Image 1)
+    const skinMat = new THREE.MeshStandardMaterial({ color: 0xfde68a, roughness: 0.45 });
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.40, 16, 16), skinMat);
+    head.position.y = 2.28;
+    bodyRoot.add(head);
+
+    const headbandCloth = new THREE.Mesh(new THREE.CylinderGeometry(0.415, 0.415, 0.15, 16), new THREE.MeshStandardMaterial({ color: 0x0f172a }));
+    headbandCloth.position.y = 2.40;
+    const headbandPlate = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.13, 0.06), metalPlateMat);
+    headbandPlate.position.set(0, 2.40, 0.40);
+    bodyRoot.add(headbandCloth, headbandPlate);
+
+    const eyeL = new THREE.Mesh(new THREE.SphereGeometry(0.065, 8, 8), sharinganRedMat);
+    eyeL.position.set(-0.14, 2.26, 0.36);
+    const eyeR = new THREE.Mesh(new THREE.SphereGeometry(0.065, 8, 8), sharinganRedMat);
+    eyeR.position.set(0.14, 2.26, 0.36);
+    bodyRoot.add(eyeL, eyeR);
+
+    const hairGroup = new THREE.Group();
+    hairGroup.position.y = 2.52;
+    for (let i = 0; i < 9; i++) {
+      const ang = (i / 9) * Math.PI * 2;
+      const spike = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.52, 6), uchihaBlackMat);
+      spike.position.set(Math.sin(ang) * 0.24, 0.08, Math.cos(ang) * 0.24);
+      spike.rotation.x = Math.cos(ang) * 0.48;
+      spike.rotation.z = -Math.sin(ang) * 0.48;
+      hairGroup.add(spike);
+    }
+    bodyRoot.add(hairGroup);
+
+    // 3D EMERALD GREEN SUSANOO RIBCAGE, HORNED AVATAR & DRILL LANCE (Image 2)
+    const susanooGroup = new THREE.Group();
+    susanooGroup.position.set(0, 0.2, -0.25);
+
+    // Susanoo Ribcage Arches surrounding Shisui
+    for (let r = 0; r < 3; r++) {
+      const rib = new THREE.Mesh(new THREE.TorusGeometry(0.95 + r * 0.08, 0.08, 8, 20, Math.PI * 1.35), susanooGreenMat);
+      rib.rotation.x = Math.PI / 2;
+      rib.rotation.z = -Math.PI * 0.18;
+      rib.position.y = 0.85 + r * 0.42;
+      susanooGroup.add(rib);
+    }
+
+    // Towering Emerald Susanoo Upper Spirit & Winged Shoulders behind Shisui (Image 2)
+    const susanooSpirit = new THREE.Group();
+    susanooSpirit.position.set(0, 2.45, -0.75);
+    const sTorso = new THREE.Mesh(new THREE.ConeGeometry(1.15, 2.2, 8), susanooGreenMat);
+    sTorso.rotation.x = Math.PI;
+    const sHead = new THREE.Mesh(new THREE.OctahedronGeometry(0.62, 0), susanooBrightMat);
+    sHead.position.y = 1.35;
+    const sHornL = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.75, 6), susanooBrightMat);
+    sHornL.position.set(-0.45, 1.85, 0.15);
+    sHornL.rotation.z = 0.45;
+    const sHornR = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.75, 6), susanooBrightMat);
+    sHornR.position.set(0.45, 1.85, 0.15);
+    sHornR.rotation.z = -0.45;
+    const sEyeL = new THREE.Mesh(new THREE.SphereGeometry(0.10, 8, 8), new THREE.MeshBasicMaterial({ color: 0xfef08a }));
+    sEyeL.position.set(-0.22, 1.38, 0.48);
+    const sEyeR = new THREE.Mesh(new THREE.SphereGeometry(0.10, 8, 8), new THREE.MeshBasicMaterial({ color: 0xfef08a }));
+    sEyeR.position.set(0.22, 1.38, 0.48);
+    susanooSpirit.add(sTorso, sHead, sHornL, sHornR, sEyeL, sEyeR);
+    susanooGroup.add(susanooSpirit);
+    bodyRoot.add(susanooGroup);
+    root.userData.susanooGroup = susanooGroup;
+
+    // Weapon Group: Emerald Susanoo Spectral Arm & Spiral Drill Lance (Tsukumo)
+    const drillLance = new THREE.Mesh(new THREE.ConeGeometry(0.32, 1.95, 8).rotateX(Math.PI / 2), susanooBrightMat);
+    drillLance.position.set(0.25, 0.25, 0.85);
+    const clawHand = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.35, 0.65), susanooGreenMat);
+    clawHand.position.set(-1.55, 0.25, 0.55);
+    weaponGroup.add(drillLance, clawHand);
   }
 
   // 3. Aurelia Thiên Sứ (SS) Angel Wings
@@ -1908,6 +2103,59 @@ function createGedoMazoMesh(team) {
   return root;
 }
 
+// Rồng Kradus 3D Boss Mesh (50,000 HP Dragon Boss in Center of Right Jungle)
+function createKradusDragonMesh() {
+  const root = new THREE.Group();
+  const scaleMat = new THREE.MeshStandardMaterial({ color: 0x991b1b, roughness: 0.35, metalness: 0.45 });
+  const goldMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, emissive: 0xd97706, emissiveIntensity: 0.45, roughness: 0.25 });
+  const wingMat = new THREE.MeshStandardMaterial({ color: 0xdc2626, emissive: 0x7f1d1d, emissiveIntensity: 0.3, side: THREE.DoubleSide });
+  const eyeMat = new THREE.MeshBasicMaterial({ color: 0xfef08a });
+
+  const auraRing = new THREE.Mesh(
+    new THREE.RingGeometry(1.8, 3.2, 32).rotateX(-Math.PI / 2),
+    new THREE.MeshBasicMaterial({ color: 0xfacc15, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
+  );
+  auraRing.position.y = 0.08;
+  root.add(auraRing);
+
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.55, 2.8, 12), scaleMat);
+  body.position.y = 1.6;
+  const chestCore = new THREE.Mesh(new THREE.OctahedronGeometry(0.75, 0), goldMat);
+  chestCore.position.set(0, 1.75, 1.15);
+  root.add(body, chestCore);
+
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.95, 1.4, 10), scaleMat);
+  neck.position.set(0, 3.1, 0.55);
+  neck.rotation.x = 0.35;
+  const head = new THREE.Mesh(new THREE.BoxGeometry(1.15, 0.95, 1.55), scaleMat);
+  head.position.set(0, 3.85, 1.05);
+  const hornL = new THREE.Mesh(new THREE.ConeGeometry(0.22, 1.1, 6), goldMat);
+  hornL.position.set(-0.48, 4.45, 0.75);
+  hornL.rotation.x = -0.35;
+  const hornR = new THREE.Mesh(new THREE.ConeGeometry(0.22, 1.1, 6), goldMat);
+  hornR.position.set(0.48, 4.45, 0.75);
+  hornR.rotation.x = -0.35;
+  const eyeL = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 8), eyeMat);
+  eyeL.position.set(-0.38, 3.98, 1.78);
+  const eyeR = new THREE.Mesh(new THREE.SphereGeometry(0.14, 8, 8), eyeMat);
+  eyeR.position.set(0.38, 3.98, 1.78);
+  root.add(neck, head, hornL, hornR, eyeL, eyeR);
+
+  // Dragon Wings
+  const wingGeo = new THREE.BoxGeometry(2.8, 1.6, 0.12);
+  const leftWing = new THREE.Mesh(wingGeo, wingMat);
+  leftWing.position.set(-2.1, 2.8, -0.3);
+  leftWing.rotation.z = 0.32;
+  leftWing.rotation.y = 0.25;
+  const rightWing = new THREE.Mesh(wingGeo, wingMat);
+  rightWing.position.set(2.1, 2.8, -0.3);
+  rightWing.rotation.z = -0.32;
+  rightWing.rotation.y = -0.25;
+  root.add(leftWing, rightWing);
+  root.userData = { leftWing, rightWing, isKradusMesh: true };
+  return root;
+}
+
 // Lobby 3D Hero Preview Renderer
 class LobbyPreview3D {
   constructor(canvasId) {
@@ -1998,9 +2246,11 @@ class MobaArena3D {
     this.running = false;
     this.paused = false;
     this.matchTime = 0;
-    this.waveTimer = 1.5; // First minion wave spawns at 1.5s
+    this.waveTimer = 15.0; // v1.6.0: Trận đấu bắt đầu 15s mới xuất hiện đợt lính đầu
     this.waveCount = 0;
     this.goldTickTimer = 0;
+    this.attackPriorityMode = "HERO"; // "HERO" | "MINION_MONSTER" (phím H) | "TOWER" (phím T)
+    this.kradusMinionBuff = { blue: false, red: false };
 
     this.keys = { w: false, a: false, s: false, d: false };
     this.joyVec = { x: 0, z: 0 };
@@ -2068,6 +2318,9 @@ class MobaArena3D {
         this.playerBasicAttack();
       }
       if (k === "b") this.playerRecallHeal();
+      if (k === "h") this.setAttackPriorityMode("MINION_MONSTER");
+      if (k === "t") this.setAttackPriorityMode("TOWER");
+      if (k === "g") this.setAttackPriorityMode("HERO");
       if (k === "p") {
         if (window.UI && window.UI.toggleInGameShop) window.UI.toggleInGameShop();
       }
@@ -2130,14 +2383,14 @@ class MobaArena3D {
     }
     if (this.floatContainer) this.floatContainer.innerHTML = "";
 
-    const groundGeo = new THREE.BoxGeometry(144, 1.5, 60);
+    const groundGeo = new THREE.BoxGeometry(156, 1.5, 64);
     const groundMat = new THREE.MeshStandardMaterial({ color: 0x143326, roughness: 0.85 });
     const ground = new THREE.Mesh(groundGeo, groundMat);
     ground.position.y = -0.75;
     ground.receiveShadow = true;
     this.worldGroup.add(ground);
 
-    const laneGeo = new THREE.PlaneGeometry(132, 14);
+    const laneGeo = new THREE.PlaneGeometry(144, 14);
     laneGeo.rotateX(-Math.PI / 2);
     const laneMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.7 });
     const lane = new THREE.Mesh(laneGeo, laneMat);
@@ -2145,7 +2398,7 @@ class MobaArena3D {
     lane.receiveShadow = true;
     this.worldGroup.add(lane);
 
-    const borderGeo = new THREE.BoxGeometry(130, 0.25, 0.45);
+    const borderGeo = new THREE.BoxGeometry(142, 0.25, 0.45);
     const borderMat = new THREE.MeshBasicMaterial({ color: 0x64748b });
     const bTop = new THREE.Mesh(borderGeo, borderMat);
     bTop.position.set(0, 0.12, -7.1);
@@ -2160,8 +2413,8 @@ class MobaArena3D {
       f.position.set(x, 0.15, 0);
       this.worldGroup.add(f);
     };
-    createFountain(-64, 0x3b82f6);
-    createFountain(64, 0xef4444);
+    createFountain(-66, 0x3b82f6);
+    createFountain(66, 0xef4444);
 
     this.bushes = [
       { x: -16, z: -8.5, r: 2.8 },
@@ -2185,14 +2438,20 @@ class MobaArena3D {
     this.aimCursor.position.set(0, 0.08, 0);
     this.worldGroup.add(this.aimCursor);
 
+    // v1.6.0: Mỗi bên có 4 trụ ngoài (HP từ ngoài vào trong: 3000 - 5000 - 7000 - 10000, bắn phát đầu 120 ST vật lý, mỗi phát tiếp theo +40%)
+    // và 1 trụ chính (10000 HP, bắn phát đầu 150 ST vật lý, mỗi phát tiếp theo +40%, không bị đánh 10s tự hồi 50 HP/1s)
     this.structures = [];
-    this.createStructure("blue", "core", "Trụ Chính Xanh", -55, 0, 9500, 210, 11.5, 2.1);
-    this.createStructure("blue", "inner", "Trụ Trong Xanh", -37, 0, 5200, 175, 10.5, 1.45);
-    this.createStructure("blue", "outer", "Trụ Ngoài Xanh", -19, 0, 4200, 150, 10.0, 1.3);
+    this.createStructure("blue", "outer_1", "Trụ Ngoài 1 Xanh", -13, 0, 3000, 120, 8.5, 1.22);
+    this.createStructure("blue", "outer_2", "Trụ Ngoài 2 Xanh", -24, 0, 5000, 120, 8.5, 1.30);
+    this.createStructure("blue", "outer_3", "Trụ Ngoài 3 Xanh", -35, 0, 7000, 120, 8.5, 1.38);
+    this.createStructure("blue", "outer_4", "Trụ Ngoài 4 Xanh", -46, 0, 10000, 120, 8.5, 1.48);
+    this.createStructure("blue", "core", "Trụ Chính Xanh", -58, 0, 10000, 150, 9.5, 2.05);
 
-    this.createStructure("red", "core", "Trụ Chính Đỏ", 55, 0, 9500, 210, 11.5, 2.1);
-    this.createStructure("red", "inner", "Trụ Trong Đỏ", 37, 0, 5200, 175, 10.5, 1.45);
-    this.createStructure("red", "outer", "Trụ Ngoài Đỏ", 19, 0, 4200, 150, 10.0, 1.3);
+    this.createStructure("red", "outer_1", "Trụ Ngoài 1 Đỏ", 13, 0, 3000, 120, 8.5, 1.22);
+    this.createStructure("red", "outer_2", "Trụ Ngoài 2 Đỏ", 24, 0, 5000, 120, 8.5, 1.30);
+    this.createStructure("red", "outer_3", "Trụ Ngoài 3 Đỏ", 35, 0, 7000, 120, 8.5, 1.38);
+    this.createStructure("red", "outer_4", "Trụ Ngoài 4 Đỏ", 46, 0, 10000, 120, 8.5, 1.48);
+    this.createStructure("red", "core", "Trụ Chính Đỏ", 58, 0, 10000, 150, 9.5, 2.05);
   }
 
   createStructure(team, kind, name, x, z, maxHp, ad, range, scale) {
@@ -2235,7 +2494,10 @@ class MobaArena3D {
       radius: 1.4 * scale,
       hp: maxHp,
       maxHp,
+      baseAd: ad,
       ad,
+      shotStreak: 0,
+      outOfCombatTimer: 10.0,
       armor: 120,
       mr: 120,
       range,
@@ -2269,10 +2531,12 @@ class MobaArena3D {
     this.running = true;
     this.paused = false;
     this.matchTime = 0;
-    this.waveTimer = 1.5;
+    this.waveTimer = 15.0; // v1.6.0: Trận đấu bắt đầu 15s mới bắt đầu xuất hiện đợt lính đầu
     this.waveCount = 0;
     this.goldTickTimer = 0;
     this.pendingSkillIndex = null;
+    this.attackPriorityMode = "HERO";
+    this.kradusMinionBuff = { blue: false, red: false };
 
     this.units = [];
     this.projectiles = [];
@@ -2291,19 +2555,17 @@ class MobaArena3D {
     const blueBots = [shuffled[0], shuffled[1]];
     const redBots = [shuffled[2], shuffled[3], shuffled[4]];
 
-    // Spawn Heroes on Lane Outside Core so no one gets stuck
-    this.player = this.spawnHero(pHero, "blue", true, -59, 0, pSkin);
-    this.spawnHero(blueBots[0], "blue", false, -58, -3.5, null);
-    this.spawnHero(blueBots[1], "blue", false, -58, 3.5, null);
+    // Spawn Heroes near Fountain outside Main Core (±58)
+    this.player = this.spawnHero(pHero, "blue", true, -62, 0, pSkin);
+    this.spawnHero(blueBots[0], "blue", false, -61, -3.2, null);
+    this.spawnHero(blueBots[1], "blue", false, -61, 3.2, null);
 
-    this.spawnHero(redBots[0], "red", false, 59, 0, null);
-    this.spawnHero(redBots[1], "red", false, 58, -3.5, null);
-    this.spawnHero(redBots[2], "red", false, 58, 3.5, null);
+    this.spawnHero(redBots[0], "red", false, 62, 0, null);
+    this.spawnHero(redBots[1], "red", false, 61, -3.2, null);
+    this.spawnHero(redBots[2], "red", false, 61, 3.2, null);
 
+    // v1.6.0: Quái rừng xuất hiện đợt đầu ở giây 13; Lính xuất hiện đợt đầu ở giây 15
     this.initJungleCamps();
-    // Spawn an immediate vanguard wave in lane AND a core wave marching out from Trụ Chính
-    this.spawnMinionWave(-28, 28);
-    this.spawnMinionWave(-44, 44);
 
     if (window.UI && window.UI.updateInGameHUD) {
       window.UI.updateInGameHUD(this.player, this);
@@ -2363,6 +2625,12 @@ class MobaArena3D {
       nagatoHurtAsTimer: 0, // Nagato Passive: +80% AS for 2s when taking damage
       nagatoRinneganBuffTimer: 0, // Nagato Passive: +30% Crit & +25% AS for 5s when hitting Rinnegan target
       rinneganMarkTimer: 0, // 9s Rinnegan mark applied by Nagato Skill 1
+      chienThanMarkTimer: 0, // 8s 'chiến thần' mark applied by Shisui Skill 1 & Skill 3
+      shisuiFireTimer: 0,    // 3s Shisui Skill 1 (Hoả Độn) standing flamethrower channel
+      shisuiFireTick: 0,
+      shisuiSusanooTimer: 0, // 8s Shisui Skill 3 (Kotoamatsukami) Susanoo active
+      lucSiBuffTimer: 0,     // 80s Bùa Lực Sĩ: +15% ST, +10% khả năng làm chậm
+      thuatSiBuffTimer: 0,   // 80s Bùa Thuật Sĩ: +20% giảm hồi chiêu, +10% tốc chạy
       helenTetherTimer: 0, // Helen Skill 2 (5s Yellow-Blue tether healing ally 8% of Helen's current HP/sec)
       helenTetherTarget: null,
       helenTetherTick: 0,
@@ -2539,6 +2807,11 @@ class MobaArena3D {
     if (u.shredMrTimer > 0) {
       mr = Math.round(mr * 0.75);
     }
+    // v1.6.0 Bùa Thuật Sĩ (80s): Giảm hồi chiêu +20%, tăng 10% tốc chạy
+    if (u.thuatSiBuffTimer > 0) {
+      cdr += 0.20;
+      moveSpeed = Number((moveSpeed * 1.10).toFixed(3));
+    }
 
     u.maxHp = maxHp;
     u.maxMana = maxMana;
@@ -2552,7 +2825,7 @@ class MobaArena3D {
     u.critDmgBonus = critDmgBonus;
     u.lifesteal = Math.min(0.95, lifesteal);
     u.spellVamp = Math.min(0.5, spellVamp);
-    u.cdr = Math.min(0.4, cdr);
+    u.cdr = Math.min(u.thuatSiBuffTimer > 0 ? 0.60 : 0.40, Number(cdr.toFixed(2)));
     u.armorPenPct = armorPenPct;
     u.magicPen = magicPen;
     u.magicPenPct = magicPenPct;
@@ -2562,31 +2835,63 @@ class MobaArena3D {
     u.mana = Math.min(u.maxMana, Math.max(1, Math.round(u.maxMana * manaPct)));
   }
 
+  // v1.6.0 NEW JUNGLE SYSTEM:
+  // First jungle wave spawns at 13s. Replaces all old monsters with Lực Sĩ, Thuật Sĩ, Khỉ Nhỏ, Tiểu Quái & Rồng Kradus.
   initJungleCamps() {
     this.jungleSpawns = [
-      { id: "jg_blue_top", name: "Bùa Xanh (Rừng Trái)", x: -24, z: -18, maxHp: 2200, ad: 85, gold: 130, exp: 160, color: 0x38bdf8, scale: 1.15, timer: 4, respawnTime: 45 },
-      { id: "jg_blue_bot", name: "Quái Đá (Rừng Trái)", x: -24, z: 18, maxHp: 1750, ad: 70, gold: 90, exp: 115, color: 0xa3e635, scale: 0.95, timer: 4, respawnTime: 38 },
-      { id: "jg_red_top", name: "Bùa Đỏ (Rừng Phải)", x: 24, z: -18, maxHp: 2200, ad: 85, gold: 130, exp: 160, color: 0xf97316, scale: 1.15, timer: 4, respawnTime: 45 },
-      { id: "jg_red_bot", name: "Sói Hắc Ám (Rừng Phải)", x: 24, z: 18, maxHp: 1750, ad: 70, gold: 90, exp: 115, color: 0xc084fc, scale: 0.95, timer: 4, respawnTime: 38 },
-      { id: "jg_boss", name: "Rồng Cổ Đại (Boss 3v3)", x: 0, z: -21, maxHp: 5800, ad: 165, gold: 250, exp: 300, color: 0xfacc15, scale: 1.65, timer: 15, respawnTime: 75, isBoss: true }
+      // Rừng Phải mỗi bên: Lực Sĩ (1100 HP, +15%/đợt hồi sinh, hồi 120s, 150 vàng + Bùa Lực Sĩ 80s: +15% ST, +10% làm chậm)
+      { id: "jg_blue_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: -22, z: 16, baseHp: 1100, baseAd: 85, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0xf97316, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
+      { id: "jg_red_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: 22, z: 16, baseHp: 1100, baseAd: 85, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0xf97316, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
+
+      // Rừng Trái mỗi bên: Thuật Sĩ (1000 HP, +15%/đợt hồi sinh, hồi 120s, 150 vàng + Bùa Thuật Sĩ 80s: +20% giảm hồi chiêu, +10% tốc chạy)
+      { id: "jg_blue_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: -22, z: -16, baseHp: 1000, baseAd: 80, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0x38bdf8, scale: 1.15, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
+      { id: "jg_red_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: 22, z: -16, baseHp: 1000, baseAd: 80, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0x38bdf8, scale: 1.15, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
+
+      // Rừng Trái mỗi bên (gần Thuật Sĩ): Khỉ Nhỏ (500 HP, +8%/đợt hồi sinh, hồi 60s, 80 vàng)
+      { id: "jg_blue_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: -30, z: -19, baseHp: 500, baseAd: 55, scalePerRespawn: 0.08, gold: 80, exp: 95, color: 0xa3e635, scale: 0.85, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      { id: "jg_red_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: 30, z: -19, baseHp: 500, baseAd: 55, scalePerRespawn: 0.08, gold: 80, exp: 95, color: 0xa3e635, scale: 0.85, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+
+      // Rừng Phải mỗi bên (gần Lực Sĩ): Tiểu Quái (400 HP, +8%/đợt hồi sinh, hồi 60s, 80 vàng)
+      { id: "jg_blue_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: -30, z: 19, baseHp: 400, baseAd: 50, scalePerRespawn: 0.08, gold: 80, exp: 90, color: 0xc084fc, scale: 0.78, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      { id: "jg_red_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: 30, z: 19, baseHp: 400, baseAd: 50, scalePerRespawn: 0.08, gold: 80, exp: 90, color: 0xc084fc, scale: 0.78, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+
+      // Chính giữa Rừng Phải của cả 2 bên: Rồng Kradus (50000 HP, +30%/đợt xuất hiện, tối đa 3 lần, 1000 vàng + Lính tăng 25% ST)
+      { id: "jg_kradus", campType: "kradus", jungleSide: "center_right", name: "Rồng Kradus", x: 0, z: 20, baseHp: 50000, baseAd: 220, scalePerRespawn: 0.30, gold: 1000, exp: 450, color: 0xfacc15, scale: 1.85, timer: 13.0, respawnTime: 90, respawnCount: 0, spawnCount: 0, maxSpawns: 3, isBoss: true, isKradus: true }
     ];
   }
 
   spawnJungleMonster(camp) {
-    const group = new THREE.Group();
-    const body = new THREE.Mesh(
-      new THREE.DodecahedronGeometry(0.95 * camp.scale, 0),
-      new THREE.MeshStandardMaterial({ color: camp.color, roughness: 0.35, metalness: 0.4 })
-    );
-    body.position.y = 1.1 * camp.scale;
-    group.add(body);
+    if (camp.maxSpawns && camp.spawnCount >= camp.maxSpawns) {
+      camp.exhausted = true;
+      return null;
+    }
 
-    const horn = new THREE.Mesh(
-      new THREE.ConeGeometry(0.45 * camp.scale, 1.1 * camp.scale, 6),
-      new THREE.MeshBasicMaterial({ color: 0xffffff })
-    );
-    horn.position.y = 2.1 * camp.scale;
-    group.add(horn);
+    const mult = Number((1 + (camp.respawnCount || 0) * (camp.scalePerRespawn || 0)).toFixed(4));
+    const maxHp = Math.round(camp.baseHp * mult);
+    const ad = Math.round(camp.baseAd * mult);
+    camp.spawnCount = (camp.spawnCount || 0) + 1;
+    camp.maxHp = maxHp;
+    camp.ad = ad;
+
+    let group;
+    if (camp.isKradus) {
+      group = createKradusDragonMesh();
+    } else {
+      group = new THREE.Group();
+      const body = new THREE.Mesh(
+        new THREE.DodecahedronGeometry(0.95 * camp.scale, 0),
+        new THREE.MeshStandardMaterial({ color: camp.color, roughness: 0.35, metalness: 0.4 })
+      );
+      body.position.y = 1.1 * camp.scale;
+      group.add(body);
+
+      const horn = new THREE.Mesh(
+        new THREE.ConeGeometry(0.45 * camp.scale, 1.1 * camp.scale, 6),
+        new THREE.MeshBasicMaterial({ color: 0xffffff })
+      );
+      horn.position.y = 2.1 * camp.scale;
+      group.add(horn);
+    }
 
     group.position.set(camp.x, 0, camp.z);
     this.worldGroup.add(group);
@@ -2595,6 +2900,9 @@ class MobaArena3D {
       id: camp.id + "_" + Math.random().toString(36).slice(2, 5),
       isMonster: true,
       isBoss: !!camp.isBoss,
+      isKradus: !!camp.isKradus,
+      campType: camp.campType,
+      buffType: camp.buffType || null,
       campRef: camp,
       team: "neutral",
       name: camp.name,
@@ -2603,15 +2911,18 @@ class MobaArena3D {
       spawnX: camp.x,
       spawnZ: camp.z,
       radius: 1.1 * camp.scale,
-      hp: camp.maxHp,
-      maxHp: camp.maxHp,
-      ad: camp.ad,
-      armor: 60,
-      mr: 60,
-      range: 2.8,
+      baseHp: camp.baseHp,
+      hp: maxHp,
+      maxHp,
+      ad,
+      armor: camp.isKradus ? 90 : 50,
+      mr: camp.isKradus ? 90 : 50,
+      range: camp.isKradus ? 3.8 : 2.8,
       moveSpeed: 3.6,
       atkSpeed: 0.85,
       atkCd: 0,
+      kradusKnockupCd: 4.5, // Chiêu 1 Rồng Kradus: Hất tung hiện rồng
+      kradusClawCd: 2.2,    // Chiêu 2 Rồng Kradus: Cào
       stunTimer: 0,
       slowTimer: 0,
       slowPct: 0.35,
@@ -2619,31 +2930,47 @@ class MobaArena3D {
       expReward: camp.exp,
       dead: false,
       mesh: group,
-      hudEl: this.createFloatingHud(camp.name, "neutral", false)
+      hudEl: this.createFloatingHud(camp.isKradus ? `🐉 ${camp.name} (${camp.spawnCount}/3)` : camp.name, "neutral", !!camp.isKradus)
     };
     camp.activeMob = mob;
     this.units.push(mob);
+    return mob;
   }
 
-  // DEFINITIVE FIXED MINION SPAWNER (v1.5.0):
-  // Initializes stunTimer: 0 and slowTimer: 0 explicitly so JavaScript (undefined <= 0 === false) NEVER freezes minions!
-  spawnMinionWave(customBlueX = -44, customRedX = 44) {
+  // v1.6.0 NEW MINION WAVE SPAWNER:
+  // Spawns 1st wave at 15s, then every 25s. Each wave has 8 minions per team:
+  // - 3 Lính Đấu Sĩ (tầm gần, 80 vàng/1 lính, cho ít exp nhất: 35 EXP)
+  // - 4 Lính Xạ Thủ (tầm xa, 100 vàng/lính, 55 EXP)
+  // - 1 Lính Quái Vật (tầm xa, 200 vàng/lính, HP cao, 95 EXP)
+  // Base stats increase by +5% per wave (e.g., Wave 1 = +5%, Wave 2 = +10%, Wave 3 = +15%).
+  spawnMinionWave(customBlueX = -51, customRedX = 51) {
     this.waveCount++;
-    const isSiege = this.waveCount % 3 === 0;
-    const types = [
-      { kind: "Lính Cận Chiến", hp: 780 + this.waveCount * 35, ad: 48 + this.waveCount * 3, range: 2.6, gold: 48, exp: 55, scale: 0.68 },
-      { kind: "Lính Đánh Xa", hp: 520 + this.waveCount * 25, ad: 62 + this.waveCount * 4, range: 6.2, gold: 38, exp: 45, scale: 0.56 }
+    const waveMult = Number((1 + this.waveCount * 0.05).toFixed(4));
+
+    const waveTemplate = [
+      // 3 Lính Đấu Sĩ (tầm gần, 80 vàng, ít exp nhất)
+      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 750, baseAd: 48, range: 2.6, gold: 80, exp: 35, scale: 0.68, laneZ: -2.4, rowOffset: 0 },
+      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 750, baseAd: 48, range: 2.6, gold: 80, exp: 35, scale: 0.68, laneZ: 0.0, rowOffset: 0 },
+      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 750, baseAd: 48, range: 2.6, gold: 80, exp: 35, scale: 0.68, laneZ: 2.4, rowOffset: 0 },
+      // 4 Lính Xạ Thủ (tầm xa, 100 vàng)
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: -2.7, rowOffset: 1.8 },
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: -0.9, rowOffset: 1.8 },
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: 0.9, rowOffset: 1.8 },
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: 2.7, rowOffset: 1.8 },
+      // 1 Lính Quái Vật (tầm xa, 200 vàng, HP cao)
+      { kind: "Lính Quái Vật", minionType: "monster", baseHp: 1800, baseAd: 96, range: 7.2, gold: 200, exp: 95, scale: 0.98, laneZ: 0.0, rowOffset: 3.6 }
     ];
-    if (isSiege) {
-      types.push({ kind: "Xe Công Thành", hp: 1350 + this.waveCount * 60, ad: 92 + this.waveCount * 6, range: 7.2, gold: 88, exp: 95, scale: 0.92 });
-    }
 
     ["blue", "red"].forEach((team) => {
       const baseX = team === "blue" ? customBlueX : customRedX;
       const dir = team === "blue" ? 1 : -1;
-      types.forEach((t, idx) => {
+      const hasKradusBuff = !!(this.kradusMinionBuff && this.kradusMinionBuff[team]);
+
+      waveTemplate.forEach((t, idx) => {
         const group = new THREE.Group();
-        const col = team === "blue" ? 0x60a5fa : 0xf87171;
+        const col = t.minionType === "monster"
+          ? (team === "blue" ? 0x2563eb : 0xdc2626)
+          : (team === "blue" ? 0x60a5fa : 0xf87171);
         const mBody = new THREE.Mesh(
           new THREE.BoxGeometry(0.95 * t.scale, 1.3 * t.scale, 0.95 * t.scale),
           new THREE.MeshStandardMaterial({ color: col, roughness: 0.45 })
@@ -2651,24 +2978,43 @@ class MobaArena3D {
         mBody.position.y = 0.7 * t.scale;
         group.add(mBody);
 
-        const laneZ = idx === 0 ? -2.2 : (idx === 1 ? 2.2 : 0.0);
-        const spawnX = baseX - dir * (idx * 2.0);
-        group.position.set(spawnX, 0, laneZ);
+        if (t.minionType === "monster") {
+          const horn = new THREE.Mesh(
+            new THREE.ConeGeometry(0.38 * t.scale, 0.85 * t.scale, 6),
+            new THREE.MeshBasicMaterial({ color: 0xfacc15 })
+          );
+          horn.position.y = 1.65 * t.scale;
+          group.add(horn);
+        }
+
+        const spawnX = baseX - dir * t.rowOffset;
+        group.position.set(spawnX, 0, t.laneZ);
         group.rotation.y = Math.atan2(dir, 0);
         this.worldGroup.add(group);
+
+        const scaledHp = Math.round(t.baseHp * waveMult);
+        const baseScaledAd = Math.round(t.baseAd * waveMult);
+        const finalAd = hasKradusBuff ? Math.round(baseScaledAd * 1.25) : baseScaledAd;
 
         const minion = {
           id: `minion_${team}_${this.waveCount}_${idx}_${Math.random().toString(36).slice(2, 5)}`,
           isMinion: true,
+          minionType: t.minionType,
+          waveNumber: this.waveCount,
+          waveStatMult: waveMult,
           team,
           name: t.kind,
           x: spawnX,
-          z: laneZ,
-          laneZ,
+          z: t.laneZ,
+          laneZ: t.laneZ,
           radius: 0.75 * t.scale,
-          hp: t.hp,
-          maxHp: t.hp,
-          ad: t.ad,
+          baseHp: t.baseHp,
+          baseAd: t.baseAd,
+          hp: scaledHp,
+          maxHp: scaledHp,
+          unbuffedAd: baseScaledAd,
+          ad: finalAd,
+          kradusBuffed: hasKradusBuff,
           armor: 30,
           mr: 25,
           range: t.range,
@@ -2682,7 +3028,7 @@ class MobaArena3D {
           expReward: t.exp,
           dead: false,
           mesh: group,
-          hudEl: this.createFloatingHud(t.kind, team, false)
+          hudEl: this.createFloatingHud(hasKradusBuff ? `🐉 ${t.kind}` : t.kind, team, false)
         };
         this.units.push(minion);
       });
@@ -3237,8 +3583,121 @@ class MobaArena3D {
   // SKILL EXECUTION, BASIC ATTACKS, MIYA MECHANICS & 3.7S RECALL
   // ==========================================================================
 
+  // --- SHISUI 3D SUSANOO ARM SWIPE, HOẢ ĐỘN & KOTOAMATSUKAMI + KRADUS DRAGON SKILLS ---
+  spawnSusanooArmSwipeVfx(ax, az, tx, tz, duration = 0.42) {
+    const group = new THREE.Group();
+    group.position.set(ax, 1.25, az);
+    const angle = Math.atan2(tx - ax, tz - az);
+    group.rotation.y = angle;
+
+    const armMat = new THREE.MeshBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0.88 });
+    const clawMat = new THREE.MeshBasicMaterial({ color: 0x6ee7b7, transparent: true, opacity: 0.95 });
+
+    const forearm = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.55, 2.85), armMat);
+    forearm.position.set(0.35, 0, 1.45);
+    group.add(forearm);
+
+    for (let c = -1.5; c <= 1.5; c += 1.0) {
+      const claw = new THREE.Mesh(new THREE.ConeGeometry(0.16, 1.05, 6).rotateX(Math.PI / 2), clawMat);
+      claw.position.set(0.35 + c * 0.22, 0, 3.05);
+      group.add(claw);
+    }
+
+    const swipeArc = new THREE.Mesh(
+      new THREE.TorusGeometry(2.2, 0.16, 8, 24, Math.PI * 0.95).rotateX(Math.PI / 2),
+      clawMat
+    );
+    swipeArc.position.set(0, 0, 1.6);
+    group.add(swipeArc);
+
+    this.worldGroup.add(group);
+    this.vfxList.push({ mesh: group, timer: duration, maxTime: duration, type: "susanoo_arm_swipe" });
+    this.spawnVfxRing(tx, tz, 1.45, 0x10b981, 0.3);
+  }
+
+  triggerShisuiFireTick(caster) {
+    if (!caster || caster.dead) return;
+    const fDir = caster.shisuiFireDir || { x: Math.sin(caster.mesh.rotation.y), z: Math.cos(caster.mesh.rotation.y), angle: caster.mesh.rotation.y };
+    const range15m = 15.0;
+
+    // 3D Fire Stream Cone along 15m
+    const fireGroup = new THREE.Group();
+    fireGroup.position.set(caster.x, 1.2, caster.z);
+    fireGroup.rotation.y = fDir.angle;
+    const cone = new THREE.Mesh(
+      new THREE.ConeGeometry(2.8, range15m, 16, 1, true).rotateX(-Math.PI / 2),
+      new THREE.MeshBasicMaterial({ color: 0xf97316, side: THREE.DoubleSide, transparent: true, opacity: 0.72 })
+    );
+    cone.position.z = range15m * 0.5;
+    const coreCone = new THREE.Mesh(
+      new THREE.ConeGeometry(1.4, range15m * 0.92, 12).rotateX(-Math.PI / 2),
+      new THREE.MeshBasicMaterial({ color: 0xfef08a, transparent: true, opacity: 0.85 })
+    );
+    coreCone.position.z = range15m * 0.46;
+    fireGroup.add(cone, coreCone);
+    this.worldGroup.add(fireGroup);
+    this.vfxList.push({ mesh: fireGroup, timer: 0.28, maxTime: 0.28, type: "pillar" });
+
+    // Damage & mark targets within 15m with "chiến thần" for 8s
+    const tickDmg = Math.round((85 + caster.ad * 0.38) * 0.65);
+    this.units.forEach((u) => {
+      if (u.dead || u.team === caster.team) return;
+      const dx = u.x - caster.x;
+      const dz = u.z - caster.z;
+      const d = Math.hypot(dx, dz);
+      if (d <= range15m + (u.radius || 1.0)) {
+        // Check if within wide front fire wave or close range
+        const dot = d > 0.01 ? (dx * fDir.x + dz * fDir.z) / d : 1.0;
+        if (dot >= -0.25 || d <= 5.0) {
+          u.chienThanMarkTimer = 8.0; // Đánh dấu "chiến thần" trong 8s!
+          u.chienThanMark = true;
+          this.applyDamage(caster, u, tickDmg, "physical", true);
+        }
+      }
+    });
+  }
+
+  useKradusKnockupSkill(kradusMob) {
+    if (!kradusMob || kradusMob.dead) return;
+    // Hiệu ứng 1: Hất tung hiện rồng
+    const rad = 6.5;
+    this.spawnVfxRing(kradusMob.x, kradusMob.z, rad, 0xfacc15, 0.85);
+    this.spawnVfxPillar(kradusMob.x, kradusMob.z, 2.4, 7.5, 0xef4444, 0.85);
+    this.spawnFloatingText(kradusMob.x, kradusMob.z, "🐉 RỒNG KRADUS: HẤT TUNG HIỆN RỒNG!", "text-amber-300");
+
+    this.units.forEach((u) => {
+      if (u.dead || u.team === "neutral") return;
+      if (Math.hypot(u.x - kradusMob.x, u.z - kradusMob.z) <= rad + (u.radius || 1.0)) {
+        u.stunTimer = Math.max(u.stunTimer || 0, 1.25); // Hất tung
+        this.applyDamage(kradusMob, u, Math.round(kradusMob.ad * 1.65), "physical", true);
+      }
+    });
+  }
+
+  useKradusClawSkill(kradusMob, target) {
+    if (!kradusMob || kradusMob.dead || !target || target.dead) return;
+    // Hiệu ứng 2: Cào Long Trảo
+    this.spawnVfxRing(target.x, target.z, 2.6, 0xef4444, 0.45);
+    this.spawnFloatingText(target.x, target.z, "🐾 KRADUS CÀO LONG TRẢO!", "text-rose-400");
+    this.applyDamage(kradusMob, target, Math.round(kradusMob.ad * 1.40), "physical", true);
+  }
+
+  setAttackPriorityMode(mode) {
+    this.attackPriorityMode = mode; // "HERO" | "MINION_MONSTER" | "TOWER"
+    if (this.player) {
+      const label = mode === "MINION_MONSTER"
+        ? "🎯 Chế Độ [H]: Ưu Tiên Quái & Lính!"
+        : (mode === "TOWER" ? "🏰 Chế Độ [T]: Ưu Tiên Trụ!" : "⚔️ Chế Độ [G]: Ưu Tiên Tướng!");
+      const col = mode === "MINION_MONSTER" ? "text-emerald-300" : (mode === "TOWER" ? "text-amber-300" : "text-sky-300");
+      this.spawnFloatingText(this.player.x, this.player.z, label, col);
+    }
+    if (window.UI && window.UI.updateInGameHUD && this.player) {
+      window.UI.updateInGameHUD(this.player, this);
+    }
+  }
+
   playerBasicAttack() {
-    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0) return;
+    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0 || this.player.shisuiFireTimer > 0) return;
     if (this.player.recallChannelTimer > 0) {
       this.player.recallChannelTimer = 0;
       this.spawnFloatingText(this.player.x, this.player.z, "Đã hủy Biến Về!", "text-rose-400");
@@ -3264,7 +3723,7 @@ class MobaArena3D {
   }
 
   castPlayerSkill(skillIdx) {
-    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0) return;
+    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0 || this.player.shisuiFireTimer > 0) return;
     if (this.player.recallChannelTimer > 0) {
       this.player.recallChannelTimer = 0;
       this.spawnFloatingText(this.player.x, this.player.z, "Đã hủy Biến Về!", "text-rose-400");
@@ -3373,6 +3832,87 @@ class MobaArena3D {
 
     const isSeraphSkin = caster.skinData && caster.skinData.specialVfx === "seraph";
     const isFairyMiya = caster.skinData && caster.skinData.specialVfx === "forest_fairy";
+
+    // --- SHISUI SPECIAL SKILLS (Q: HOẢ ĐỘN 15m/3s, W: ẢO THUẬT VƯỢT TRỘI 20m, E: KOTOAMATSUKAMI 50m) ---
+    if (skill.type === "shisui_q_fire") {
+      // Kỹ năng 1: Hoả độn: Phun 1 làn lửa lớn trong 3s với phạm vi 15m gây ST lớn.
+      // Bản thân đứng im trong 3s đó và mục tiêu bị trúng chiêu bởi Hoả độn sẽ bị đánh dấu "chiến thần" trong 8s.
+      caster.shisuiFireTimer = 3.0;
+      caster.shisuiFireTick = 0.25;
+      caster.shisuiFireDir = { x: dirX, z: dirZ, angle: Math.atan2(dirX, dirZ) };
+      this.triggerShisuiFireTick(caster);
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "🔥 HOẢ ĐỘN (3s — 15m — Khắc Ấn Chiến Thần 8s)!", "text-orange-300");
+      }
+      return;
+    }
+
+    if (skill.type === "shisui_w_genjutsu") {
+      // Kỹ năng 2: Ảo thuật vượt trội: Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất
+      // gây ST bằng 300% ATK + 15% HP tối đa của mục tiêu đó (hồi chiêu: 23s, mỗi cấp giảm 0.5s)
+      const candidates = this.units
+        .filter((u) => !u.dead && u.team !== caster.team && Math.hypot(u.x - caster.x, u.z - caster.z) <= 20.0 + (u.radius || 1.0))
+        .sort((a, b) => (a.hp / a.maxHp) - (b.hp / b.maxHp));
+
+      const victim = candidates[0] || null;
+      if (victim) {
+        this.spawnVfxRing(caster.x, caster.z, 2.4, 0xef4444, 0.45);
+        caster.x = Math.max(-65, Math.min(65, victim.x));
+        caster.z = Math.max(-26, Math.min(26, victim.z));
+        if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+
+        this.spawnVfxRing(victim.x, victim.z, 3.6, 0x10b981, 0.65);
+        this.spawnVfxPillar(victim.x, victim.z, 1.4, 5.2, 0xef4444, 0.55);
+
+        const genjutsuDmg = caster.ad * 3.0 + victim.maxHp * 0.15;
+        this.applyDamage(caster, victim, genjutsuDmg, "physical", true);
+        victim.stunTimer = Math.max(victim.stunTimer || 0, 0.85);
+
+        if (caster.isPlayer) {
+          this.spawnFloatingText(victim.x, victim.z, "👁️ ẢO THUẬT VƯỢT TRỘI (300% ATK + 15% Max HP)!", "text-emerald-300");
+        }
+      } else {
+        caster.x = aimX;
+        caster.z = aimZ;
+        if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+        if (caster.isPlayer) {
+          this.spawnFloatingText(caster.x, caster.z, "👁️ Thuấn Thân Ảo Thuật!", "text-emerald-300");
+        }
+      }
+      return;
+    }
+
+    if (skill.type === "shisui_e_koto") {
+      // Kỹ năng 3: Kotoamatsukami: Đánh dấu toàn bộ mục tiêu trong bán kính 50m "chiến thần" trong 8s (hồi chiêu: 50s, mỗi cấp giảm 0.8s)
+      const rad50m = 50.0;
+      caster.shisuiSusanooTimer = 8.0;
+      this.spawnVfxRing(caster.x, caster.z, 14.0, 0xef4444, 0.95);
+      this.spawnVfxRing(caster.x, caster.z, 28.0, 0x10b981, 1.15);
+      this.spawnVfxPillar(caster.x, caster.z, 2.5, 7.5, 0x10b981, 0.95);
+
+      let markedCount = 0;
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        const d = Math.hypot(u.x - caster.x, u.z - caster.z);
+        if (d <= rad50m + (u.radius || 1.0)) {
+          markedCount++;
+          u.chienThanMarkTimer = 8.0; // Đánh dấu "chiến thần" trong 8s!
+          u.chienThanMark = true;
+          this.spawnVfxRing(u.x, u.z, 2.0, 0xef4444, 0.85);
+          this.applyDamage(caster, u, rawDmg + u.maxHp * 0.08, "physical", true);
+        }
+      });
+
+      if (caster.isPlayer) {
+        this.spawnFloatingText(
+          caster.x,
+          caster.z,
+          `👁️ KOTOAMATSUKAMI: Đánh Dấu 'Chiến Thần' ${markedCount} Mục Tiêu (50m - 8s)!`,
+          "text-rose-400"
+        );
+      }
+      return;
+    }
 
     // --- PAIN SPECIAL SKILLS (Q, W, E — DẠNG 1 & CƯỜNG HOÁ DẠNG 2) ---
     if (skill.type === "pain_q_shinra") {
@@ -3982,6 +4522,22 @@ class MobaArena3D {
       }
     }
 
+    // Shisui Basic Attack (tầm trung 4.8m): Hiện cánh tay Susanoo Lục Bảo ra vợt mục tiêu!
+    if (attacker.isHero && attacker.heroData.id === "shisui") {
+      this.spawnSusanooArmSwipeVfx(attacker.x, attacker.z, target.x, target.z);
+      this.applyDamage(attacker, target, attacker.ad, "physical", false);
+      return;
+    }
+
+    // v1.6.0 Tower Shot Scaling: phát đầu 120 (Trụ Ngoài) hoặc 150 (Trụ Chính), mỗi phát tiếp theo +40% ST
+    let attackDmgToUse = attacker.ad;
+    if (attacker.isStructure) {
+      const baseAd = attacker.baseAd || (attacker.kind === "core" ? 150 : 120);
+      attackDmgToUse = Math.round(baseAd * (1 + (attacker.shotStreak || 0) * 0.40));
+      attacker.ad = attackDmgToUse;
+      attacker.shotStreak = (attacker.shotStreak || 0) + 1;
+    }
+
     const range = attacker.isHero ? attacker.heroData.range : (attacker.range || 2.5);
     if (range > 4.0 || attacker.isStructure) {
       const isSeraphBasic = attacker.isHero && attacker.skinData && attacker.skinData.specialVfx === "seraph";
@@ -4027,7 +4583,7 @@ class MobaArena3D {
         x: attacker.x,
         z: attacker.z,
         speed: 26,
-        dmg: attacker.ad,
+        dmg: attackDmgToUse,
         dmgType: "physical",
         isAutoAttack: true,
         miyaSlowOnHit: isMiya && attacker.miyaQTimer > 0,
@@ -4063,6 +4619,11 @@ class MobaArena3D {
   applyDamage(attacker, target, rawDmg, dmgType, isSkill) {
     if (!target || target.dead) return;
 
+    // Reset structure out-of-combat timer whenever attacked by an enemy
+    if (target.isStructure) {
+      target.outOfCombatTimer = 0;
+    }
+
     // Taking damage from Heroes or Towers interrupts Recall channel
     if (target.isHero && target.recallChannelTimer > 0 && (attacker.isHero || attacker.isStructure)) {
       target.recallChannelTimer = 0;
@@ -4072,6 +4633,33 @@ class MobaArena3D {
     }
 
     let dmg = rawDmg;
+
+    // v1.6.0: Trụ bắn vào lính bị giảm 50% ST
+    if (attacker && attacker.isStructure && target.isMinion) {
+      dmg *= 0.50;
+    }
+
+    // v1.6.0: Lính của đội tiêu diệt Rồng Kradus có ST cao hơn 25%
+    if (attacker && attacker.isMinion && this.kradusMinionBuff && this.kradusMinionBuff[attacker.team] && !attacker.kradusBuffed) {
+      dmg *= 1.25;
+    }
+
+    // v1.6.0: Bùa Lực Sĩ (80s) -> Tăng 15% sát thương, tăng thêm 10% khả năng làm chậm
+    if (attacker && attacker.lucSiBuffTimer > 0) {
+      dmg *= 1.15;
+      if (!target.isStructure) {
+        const baseSlow = target.slowTimer > 0 ? (target.slowPct || 0.25) : 0.15;
+        target.slowTimer = Math.max(target.slowTimer || 0, 1.5);
+        target.slowPct = Math.min(0.90, Number((baseSlow + 0.10).toFixed(2)));
+      }
+    }
+
+    // v1.6.0: Shisui Nội Tại trên mục tiêu có dấu ấn "Chiến Thần" (trong 8s từ Chiêu 1 hoặc Chiêu 3)
+    if (attacker && attacker.isHero && attacker.heroData.id === "shisui" && target.chienThanMarkTimer > 0 && !target.isStructure) {
+      dmg = dmg * 1.25 + target.maxHp * 0.05;
+      attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(attacker.maxHp * 0.04));
+      attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, Number((c - 0.5).toFixed(2))));
+    }
 
     let isCrit = false;
     if (!isSkill && (attacker.isHero || attacker.isSummon) && !target.isStructure) {
@@ -4173,7 +4761,9 @@ class MobaArena3D {
         if (attacker.magicPen) def = Math.max(0, def - attacker.magicPen);
       }
     }
-    const finalDmg = Math.max(12, Math.round(dmg * (200 / (200 + Math.max(0, def)))));
+    const finalDmg = (attacker && attacker.isStructure)
+      ? Math.max(1, Math.round(dmg))
+      : Math.max(12, Math.round(dmg * (200 / (200 + Math.max(0, def)))));
 
     if ((attacker.isHero || attacker.isSummon) && !target.isStructure) {
       if (!isSkill && attacker.lifesteal > 0) {
@@ -4312,11 +4902,18 @@ class MobaArena3D {
         victim.hudEl.parentNode.removeChild(victim.hudEl);
       }
       if (victim.isMonster && victim.campRef) {
-        victim.campRef.activeMob = null;
-        victim.campRef.timer = victim.campRef.respawnTime;
+        const camp = victim.campRef;
+        camp.activeMob = null;
+        camp.respawnCount = (camp.respawnCount || 0) + 1;
+        if (camp.maxSpawns && camp.spawnCount >= camp.maxSpawns) {
+          camp.exhausted = true;
+          camp.timer = 999999; // Rồng Kradus chỉ xuất hiện tối đa 3 lần
+        } else {
+          camp.timer = camp.respawnTime;
+        }
       }
 
-      const goldR = victim.goldReward || 45;
+      const goldR = victim.goldReward || 80;
       const expR = victim.expReward || 55;
 
       if (killer && killer.isHero) {
@@ -4325,15 +4922,37 @@ class MobaArena3D {
         if (victim.isMonster) {
           killer.hp = Math.min(killer.maxHp, Math.round(killer.hp + killer.maxHp * 0.10));
           killer.mana = Math.min(killer.maxMana, Math.round(killer.mana + killer.maxMana * 0.15));
-          if (victim.isBoss && window.UI && window.UI.showAnnouncement) {
-            window.UI.showAnnouncement(`🐉 Đội ${killer.team === "blue" ? "Xanh" : "Đỏ"} đã tiêu diệt Rồng Cổ Đại! (+250 Vàng)`);
-            this.units.forEach((u) => {
-              if (u.isHero && u.team === killer.team) {
-                u.gold += 200;
-                u.buffAdTimer = 25.0;
-                this.recalcHeroStats(u);
+
+          // Bùa Lực Sĩ (80s): +15% sát thương, +10% khả năng làm chậm
+          if (victim.campType === "luc_si") {
+            killer.lucSiBuffTimer = 80.0;
+            this.recalcHeroStats(killer);
+            if (killer.isPlayer) {
+              this.spawnFloatingText(killer.x, killer.z, "🟠 BÙA LỰC SĨ (80s: +15% ST & +10% Làm Chậm)!", "text-orange-300");
+            }
+          }
+          // Bùa Thuật Sĩ (80s): Giảm hồi chiêu +20%, tăng 10% tốc chạy
+          else if (victim.campType === "thuat_si") {
+            killer.thuatSiBuffTimer = 80.0;
+            this.recalcHeroStats(killer);
+            if (killer.isPlayer) {
+              this.spawnFloatingText(killer.x, killer.z, "🔵 BÙA THUẬT SĨ (80s: +20% Giảm Hồi Chiêu & +10% Tốc Chạy)!", "text-sky-300");
+            }
+          }
+          // Rồng Kradus: +1000 Vàng & Lính của đội tiêu diệt có ST cao hơn 25%
+          else if (victim.isKradus) {
+            if (!this.kradusMinionBuff) this.kradusMinionBuff = { blue: false, red: false };
+            this.kradusMinionBuff[killer.team] = true;
+            // Tăng ngay 25% ST cho toàn bộ lính đang sống của đội tiêu diệt Rồng Kradus
+            this.units.forEach((m) => {
+              if (m.isMinion && !m.dead && m.team === killer.team && !m.kradusBuffed) {
+                m.kradusBuffed = true;
+                m.ad = Math.round((m.unbuffedAd || m.ad) * 1.25);
               }
             });
+            if (window.UI && window.UI.showAnnouncement) {
+              window.UI.showAnnouncement(`🐉 Đội ${killer.team === "blue" ? "Xanh" : "Đỏ"} đã tiêu diệt Rồng Kradus! (+1000 Vàng & Lính +25% ST)`);
+            }
           }
         }
         if (killer.isPlayer) {
@@ -4379,6 +4998,38 @@ class MobaArena3D {
   // ==========================================================================
 
   findBestTarget(unit, maxRange) {
+    // v1.6.0 Player Target Priority Modes:
+    // - Phím T ("TOWER"): Chế độ ưu tiên Trụ
+    // - Phím H ("MINION_MONSTER"): Chế độ ưu tiên Quái và Lính
+    if (unit && unit.isPlayer) {
+      if (this.attackPriorityMode === "TOWER") {
+        let bestTower = null;
+        let bestTowerDist = Infinity;
+        this.structures.forEach((st) => {
+          if (st.dead || st.team === unit.team) return;
+          const d = Math.hypot(st.x - unit.x, st.z - unit.z);
+          if (d <= maxRange + st.radius && d < bestTowerDist) {
+            bestTowerDist = d;
+            bestTower = st;
+          }
+        });
+        if (bestTower) return bestTower;
+      } else if (this.attackPriorityMode === "MINION_MONSTER") {
+        let bestMob = null;
+        let bestMobDist = Infinity;
+        this.units.forEach((other) => {
+          if (other.dead || other.id === unit.id || other.team === unit.team) return;
+          if (!other.isMinion && !other.isMonster) return;
+          const d = Math.hypot(other.x - unit.x, other.z - unit.z);
+          if (d <= maxRange + (other.radius || 1.0) && d < bestMobDist) {
+            bestMobDist = d;
+            bestMob = other;
+          }
+        });
+        if (bestMob) return bestMob;
+      }
+    }
+
     let best = null;
     let bestScore = Infinity;
 
@@ -4485,7 +5136,7 @@ class MobaArena3D {
 
   // UPGRADED 5-TIER RANK-SCALED BOT AI (With Zero Tower-Edge Jitter!)
   updateBotAI(bot, dt) {
-    if (bot.dead || bot.stunTimer > 0 || bot.painChibakuTimer > 0) return;
+    if (bot.dead || bot.stunTimer > 0 || bot.painChibakuTimer > 0 || bot.shisuiFireTimer > 0) return;
 
     // 1. Smart Preset & Counter-Build Item Buying
     bot.aiBuyTimer -= dt;
@@ -4724,17 +5375,17 @@ class MobaArena3D {
       });
     }
 
-    // 2. Minion Wave Spawner (every 18s)
+    // 2. v1.6.0 Minion Wave Spawner (Đợt đầu ở 15s, sau đó mỗi 25s lên 1 đợt 8 lính)
     this.waveTimer -= dt;
     if (this.waveTimer <= 0) {
-      this.waveTimer = 18.0;
-      this.spawnMinionWave(-44, 44);
+      this.waveTimer = 25.0;
+      this.spawnMinionWave(-51, 51);
     }
 
-    // 3. Jungle Camp Spawner
+    // 3. v1.6.0 Jungle Camp Spawner (Đợt đầu ở 13s; Rồng Kradus tối đa 3 lần)
     if (this.jungleSpawns) {
       this.jungleSpawns.forEach((camp) => {
-        if (!camp.activeMob) {
+        if (!camp.activeMob && !camp.exhausted) {
           camp.timer -= dt;
           if (camp.timer <= 0) {
             this.spawnJungleMonster(camp);
@@ -4872,6 +5523,33 @@ class MobaArena3D {
       if (u.rinneganMarkTimer > 0) {
         u.rinneganMarkTimer = Math.max(0, u.rinneganMarkTimer - dt);
       }
+      if (u.chienThanMarkTimer > 0) {
+        u.chienThanMarkTimer = Math.max(0, u.chienThanMarkTimer - dt);
+        u.chienThanMark = u.chienThanMarkTimer > 0;
+      } else if (u.chienThanMark) {
+        u.chienThanMark = false;
+      }
+      if (u.shisuiSusanooTimer > 0) {
+        u.shisuiSusanooTimer = Math.max(0, u.shisuiSusanooTimer - dt);
+      }
+      if (u.shisuiFireTimer > 0) {
+        u.shisuiFireTimer = Math.max(0, u.shisuiFireTimer - dt);
+        u.shisuiFireTick = (u.shisuiFireTick || 0) - dt;
+        if (u.shisuiFireTick <= 0 && u.shisuiFireTimer > 0) {
+          u.shisuiFireTick = 0.25;
+          this.triggerShisuiFireTick(u);
+        }
+      }
+      if (u.lucSiBuffTimer > 0) {
+        u.lucSiBuffTimer = Math.max(0, u.lucSiBuffTimer - dt);
+      }
+      if (u.thuatSiBuffTimer > 0) {
+        u.thuatSiBuffTimer -= dt;
+        if (u.thuatSiBuffTimer <= 0) {
+          u.thuatSiBuffTimer = 0;
+          this.recalcHeroStats(u);
+        }
+      }
       if (u.nagatoHurtAsTimer > 0) {
         u.nagatoHurtAsTimer -= dt;
         if (u.nagatoHurtAsTimer <= 0) this.recalcHeroStats(u);
@@ -4939,7 +5617,7 @@ class MobaArena3D {
 
       if (u.isPlayer) {
         // Player WASD + Touch Joystick movement
-        if (!(u.stunTimer > 0) && !(u.painChibakuTimer > 0)) {
+        if (!(u.stunTimer > 0) && !(u.painChibakuTimer > 0) && !(u.shisuiFireTimer > 0)) {
           let mx = (this.keys.d ? 1 : 0) - (this.keys.a ? 1 : 0) + this.joyVec.x;
           let mz = (this.keys.s ? 1 : 0) - (this.keys.w ? 1 : 0) + this.joyVec.z;
           const mLen = Math.hypot(mx, mz);
@@ -5022,17 +5700,29 @@ class MobaArena3D {
               this.moveUnitTowards(u, t.x, t.z, dt);
             }
           } else {
-            // 2. No enemy in 11.5m: march straight toward the enemy Main Core (±55)!
-            const enemyCoreX = u.team === "blue" ? 55 : -55;
+            // 2. No enemy in 11.5m: march straight toward the enemy Main Core (±58)!
+            const enemyCoreX = u.team === "blue" ? 58 : -58;
             const desiredZ = u.laneZ !== undefined ? u.laneZ : 0;
             this.moveUnitTowards(u, enemyCoreX, desiredZ, dt);
           }
         }
       } else if (u.isMonster) {
         if (!(u.stunTimer > 0)) {
-          const nearHero = this.units.find((h) => h.isHero && !h.dead && Math.hypot(h.x - u.x, h.z - u.z) <= 5.5);
-          if (nearHero && Math.hypot(u.x - u.spawnX, u.z - u.spawnZ) < 9.5) {
+          const nearHero = this.units.find((h) => h.isHero && !h.dead && Math.hypot(h.x - u.x, h.z - u.z) <= 6.5);
+          if (nearHero && Math.hypot(u.x - u.spawnX, u.z - u.spawnZ) < 10.5) {
             const d = Math.hypot(nearHero.x - u.x, nearHero.z - u.z);
+            // Rồng Kradus active skills: Hất tung hiện rồng & Cào
+            if (u.isKradus) {
+              u.kradusKnockupCd = (u.kradusKnockupCd || 0) - dt;
+              u.kradusClawCd = (u.kradusClawCd || 0) - dt;
+              if (u.kradusKnockupCd <= 0 && d <= 6.2) {
+                u.kradusKnockupCd = 7.5;
+                this.useKradusKnockupSkill(u);
+              } else if (u.kradusClawCd <= 0 && d <= u.range + nearHero.radius + 0.8) {
+                u.kradusClawCd = 4.2;
+                this.useKradusClawSkill(u, nearHero);
+              }
+            }
             if (d <= u.range + nearHero.radius) {
               if (u.atkCd <= 0) this.performBasicAttack(u, nearHero);
             } else {
@@ -5048,10 +5738,17 @@ class MobaArena3D {
 
     this.units = this.units.filter((u) => u.isHero || !u.dead);
 
-    // 5. Update Structures (Towers & Cores firing at enemies)
+    // 5. Update Structures (4 Outer Towers + 1 Main Core per team)
     this.structures.forEach((st) => {
       if (st.dead) return;
       if (st.crystal) st.crystal.rotation.y += 1.5 * dt;
+
+      // v1.6.0: Trụ chính nếu không bị kẻ địch tấn công trong 10s sẽ tự hồi 50 HP / 1s
+      st.outOfCombatTimer = (st.outOfCombatTimer || 0) + dt;
+      if (st.kind === "core" && st.outOfCombatTimer >= 10.0 && st.hp < st.maxHp) {
+        st.hp = Math.min(st.maxHp, Number((st.hp + 50 * dt).toFixed(2)));
+      }
+
       if (st.atkCd > 0) st.atkCd = Math.max(0, st.atkCd - dt);
       if (st.atkCd <= 0) {
         let target = this.units.find((u) => u.isMinion && !u.dead && u.team !== st.team && Math.hypot(u.x - st.x, u.z - st.z) <= st.range);
@@ -5061,6 +5758,10 @@ class MobaArena3D {
         if (target) {
           st.atkCd = 1.15;
           this.performBasicAttack(st, target);
+        } else {
+          // Reset consecutive shot streak when no enemies are inside tower range
+          st.shotStreak = 0;
+          st.ad = st.baseAd || (st.kind === "core" ? 150 : 120);
         }
       }
     });
@@ -5330,15 +6031,16 @@ class MobaArena3D {
 
 window.MobaArena3D = MobaArena3D;
 
-
+  </script>
+  <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v1.5.0)
+// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v1.6.0)
 // ============================================================================
 
 class GameUIController {
   constructor() {
     this.state = this.loadState();
-    this.selectedHeroId = "pain"; // Highlight new hero Miya or Aurelia
+    this.selectedHeroId = "shisui"; // Highlight new hero Miya or Aurelia
     if (!this.state.ownedHeroes.includes(this.selectedHeroId)) {
       this.selectedHeroId = "aurelia";
     }
@@ -5662,7 +6364,7 @@ class GameUIController {
             <div class="flex justify-between items-start gap-3">
               <div class="flex items-center gap-3">
                 ${h.portraitImg ? `<img src="${h.portraitImg}" alt="${h.name}" class="w-14 h-14 rounded-xl object-cover border-2 border-sky-400 shadow" />` : ""}
-                ${h.summonPortraitImg ? `<img src="${h.summonPortraitImg}" title="Triệu hồi Ngoại Đạo Ma Tượng (10.000 HP)" alt="Ma Tượng" class="w-14 h-14 rounded-xl object-cover border-2 border-amber-400 shadow" />` : ""}
+                ${h.summonPortraitImg ? `<img src="${h.summonPortraitImg}" title="${h.id === 'shisui' ? 'Susanoo Lục Bảo (Shisui)' : 'Triệu hồi Ngoại Đạo Ma Tượng (10.000 HP)'}" alt="Susanoo / Ma Tượng" class="w-14 h-14 rounded-xl object-cover border-2 border-emerald-400 shadow" />` : ""}
                 <div>
                   <h4 class="text-base font-extrabold text-white">${h.name}</h4>
                   <p class="text-xs text-amber-300 font-semibold">${h.title}</p>
@@ -6442,7 +7144,45 @@ class GameUIController {
     setTxt("hud-hero-name", `${p.heroData.name} (Lv.${p.level})`);
     setTxt("hud-kda", `${p.kills}/${p.deaths}/${p.assists}`);
     setTxt("hud-gold", p.gold.toLocaleString("vi-VN"));
-    setTxt("hud-stats-line", `⚔️AD: ${p.ad} | 🔮AP: ${p.ap} | ⚡AS: ${p.atkSpeed.toFixed(2)} | 💥Crit: ${Math.round(p.crit * 100)}%`);
+    setTxt("hud-stats-line", `⚔️AD: ${p.ad} | 🔮AP: ${p.ap} | ⚡AS: ${p.atkSpeed.toFixed(2)} | ⏳CDR: ${Math.round((p.cdr || 0) * 100)}%`);
+
+    // Update v1.6.0 Target Priority Mode UI (H: MINION_MONSTER, T: TOWER, G: HERO)
+    const prioEl = document.getElementById("hud-priority-mode");
+    if (prioEl) {
+      const m = arena.attackPriorityMode || "HERO";
+      if (m === "MINION_MONSTER") {
+        prioEl.textContent = "🎯 Chế Độ Đánh: Ưu Tiên Quái & Lính [H]";
+        prioEl.className = "px-2.5 py-0.5 rounded-lg bg-emerald-900/85 border border-emerald-400 text-[10px] font-extrabold text-emerald-200";
+      } else if (m === "TOWER") {
+        prioEl.textContent = "🏰 Chế Độ Đánh: Ưu Tiên Trụ [T]";
+        prioEl.className = "px-2.5 py-0.5 rounded-lg bg-amber-900/85 border border-amber-400 text-[10px] font-extrabold text-amber-200";
+      } else {
+        prioEl.textContent = "⚔️ Chế Độ Đánh: Ưu Tiên Tướng (Bấm [H] Quái/Lính • [T] Trụ)";
+        prioEl.className = "px-2.5 py-0.5 rounded-lg bg-slate-900/85 border border-slate-700 text-[10px] font-bold text-slate-300";
+      }
+    }
+
+    // Update Active Jungle Buffs & Kradus Minion Buff Badges
+    const buffBox = document.getElementById("hud-buffs-line");
+    if (buffBox) {
+      const badges = [];
+      if (p.lucSiBuffTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-orange-500/25 border border-orange-400 text-orange-200 text-[9px] font-bold">🟠 Bùa Lực Sĩ: ${Math.ceil(p.lucSiBuffTimer)}s (+15% ST, +10% Chậm)</span>`);
+      }
+      if (p.thuatSiBuffTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-sky-500/25 border border-sky-400 text-sky-200 text-[9px] font-bold">🔵 Bùa Thuật Sĩ: ${Math.ceil(p.thuatSiBuffTimer)}s (+20% CDR, +10% Tốc)</span>`);
+      }
+      if (arena.kradusMinionBuff && arena.kradusMinionBuff.blue) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-amber-500/25 border border-amber-400 text-amber-200 text-[9px] font-bold">🐉 Rồng Kradus: Lính +25% ST</span>`);
+      }
+      if (p.shisuiFireTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-rose-500/30 border border-rose-400 text-rose-200 text-[9px] font-bold">🔥 Hoả Độn: ${p.shisuiFireTimer.toFixed(1)}s</span>`);
+      }
+      if (p.shisuiSusanooTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-emerald-500/30 border border-emerald-400 text-emerald-200 text-[9px] font-bold">👁️ Kotoamatsukami: ${p.shisuiSusanooTimer.toFixed(1)}s</span>`);
+      }
+      buffBox.innerHTML = badges.join(" ");
+    }
 
     const hpBar = document.getElementById("hud-hp-bar");
     const hpTxt = document.getElementById("hud-hp-text");
@@ -6639,6 +7379,6 @@ window.addEventListener("load", () => {
   window.UI.init();
 });
 
-</script>
+  </script>
 </body>
 </html>
