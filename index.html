@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legends of Eternia 3D - v2.1.0 (3v3 Isometric MOBA)</title>
+  <title>Legends of Eternia 3D - v2.2.0 (3v3 Isometric MOBA)</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
@@ -64,7 +64,7 @@ body {
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base md:text-lg font-black tracking-wider text-white">LEGENDS OF ETERNIA 3D</h1>
-            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v2.1.0</span>
+            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v2.2.0</span>
           </div>
           <div id="lobby-rank-summary" class="text-xs font-bold text-slate-300"></div>
         </div>
@@ -107,7 +107,7 @@ body {
           <div class="space-y-2.5">
             <button onclick="window.UI.openModal('modal-heroes')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
               <span class="flex items-center gap-2.5">🦸 <span>NHÂN VẬT (HEROES)</span></span>
-              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">21 Tướng</span>
+              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">24 Tướng</span>
             </button>
 
             <button onclick="window.UI.openModal('modal-shop')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
@@ -185,23 +185,23 @@ body {
 
     <!-- Lobby Footer -->
     <footer class="z-20 px-6 py-2 bg-slate-950/90 border-t border-slate-800/80 flex flex-wrap justify-between items-center text-[11px] text-slate-400">
-      <div>Bản đồ 3v3 Isometric v2.1.0: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
+      <div>Bản đồ 3v3 Isometric v2.2.0: 4 Trụ Ngoài (20.000 HP) + 1 Trụ Chính (50.000 HP) • Quái Rừng tăng trưởng mỗi 45s • Rồng Kradus tăng trưởng mỗi 1p30s</div>
       <div>Thưởng trận: Thắng +500–800 Vàng | Thua +50–120 Vàng</div>
     </footer>
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODAL 1: NHÂN VẬT (21 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
+  <!-- MODAL 1: NHÂN VẬT (24 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
   <!-- ===================================================================== -->
   <div id="modal-heroes" class="hidden fixed inset-0 z-40 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
     <div class="w-full max-w-6xl max-h-[90vh] bg-slate-900 border border-slate-700 rounded-3xl flex flex-col overflow-hidden shadow-2xl">
       <div class="px-6 py-4 bg-slate-950 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (21 HEROES ROSTER)</h3>
+          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (24 HEROES ROSTER)</h3>
           <p class="text-xs text-slate-400">Xem tướng Đã Sở Hữu / Chưa Sở Hữu, Ngoại hình 3D riêng biệt và bộ 3 Kỹ Năng + 1 Nội Tại</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (21)</button>
+          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (24)</button>
           <button onclick="window.UI.setHeroRoleFilter('Support')" class="px-3 py-1.5 rounded-xl bg-teal-900/60 hover:bg-teal-800 text-xs font-bold text-teal-300">Hỗ Trợ (Support)</button>
           <button onclick="window.UI.setHeroRoleFilter('Marksman')" class="px-3 py-1.5 rounded-xl bg-emerald-900/60 hover:bg-emerald-800 text-xs font-bold text-emerald-300">Xạ Thủ (Marksman)</button>
           <button onclick="window.UI.setHeroRoleFilter('Mage')" class="px-3 py-1.5 rounded-xl bg-sky-900/60 hover:bg-sky-800 text-xs font-bold text-sky-300">Pháp Sư (Mage)</button>
@@ -229,7 +229,7 @@ body {
           <button onclick="window.UI.setShopTab('heroes')" class="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold">🦸 Mua Nhân Vật</button>
           <button onclick="window.UI.setShopTab('skins')" class="px-3 py-1.5 rounded-xl bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/40 text-purple-300 text-xs font-bold">✨ Mua Skin Hiệu Ứng</button>
           <button onclick="window.UI.setShopTab('ruby')" class="px-3 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 text-xs font-bold">♦️ Sự Kiện Ruby</button>
-          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 30 Trang Bị v2.1.0 Trong Trận</button>
+          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 30 Trang Bị v2.2.0 Trong Trận</button>
           <button onclick="window.UI.openModal(null)" class="ml-2 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold">✕ Đóng</button>
         </div>
       </div>
@@ -330,13 +330,13 @@ body {
     <!-- Top Dead Heroes Respawn Countdown Bar -->
     <div id="hud-dead-heroes-bar" class="hidden fixed top-14 left-1/2 -translate-x-1/2 z-30 flex flex-wrap items-center justify-center gap-1.5 pointer-events-none"></div>
 
-    <!-- First Blood & Multi-Kill Banner (v2.1.0) -->
+    <!-- First Blood & Multi-Kill Banner (v2.2.0) -->
     <div id="ingame-kill-banner" class="hidden fixed top-16 left-1/2 -translate-x-1/2 z-40 px-7 py-2.5 rounded-2xl bg-gradient-to-r from-rose-950/95 via-red-900/90 to-slate-950/95 border-2 border-rose-400 shadow-2xl flex flex-col items-center pointer-events-none">
       <div id="kill-banner-title" class="text-sm md:text-base font-black tracking-wider text-amber-300 drop-shadow">🩸 CHIẾN CÔNG ĐẦU (FIRST BLOOD)!</div>
       <div id="kill-banner-sub" class="text-xs font-extrabold text-white mt-0.5"></div>
     </div>
 
-    <!-- Player Respawn Countdown Overlay (v2.1.0) -->
+    <!-- Player Respawn Countdown Overlay (v2.2.0) -->
     <div id="player-respawn-overlay" class="hidden pointer-events-none fixed inset-x-0 top-1/3 -translate-y-1/2 z-30 flex flex-col items-center justify-center">
       <div class="px-6 py-3.5 rounded-3xl bg-slate-950/90 border-2 border-rose-500/80 shadow-2xl text-center">
         <div class="text-xs font-extrabold uppercase tracking-wider text-rose-400">⏳ Tướng Đang Đếm Ngược Hồi Sinh (Hồi Chiêu Vẫn Tiếp Tục Chạy)</div>
@@ -481,11 +481,11 @@ body {
 
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v2.0.0 MASTER GAME DATA
+// LEGENDS OF ETERNIA 3D - v2.2.0 MASTER GAME DATA (META OVERHAUL)
 // ============================================================================
 // 14 Heroes (including Miya, Helen, Pain, Nagato, Shisui & Grock), 32 Unique Items, 14 Rank Tiers, Preset Builds
 window.GAME_DATA = {
-  version: "2.1.0",
+  version: "2.2.0",
 
   defaultResources: {
     gold: 12500,
@@ -527,15 +527,15 @@ window.GAME_DATA = {
       accentColor: 0xe0f2fe,
       weaponType: "staff",
       range: 8.5,
-      baseStats: { hp: 3100, mana: 680, ad: 55, ap: 98, armor: 85, mr: 95, moveSpeed: 4.8, atkSpeed: 0.95 },
+      baseStats: { hp: 3000, mana: 680, ad: 52, ap: 88, armor: 82, mr: 90, moveSpeed: 4.75, atkSpeed: 0.92 },
       passive: {
-        name: "Hàn Băng Vĩnh Cửu (Eternal Frost)",
-        desc: "Mỗi 3 lần kỹ năng hoặc đánh thường trúng đích sẽ kích nổ Ấn Băng Tinh, gây thêm 180 (+45% AP) + 5% HP tối đa của mục tiêu thành sát thương phép, đóng băng 1.2s và hồi 6% Năng lượng tối đa cho Aurelia."
+        name: "Hàn Băng Vĩnh Cửu (Eternal Frost — v2.2.0 Giảm Sức Mạnh)",
+        desc: "Mỗi 4 lần kỹ năng hoặc đánh thường trúng đích (tăng từ 3 lần) mới kích nổ Ấn Băng Tinh, gây thêm 140 (+35% AP) + 3.5% HP tối đa của mục tiêu thành sát thương phép, đóng băng 0.8s (giảm từ 1.2s) và hồi 5% Năng lượng."
       },
       skills: [
-        { key: "Q", name: "Hàn Băng Tiễn / Thiên Nga Trắng", cd: 5.5, cdReducePerLevel: 0.2, mana: 60, range: 10.5, type: "skillshot", dmgBase: 250, apScale: 0.75, adScale: 0, hpPctMax: 0, hpPctCur: 0.04, cc: "slow", desc: "Phóng thương băng (hoặc Thiên Nga Trắng với skin Thiên Sứ) gây 250 (+75% AP) + 4% HP hiện tại của mục tiêu, làm chậm 35% trong 2s. Trúng mục tiêu đang bị làm chậm giúp giảm ngay 1.0s hồi chiêu Q. (Mỗi cấp giảm 0.2s hồi chiêu)." },
-        { key: "W", name: "Tinh Thể Lục Giác / Xích Thiên Đàng", cd: 9.0, cdReducePerLevel: 0.3, mana: 80, range: 8.5, radius: 3.4, type: "aoe_circle", dmgBase: 290, apScale: 0.80, adScale: 0, cc: "root", shredMrPct: 0.25, desc: "Kết tinh vòng băng (hoặc 2 dây xích thiên đàng chéo nhau đập vào nhau) bán kính 3.4m, gây 290 (+80% AP) sát thương phép, trói chân 1.5s và giảm 25% Kháng phép của địch trong 3s. (Mỗi cấp giảm 0.3s hồi chiêu)." },
-        { key: "E", name: "Bão Tuyết Cực Hàn / Phán Quyết", cd: 20.0, cdReducePerLevel: 0.7, mana: 130, range: 9.0, radius: 4.6, type: "aoe_storm", dmgBase: 540, apScale: 1.30, adScale: 0, hpPctMax: 0.08, cc: "slow", selfShieldMaxHpPct: 0.18, desc: "Triệu hồi bão tuyết (hoặc 9 tia sáng Thiên Thần) bán kính 4.6m gây 540 (+130% AP) + 8% HP tối đa của địch, làm chậm 50% trong 3s và tạo Lá chắn Băng bằng 18% HP tối đa cho Aurelia trong 4s. (Mỗi cấp giảm 0.7s hồi chiêu)." }
+        { key: "Q", name: "Hàn Băng Tiễn / Thiên Nga Trắng", cd: 7.0, cdReducePerLevel: 0.15, mana: 65, range: 10.2, type: "skillshot", dmgBase: 215, apScale: 0.65, adScale: 0, hpPctMax: 0, hpPctCur: 0.03, cc: "slow", desc: "[v2.2.0 Giảm Sức Mạnh] Phóng thương băng gây 215 (+65% AP) + 3% HP hiện tại, làm chậm 30%. Trúng mục tiêu đang bị làm chậm giảm 0.5s hồi chiêu Q (giảm từ 1.0s). Hồi chiêu: 7.0s (mỗi cấp giảm 0.15s)." },
+        { key: "W", name: "Tinh Thể Lục Giác / Xích Thiên Đàng", cd: 11.5, cdReducePerLevel: 0.25, mana: 85, range: 8.2, radius: 3.2, type: "aoe_circle", dmgBase: 240, apScale: 0.68, adScale: 0, cc: "root", shredMrPct: 0.18, desc: "[v2.2.0 Giảm Sức Mạnh] Kết tinh vòng băng bán kính 3.2m gây 240 (+68% AP) sát thương phép, trói chân 1.1s (giảm từ 1.5s) và giảm 18% Kháng phép trong 3s. Hồi chiêu: 11.5s (mỗi cấp giảm 0.25s)." },
+        { key: "E", name: "Bão Tuyết Cực Hàn / Phán Quyết", cd: 26.0, cdReducePerLevel: 0.5, mana: 140, range: 8.8, radius: 4.5, type: "aoe_storm", dmgBase: 450, apScale: 1.05, adScale: 0, hpPctMax: 0.06, cc: "slow", selfShieldMaxHpPct: 0.12, desc: "[v2.2.0 Giảm Sức Mạnh] Triệu hồi bão tuyết bán kính 4.5m gây 450 (+105% AP) + 6% HP tối đa của địch, làm chậm 40% và tạo Lá chắn Băng bằng 12% HP tối đa (giảm từ 18%). Hồi chiêu: 26.0s (mỗi cấp giảm 0.5s)." }
       ]
     },
     {
@@ -558,8 +558,8 @@ window.GAME_DATA = {
       },
       skills: [
         { key: "Q", name: "Hỏa Cầu Nung Chảy", cd: 5.0, cdReducePer2Levels: 0.4, mana: 55, range: 10.0, type: "skillshot", dmgBase: 270, apScale: 0.85, adScale: 0, hpPctCur: 0.04, cc: "slow", desc: "Chưởng cầu lửa dung nham phát nổ gây 270 (+85% AP) + 4% HP hiện tại của mục tiêu thành sát thương phép và làm chậm 25% trong 1.5s. (Lên 2 cấp giảm 0.4s hồi chiêu)." },
-        { key: "W", name: "Phượng Hoàng Lướt Lửa", cd: 9.5, cdReducePerLevel: 0.35, mana: 75, range: 6.5, radius: 3.4, type: "dash_fire", dmgBase: 235, apScale: 0.70, adScale: 0, cc: "slow", refundQPerHit: 1.2, desc: "Hóa Phượng Hoàng lướt 6.5m để lại thảm lửa gây 235 (+70% AP) sát thương phép, làm chậm 40%. Mỗi kẻ địch trúng chiêu giúp giảm 1.2s hồi chiêu 1 (Q) và tăng 25% Tốc chạy trong 2s. (Mỗi cấp giảm 0.35s hồi chiêu)." },
-        { key: "E", name: "Thiên Thạch Hủy Diệt", cd: 22.0, cdReducePerLevel: 0.8, mana: 140, range: 9.5, radius: 4.5, type: "aoe_meteor", dmgBase: 650, apScale: 1.45, adScale: 0, hpPctMissing: 0.12, cc: "knockup", desc: "Giáng đại thiên thạch xuống bán kính 4.5m gây 650 (+145% AP) + 12% HP đã mất của mục tiêu, hất tung 1.5s và bắn 4 cầu lửa dung nham ra 4 hướng xung quanh. (Mỗi cấp giảm 0.8s hồi chiêu)." }
+        { key: "W", name: "Phượng Hoàng Lướt Lửa", cd: 7.5, cdReducePerLevel: 0.35, mana: 65, range: 7.2, radius: 3.5, type: "dash_fire", dmgBase: 265, apScale: 0.78, adScale: 0, selfShieldMaxHpPct: 0.14, cc: "slow", refundQPerHit: 1.5, desc: "[v2.2.0 Tăng Sức Mạnh] Hóa Phượng Hoàng lướt 7.2m tạo Khiên Lửa bằng 14% HP tối đa (3s), gây 265 (+78% AP) sát thương phép, làm chậm 40% và giảm 1.5s hồi chiêu Q mỗi mục tiêu trúng đòn (Hồi chiêu: 7.5s)." },
+        { key: "E", name: "Thiên Thạch Hủy Diệt", cd: 20.0, cdReducePerLevel: 0.8, mana: 130, range: 9.5, radius: 4.6, type: "aoe_meteor", dmgBase: 650, apScale: 1.45, adScale: 0, hpPctMissing: 0.12, cc: "knockup", desc: "Giáng đại thiên thạch xuống bán kính 4.6m gây 650 (+145% AP) + 12% HP đã mất của mục tiêu, hất tung 1.5s và bắn 4 cầu lửa dung nham ra 4 hướng xung quanh. (Hồi chiêu: 20s)." }
       ]
     },
     {
@@ -574,16 +574,16 @@ window.GAME_DATA = {
       color: 0xa855f7,
       accentColor: 0xe9d5ff,
       weaponType: "dual_blades",
-      range: 2.8,
-      baseStats: { hp: 3350, mana: 480, ad: 130, ap: 0, armor: 105, mr: 95, moveSpeed: 5.35, atkSpeed: 1.25 },
+      range: 3.1,
+      baseStats: { hp: 3680, mana: 520, ad: 146, ap: 0, armor: 118, mr: 108, moveSpeed: 5.50, atkSpeed: 1.32 },
       passive: {
-        name: "Ảnh Sát Liên Kích (Twin Shadow Strike)",
-        desc: "Mỗi 3 đòn đánh thường hoặc sau khi tung chiêu lướt, đòn đánh kế tiếp chém song đao gây thêm 110 (+60% AD) + 5% HP đã mất của mục tiêu, hồi 5% HP tối đa và tăng 20% Tốc chạy trong 1.5s."
+        name: "Ảnh Sát Liên Kích (Twin Shadow Strike — v2.2.0 Buff Cận Chiến)",
+        desc: "[Nội Tại Cận Chiến: +25% Kháng Hiệu Ứng, -12% ST nhận từ đòn bắn xa]. Mỗi 3 đòn đánh thường hoặc sau khi tung chiêu lướt, đòn đánh kế tiếp chém song đao gây thêm 145 (+75% AD) + 7% HP đã mất, hồi 6% HP tối đa và tăng 25% Tốc chạy. Hạ gục/phụ trợ làm mới ngay Chiêu 1 & 2."
       },
       skills: [
-        { key: "Q", name: "Song Đao Trảm Ảnh", cd: 6.0, cdReducePerLevel: 0.25, mana: 45, range: 7.0, radius: 3.2, type: "dash_slash", dmgBase: 265, apScale: 0, adScale: 1.20, hpPctCur: 0.04, cc: "armor_break", desc: "Lướt 7m chém toàn bộ địch trên đường gây 265 (+120% AD) + 4% HP hiện tại của mục tiêu, phá 20% Giáp trong 3s và giảm 1.5s hồi chiêu Q nếu trúng địch. (Mỗi cấp giảm 0.25s hồi chiêu)." },
-        { key: "W", name: "Huyền Vũ Mê Khói", cd: 8.5, cdReducePerLevel: 0.3, mana: 60, range: 4.0, radius: 4.0, type: "self_aoe_buff", dmgBase: 200, apScale: 0, adScale: 0.85, cc: "slow", desc: "Tung bom khói tím bán kính 4m gây 200 (+85% AD) sát thương, làm chậm địch 45% trong 2s, đồng thời giúp Zephyr nhận Lá chắn 350 (+80% AD), +45% Tốc đánh và +25% Chí mạng trong 3.5s. (Mỗi cấp giảm 0.3s hồi chiêu)." },
-        { key: "E", name: "Ấn Tử Thần Tứ Tuyệt", cd: 18.0, cdReducePerLevel: 0.6, mana: 100, range: 7.5, radius: 3.6, type: "blink_burst", dmgBase: 560, apScale: 0, adScale: 1.70, hpPctMissing: 0.14, cc: "mark", desc: "Áp sát tức thời tới mục tiêu, khắc Ấn Tử Thần và chém liên hoàn 4 nhát gây 560 (+170% AD) + 14% HP đã mất của địch. Hạ gục mục tiêu giúp hồi lại ngay Chiêu 1 và Chiêu 2. (Mỗi cấp giảm 0.6s hồi chiêu)." }
+        { key: "Q", name: "Song Đao Trảm Ảnh", cd: 4.5, cdReducePerLevel: 0.25, mana: 40, range: 7.8, radius: 3.4, type: "dash_slash", dmgBase: 340, apScale: 0, adScale: 1.45, hpPctCur: 0.08, cc: "armor_break", desc: "[v2.2.0 Tăng Sức Mạnh] Lướt 7.8m chém toàn bộ địch gây 340 (+145% AD) + 8% HP hiện tại, phá 28% Giáp trong 3s và giảm 1.5s hồi chiêu Q nếu trúng địch (Hồi chiêu: 4.5s)." },
+        { key: "W", name: "Huyền Vũ Mê Khói", cd: 6.5, cdReducePerLevel: 0.3, mana: 50, range: 4.2, radius: 4.2, type: "self_aoe_buff", dmgBase: 280, apScale: 0, adScale: 1.15, cc: "slow", desc: "[v2.2.0 Tăng Sức Mạnh] Tung bom khói tím bán kính 4.2m gây 280 (+115% AD), làm chậm 45%, tạo Lá chắn 480 (+110% AD), +50% Tốc đánh và +30% Chí mạng trong 3.5s (Hồi chiêu: 6.5s)." },
+        { key: "E", name: "Ấn Tử Thần Tứ Tuyệt", cd: 14.5, cdReducePerLevel: 0.6, mana: 90, range: 8.5, radius: 3.8, type: "blink_burst", dmgBase: 680, apScale: 0, adScale: 2.00, hpPctMissing: 0.18, cc: "stun", desc: "[v2.2.0 Tăng Sức Mạnh] Áp sát tức thời ra sau lưng mục tiêu, khắc Ấn Tử Thần và chém liên hoàn gây 680 (+200% AD) + 18% HP đã mất kèm làm choáng 1.0s (Hồi chiêu: 14.5s)." }
       ]
     },
     {
@@ -598,16 +598,16 @@ window.GAME_DATA = {
       color: 0xe11d48,
       accentColor: 0xfecdd3,
       weaponType: "scythe",
-      range: 3.0,
-      baseStats: { hp: 3320, mana: 460, ad: 136, ap: 0, armor: 102, mr: 95, moveSpeed: 5.4, atkSpeed: 1.22 },
+      range: 3.2,
+      baseStats: { hp: 3720, mana: 500, ad: 150, ap: 0, armor: 116, mr: 108, moveSpeed: 5.55, atkSpeed: 1.30 },
       passive: {
-        name: "Huyết Nguyệt Tế Lễ (Blood Moon Frenzy)",
-        desc: "Mỗi 5 đòn đánh thường hoặc khi hạ gục/phụ hạ tướng địch sẽ kích hoạt 'Huyết Cuồng' trong 4s (+35% Hút máu vật lý, +30% Tốc đánh), giảm ngay 60% thời gian hồi các chiêu hiện tại và hồi 15% HP tối đa."
+        name: "Huyết Nguyệt Tế Lễ (Blood Moon Frenzy — v2.2.0 Buff Cận Chiến)",
+        desc: "[Nội Tại Cận Chiến: +25% Kháng Hiệu Ứng, -12% ST nhận từ đòn bắn xa]. Mỗi 4 đòn đánh thường (giảm từ 5) hoặc khi hạ gục/phụ trợ kích hoạt 'Huyết Cuồng' 4s (+40% Hút máu VL, +35% Tốc đánh), giảm 60% hồi chiêu hiện tại và hồi 15% HP tối đa."
       },
       skills: [
-        { key: "Q", name: "Lưỡi Liềm Đoạt Hồn", cd: 5.5, cdReducePerLevel: 0.2, mana: 50, range: 9.0, type: "skillshot", dmgBase: 280, apScale: 0, adScale: 1.20, hpPctMax: 0.05, healConvertPct: 0.35, cc: "slow", desc: "Phóng lưỡi liềm huyết nguyệt gây 280 (+120% AD) + 5% HP tối đa của mục tiêu, đánh cắp 25% Tốc chạy trong 1.5s và chuyển 35% sát thương gây ra thành hồi máu cho Nyx. (Mỗi cấp giảm 0.2s hồi chiêu)." },
-        { key: "W", name: "Huyết Ảnh Dịch Chuyển", cd: 8.0, cdReducePerLevel: 0.3, mana: 60, range: 7.0, radius: 3.4, type: "dash_slash", dmgBase: 240, apScale: 0, adScale: 1.00, cc: "stun", desc: "Hóa thành đàn dơi huyết dịch chuyển 7m, quét lưỡi hái gây 240 (+100% AD) sát thương vật lý, làm choáng nhẹ 0.75s và cường hóa đòn đánh kế tiếp gây thêm +75% AD sát thương. (Mỗi cấp giảm 0.3s hồi chiêu)." },
-        { key: "E", name: "Phán Quyết Huyết Nguyệt", cd: 19.0, cdReducePerLevel: 0.7, mana: 100, range: 7.5, radius: 3.8, type: "execute_leap", dmgBase: 590, apScale: 0, adScale: 1.80, hpPctMissing: 0.20, healConvertPct: 0.30, cc: "execute", desc: "Nhảy vọt dưới Huyết Nguyệt bổ lưỡi hái xuống bán kính 3.8m, gây 590 (+180% AD) + 20% HP đã mất của mục tiêu và hồi cho Nyx 30% tổng sát thương gây ra. (Mỗi cấp giảm 0.7s hồi chiêu)." }
+        { key: "Q", name: "Lưỡi Liềm Đoạt Hồn", cd: 4.5, cdReducePerLevel: 0.2, mana: 45, range: 9.2, type: "skillshot", dmgBase: 350, apScale: 0, adScale: 1.45, hpPctMax: 0.08, healConvertPct: 0.45, cc: "slow", desc: "[v2.2.0 Tăng Sức Mạnh] Phóng lưỡi liềm huyết nguyệt gây 350 (+145% AD) + 8% HP tối đa, làm chậm 35% và chuyển 45% sát thương gây ra thành hồi máu cho Nyx (Hồi chiêu: 4.5s)." },
+        { key: "W", name: "Huyết Ảnh Dịch Chuyển", cd: 6.0, cdReducePerLevel: 0.3, mana: 50, range: 7.8, radius: 3.6, type: "dash_slash", dmgBase: 320, apScale: 0, adScale: 1.30, selfShieldMaxHpPct: 0.14, cc: "stun", desc: "[v2.2.0 Tăng Sức Mạnh] Hóa đàn dơi huyết dịch chuyển 7.8m gây 320 (+130% AD), làm choáng 1.0s, tạo Khiên 14% HP tối đa và cường hóa đòn đánh kế tiếp gây thêm +85% AD (Hồi chiêu: 6.0s)." },
+        { key: "E", name: "Phán Quyết Huyết Nguyệt", cd: 15.0, cdReducePerLevel: 0.6, mana: 90, range: 8.2, radius: 4.2, type: "execute_leap", dmgBase: 700, apScale: 0, adScale: 2.05, hpPctMissing: 0.24, healConvertPct: 0.45, cc: "execute", desc: "[v2.2.0 Tăng Sức Mạnh] Nhảy vọt bổ lưỡi hái xuống bán kính 4.2m gây 700 (+205% AD) + 24% HP đã mất và hồi cho Nyx 45% tổng sát thương gây ra (Hồi chiêu: 15.0s)." }
       ]
     },
     {
@@ -622,16 +622,16 @@ window.GAME_DATA = {
       color: 0xeab308,
       accentColor: 0xfef9c3,
       weaponType: "shield_hammer",
-      range: 2.8,
-      baseStats: { hp: 4650, mana: 500, ad: 94, ap: 0, armor: 185, mr: 165, moveSpeed: 4.85, atkSpeed: 0.92 },
+      range: 2.9,
+      baseStats: { hp: 4850, mana: 520, ad: 102, ap: 0, armor: 195, mr: 175, moveSpeed: 4.92, atkSpeed: 0.95 },
       passive: {
-        name: "Thánh Khiên Hoàng Kim (Golden Bulwark)",
-        desc: "Mỗi 5 đòn đánh thường, Gideon đập khiên phát nổ ánh kim gây thêm 6% HP tối đa của bản thân thành sát thương vật lý và làm choáng 0.6s. Khi HP xuống dưới 40%, tự động nhận Khiên chắn bằng 25% HP tối đa trong 5s và giải trừ làm chậm (hồi 20s)."
+        name: "Thánh Khiên Hoàng Kim (Golden Bulwark — v2.2.0 Buff Cận Chiến)",
+        desc: "[Nội Tại Cận Chiến: +25% Kháng Hiệu Ứng, -12% ST nhận từ đòn bắn xa]. Mỗi 4 đòn đánh thường, Gideon đập khiên phát nổ gây thêm 7% HP tối đa và làm choáng 0.75s. Khi HP < 40%, tự động nhận Khiên 25% HP tối đa (5s) và giải làm chậm."
       },
       skills: [
-        { key: "Q", name: "Khiên Sư Tử Húc", cd: 7.0, cdReducePerLevel: 0.25, mana: 55, range: 6.0, radius: 3.2, type: "dash_stun", dmgBase: 220, apScale: 0, adScale: 0.90, casterMaxHpScale: 0.05, cc: "stun", desc: "Húc khiên lao tới 6m gây 220 (+90% AD) + 5% HP tối đa của Gideon thành sát thương vật lý, làm choáng 1.2s và giảm 20% Công VL của kẻ địch trong 3s. (Mỗi cấp giảm 0.25s hồi chiêu)." },
-        { key: "W", name: "Pháo Đài Thánh Quang", cd: 10.5, cdReducePerLevel: 0.35, mana: 70, range: 4.2, radius: 4.2, type: "shield_buff", dmgBase: 180, apScale: 0, adScale: 0.65, selfShieldMaxHpPct: 0.15, cc: "shield", desc: "Dựng vòm khiên Hoàng Kim bán kính 4.2m: tạo Lá chắn bằng 500 (+15% HP tối đa) cho bản thân và đồng minh gần trong 4s, giảm 45% sát thương nhận vào và chấn động địch xung quanh. (Mỗi cấp giảm 0.35s hồi chiêu)." },
-        { key: "E", name: "Địa Chấn Đại Chùy", cd: 20.0, cdReducePerLevel: 0.65, mana: 100, range: 5.2, radius: 5.2, type: "aoe_quake", dmgBase: 440, apScale: 0, adScale: 1.25, hpPctMax: 0.10, cc: "knockup", desc: "Đập đại chùy làm trồi lên 8 cột đá bán kính 5.2m, gây 440 (+125% AD) + 10% HP tối đa của mục tiêu, hất tung toàn bộ địch 1.5s và tăng +120 Giáp/Kháng phép cho Gideon trong 5s. (Mỗi cấp giảm 0.65s hồi chiêu)." }
+        { key: "Q", name: "Khiên Sư Tử Húc", cd: 5.5, cdReducePerLevel: 0.25, mana: 50, range: 6.8, radius: 3.4, type: "dash_stun", dmgBase: 260, apScale: 0, adScale: 1.05, casterMaxHpScale: 0.06, cc: "stun", desc: "[v2.2.0 Tăng Sức Mạnh] Húc khiên lao tới 6.8m gây 260 (+105% AD) + 6% HP tối đa của Gideon, làm choáng 1.25s (Hồi chiêu: 5.5s)." },
+        { key: "W", name: "Pháo Đài Thánh Quang", cd: 8.5, cdReducePerLevel: 0.35, mana: 65, range: 4.5, radius: 4.5, type: "shield_buff", dmgBase: 220, apScale: 0, adScale: 0.80, selfShieldMaxHpPct: 0.18, cc: "shield", desc: "[v2.2.0 Tăng Sức Mạnh] Dựng vòm khiên Hoàng Kim tạo Lá chắn 550 (+18% HP tối đa) trong 4s và giảm 45% sát thương nhận vào (Hồi chiêu: 8.5s)." },
+        { key: "E", name: "Địa Chấn Đại Chùy", cd: 16.5, cdReducePerLevel: 0.65, mana: 95, range: 5.5, radius: 5.5, type: "aoe_quake", dmgBase: 500, apScale: 0, adScale: 1.40, hpPctMax: 0.12, cc: "knockup", desc: "[v2.2.0 Tăng Sức Mạnh] Đập đại chùy làm trồi lên 8 cột đá bán kính 5.5m gây 500 (+140% AD) + 12% HP tối đa của mục tiêu, hất tung 1.5s và tăng +140 Giáp/Kháng phép (Hồi chiêu: 16.5s)." }
       ]
     },
     {
@@ -646,16 +646,16 @@ window.GAME_DATA = {
       color: 0x10b981,
       accentColor: 0xa7f3d0,
       weaponType: "golem_fists",
-      range: 2.8,
-      baseStats: { hp: 4900, mana: 520, ad: 90, ap: 45, armor: 195, mr: 175, moveSpeed: 4.80, atkSpeed: 0.88 },
+      range: 3.0,
+      baseStats: { hp: 5100, mana: 540, ad: 100, ap: 55, armor: 205, mr: 185, moveSpeed: 4.90, atkSpeed: 0.92 },
       passive: {
-        name: "Trái Tim Cổ Thụ (Ancient Heart)",
-        desc: "Tự động hồi 1.5% HP tối đa mỗi giây (tăng gấp đôi thành 3.0% HP/s khi đứng trong bụi cỏ). Mỗi 4 đòn đánh thường sẽ quấn rễ trói chân mục tiêu 0.8s và hồi 4% HP tối đa cho Thorn."
+        name: "Trái Tim Cổ Thụ (Ancient Heart — v2.2.0 Buff Cận Chiến)",
+        desc: "[Nội Tại Cận Chiến: +25% Kháng Hiệu Ứng, -12% ST nhận từ đòn bắn xa]. Tự động hồi 1.6% HP tối đa mỗi giây (3.2% HP/s trong bụi cỏ). Mỗi 4 đòn đánh thường trói chân 0.9s và hồi 5% HP tối đa."
       },
       skills: [
-        { key: "Q", name: "Dây Leo Gai Quấn", cd: 7.0, cdReducePerLevel: 0.25, mana: 60, range: 8.0, type: "skillshot_pull", dmgBase: 230, apScale: 0.65, adScale: 0.65, hpPctCur: 0.05, cc: "pull", desc: "Quất dây leo cổ thụ tầm xa 8m gây 230 (+65% AD +65% AP) + 5% HP hiện tại của mục tiêu, kéo kẻ địch về phía Thorn và làm chậm 35% trong 2s. (Mỗi cấp giảm 0.25s hồi chiêu)." },
-        { key: "W", name: "Giáp Đá Rừng Già", cd: 10.0, cdReducePerLevel: 0.35, mana: 70, range: 4.5, radius: 4.5, type: "shield_buff", dmgBase: 190, apScale: 0.60, adScale: 0.50, selfShieldMaxHpPct: 0.10, cc: "shield", desc: "Triệu hồi vòng đá rừng rậm bảo vệ bản thân và đồng minh trong 4.5m: hồi ngay 8% HP tối đa, tạo Lá chắn 480 (+10% HP tối đa) trong 4s và gây sát thương xung quanh. (Mỗi cấp giảm 0.35s hồi chiêu)." },
-        { key: "E", name: "Đại Địa Rễ Gai", cd: 21.0, cdReducePerLevel: 0.7, mana: 110, range: 8.0, radius: 5.0, type: "aoe_roots", dmgBase: 460, apScale: 0.90, adScale: 0.80, hpPctMax: 0.08, healConvertPct: 0.40, cc: "root", desc: "Đâm 10 rễ cây khổng lồ bán kính 5.0m gây 460 (+90% AP +80% AD) + 8% HP tối đa của mục tiêu, trói chân toàn bộ địch 2.0s và chuyển 40% sát thương gây ra thành hồi phục cho Thorn. (Mỗi cấp giảm 0.7s hồi chiêu)." }
+        { key: "Q", name: "Dây Leo Gai Quấn", cd: 5.5, cdReducePerLevel: 0.25, mana: 50, range: 10.0, type: "skillshot_pull", dmgBase: 290, apScale: 0.70, adScale: 0.70, casterMaxHpScale: 0.08, hpPctCur: 0.06, cc: "pull", desc: "[v2.2.0 Tăng Sức Mạnh] Quất dây leo cổ thụ tầm xa 10m gây 290 (+8% HP tối đa của Thorn +6% HP hiện tại mục tiêu), kéo kẻ địch về phía Thorn và làm choáng 0.85s (Hồi chiêu: 5.5s)." },
+        { key: "W", name: "Giáp Đá Rừng Già", cd: 8.0, cdReducePerLevel: 0.35, mana: 60, range: 4.8, radius: 4.8, type: "shield_buff", dmgBase: 240, apScale: 0.65, adScale: 0.60, casterMaxHpScale: 0.06, selfShieldMaxHpPct: 0.14, cc: "shield", desc: "[v2.2.0 Tăng Sức Mạnh] Triệu hồi vòng đá rừng rậm hồi ngay 10% HP tối đa, tạo Lá chắn 520 (+14% HP tối đa) trong 4s và nổ gai xung quanh (Hồi chiêu: 8.0s)." },
+        { key: "E", name: "Đại Địa Rễ Gai", cd: 16.5, cdReducePerLevel: 0.7, mana: 100, range: 8.5, radius: 5.5, type: "aoe_roots", dmgBase: 520, apScale: 1.00, adScale: 0.90, casterMaxHpScale: 0.08, hpPctMax: 0.10, healConvertPct: 0.50, cc: "root", desc: "[v2.2.0 Tăng Sức Mạnh] Đâm 10 rễ cây khổng lồ bán kính 5.5m gây 520 (+8% HP tối đa Thorn +10% HP tối đa địch), trói chân 2.0s và chuyển 50% sát thương gây ra thành hồi phục (Hồi chiêu: 16.5s)." }
       ]
     },
     {
@@ -670,16 +670,16 @@ window.GAME_DATA = {
       color: 0xef4444,
       accentColor: 0xfde047,
       weaponType: "greatsword",
-      range: 3.1,
-      baseStats: { hp: 4000, mana: 480, ad: 118, ap: 0, armor: 148, mr: 132, moveSpeed: 5.10, atkSpeed: 1.10 },
+      range: 3.3,
+      baseStats: { hp: 4250, mana: 500, ad: 134, ap: 0, armor: 158, mr: 142, moveSpeed: 5.25, atkSpeed: 1.16 },
       passive: {
-        name: "Long Huyết Chiến Ý (Dragonblood Grit)",
-        desc: "Mỗi đòn đánh hoặc chiêu trúng đích tích 1 điểm Long Huyết (tối đa 5 điểm): mỗi điểm tăng +7% Tốc đánh, +15 Giáp và hồi 3% HP đã mất. Khi đủ 5 điểm, đòn đánh gây thêm 4% HP tối đa của mục tiêu."
+        name: "Long Huyết Chiến Ý (Dragonblood Grit — v2.2.0 Buff Cận Chiến)",
+        desc: "[Nội Tại Cận Chiến: +25% Kháng Hiệu Ứng, -12% ST nhận từ đòn bắn xa]. Mỗi đòn đánh/chiêu tích 1 điểm Long Huyết (tối đa 5 điểm): mỗi điểm +8% Tốc đánh, +18 Giáp và hồi 4% HP đã mất. Đủ 5 điểm gây thêm 5% HP tối đa mục tiêu."
       },
       skills: [
-        { key: "Q", name: "Long Kiếm Phá Giáp", cd: 5.5, cdReducePerLevel: 0.2, mana: 45, range: 5.2, radius: 3.8, type: "cone_slash", dmgBase: 275, apScale: 0, adScale: 1.20, hpPctMax: 0.06, cc: "armor_break", desc: "Bổ đại kiếm tạo sóng kiếm 5.2m gây 275 (+120% AD) + 6% HP tối đa của mục tiêu, phá 30% Giáp của địch trong 3s và làm chậm 30%. (Mỗi cấp giảm 0.2s hồi chiêu)." },
-        { key: "W", name: "Cuồng Phong Đại Kiếm", cd: 8.5, cdReducePerLevel: 0.3, mana: 65, range: 4.2, radius: 4.2, type: "spin_aoe", dmgBase: 340, apScale: 0, adScale: 1.35, healConvertPct: 0.30, cc: "none", desc: "Xoay đại kiếm 360 độ bán kính 4.2m gây 340 (+135% AD) sát thương vật lý, tăng +30% Tốc chạy trong 2.5s và chuyển 30% sát thương gây ra thành hồi phục HP cho Valen. (Mỗi cấp giảm 0.3s hồi chiêu)." },
-        { key: "E", name: "Long Thần Giáng Thế", cd: 19.0, cdReducePerLevel: 0.65, mana: 100, range: 7.5, radius: 4.5, type: "leap_arena", dmgBase: 530, apScale: 0, adScale: 1.55, hpPctMissing: 0.12, cc: "knockup", desc: "Nhảy vọt cắm 8 thanh Hoàng Kim Đại Kiếm tạo đấu trường 4.5m gây 530 (+155% AD) + 12% HP đã mất của địch, hất tung 1.3s và tăng +35% Công VL & +25% Hút máu trong 6s. (Mỗi cấp giảm 0.65s hồi chiêu)." }
+        { key: "Q", name: "Long Kiếm Phá Giáp", cd: 4.5, cdReducePerLevel: 0.2, mana: 40, range: 5.6, radius: 4.0, type: "cone_slash", dmgBase: 350, apScale: 0, adScale: 1.45, hpPctMax: 0.09, cc: "armor_break", desc: "[v2.2.0 Tăng Sức Mạnh] Bổ đại kiếm tạo sóng kiếm 5.6m gây 350 (+145% AD) + 9% HP tối đa mục tiêu, phá 35% Giáp của địch trong 3.5s (Hồi chiêu: 4.5s)." },
+        { key: "W", name: "Cuồng Phong Đại Kiếm", cd: 6.5, cdReducePerLevel: 0.3, mana: 55, range: 4.5, radius: 4.5, type: "spin_aoe", dmgBase: 420, apScale: 0, adScale: 1.60, healConvertPct: 0.45, cc: "slow", desc: "[v2.2.0 Tăng Sức Mạnh] Xoay đại kiếm 360 độ bán kính 4.5m gây 420 (+160% AD) sát thương vật lý, làm chậm 35% và chuyển 45% sát thương gây ra thành hồi phục HP (Hồi chiêu: 6.5s)." },
+        { key: "E", name: "Long Thần Giáng Thế", cd: 15.0, cdReducePerLevel: 0.65, mana: 90, range: 8.2, radius: 4.8, type: "leap_arena", dmgBase: 650, apScale: 0, adScale: 1.85, hpPctMissing: 0.16, selfShieldMaxHpPct: 0.18, cc: "knockup", desc: "[v2.2.0 Tăng Sức Mạnh] Nhảy vọt cắm 8 thanh Hoàng Kim Đại Kiếm tạo đấu trường 4.8m gây 650 (+185% AD) + 16% HP đã mất, tạo Khiên 18% HP tối đa, hất tung 1.3s và tăng +35% Công VL trong 6s (Hồi chiêu: 15.0s)." }
       ]
     },
     {
@@ -830,51 +830,51 @@ window.GAME_DATA = {
       skills: [
         {
           key: "Q",
-          name: "Hoả Độn",
-          cd: 18.0,
-          cdReducePerLevel: 0.15,
-          mana: 70,
+          name: "Hoả Độn: Long Hoả Thuật",
+          cd: 13.0,
+          cdReducePerLevel: 0.25,
+          mana: 60,
           range: 15.0,
           radius: 15.0,
           type: "shisui_q_fire",
-          dmgBase: 420,
+          dmgBase: 460,
           apScale: 0,
-          adScale: 1.45,
-          hpPctMax: 0.06,
+          adScale: 1.65,
+          hpPctMax: 0.08,
           cc: "slow",
-          desc: "Phun 1 làn lửa lớn trong 3s với phạm vi 15m gây sát thương lớn liên tục. Bản thân đứng im trong 3s đó và mọi mục tiêu trúng chiêu bởi Hoả Độn sẽ bị đánh dấu 'Chiến Thần' trong 8s. (Hồi chiêu: 18s, mỗi cấp giảm 0.15s)."
+          desc: "[v2.2.0 Tăng Sức Mạnh] Phun làn lửa lớn 15m trong 3s gây sát thương lớn liên tục (cho phép vừa di chuyển với 50% tốc chạy vừa phun lửa!) và đánh dấu 'Chiến Thần' 8s. (Hồi chiêu: 13s, mỗi cấp giảm 0.25s)."
         },
         {
           key: "W",
           name: "Ảo Thuật Vượt Trội",
-          cd: 29.0,
+          cd: 18.0,
           cdReducePerLevel: 0.4,
-          mana: 85,
+          mana: 70,
           range: 20.0,
           radius: 20.0,
           type: "shisui_w_genjutsu",
-          dmgBase: 0,
+          dmgBase: 180,
           apScale: 0,
-          adScale: 1.5,
-          hpPctMax: 0.15,
+          adScale: 1.85,
+          hpPctMax: 0.18,
           cc: "stun",
-          desc: "Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất gây sát thương bằng 150% ATK + 15% HP tối đa của mục tiêu đó. Nếu mục tiêu đang có dấu ấn 'Chiến Thần', hồi chiêu giảm ngay còn 2s. (Hồi chiêu: 29s, mỗi cấp giảm 0.4s)."
+          desc: "[v2.2.0 Tăng Sức Mạnh] Trong bán kính 20m, nhảy lên đầu mục tiêu có %HP thấp nhất gây 180 + 185% AD + 18% HP tối đa của mục tiêu đó. Nếu mục tiêu có dấu ấn 'Chiến Thần', hồi chiêu giảm ngay còn 2s! (Hồi chiêu: 18s, mỗi cấp giảm 0.4s)."
         },
         {
           key: "E",
           name: "Kotoamatsukami",
-          cd: 60.0,
+          cd: 42.0,
           cdReducePerLevel: 0.9,
-          mana: 120,
+          mana: 100,
           range: 50.0,
           radius: 50.0,
           type: "shisui_e_koto",
-          dmgBase: 480,
+          dmgBase: 580,
           apScale: 0,
-          adScale: 1.50,
-          hpPctMax: 0.08,
+          adScale: 1.85,
+          hpPctMax: 0.10,
           cc: "slow",
-          desc: "Kích hoạt Mangekyou Sharingan tối thượng & hiện thân Susanoo Lục Bảo: Đánh dấu toàn bộ mục tiêu trong bán kính 50m 'Chiến Thần' trong 8s kèm sóng ảo thuật diện rộng. (Hồi chiêu: 60s, mỗi cấp giảm 0.9s)."
+          desc: "[v2.2.0 Tăng Sức Mạnh] Kích hoạt Mangekyou Sharingan & Susanoo Lục Bảo: Đánh dấu toàn bộ mục tiêu trong bán kính 50m 'Chiến Thần' trong 8s kèm sóng ảo thuật gây 580 (+185% AD) + 10% HP tối đa. (Hồi chiêu: 42s, mỗi cấp giảm 0.9s)."
         }
       ]
     },
@@ -1163,7 +1163,7 @@ window.GAME_DATA = {
     {
       id: "minato",
       name: "Minato Namikaze",
-      title: "Tia Chớp Vàng Làng Lá",
+      title: "Tia Chớp Vàng Làng Lá — Phi Lôi Thần Thuật",
       role: "Sát Thủ (Assassin)",
       roleKey: "Assassin",
       ownedByDefault: true,
@@ -1173,61 +1173,61 @@ window.GAME_DATA = {
       accentColor: 0x38bdf8,
       weaponType: "raijin_kunai",
       range: 3.2,
-      baseStats: { hp: 3380, mana: 520, ad: 142, ap: 0, armor: 104, mr: 98, moveSpeed: 5.45, atkSpeed: 1.32 },
+      baseStats: { hp: 3750, mana: 620, ad: 156, ap: 0, armor: 118, mr: 108, moveSpeed: 5.72, atkSpeed: 1.38 },
       passive: {
-        name: "Phi Lôi Thần Ấn (Flying Raijin Mark)",
-        desc: "Đánh thường và kỹ năng khắc 'Ấn Phi Lôi Thần' lên kẻ địch trong 6s. Đánh thường vào mục tiêu có Ấn sẽ dịch chuyển tức thời ra sau lưng mục tiêu, gây thêm 130 (+65% AD) sát thương vật lý và giảm 1.5s hồi toàn bộ kỹ năng."
+        name: "Phi Lôi Thần Ấn & Thần Tốc Thời Không (v2.2.0 Đại Cường Hoá)",
+        desc: "[Nội Tại Mới]: Mỗi lần Minato dịch chuyển (từ Đánh thường có Ấn, Chiêu 1, Chiêu 2 hoặc Chiêu 3) lập tức giảm 0.5s hồi chiêu của Chiêu 1 & Chiêu 2, nhận Khiên Chắn 5% HP tối đa (2s) và hồi 25 Mana! Đánh thường vào mục tiêu có Ấn dịch chuyển ra sau lưng gây thêm 210 (+95% AD) + 6% HP đã mất và giảm thêm 1.5s toàn bộ kỹ năng!"
       },
       skills: [
         {
           key: "Q",
           name: "Phi Lôi Thần Kunai",
-          cd: 7.0,
+          cd: 5.5,
           cdReducePerLevel: 0.25,
-          mana: 45,
-          range: 13.0,
-          radius: 3.2,
+          mana: 40,
+          range: 13.5,
+          radius: 3.5,
           type: "minato_q_kunai",
-          dmgBase: 295,
+          dmgBase: 380,
           apScale: 0,
-          adScale: 1.30,
+          adScale: 1.55,
           cc: "mark",
           vfxColor: 0xfacc15,
-          desc: "Phóng thanh Kunai 3 chấu tầm xa 13m gây 295 (+130% AD) sát thương vật lý và khắc Ấn Phi Lôi Thần. Trong 4s có thể bấm lại Chiêu 1 để dịch chuyển tức thời tới vị trí Kunai/mục tiêu và chém xoay vòng 360°. (Hồi chiêu: 7s, mỗi cấp giảm 0.25s)."
+          desc: "[v2.2.0 Tăng Sức Mạnh] Phóng thanh Kunai 3 chấu tầm xa 13.5m gây 380 (+155% AD) sát thương vật lý, khắc Ấn Phi Lôi Thần và dịch chuyển tia chớp vàng chém xoay 360° (Kích hoạt nội tại dịch chuyển giảm ngay 0.5s hồi Chiêu 1 & 2! Hồi chiêu: 5.5s)."
         },
         {
           key: "W",
           name: "Xoáy Rasengan Tốc Biến",
-          cd: 8.5,
+          cd: 6.5,
           cdReducePerLevel: 0.3,
-          mana: 60,
-          range: 7.0,
-          radius: 3.4,
+          mana: 50,
+          range: 8.0,
+          radius: 3.6,
           type: "minato_w_rasengan",
-          dmgBase: 310,
+          dmgBase: 410,
           apScale: 0,
-          adScale: 1.35,
-          hpPctMissing: 0.08,
+          adScale: 1.65,
+          hpPctMissing: 0.12,
           cc: "stun",
           vfxColor: 0x38bdf8,
-          desc: "Lướt tia chớp 7m nện cầu xoáy Rasengan vào mục tiêu gây 310 (+135% AD) + 8% HP đã mất, làm choáng 1.0s và tăng 40% tốc chạy trong 2s. (Hồi chiêu: 8.5s, mỗi cấp giảm 0.3s)."
+          desc: "[v2.2.0 Tăng Sức Mạnh] Dịch chuyển tia chớp 8m nện cầu xoáy Rasengan gây 410 (+165% AD) + 12% HP đã mất, làm choáng 1.1s, tăng +45% tốc chạy 2.5s và kích hoạt nội tại giảm 0.5s hồi Chiêu 1 & 2! (Hồi chiêu: 6.5s)."
         },
         {
           key: "E",
           name: "Phi Lôi Thần Liên Trảm: Cửu Vĩ Chakra",
-          cd: 24.0,
+          cd: 19.0,
           cdReducePerLevel: 0.7,
-          mana: 100,
-          range: 9.0,
-          radius: 5.5,
+          mana: 90,
+          range: 10.0,
+          radius: 6.0,
           type: "minato_e_kurama_flash",
-          dmgBase: 620,
+          dmgBase: 780,
           apScale: 0,
-          adScale: 1.85,
-          hpPctMissing: 0.14,
+          adScale: 2.20,
+          hpPctMissing: 0.20,
           cc: "stun",
           vfxColor: 0xfef08a,
-          desc: "Hóa trạng thái Chakra Cửu Vĩ Hoàng Kim, phóng 6 tia chớp vàng dịch chuyển liên hoàn (không thể bị chọn làm mục tiêu) chém toàn bộ kẻ địch trong bán kính 9m rồi giáng Đại Ngọc Rasengan gây 620 (+185% AD) + 14% HP đã mất. (Hồi chiêu: 24s, mỗi cấp giảm 0.7s)."
+          desc: "[v2.2.0 Tăng Sức Mạnh] Hóa Chakra Cửu Vĩ Hoàng Kim bất khả xâm phạm 1.2s, dịch chuyển liên hoàn chém toàn bộ kẻ địch trong bán kính 10m rồi giáng Đại Ngọc Rasengan gây 780 (+220% AD) + 20% HP đã mất và giảm 0.5s hồi Chiêu 1 & 2! (Hồi chiêu: 19s)."
         }
       ]
     },
@@ -1441,6 +1441,218 @@ window.GAME_DATA = {
           desc: "Kaelen vừa di chuyển vừa xả liên hoàn 16 loạt đạn năng lượng Hư Không về phía trước tầm xa 10.5m, gây tổng cộng 640 (+210% AD) + 12% HP đã mất thành sát thương vật lý và tăng 20% tốc chạy. (Hồi chiêu: 24s, mỗi cấp giảm 0.7s)."
         }
       ]
+    },
+    // =========================================================================
+    // v2.2.0 — 3 NHÂN VẬT MỚI ĐỘT PHÁ META (SYLPHIETTE, VEXIS, CHRONOS)
+    // =========================================================================
+    {
+      id: "sylphiette",
+      name: "Sylphiette",
+      title: "Thánh Nữ Sinh Mệnh Đại Ngàn — Hồi Phục Diện Rộng Vượt Trội",
+      role: "Hỗ Trợ (Support)",
+      roleKey: "Support",
+      ownedByDefault: true,
+      priceGold: 16888,
+      priceDiamonds: 499,
+      color: 0x10b981,
+      accentColor: 0xfef08a,
+      weaponType: "lifetree_staff",
+      range: 8.2,
+      baseStats: { hp: 3850, mana: 1350, ad: 58, ap: 125, armor: 115, mr: 125, moveSpeed: 5.08, atkSpeed: 1.05 },
+      passive: {
+        name: "Cội Nguồn Sự Sống (Supreme Lifespring Aura)",
+        desc: "Hào quang Sinh Mệnh bán kính 9m tự động hồi 1.5% HP tối đa/giây cho bản thân và toàn bộ đồng minh xung quanh. Mọi hiệu ứng Hồi Máu và Giáp Ảo của Sylphiette tăng thêm +25% (tăng vọt lên +45% với đồng minh dưới 40% HP). Đánh thường phóng Hạt Giống Sinh Mệnh nảy sang đồng minh thấp máu nhất trong 8m hồi 2% HP tối đa của Sylphiette."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Mưa Xuân Tái Sinh",
+          cd: 6.5,
+          cdReducePerLevel: 0.25,
+          mana: 65,
+          range: 10.0,
+          radius: 6.5,
+          type: "sylphiette_q_rain",
+          dmgBase: 260,
+          apScale: 0.80,
+          adScale: 0,
+          cc: "slow",
+          vfxColor: 0x34d399,
+          desc: "Gọi cơn mưa linh khí Ngọc Lục Bảo bán kính 6.5m kéo dài 3s: hồi ngay và liên tục tổng cộng 360 (+90% AP) + 12% HP đã mất cho toàn bộ đồng minh trong vùng, đồng thời gây sát thương phép và làm chậm kẻ địch 35%. (Hồi chiêu: 6.5s, mỗi cấp giảm 0.25s)."
+        },
+        {
+          key: "W",
+          name: "Liên Kết Hoa Sen Thanh Tẩy",
+          cd: 10.0,
+          cdReducePerLevel: 0.35,
+          mana: 80,
+          range: 8.5,
+          radius: 8.5,
+          type: "sylphiette_w_cleanse",
+          dmgBase: 0,
+          apScale: 0.65,
+          adScale: 0,
+          cc: "shield",
+          vfxColor: 0xa7f3d0,
+          desc: "Bung tỏa sóng Hoa Sen Thanh Tẩy bán kính 8.5m: Lập tức XÓA SẠCH mọi hiệu ứng làm choáng/làm chậm trên người đồng minh, hồi 280 (+65% AP) + 8% HP tối đa của Sylphiette, tạo Khiên Sinh Mệnh và tăng +30% Tốc chạy trong 2.5s. (Hồi chiêu: 10.0s, mỗi cấp giảm 0.35s)."
+        },
+        {
+          key: "E",
+          name: "Thánh Vực Cổ Thụ Ngàn Năm",
+          cd: 28.0,
+          cdReducePerLevel: 0.8,
+          mana: 120,
+          range: 10.0,
+          radius: 10.0,
+          type: "sylphiette_e_sanctuary",
+          dmgBase: 420,
+          apScale: 1.05,
+          adScale: 0,
+          cc: "knockup",
+          vfxColor: 0xfef08a,
+          desc: "Triệu hồi Đại Cổ Thụ Ánh Sáng bán kính 10m tồn tại 5s: Hồi tức thì 18% HP tối đa cho toàn bộ đồng minh, sau đó mỗi giây hồi tiếp 5% HP tối đa + tăng +80 Giáp/Kháng phép, đồng thời đẩy lùi và làm choáng kẻ địch chạm vào tâm Cổ Thụ. (Hồi chiêu: 28.0s, mỗi cấp giảm 0.8s)."
+        }
+      ]
+    },
+    {
+      id: "vexis",
+      name: "Vexis",
+      title: "Bóng Ma Hư Không Đẫm Máu — Tàng Hình Đâm Lén Bùng Nổ",
+      role: "Sát Thủ (Assassin)",
+      roleKey: "Assassin",
+      ownedByDefault: true,
+      priceGold: 18888,
+      priceDiamonds: 599,
+      color: 0x9333ea,
+      accentColor: 0xf43f5e,
+      weaponType: "void_daggers",
+      range: 3.0,
+      baseStats: { hp: 3650, mana: 750, ad: 158, ap: 0, armor: 114, mr: 106, moveSpeed: 5.68, atkSpeed: 1.36 },
+      passive: {
+        name: "Đòn Đâm Lén Tử Thần (Lethal Backstab & Void Stealth)",
+        desc: "[Nội Tại Cận Chiến: +25% Kháng Hiệu Ứng, -12% ST nhận từ đòn bắn xa]. Khi Vexis tấn công từ trạng thái Tàng Hình hoặc từ phía sau lưng mục tiêu, đòn đánh TẤT ĐỊNH CHÍ MẠNG (220% ST) kèm thêm 180 (+85% AD) + 10% HP tối đa mục tiêu (bỏ qua 35% Giáp) và làm choáng/câm lặng 0.65s! Hạ gục hoặc phụ trợ làm mới ngay Bước Đi Trong Bóng Tối (Chiêu 1)."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Bước Đi Trong Bóng Tối (Tàng Hình)",
+          cd: 8.0,
+          cdReducePerLevel: 0.25,
+          mana: 45,
+          range: 6.5,
+          radius: 3.0,
+          type: "vexis_q_stealth",
+          dmgBase: 320,
+          apScale: 0,
+          adScale: 1.40,
+          cc: "none",
+          vfxColor: 0xa855f7,
+          desc: "Hóa Tàng Hình hoàn toàn trong 4.0s (kẻ địch và trụ không thể khóa mục tiêu), xóa làm chậm và tăng +55% Tốc chạy. Đòn đánh thường kế tiếp trong lúc Tàng Hình sẽ vọt thẳng ra sau lưng mục tiêu trong 6.5m và kích hoạt Đòn Đâm Lén Tử Thần! (Hồi chiêu: 8.0s, hạ gục làm mới ngay)."
+        },
+        {
+          key: "W",
+          name: "Huyết Nhận Phân Tách (Ấn Tử Huyệt)",
+          cd: 6.0,
+          cdReducePerLevel: 0.25,
+          mana: 50,
+          range: 7.0,
+          radius: 3.4,
+          type: "vexis_w_cross",
+          dmgBase: 360,
+          apScale: 0,
+          adScale: 1.50,
+          hpPctMissing: 0.12,
+          cc: "slow",
+          vfxColor: 0xf43f5e,
+          desc: "Lướt xuyên qua mục tiêu 7m ra thẳng phía sau lưng chúng, chém cặp song đao chữ X gây 360 (+150% AD) và khắc Ấn Tử Huyệt trong 4s. Đòn đánh kế tiếp kích nổ Ấn Tử Huyệt gây thêm 12% HP đã mất và hồi 10% HP tối đa cho Vexis. (Hồi chiêu: 6.0s)."
+        },
+        {
+          key: "E",
+          name: "Ám Sát Liên Hoàn Thập Phương",
+          cd: 18.0,
+          cdReducePerLevel: 0.6,
+          mana: 90,
+          range: 9.0,
+          radius: 4.5,
+          type: "vexis_e_assassinate",
+          dmgBase: 640,
+          apScale: 0,
+          adScale: 1.95,
+          hpPctMissing: 0.18,
+          cc: "stun",
+          vfxColor: 0xe11d48,
+          desc: "Biến mất vào Hư Không rồi xuất hiện sau lưng mục tiêu thực hiện cú đâm lén bùng nổ gây 640 (+195% AD) + 18% HP đã mất (kích hoạt luôn Nội Tại Đâm Lén Tử Thần), đồng thời lập tức tiến vào trạng thái Tàng Hình 2.0s sau khi kết thúc chiêu! (Hồi chiêu: 18.0s)."
+        }
+      ]
+    },
+    {
+      id: "chronos",
+      name: "Chronos",
+      title: "Chúa Tể Nghịch Đảo Thời Gian — Nội Tại Ngân Hàng Thời Gian Độc Lạ",
+      role: "Đấu Sĩ / Pháp Sư (Fighter)",
+      roleKey: "Fighter",
+      ownedByDefault: true,
+      priceGold: 18888,
+      priceDiamonds: 599,
+      color: 0xf59e0b,
+      accentColor: 0x10b981,
+      weaponType: "chrono_scythe",
+      range: 3.4,
+      baseStats: { hp: 4050, mana: 880, ad: 138, ap: 95, armor: 138, mr: 128, moveSpeed: 5.25, atkSpeed: 1.18 },
+      passive: {
+        name: "Ngân Hàng Thời Gian & Đánh Cắp Hồi Chiêu (Chrono Stasis Bank)",
+        desc: "[Nội Tại Độc Lạ Cực Mạnh]: (1) Đồng Hồ Cát Trì Hoãn: 35% mọi sát thương Chronos nhận vào không trừ máu ngay mà được giam vào Ngân Hàng Thời Gian (rỉ máu từ từ trong 4s). (2) Đánh Cắp Thời Gian: Mỗi đòn đánh/kỹ năng trúng tướng địch sẽ ĐÁNH CẮP 0.4s HỒI CHIÊU (tăng hồi chiêu đang chạy của địch thêm 0.4s và giảm toàn bộ hồi chiêu của Chronos đi 0.4s), đồng thời xóa bỏ 25% lượng sát thương đang giam trong Ngân Hàng Thời Gian!"
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Trảm Kích Xuyên Không (Dư Ảnh Thời Gian)",
+          cd: 5.5,
+          cdReducePerLevel: 0.2,
+          mana: 45,
+          range: 7.0,
+          radius: 3.5,
+          type: "chronos_q_rift",
+          dmgBase: 330,
+          apScale: 0.75,
+          adScale: 1.20,
+          cc: "slow",
+          vfxColor: 0x10b981,
+          desc: "Lướt 7m vung Lưỡi Hái Thời Không chém rách không gian gây 330 (+120% AD +75% AP) kèm làm chậm 40%, sau 0.35s Dư Ảnh Thời Gian chém bồi thêm 1 nhát gây 60% sát thương và đánh cắp 0.4s hồi chiêu của địch. (Hồi chiêu: 5.5s)."
+        },
+        {
+          key: "W",
+          name: "Phản Chiều Đồng Hồ Cát",
+          cd: 8.5,
+          cdReducePerLevel: 0.3,
+          mana: 60,
+          range: 5.2,
+          radius: 5.2,
+          type: "chronos_w_hourglass",
+          dmgBase: 280,
+          apScale: 0.90,
+          adScale: 0.95,
+          cc: "stun",
+          vfxColor: 0xfacc15,
+          desc: "Kích hoạt Đồng Hồ Cát Xóa Sạch 100% sát thương đang giam trong Ngân Hàng Thời Gian, chuyển hóa toàn bộ lượng sát thương đó thành vụ nổ chấn động bán kính 5.2m gây 280 (+95% AD +90% AP) + 100% ST đã xóa, làm choáng 1.1s và hồi 14% HP đã mất! (Hồi chiêu: 8.5s)."
+        },
+        {
+          key: "E",
+          name: "Lĩnh Vực Nghịch Đảo Thời Không (Tua Ngược HP)",
+          cd: 24.0,
+          cdReducePerLevel: 0.7,
+          mana: 100,
+          range: 7.5,
+          radius: 7.5,
+          type: "chronos_e_rewind",
+          dmgBase: 520,
+          apScale: 1.10,
+          adScale: 1.40,
+          cc: "slow",
+          vfxColor: 0x34d399,
+          desc: "Mở Đại Lĩnh Vực Bánh Răng Thời Gian bán kính 7.5m trong 4.0s: Lập tức TUA NGƯỢC THỜI GIAN khôi phục tối thiểu 32% HP tối đa cho Chronos + xóa mọi sát thương giam giữ, làm chậm 50% Tốc chạy & Tốc đánh của mọi kẻ địch trong lĩnh vực và tăng gấp đôi (200%) tốc độ hồi chiêu của Chronos! (Hồi chiêu: 24.0s)."
+        }
+      ]
     }
   ],
 
@@ -1514,9 +1726,9 @@ window.GAME_DATA = {
       tier: 3,
       cost: 2250,
       icon: "🌟",
-      stats: { ad: 70, atkSpeed: 0.15, cdr: 0.10, hp: 600 },
+      stats: { ad: 65, atkSpeed: 0.15, cdr: 0.10, hp: 650 },
       passiveName: "Cuồng Bạo Cường Kích",
-      passiveDesc: "Nội tại Duy Nhất: Sau khi tung chiêu, trong 5s tiếp theo, chiêu hoặc đòn đánh tiếp theo gây thêm 100% công vật lý thành sát thương vật lý (hồi chiêu: 5s).",
+      passiveDesc: "Nội tại Duy Nhất: Sau khi tung chiêu, trong 5s tiếp theo, chiêu hoặc đòn đánh tiếp theo gây thêm 80% công vật lý thành sát thương vật lý (hồi chiêu: 5s).",
       effectKey: "phuc_hop_spellblade"
     },
     {
@@ -1538,9 +1750,9 @@ window.GAME_DATA = {
       tier: 3,
       cost: 2750,
       icon: "🐺",
-      stats: { ad: 180, cdr: 0.05 },
+      stats: { ad: 145, cdr: 0.05 },
       passiveName: "Nanh Sói Chinh Phạt",
-      passiveDesc: "Nội tại Duy Nhất: Khi HP của mục tiêu dưới 50%, tăng 30% sát thương gây ra.",
+      passiveDesc: "Nội tại Duy Nhất: Khi HP của mục tiêu dưới 50%, tăng 20% sát thương gây ra.",
       effectKey: "fenrir_execute"
     },
     {
@@ -1690,9 +1902,9 @@ window.GAME_DATA = {
       tier: 3,
       cost: 2050,
       icon: "💥",
-      stats: { ap: 200, moveSpeedPct: 0.05 },
+      stats: { ap: 165, moveSpeedPct: 0.05 },
       passiveName: "Vụ Nổ Pháp Thuật",
-      passiveDesc: "Nội tại Duy Nhất: Khi gây sát thương sẽ tạo một vùng nổ bán kính 2m gây thêm 140% công phép của bản thân lên mục tiêu trúng chiêu (hồi chiêu: 5s).",
+      passiveDesc: "Nội tại Duy Nhất: Khi gây sát thương sẽ tạo một vùng nổ bán kính 2m gây thêm 100% công phép của bản thân lên mục tiêu trúng chiêu (hồi chiêu: 5s).",
       effectKey: "truong_no_boom"
     },
     {
@@ -1702,9 +1914,9 @@ window.GAME_DATA = {
       tier: 3,
       cost: 2350,
       icon: "👑",
-      stats: { ap: 240 },
+      stats: { ap: 190 },
       passiveName: "Quyền Năng Xà Vương",
-      passiveDesc: "Nội tại Duy Nhất: Tăng +30% tổng công phép hiện tại.",
+      passiveDesc: "Nội tại Duy Nhất: Tăng +22% tổng công phép hiện tại.",
       effectKey: "xa_ran_ap_mult"
     },
     {
@@ -1762,7 +1974,7 @@ window.GAME_DATA = {
       tier: 3,
       cost: 2850,
       icon: "📖",
-      stats: { ap: 350, cdr: 0.10, hp: 900 },
+      stats: { ap: 260, cdr: 0.10, hp: 1000 },
       passiveName: "Thánh Điển Bất Hoại",
       passiveDesc: "Nội tại Duy Nhất: Mỗi 100 công phép hiện có giúp giảm 0.1% sát thương nhận vào.",
       effectKey: "sach_thanh_mitigation"
@@ -1959,14 +2171,26 @@ window.GAME_DATA = {
     kaelen: {
       title: "Song Súng Tinh Không Liên Xạ Chí Mạng",
       items: ["giay_du_muc", "kiem_fafnir", "thanh_kiem", "song_dao_bao_tap", "phuc_hop_kiem", "nanh_fenrir"]
+    },
+    sylphiette: {
+      title: "Thánh Nữ Đại Ngàn Bảo Khí Nhẫn Cụ & Siêu Hồi Phục",
+      items: ["bao_khi_nhan_cu", "giay_thuat_si", "khien_huyen_thoai", "giap_gaia", "vuong_mien_xa_ran", "giap_hoi_sinh"]
+    },
+    vexis: {
+      title: "Bóng Ma Tàng Hình Đâm Lén Chí Mạng & Thiên Phạt",
+      items: ["giay_du_muc", "kiem_truy_hon", "thuong_longinus", "thanh_kiem", "nanh_fenrir", "thien_phat_kiem"]
+    },
+    chronos: {
+      title: "Chúa Tể Thời Gian Song Công Bán Tank & Đồng Hồ Cát",
+      items: ["giay_thuat_si", "phuc_hop_kiem", "quyen_truong_than_ran", "khien_quang_thanh", "thien_phat_kiem", "giap_hoi_sinh"]
     }
   }
 };
 
-</script>
+  </script>
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v2.0.0 THREE.JS ISOMETRIC ENGINE
+// LEGENDS OF ETERNIA 3D - v2.2.0 THREE.JS ISOMETRIC ENGINE (META OVERHAUL)
 // ============================================================================
 
 class SoundManager {
@@ -3450,6 +3674,137 @@ function createHeroMesh(heroData, team, skinData) {
     const pistolL = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.22, 0.85), plasmaCyanMat);
     pistolL.position.set(-1.62, 0, 0.45);
     weaponGroup.add(pistolR, pistolL);
+  } else if (hId === "sylphiette") {
+    // --- SYLPHIETTE (THÁNH NỮ SINH MỆNH ĐẠI NGÀN — VÁY LỤC BẢO HOÀNG KIM, ĐÔI CÁNH TIÊN RỪNG & TRƯỢNG CỔ THỤ HOA SEN) ---
+    const emeraldDressMat = new THREE.MeshStandardMaterial({ color: 0x10b981, emissive: 0x059669, emissiveIntensity: 0.3, roughness: 0.25 });
+    const jadeWingMat = new THREE.MeshBasicMaterial({ color: 0x6ee7b7, transparent: true, opacity: 0.78, side: THREE.DoubleSide });
+    const goldMat = new THREE.MeshStandardMaterial({ color: 0xfef08a, emissive: 0xfacc15, emissiveIntensity: 0.4, metalness: 0.65 });
+    const woodMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.55 });
+
+    const gown = new THREE.Mesh(new THREE.ConeGeometry(0.95, 1.58, 16), emeraldDressMat);
+    gown.position.y = 0.82;
+    const petalLayer = new THREE.Mesh(new THREE.ConeGeometry(0.76, 1.05, 8), goldMat);
+    petalLayer.position.y = 1.18;
+    const bodice = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.30, 0.82, 12), emeraldDressMat);
+    bodice.position.y = 1.62;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.40, 14, 14), new THREE.MeshStandardMaterial({ color: 0xffe4e6 }));
+    head.position.y = 2.34;
+    const hair = new THREE.Mesh(new THREE.ConeGeometry(0.46, 1.65, 12), new THREE.MeshStandardMaterial({ color: 0xa7f3d0, emissive: 0x34d399, emissiveIntensity: 0.22 }));
+    hair.position.set(0, 1.88, -0.34);
+    hair.rotation.x = -2.5;
+    const flowerCrown = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.06, 8, 20), goldMat);
+    flowerCrown.rotation.x = Math.PI / 2;
+    flowerCrown.position.y = 2.66;
+    bodyRoot.add(gown, petalLayer, bodice, head, hair, flowerCrown);
+
+    // Glowing Jade Fairy Wings + Orbiting Healing Lotus Petals
+    const wL = new THREE.Mesh(new THREE.PlaneGeometry(1.35, 1.85), jadeWingMat);
+    wL.position.set(-0.72, 1.72, -0.38);
+    wL.rotation.y = 0.35;
+    wL.rotation.z = 0.28;
+    const wR = new THREE.Mesh(new THREE.PlaneGeometry(1.35, 1.85), jadeWingMat);
+    wR.position.set(0.72, 1.72, -0.38);
+    wR.rotation.y = -0.35;
+    wR.rotation.z = -0.28;
+    bodyRoot.add(wL, wR);
+
+    const lotusOrbit = new THREE.Group();
+    lotusOrbit.position.y = 1.65;
+    for (let i = 0; i < 4; i++) {
+      const a = (i / 4) * Math.PI * 2;
+      const lotus = new THREE.Mesh(new THREE.OctahedronGeometry(0.22, 0), i % 2 === 0 ? goldMat : jadeWingMat);
+      lotus.position.set(Math.cos(a) * 1.28, 0, Math.sin(a) * 1.28);
+      lotusOrbit.add(lotus);
+    }
+    bodyRoot.add(lotusOrbit);
+    root.userData.orbitGroup = lotusOrbit;
+
+    // WeaponGroup: Ancient World-Tree Staff (Trượng Cổ Thụ Hoa Sen)
+    const staffPole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.07, 2.75, 8), woodMat);
+    const staffCrown = new THREE.Mesh(new THREE.TorusGeometry(0.36, 0.06, 8, 18), emeraldDressMat);
+    staffCrown.position.y = 1.45;
+    const lifeGem = new THREE.Mesh(new THREE.OctahedronGeometry(0.26, 0), goldMat);
+    lifeGem.position.y = 1.45;
+    weaponGroup.add(staffPole, staffCrown, lifeGem);
+  } else if (hId === "vexis") {
+    // --- VEXIS (BÓNG MA HƯ KHÔNG ĐẪM MÁU — GIÁP SÁT THỦ TÀNG HÌNH ĐEN TÍM & SONG ĐAO RĂNG CƯA ĐOẠT MỆNH) ---
+    const obsidianMat = new THREE.MeshStandardMaterial({ color: 0x09090b, roughness: 0.3, metalness: 0.65 });
+    const voidVioletMat = new THREE.MeshStandardMaterial({ color: 0x9333ea, emissive: 0x7e22ce, emissiveIntensity: 0.45 });
+    const crimsonBladeMat = new THREE.MeshBasicMaterial({ color: 0xf43f5e });
+    const cloakGhostMat = new THREE.MeshBasicMaterial({ color: 0x581c87, transparent: true, opacity: 0.72, side: THREE.DoubleSide });
+
+    const legGeo = new THREE.CylinderGeometry(0.15, 0.12, 0.96, 10);
+    const lLeg = new THREE.Mesh(legGeo, obsidianMat);
+    lLeg.position.set(-0.23, 0.48, 0);
+    const rLeg = new THREE.Mesh(legGeo, obsidianMat);
+    rLeg.position.set(0.23, 0.48, 0);
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.82, 1.28, 0.52), obsidianMat);
+    torso.position.y = 1.32;
+    torso.rotation.x = 0.22;
+    const chestCore = new THREE.Mesh(new THREE.OctahedronGeometry(0.22, 0), crimsonBladeMat);
+    chestCore.position.set(0, 1.48, 0.28);
+    const cloak = new THREE.Mesh(new THREE.ConeGeometry(0.95, 1.65, 10, 1, true), cloakGhostMat);
+    cloak.position.set(0, 1.18, -0.22);
+    const hood = new THREE.Mesh(new THREE.ConeGeometry(0.50, 0.75, 10), obsidianMat);
+    hood.position.set(0, 2.38, 0.08);
+    const eyes = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.11, 0.22), crimsonBladeMat);
+    eyes.position.set(0, 2.25, 0.38);
+    bodyRoot.add(lLeg, rLeg, torso, chestCore, cloak, hood, eyes);
+
+    // WeaponGroup: Dual Serrated Void Daggers (Song Đao Răng Cưa Hư Không)
+    const daggerR = new THREE.Mesh(new THREE.ConeGeometry(0.14, 1.65, 4).rotateX(Math.PI / 2), crimsonBladeMat);
+    daggerR.position.set(0, 0, 0.75);
+    const daggerL = new THREE.Mesh(new THREE.ConeGeometry(0.14, 1.65, 4).rotateX(-Math.PI / 2), voidVioletMat);
+    daggerL.position.set(-1.62, 0, -0.55);
+    weaponGroup.add(daggerR, daggerL);
+  } else if (hId === "chronos") {
+    // --- CHRONOS (CHÚA TỂ NGHỊCH ĐẢO THỜI GIAN — GIÁP HOÀNG KIM LỤC BẢO, BÁNH RĂNG ĐỒNG HỒ VŨ TRỤ & LƯỠI HÁI THỜI KHÔNG) ---
+    const bronzeGoldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, emissive: 0xb45309, emissiveIntensity: 0.28, metalness: 0.78, roughness: 0.22 });
+    const chronoEmeraldMat = new THREE.MeshBasicMaterial({ color: 0x10b981 });
+    const darkMetalMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.7, roughness: 0.3 });
+
+    const legGeo = new THREE.CylinderGeometry(0.18, 0.15, 0.98, 10);
+    const lLeg = new THREE.Mesh(legGeo, darkMetalMat);
+    lLeg.position.set(-0.25, 0.49, 0);
+    const rLeg = new THREE.Mesh(legGeo, darkMetalMat);
+    rLeg.position.set(0.25, 0.49, 0);
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.54, 0.44, 1.38, 12), bronzeGoldMat);
+    torso.position.y = 1.38;
+    const hourglassChest = new THREE.Mesh(new THREE.OctahedronGeometry(0.28, 0), chronoEmeraldMat);
+    hourglassChest.position.set(0, 1.52, 0.48);
+    const helm = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.44, 0.62, 12), bronzeGoldMat);
+    helm.position.y = 2.38;
+    const visor = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.14, 0.24), chronoEmeraldMat);
+    visor.position.set(0, 2.38, 0.38);
+    bodyRoot.add(lLeg, rLeg, torso, hourglassChest, helm, visor);
+
+    // Giant Rotating Cosmic Clockwork Gear Wheel behind Chronos's back
+    const clockWheelGroup = new THREE.Group();
+    clockWheelGroup.position.set(0, 1.98, -0.52);
+    const outerWheel = new THREE.Mesh(new THREE.TorusGeometry(1.18, 0.08, 8, 28), bronzeGoldMat);
+    const innerWheel = new THREE.Mesh(new THREE.TorusGeometry(0.75, 0.05, 8, 24), chronoEmeraldMat);
+    const hand1 = new THREE.Mesh(new THREE.BoxGeometry(0.10, 1.05, 0.06), chronoEmeraldMat);
+    hand1.position.y = 0.42;
+    const hand2 = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.08, 0.06), bronzeGoldMat);
+    hand2.position.x = 0.32;
+    clockWheelGroup.add(outerWheel, innerWheel, hand1, hand2);
+    for (let t = 0; t < 8; t++) {
+      const ang = (t / 8) * Math.PI * 2;
+      const cog = new THREE.Mesh(new THREE.BoxGeometry(0.20, 0.20, 0.10), bronzeGoldMat);
+      cog.position.set(Math.cos(ang) * 1.24, Math.sin(ang) * 1.24, 0);
+      cog.rotation.z = ang;
+      clockWheelGroup.add(cog);
+    }
+    bodyRoot.add(clockWheelGroup);
+    root.userData.orbitGroup = clockWheelGroup;
+
+    // WeaponGroup: Chrono Scythe & Floating Hourglass (Lưỡi Hái Thời Không)
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 2.95, 8), bronzeGoldMat);
+    pole.position.y = 0.45;
+    const blade = new THREE.Mesh(new THREE.TorusGeometry(0.88, 0.11, 8, 18, Math.PI * 0.8), chronoEmeraldMat);
+    blade.position.set(0, 1.75, 0.45);
+    blade.rotation.y = Math.PI / 2;
+    weaponGroup.add(pole, blade);
   }
 
   // 3. Aurelia Thiên Sứ (SS) Angel Wings
@@ -4178,20 +4533,21 @@ class MobaArena3D {
     this.aimCursor.position.set(0, 0.08, 0);
     this.worldGroup.add(this.aimCursor);
 
-    // v1.6.0: Mỗi bên có 4 trụ ngoài (HP từ ngoài vào trong: 3000 - 5000 - 7000 - 10000, bắn phát đầu 120 ST vật lý, mỗi phát tiếp theo +40%)
-    // và 1 trụ chính (10000 HP, bắn phát đầu 150 ST vật lý, mỗi phát tiếp theo +40%, không bị đánh 10s tự hồi 50 HP/1s)
+    // v2.2.0: Tăng sức mạnh hệ thống trụ:
+    // - 4 Trụ Ngoài mỗi bên: đồng loạt 20.000 HP (bắn phát đầu 135 ST vật lý, mỗi phát tiếp theo +40%)
+    // - 1 Trụ Chính mỗi bên: 50.000 HP (bắn phát đầu 175 ST vật lý, mỗi phát tiếp theo +40%, không bị đánh 10s tự hồi 200 HP/1s)
     this.structures = [];
-    this.createStructure("blue", "outer_1", "Trụ Ngoài 1 Xanh", -13, 0, 3000, 120, 8.5, 1.22);
-    this.createStructure("blue", "outer_2", "Trụ Ngoài 2 Xanh", -24, 0, 5000, 120, 8.5, 1.30);
-    this.createStructure("blue", "outer_3", "Trụ Ngoài 3 Xanh", -35, 0, 7000, 120, 8.5, 1.38);
-    this.createStructure("blue", "outer_4", "Trụ Ngoài 4 Xanh", -46, 0, 10000, 120, 8.5, 1.48);
-    this.createStructure("blue", "core", "Trụ Chính Xanh", -58, 0, 10000, 150, 9.5, 2.05);
+    this.createStructure("blue", "outer_1", "Trụ Ngoài 1 Xanh", -13, 0, 20000, 135, 8.5, 1.25);
+    this.createStructure("blue", "outer_2", "Trụ Ngoài 2 Xanh", -24, 0, 20000, 135, 8.5, 1.32);
+    this.createStructure("blue", "outer_3", "Trụ Ngoài 3 Xanh", -35, 0, 20000, 135, 8.5, 1.40);
+    this.createStructure("blue", "outer_4", "Trụ Ngoài 4 Xanh", -46, 0, 20000, 135, 8.5, 1.48);
+    this.createStructure("blue", "core", "Trụ Chính Xanh", -58, 0, 50000, 175, 9.5, 2.08);
 
-    this.createStructure("red", "outer_1", "Trụ Ngoài 1 Đỏ", 13, 0, 3000, 120, 8.5, 1.22);
-    this.createStructure("red", "outer_2", "Trụ Ngoài 2 Đỏ", 24, 0, 5000, 120, 8.5, 1.30);
-    this.createStructure("red", "outer_3", "Trụ Ngoài 3 Đỏ", 35, 0, 7000, 120, 8.5, 1.38);
-    this.createStructure("red", "outer_4", "Trụ Ngoài 4 Đỏ", 46, 0, 10000, 120, 8.5, 1.48);
-    this.createStructure("red", "core", "Trụ Chính Đỏ", 58, 0, 10000, 150, 9.5, 2.05);
+    this.createStructure("red", "outer_1", "Trụ Ngoài 1 Đỏ", 13, 0, 20000, 135, 8.5, 1.25);
+    this.createStructure("red", "outer_2", "Trụ Ngoài 2 Đỏ", 24, 0, 20000, 135, 8.5, 1.32);
+    this.createStructure("red", "outer_3", "Trụ Ngoài 3 Đỏ", 35, 0, 20000, 135, 8.5, 1.40);
+    this.createStructure("red", "outer_4", "Trụ Ngoài 4 Đỏ", 46, 0, 20000, 135, 8.5, 1.48);
+    this.createStructure("red", "core", "Trụ Chính Đỏ", 58, 0, 50000, 175, 9.5, 2.08);
   }
 
   createStructure(team, kind, name, x, z, maxHp, ad, range, scale) {
@@ -4238,8 +4594,8 @@ class MobaArena3D {
       ad,
       shotStreak: 0,
       outOfCombatTimer: 10.0,
-      armor: 120,
-      mr: 120,
+      armor: kind === "core" ? 200 : 160,
+      mr: kind === "core" ? 200 : 160,
       range,
       atkCd: 0,
       dead: false,
@@ -4519,6 +4875,16 @@ class MobaArena3D {
     unit.thienPhatPoints = 8; // Thiên Phạt Kiếm: Ban đầu có 8 điểm (tối đa 80 điểm, chết -40%)
     unit.killStreakCount = 0;
     unit.multiKillTimer = 0;
+    // v2.2.0 New Hero & Meta Properties (Sylphiette, Vexis, Chronos, Melee Tenacity)
+    unit.isMeleeHero = (heroData.range || 3.0) <= 4.8;
+    unit.tenacity = unit.isMeleeHero ? 0.25 : 0; // Tướng cận chiến có +25% Kháng hiệu ứng
+    unit.sylphiettePassiveTick = 0;
+    unit.sylphietteWSpeedTimer = 0;
+    unit.sylphietteUltBuffTimer = 0;
+    unit.vexisStealthTimer = 0; // Vexis Q/E Tàng hình
+    unit.vexisMarkTimer = 0;    // Ấn Tử Huyệt (4s)
+    unit.chronosDelayedDmgPool = 0; // Ngân Hàng Thời Gian (35% ST trì hoãn trong 4s)
+    unit.chronosRewindTimer = 0;    // Lĩnh Vực Nghịch Đảo Thời Không (4s: 200% tốc độ hồi chiêu)
     if (mesh && mesh.userData && mesh.userData.susanooWrapGroup) {
       mesh.userData.susanooWrapGroup.visible = false;
     }
@@ -4536,15 +4902,19 @@ class MobaArena3D {
     const manaPct = u.maxMana > 0 ? u.mana / u.maxMana : 1;
 
     const lvl = u.level - 1;
-    // v1.8.1 Cân bằng trong trận: Tất cả nhân vật trong trận mỗi level tăng cấp tăng 15% HP trên chỉ số gốc!
+    // v1.8.1 & v2.2.0 Cân bằng nhịp độ trận đấu:
+    // - Tất cả nhân vật mỗi level tăng 15% HP trên chỉ số gốc
+    // - Giảm hệ số tăng trưởng VL (12 -> 9/cấp) & Phép (18 -> 13/cấp) để giao tranh có chiều sâu chiến thuật
+    // - Xạ thủ giảm tăng trưởng tốc đánh mỗi cấp từ 0.03 xuống 0.022
     let maxHp = Math.round(u.baseStats.hp * (1 + lvl * 0.15));
     let maxMana = u.baseStats.mana + lvl * 45;
-    let ad = u.baseStats.ad + lvl * 12;
-    let ap = u.baseStats.ap + lvl * ((u.heroData.roleKey === "Mage" || u.heroData.id === "sasuke") ? 18 : 4);
-    let armor = u.baseStats.armor + lvl * 11;
-    let mr = u.baseStats.mr + lvl * 9;
+    let ad = u.baseStats.ad + lvl * 9;
+    let ap = u.baseStats.ap + lvl * ((u.heroData.roleKey === "Mage" || u.heroData.id === "sasuke" || u.heroData.id === "sylphiette" || u.heroData.id === "chronos") ? 13 : 4);
+    let armor = u.baseStats.armor + lvl * 12;
+    let mr = u.baseStats.mr + lvl * 10;
     let moveSpeed = u.baseStats.moveSpeed;
-    let atkSpeed = u.baseStats.atkSpeed + lvl * 0.03;
+    const asGrowthPerLvl = u.heroData.roleKey === "Marksman" ? 0.022 : 0.03;
+    let atkSpeed = u.baseStats.atkSpeed + lvl * asGrowthPerLvl;
 
     let crit = 0.05;
     let critDmgBonus = 0;
@@ -4598,9 +4968,9 @@ class MobaArena3D {
     if (moveSpeedPctBonus > 0) {
       moveSpeed = Number((moveSpeed * (1 + moveSpeedPctBonus)).toFixed(3));
     }
-    // Vương Miện Xà Rắn: Tăng +30% công phép hiện tại (Nội tại duy nhất)
+    // Vương Miện Xà Rắn (v2.2.0): Tăng +22% công phép hiện tại (Nội tại duy nhất)
     if (effects.has("xa_ran_ap_mult") || effects.has("ap_multiplier")) {
-      ap = Math.round(ap * 1.30);
+      ap = Math.round(ap * 1.22);
     }
     if (effects.has("longevity")) maxHp = Math.round(maxHp * 1.12);
     if (u.buffAdTimer > 0) ad = Math.round(ad * 1.30);
@@ -4648,8 +5018,23 @@ class MobaArena3D {
       crit += 0.25;
     }
     if (u.valenStacks > 0 && u.valenStackTimer > 0) {
-      atkSpeed += u.baseStats.atkSpeed * (0.07 * u.valenStacks);
-      armor += 15 * u.valenStacks;
+      atkSpeed += u.baseStats.atkSpeed * (0.08 * u.valenStacks);
+      armor += 18 * u.valenStacks;
+    }
+    // v2.2.0 Sylphiette, Vexis & Chronos Buffs
+    if (u.sylphietteWSpeedTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.30).toFixed(3));
+    }
+    if (u.sylphietteUltBuffTimer > 0) {
+      armor += 80;
+      mr += 80;
+    }
+    if (u.vexisStealthTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.55).toFixed(3));
+    }
+    if (u.chronosSlowDebuffTimer > 0) {
+      moveSpeed = Number((moveSpeed * 0.50).toFixed(3));
+      atkSpeed = Number((atkSpeed * 0.50).toFixed(3));
     }
     if (u.kaelComboCharges > 0) {
       atkSpeed += u.baseStats.atkSpeed * 0.60;
@@ -4784,26 +5169,70 @@ class MobaArena3D {
   // v1.6.0 NEW JUNGLE SYSTEM:
   // First jungle wave spawns at 13s. Replaces all old monsters with Lực Sĩ, Thuật Sĩ, Khỉ Nhỏ, Tiểu Quái & Rồng Kradus.
   initJungleCamps() {
+    // v2.2.0: Quá trình sinh trưởng mới của Quái Rừng:
+    // - Thay vì tăng chỉ số theo đợt hồi sinh như cũ, các quái rừng thường tăng chỉ số qua mỗi 45s (growthInterval: 45)!
+    // - Riêng Rồng Kradus tăng trưởng qua mỗi 1p30s = 90s (growthInterval: 90)!
+    this.lastJungle45sStage = 0;
+    this.lastKradus90sStage = 0;
     this.jungleSpawns = [
-      // v2.0.0 Rừng Phải mỗi bên: Lực Sĩ (4000 HP ban đầu, +30% trên chỉ số gốc mỗi đợt hồi sinh, hồi 120s, 150 vàng + Bùa Lực Sĩ 80s: +15% ST, +10% làm chậm)
-      { id: "jg_blue_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: -22, z: 16, baseHp: 4000, baseAd: 105, scalePerRespawn: 0.30, gold: 150, exp: 175, color: 0xf97316, scale: 1.22, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
-      { id: "jg_red_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: 22, z: 16, baseHp: 4000, baseAd: 105, scalePerRespawn: 0.30, gold: 150, exp: 175, color: 0xf97316, scale: 1.22, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
+      // Rừng Phải mỗi bên: Lực Sĩ (4000 HP ban đầu, tăng +18% chỉ số gốc qua mỗi 45s, hồi 120s, 150 vàng + Bùa Lực Sĩ 80s)
+      { id: "jg_blue_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: -22, z: 16, baseHp: 4000, baseAd: 105, growthInterval: 45, growthPctPerStage: 0.18, gold: 150, exp: 175, color: 0xf97316, scale: 1.22, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
+      { id: "jg_red_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: 22, z: 16, baseHp: 4000, baseAd: 105, growthInterval: 45, growthPctPerStage: 0.18, gold: 150, exp: 175, color: 0xf97316, scale: 1.22, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
 
-      // v2.0.0 Rừng Trái mỗi bên: Thuật Sĩ (3800 HP ban đầu, +32% trên chỉ số gốc mỗi đợt hồi sinh, hồi 120s, 150 vàng + Bùa Thuật Sĩ 80s: +20% giảm hồi chiêu, +10% tốc chạy)
-      { id: "jg_blue_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: -22, z: -16, baseHp: 3800, baseAd: 95, scalePerRespawn: 0.32, gold: 150, exp: 175, color: 0x38bdf8, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
-      { id: "jg_red_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: 22, z: -16, baseHp: 3800, baseAd: 95, scalePerRespawn: 0.32, gold: 150, exp: 175, color: 0x38bdf8, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
+      // Rừng Trái mỗi bên: Thuật Sĩ (3800 HP ban đầu, tăng +18% chỉ số gốc qua mỗi 45s, hồi 120s, 150 vàng + Bùa Thuật Sĩ 80s)
+      { id: "jg_blue_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: -22, z: -16, baseHp: 3800, baseAd: 95, growthInterval: 45, growthPctPerStage: 0.18, gold: 150, exp: 175, color: 0x38bdf8, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
+      { id: "jg_red_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: 22, z: -16, baseHp: 3800, baseAd: 95, growthInterval: 45, growthPctPerStage: 0.18, gold: 150, exp: 175, color: 0x38bdf8, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
 
-      // v2.0.0 Rừng Trái mỗi bên (gần Thuật Sĩ): Khỉ Nhỏ (2000 HP ban đầu, +22% trên chỉ số gốc mỗi đợt hồi sinh, hồi 60s, 80 vàng)
-      { id: "jg_blue_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: -30, z: -19, baseHp: 2000, baseAd: 68, scalePerRespawn: 0.22, gold: 80, exp: 105, color: 0xa3e635, scale: 0.90, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
-      { id: "jg_red_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: 30, z: -19, baseHp: 2000, baseAd: 68, scalePerRespawn: 0.22, gold: 80, exp: 105, color: 0xa3e635, scale: 0.90, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      // Rừng Trái mỗi bên (gần Thuật Sĩ): Khỉ Nhỏ (2000 HP ban đầu, tăng +12% chỉ số gốc qua mỗi 45s, hồi 60s, 80 vàng)
+      { id: "jg_blue_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: -30, z: -19, baseHp: 2000, baseAd: 68, growthInterval: 45, growthPctPerStage: 0.12, gold: 80, exp: 105, color: 0xa3e635, scale: 0.90, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      { id: "jg_red_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: 30, z: -19, baseHp: 2000, baseAd: 68, growthInterval: 45, growthPctPerStage: 0.12, gold: 80, exp: 105, color: 0xa3e635, scale: 0.90, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
 
-      // v2.0.0 Rừng Phải mỗi bên (gần Lực Sĩ): Tiểu Quái (2500 HP ban đầu, +22% trên chỉ số gốc mỗi đợt hồi sinh, hồi 60s, 80 vàng)
-      { id: "jg_blue_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: -30, z: 19, baseHp: 2500, baseAd: 72, scalePerRespawn: 0.22, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
-      { id: "jg_red_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: 30, z: 19, baseHp: 2500, baseAd: 72, scalePerRespawn: 0.22, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      // Rừng Phải mỗi bên (gần Lực Sĩ): Tiểu Quái (2500 HP ban đầu, tăng +12% chỉ số gốc qua mỗi 45s, hồi 60s, 80 vàng)
+      { id: "jg_blue_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: -30, z: 19, baseHp: 2500, baseAd: 72, growthInterval: 45, growthPctPerStage: 0.12, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      { id: "jg_red_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: 30, z: 19, baseHp: 2500, baseAd: 72, growthInterval: 45, growthPctPerStage: 0.12, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
 
-      // v2.0.0 Chính giữa Rừng Phải của cả 2 bên: Rồng Kradus (50000 HP, +30%/đợt xuất hiện, tối đa 3 lần, 1000 vàng + Lính tăng 25% ST)
-      { id: "jg_kradus", campType: "kradus", jungleSide: "center_right", name: "Rồng Kradus", x: 0, z: 20, baseHp: 50000, baseAd: 220, scalePerRespawn: 0.30, gold: 1000, exp: 450, color: 0xfacc15, scale: 1.85, timer: 13.0, respawnTime: 90, respawnCount: 0, spawnCount: 0, maxSpawns: 3, isBoss: true, isKradus: true }
+      // Chính giữa Rừng Phải của cả 2 bên: Rồng Kradus (50000 HP, tăng trưởng +20% chỉ số gốc qua mỗi 1p30s = 90s!, tối đa 3 lần, 1000 vàng + Lính tăng 25% ST)
+      { id: "jg_kradus", campType: "kradus", jungleSide: "center_right", name: "Rồng Kradus", x: 0, z: 20, baseHp: 50000, baseAd: 220, growthInterval: 90, growthPctPerStage: 0.20, gold: 1000, exp: 450, color: 0xfacc15, scale: 1.85, timer: 13.0, respawnTime: 90, respawnCount: 0, spawnCount: 0, maxSpawns: 3, isBoss: true, isKradus: true }
     ];
+  }
+
+  getJungleGrowthMultiplier(camp) {
+    const interval = camp.isKradus ? 90.0 : (camp.growthInterval || 45.0);
+    const stages = Math.floor(Math.max(0, this.matchTime || 0) / interval);
+    const pct = camp.growthPctPerStage !== undefined ? camp.growthPctPerStage : (camp.isKradus ? 0.20 : 0.15);
+    return { stages, mult: Number((1 + stages * pct).toFixed(4)) };
+  }
+
+  applyPeriodicJungleGrowth() {
+    if (!this.jungleSpawns) return;
+    const cur45Stage = Math.floor(Math.max(0, this.matchTime || 0) / 45.0);
+    const cur90Stage = Math.floor(Math.max(0, this.matchTime || 0) / 90.0);
+    const changed45 = cur45Stage > (this.lastJungle45sStage || 0);
+    const changed90 = cur90Stage > (this.lastKradus90sStage || 0);
+    if (!changed45 && !changed90) return;
+
+    this.lastJungle45sStage = cur45Stage;
+    this.lastKradus90sStage = cur90Stage;
+
+    this.jungleSpawns.forEach((camp) => {
+      if (camp.isKradus && !changed90) return;
+      if (!camp.isKradus && !changed45) return;
+      const { stages, mult } = this.getJungleGrowthMultiplier(camp);
+      const newMaxHp = Math.round(camp.baseHp * mult);
+      const newAd = Math.round(camp.baseAd * mult);
+      camp.maxHp = newMaxHp;
+      camp.ad = newAd;
+      camp.growthStages = stages;
+      const mob = camp.activeMob;
+      if (mob && !mob.dead) {
+        const hpDelta = Math.max(0, newMaxHp - mob.maxHp);
+        mob.maxHp = newMaxHp;
+        mob.hp = Math.min(newMaxHp, mob.hp + hpDelta);
+        mob.ad = newAd;
+        mob.growthStages = stages;
+        this.spawnVfxRing(mob.x, mob.z, mob.isKradus ? 3.5 : 2.0, mob.isKradus ? 0xfacc15 : 0x34d399, 0.55);
+      }
+    });
   }
 
   spawnJungleMonster(camp) {
@@ -4812,9 +5241,10 @@ class MobaArena3D {
       return null;
     }
 
-    const mult = Number((1 + (camp.respawnCount || 0) * (camp.scalePerRespawn || 0)).toFixed(4));
+    const { stages, mult } = this.getJungleGrowthMultiplier(camp);
     const maxHp = Math.round(camp.baseHp * mult);
     const ad = Math.round(camp.baseAd * mult);
+    camp.growthStages = stages;
     camp.spawnCount = (camp.spawnCount || 0) + 1;
     camp.maxHp = maxHp;
     camp.ad = ad;
@@ -6116,7 +6546,7 @@ class MobaArena3D {
   }
 
   playerBasicAttack() {
-    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0 || this.player.shisuiFireTimer > 0) return;
+    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0) return;
     if (this.player.recallChannelTimer > 0) {
       this.player.recallChannelTimer = 0;
       this.spawnFloatingText(this.player.x, this.player.z, "Đã hủy Biến Về!", "text-rose-400");
@@ -6142,7 +6572,7 @@ class MobaArena3D {
   }
 
   castPlayerSkill(skillIdx) {
-    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0 || this.player.shisuiFireTimer > 0) return;
+    if (!this.player || this.player.dead || this.player.stunTimer > 0 || this.player.painChibakuTimer > 0) return;
     if (this.player.recallChannelTimer > 0) {
       this.player.recallChannelTimer = 0;
       this.spawnFloatingText(this.player.x, this.player.z, "Đã hủy Biến Về!", "text-rose-400");
@@ -6288,7 +6718,10 @@ class MobaArena3D {
     if (caster.itemEffects && caster.itemEffects.has("phuc_hop_spellblade") && !(caster.phucHopCd > 0)) {
       caster.phucHopReadyTimer = 5.0;
     }
-    const rawDmg = skill.dmgBase + (caster.ad * (skill.adScale || 0)) + (caster.ap * (skill.apScale || 0));
+    // v2.2.0: Giảm hệ số sức mạnh VL & Phép thêm 20% (0.80x hệ số cộng thêm) để nhịp độ trận đấu cân bằng, không bốc hơi quá nhanh
+    const scaledAd = caster.ad * 0.80;
+    const scaledAp = caster.ap * 0.80;
+    const rawDmg = skill.dmgBase + (scaledAd * (skill.adScale || 0)) + (scaledAp * (skill.apScale || 0));
     const dmgType = (skill.apScale || 0) >= (skill.adScale || 0) ? "magic" : "physical";
     const clampDist = Math.min(dist, skill.range);
     const aimX = Math.max(-64, Math.min(64, caster.x + dirX * clampDist));
@@ -6330,7 +6763,7 @@ class MobaArena3D {
         this.spawnVfxRing(victim.x, victim.z, 3.6, 0x10b981, 0.65);
         this.spawnVfxPillar(victim.x, victim.z, 1.4, 5.2, 0xef4444, 0.55);
 
-        const genjutsuDmg = caster.ad * 1.5 + victim.maxHp * 0.15;
+        const genjutsuDmg = 180 + (caster.ad * 0.80) * 1.85 + victim.maxHp * 0.18;
         this.applyDamage(caster, victim, genjutsuDmg, "physical", true);
         victim.stunTimer = Math.max(victim.stunTimer || 0, 0.85);
 
@@ -6638,12 +7071,13 @@ class MobaArena3D {
     }
 
     if (skill.type === "minato_q_kunai") {
-      // Minato Q: Phi Lôi Thần Kunai (13m + khắc Ấn Phi Lôi Thần + dịch chuyển chém xoay)
+      // v2.2.0 Minato Q: Phi Lôi Thần Kunai (13.5m + khắc Ấn Phi Lôi Thần + dịch chuyển chém xoay + kích hoạt nội tại -0.5s CD Chiêu 1 & 2!)
       this.spawnVfxRing(caster.x, caster.z, 2.0, 0xfacc15, 0.45);
       caster.x = aimX;
       caster.z = aimZ;
       if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
-      this.spawnVfxRing(aimX, aimZ, 3.4, 0xfef08a, 0.65);
+      this.triggerMinatoTeleportPassive(caster);
+      this.spawnVfxRing(aimX, aimZ, 3.6, 0xfef08a, 0.65);
 
       this.units.forEach((u) => {
         if (u.dead || u.team === caster.team) return;
@@ -6653,41 +7087,43 @@ class MobaArena3D {
         }
       });
       if (caster.isPlayer) {
-        this.spawnFloatingText(aimX, aimZ, "⚡ PHI LÔI THẦN KUNAI (Khắc Ấn 6s)!", "text-yellow-300");
+        this.spawnFloatingText(aimX, aimZ, "⚡ PHI LÔI THẦN KUNAI (Dịch Chuyển: -0.5s CD Chiêu 1 & 2)!", "text-yellow-300");
       }
       return;
     }
 
     if (skill.type === "minato_w_rasengan") {
-      // Minato W: Xoáy Rasengan Tốc Biến (7m + 8% HP đã mất + choáng 1.0s + 40% tốc chạy 2s)
+      // v2.2.0 Minato W: Xoáy Rasengan Tốc Biến (8m + 12% HP đã mất + choáng 1.1s + 45% tốc chạy 2.5s + kích hoạt nội tại -0.5s CD Chiêu 1 & 2!)
       caster.x = aimX;
       caster.z = aimZ;
       if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
-      caster.minatoSpeedTimer = 2.0;
+      this.triggerMinatoTeleportPassive(caster);
+      caster.minatoSpeedTimer = 2.5;
       this.recalcHeroStats(caster);
-      this.spawnVfxRing(aimX, aimZ, 3.4, 0x38bdf8, 0.65);
+      this.spawnVfxRing(aimX, aimZ, 3.6, 0x38bdf8, 0.65);
       this.spawnVfxPillar(aimX, aimZ, 1.5, 4.5, 0x38bdf8, 0.55);
 
       this.units.forEach((u) => {
         if (u.dead || u.team === caster.team) return;
-        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 3.4 + u.radius) {
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 3.6 + u.radius) {
           u.raijinMarkTimer = 6.0;
-          this.applyDamage(caster, u, rawDmg + (u.maxHp - u.hp) * 0.08, "physical", true);
-          u.stunTimer = Math.max(u.stunTimer || 0, 1.0);
+          this.applyDamage(caster, u, rawDmg + (u.maxHp - u.hp) * 0.12, "physical", true);
+          this.applyCrowdControl(caster, u, "stun");
         }
       });
       if (caster.isPlayer) {
-        this.spawnFloatingText(aimX, aimZ, "🌀 XOÁY RASENGAN TỐC BIẾN (+40% Tốc Chạy)!", "text-sky-300");
+        this.spawnFloatingText(aimX, aimZ, "🌀 XOÁY RASENGAN TỐC BIẾN (-0.5s CD Chiêu 1 & 2)!", "text-sky-300");
       }
       return;
     }
 
     if (skill.type === "minato_e_kurama_flash") {
-      // Minato E: Phi Lôi Thần Liên Trảm: Cửu Vĩ Chakra (6 tia chớp vàng dịch chuyển liên hoàn bán kính 9m + Đại Ngọc Rasengan)
-      caster.liemInvulnTimer = Math.max(caster.liemInvulnTimer || 0, 1.0);
+      // v2.2.0 Minato E: Phi Lôi Thần Liên Trảm: Cửu Vĩ Chakra (Dịch chuyển liên hoàn bán kính 10m + 20% HP đã mất + kích hoạt nội tại -0.5s CD Chiêu 1 & 2!)
+      caster.liemInvulnTimer = Math.max(caster.liemInvulnTimer || 0, 1.2);
       caster.x = aimX;
       caster.z = aimZ;
       if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.triggerMinatoTeleportPassive(caster);
       this.spawnVfxRing(aimX, aimZ, 6.5, 0xfacc15, 0.95);
       this.spawnVfxPillar(aimX, aimZ, 2.6, 7.0, 0xfef08a, 0.85);
 
@@ -6695,12 +7131,234 @@ class MobaArena3D {
         if (u.dead || u.team === caster.team) return;
         if (Math.hypot(u.x - aimX, u.z - aimZ) <= 6.5 + u.radius) {
           u.raijinMarkTimer = 6.0;
-          this.applyDamage(caster, u, rawDmg + (u.maxHp - u.hp) * 0.14, "physical", true);
-          u.stunTimer = Math.max(u.stunTimer || 0, 1.25);
+          this.applyDamage(caster, u, rawDmg + (u.maxHp - u.hp) * 0.20, "physical", true);
+          this.applyCrowdControl(caster, u, "stun");
         }
       });
       if (caster.isPlayer) {
-        this.spawnFloatingText(aimX, aimZ, "🦊⚡ PHI LÔI THẦN LIÊN TRẢM: CỬU VĨ CHAKRA!", "text-amber-300");
+        this.spawnFloatingText(aimX, aimZ, "🦊⚡ PHI LÔI THẦN LIÊN TRẢM: CỬU VĨ CHAKRA (-0.5s CD Chiêu 1 & 2)!", "text-amber-300");
+      }
+      return;
+    }
+
+    // --- v2.2.0 3 NEW HEROES SKILLS (SYLPHIETTE, VEXIS, CHRONOS) ---
+    if (skill.type === "sylphiette_q_rain") {
+      // Sylphiette Q: Mưa Xuân Tái Sinh (6.5m zone for 3s: heals allies + damages/slows enemies)
+      const rad = 6.5;
+      this.spawnVfxRing(aimX, aimZ, rad, 0x34d399, 0.95);
+      this.spawnVfxPillar(aimX, aimZ, 2.2, 5.5, 0xa7f3d0, 0.75);
+      this.units.forEach((u) => {
+        if (u.dead) return;
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= rad + (u.radius || 1.0)) {
+          if (u.team === caster.team) {
+            const lowHpBonus = (u.hp / u.maxHp) < 0.40 ? 1.45 : 1.25;
+            const healAmt = Math.round((360 + scaledAp * 0.90 + (u.maxHp - u.hp) * 0.12) * lowHpBonus);
+            this.healUnit(u, healAmt);
+          } else {
+            this.applyDamage(caster, u, rawDmg, "magic", true);
+            this.applyCrowdControl(caster, u, "slow");
+          }
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "🌧️🌿 MƯA XUÂN TÁI SINH (Hồi Phục Diện Rộng 6.5m)!", "text-emerald-300");
+      }
+      return;
+    }
+
+    if (skill.type === "sylphiette_w_cleanse") {
+      // Sylphiette W: Liên Kết Hoa Sen Thanh Tẩy (8.5m: Xóa sạch choáng/chậm, hồi máu + Khiên + 30% tốc chạy 2.5s)
+      const rad = 8.5;
+      this.spawnVfxRing(caster.x, caster.z, rad, 0xa7f3d0, 0.85);
+      this.units.forEach((ally) => {
+        if (ally.dead || ally.team !== caster.team) return;
+        if (Math.hypot(ally.x - caster.x, ally.z - caster.z) <= rad + (ally.radius || 1.0)) {
+          ally.stunTimer = 0;
+          ally.slowTimer = 0;
+          ally.sylphietteWSpeedTimer = 2.5;
+          const lowHpBonus = (ally.hp / ally.maxHp) < 0.40 ? 1.45 : 1.25;
+          const healAmt = Math.round((280 + scaledAp * 0.65 + caster.maxHp * 0.08) * lowHpBonus);
+          const shieldAmt = Math.round((320 + scaledAp * 0.60) * lowHpBonus);
+          this.healUnit(ally, healAmt);
+          ally.shield = Math.max(ally.shield || 0, shieldAmt);
+          ally.shieldTimer = 3.5;
+          if (ally.isHero) this.recalcHeroStats(ally);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "🪷 HOA SEN THANH TẨY (Giải Khống Chế, Hồi Máu & +30% Tốc)!", "text-emerald-200");
+      }
+      return;
+    }
+
+    if (skill.type === "sylphiette_e_sanctuary") {
+      // Sylphiette E: Thánh Vực Cổ Thụ Ngàn Năm (10m sanctuary for 5s: instant 18% Max HP heal, +5% Max HP/s regen, +80 Armor/MR, knockback enemies)
+      const rad = 10.0;
+      this.spawnVfxRing(caster.x, caster.z, rad, 0xfef08a, 1.25);
+      this.spawnVfxPillar(caster.x, caster.z, 2.8, 7.5, 0x10b981, 1.15);
+      this.units.forEach((u) => {
+        if (u.dead) return;
+        const d = Math.hypot(u.x - caster.x, u.z - caster.z);
+        if (d <= rad + (u.radius || 1.0)) {
+          if (u.team === caster.team) {
+            const lowHpBonus = (u.hp / u.maxHp) < 0.40 ? 1.45 : 1.25;
+            this.healUnit(u, Math.round(u.maxHp * 0.18 * lowHpBonus));
+            u.sylphietteUltBuffTimer = 5.0;
+            if (u.isHero) this.recalcHeroStats(u);
+          } else {
+            const pushAng = Math.atan2(u.x - caster.x, u.z - caster.z);
+            u.x = Math.max(-64, Math.min(64, u.x + Math.sin(pushAng) * 3.5));
+            u.z = Math.max(-25, Math.min(25, u.z + Math.cos(pushAng) * 3.5));
+            if (u.mesh) u.mesh.position.set(u.x, 0, u.z);
+            this.applyDamage(caster, u, rawDmg, "magic", true);
+            this.applyCrowdControl(caster, u, "stun");
+          }
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "🌳✨ THÁNH VỰC CỔ THỤ NGÀN NĂM (10m: Đại Hồi Phục & +80 Giáp/KP)!", "text-amber-200");
+      }
+      return;
+    }
+
+    if (skill.type === "vexis_q_stealth") {
+      // Vexis Q: Bước Đi Trong Bóng Tối (Tàng hình 4.0s + 55% tốc chạy + đòn đánh kế vọt ra sau lưng đâm lén chí mạng)
+      caster.vexisStealthTimer = 4.0;
+      caster.slowTimer = 0;
+      this.recalcHeroStats(caster);
+      this.spawnVfxRing(caster.x, caster.z, 2.5, 0x9333ea, 0.55);
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "👤 TÀNG HÌNH HƯ KHÔNG (4s: +55% Tốc Chạy & Chuẩn Bị Đâm Lén)!", "text-purple-300");
+      }
+      return;
+    }
+
+    if (skill.type === "vexis_w_cross") {
+      // Vexis W: Huyết Nhận Phân Tách (Lướt 7m xuyên ra sau lưng địch, chém chữ X + khắc Ấn Tử Huyệt 4s)
+      this.spawnVfxRing(caster.x, caster.z, 2.0, 0xf43f5e, 0.45);
+      caster.x = aimX;
+      caster.z = aimZ;
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.spawnHeroSpecificAoeVfx("zephyr", aimX, aimZ, 3.4, 0xf43f5e, 0.65);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 3.5 + u.radius) {
+          u.vexisMarkTimer = 4.0;
+          this.applyDamage(caster, u, rawDmg, "physical", true);
+          this.applyCrowdControl(caster, u, "slow");
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "🩸 HUYẾT NHẬN PHÂN TÁCH (Khắc Ấn Tử Huyệt 4s)!", "text-rose-400");
+      }
+      return;
+    }
+
+    if (skill.type === "vexis_e_assassinate") {
+      // Vexis E: Ám Sát Liên Hoàn Thập Phương (Biến ra sau lưng mục tiêu đâm lén bùng nổ + kích hoạt Đòn Đâm Lén Tử Thần + Tàng hình 2s)
+      const nearVictim = this.units
+        .filter((u) => !u.dead && u.team !== caster.team && Math.hypot(u.x - aimX, u.z - aimZ) <= 5.5 + u.radius)
+        .sort((a, b) => (a.hp / a.maxHp) - (b.hp / b.maxHp))[0];
+
+      if (nearVictim) {
+        const vRot = nearVictim.mesh ? nearVictim.mesh.rotation.y : 0;
+        caster.x = Math.max(-64, Math.min(64, nearVictim.x - Math.sin(vRot) * 1.35));
+        caster.z = Math.max(-25, Math.min(25, nearVictim.z - Math.cos(vRot) * 1.35));
+      } else {
+        caster.x = aimX;
+        caster.z = aimZ;
+      }
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.spawnHeroSpecificAoeVfx("nyx", caster.x, caster.z, 4.5, 0xe11d48, 0.85);
+      this.spawnVfxPillar(caster.x, caster.z, 1.9, 6.2, 0x9333ea, 0.75);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - caster.x, u.z - caster.z) <= 4.5 + u.radius) {
+          const backstabBonus = 180 + scaledAd * 0.85 + u.maxHp * 0.10 + (u.maxHp - u.hp) * 0.18;
+          this.applyDamage(caster, u, rawDmg + backstabBonus, "physical", true);
+          this.applyCrowdControl(caster, u, "stun");
+        }
+      });
+
+      caster.vexisStealthTimer = Math.max(caster.vexisStealthTimer || 0, 2.0);
+      this.recalcHeroStats(caster);
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "🗡️👤 ÁM SÁT THẬP PHƯƠNG & TÀNG HÌNH 2S!", "text-rose-300");
+      }
+      return;
+    }
+
+    if (skill.type === "chronos_q_rift") {
+      // Chronos Q: Trảm Kích Xuyên Không + Dư Ảnh Thời Gian (60% sát thương bồi thêm + đánh cắp 0.4s hồi chiêu)
+      this.spawnVfxRing(caster.x, caster.z, 2.0, 0xf59e0b, 0.45);
+      caster.x = aimX;
+      caster.z = aimZ;
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.spawnVfxRing(aimX, aimZ, 3.6, 0x10b981, 0.75);
+
+      const echoDmg = Math.round(rawDmg * 0.60);
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 3.6 + u.radius) {
+          this.applyDamage(caster, u, rawDmg + echoDmg, "magic", true);
+          this.applyCrowdControl(caster, u, "slow");
+          this.triggerChronosTimeTheft(caster, u);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "⏳⚔️ TRẢM KÍCH XUYÊN KHÔNG & DƯ ẢNH (-0.4s CD)!", "text-amber-300");
+      }
+      return;
+    }
+
+    if (skill.type === "chronos_w_hourglass") {
+      // Chronos W: Phản Chiều Đồng Hồ Cát (Xóa 100% ST trì hoãn trong Ngân Hàng Thời Gian + phát nổ 100% ST đã xóa + choáng 1.1s + hồi 14% HP đã mất)
+      const purgedDmg = Math.round(caster.chronosDelayedDmgPool || 0);
+      caster.chronosDelayedDmgPool = 0;
+      const totalShockDmg = rawDmg + purgedDmg;
+      this.healUnit(caster, Math.round((caster.maxHp - caster.hp) * 0.14));
+      this.spawnVfxRing(caster.x, caster.z, 5.2, 0xfacc15, 0.85);
+      this.spawnVfxPillar(caster.x, caster.z, 2.0, 5.8, 0x10b981, 0.75);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - caster.x, u.z - caster.z) <= 5.2 + u.radius) {
+          this.applyDamage(caster, u, totalShockDmg, "magic", true);
+          this.applyCrowdControl(caster, u, "stun");
+          this.triggerChronosTimeTheft(caster, u);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, `⌛ PHẢN CHIỀU ĐỒNG HỒ CÁT (Xóa & Phản +${purgedDmg} ST)!`, "text-yellow-300");
+      }
+      return;
+    }
+
+    if (skill.type === "chronos_e_rewind") {
+      // Chronos E: Lĩnh Vực Nghịch Đảo Thời Không (4s: Tua ngược hồi 32% Max HP, xóa sạch ST giam giữ, làm chậm 50% địch, 200% tốc độ hồi chiêu)
+      caster.chronosDelayedDmgPool = 0;
+      caster.stunTimer = 0;
+      caster.slowTimer = 0;
+      caster.chronosRewindTimer = 4.0;
+      const rewoundHp = this.healUnit(caster, Math.round(caster.maxHp * 0.32));
+      this.spawnVfxRing(caster.x, caster.z, 7.5, 0x34d399, 1.15);
+      this.spawnVfxRing(caster.x, caster.z, 5.0, 0xfacc15, 1.15);
+      this.spawnVfxPillar(caster.x, caster.z, 2.5, 7.0, 0xf59e0b, 0.95);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - caster.x, u.z - caster.z) <= 7.5 + u.radius) {
+          u.chronosSlowDebuffTimer = 4.0;
+          if (u.isHero) this.recalcHeroStats(u);
+          this.applyDamage(caster, u, rawDmg, "magic", true);
+          this.applyCrowdControl(caster, u, "slow");
+          this.triggerChronosTimeTheft(caster, u);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, `🕰️ NGHỊCH ĐẢO THỜI KHÔNG (+${rewoundHp} HP • Tốc Hồi Chiêu x200%)!`, "text-emerald-300");
       }
       return;
     }
@@ -7683,20 +8341,50 @@ class MobaArena3D {
     return hitCount;
   }
 
+  // v2.2.0 Minato Namikaze New Passive Helper: Mỗi lần dịch chuyển giảm 0.5s hồi Chiêu 1 & Chiêu 2, nhận Khiên 5% Max HP (2s) và hồi 25 Mana!
+  triggerMinatoTeleportPassive(minato) {
+    if (!minato || !minato.isHero || minato.heroData.id !== "minato") return;
+    if (minato.skillCds) {
+      minato.skillCds[0] = Math.max(0, Number(((minato.skillCds[0] || 0) - 0.5).toFixed(2)));
+      minato.skillCds[1] = Math.max(0, Number(((minato.skillCds[1] || 0) - 0.5).toFixed(2)));
+    }
+    const tpShield = Math.round(minato.maxHp * 0.05);
+    minato.shield = Math.max(minato.shield || 0, tpShield);
+    minato.shieldTimer = Math.max(minato.shieldTimer || 0, 2.0);
+    minato.mana = Math.min(minato.maxMana, minato.mana + 25);
+  }
+
+  // v2.2.0 Chronos Passive Helper: Đánh cắp 0.4s hồi chiêu của tướng địch & xóa 25% sát thương trì hoãn trong Ngân Hàng Thời Gian
+  triggerChronosTimeTheft(chronos, target) {
+    if (!chronos || !chronos.isHero || chronos.heroData.id !== "chronos") return;
+    if (chronos.skillCds) {
+      chronos.skillCds = chronos.skillCds.map((c) => Math.max(0, Number((c - 0.4).toFixed(2))));
+    }
+    if (target && target.isHero && target.skillCds) {
+      target.skillCds = target.skillCds.map((c) => c > 0 ? Number((c + 0.4).toFixed(2)) : 0);
+    }
+    if ((chronos.chronosDelayedDmgPool || 0) > 0) {
+      chronos.chronosDelayedDmgPool = Math.round(chronos.chronosDelayedDmgPool * 0.75);
+    }
+  }
+
   applyCrowdControl(caster, target, cc) {
     if (!target || target.dead || target.isStructure) return;
     if (target.isHero && target.heroData && target.heroData.id === "obito" && target.obitoHuHoaTimer > 0) return;
+    // v2.2.0: Tướng cận chiến có +25% Kháng hiệu ứng (Tenacity) giảm thời gian bị làm choáng/làm chậm
+    const tenacityMult = 1 - (target.tenacity || 0);
     if (cc === "stun" || cc === "knockup" || cc === "root") {
-      target.stunTimer = Math.max(target.stunTimer || 0, 1.2);
+      const baseStun = (caster && caster.heroData && caster.heroData.id === "aurelia") ? 1.1 : 1.2;
+      target.stunTimer = Math.max(target.stunTimer || 0, Number((baseStun * tenacityMult).toFixed(2)));
       if (caster.isPlayer) this.spawnFloatingText(target.x, target.z, "KHỐNG CHẾ!", "text-cyan-300");
     } else if (cc === "slow") {
-      target.slowTimer = Math.max(target.slowTimer || 0, 2.0);
+      target.slowTimer = Math.max(target.slowTimer || 0, Number((2.0 * tenacityMult).toFixed(2)));
       const baseSlowPct = 0.35 + ((caster && caster.sasukeSlowBonus) ? caster.sasukeSlowBonus : 0);
       target.slowPct = Math.min(0.90, Math.max(target.slowPct || 0.35, Number(baseSlowPct.toFixed(2))));
     } else if (cc === "pull") {
       target.x = target.x + (caster.x - target.x) * 0.55;
       target.z = target.z + (caster.z - target.z) * 0.55;
-      target.stunTimer = 0.65;
+      target.stunTimer = Number((0.65 * tenacityMult).toFixed(2));
     }
 
     if (caster.itemEffects && caster.itemEffects.has("spell_slow")) {
@@ -7807,7 +8495,8 @@ class MobaArena3D {
       return;
     }
 
-    // v2.1.0 Minato Namikaze Basic Attack: Nếu mục tiêu có Ấn Phi Lôi Thần, dịch chuyển ra sau lưng chém thêm ST và giảm 1.5s hồi toàn bộ kỹ năng!
+    // v2.2.0 Minato Namikaze Basic Attack: Nếu mục tiêu có Ấn Phi Lôi Thần, dịch chuyển ra sau lưng chém thêm 210 (+95% AD) + 6% HP đã mất,
+    // giảm 1.5s toàn bộ kỹ năng VÀ kích hoạt nội tại dịch chuyển mới (-0.5s thêm cho Chiêu 1 & 2 = tổng cộng -2.0s cho Q & W)!
     if (attacker.isHero && attacker.heroData.id === "minato") {
       if (target && !target.isStructure && target.raijinMarkTimer > 0) {
         target.raijinMarkTimer = 0;
@@ -7817,16 +8506,73 @@ class MobaArena3D {
         attacker.z = behindZ;
         if (attacker.mesh) attacker.mesh.position.set(attacker.x, 0, attacker.z);
         attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, Number((c - 1.5).toFixed(2))));
-        this.spawnVfxRing(target.x, target.z, 2.2, 0xfacc15, 0.4);
-        this.applyDamage(attacker, target, attacker.ad + 130 + Math.round(attacker.ad * 0.65), "physical", false);
+        this.triggerMinatoTeleportPassive(attacker);
+        this.spawnVfxRing(target.x, target.z, 2.4, 0xfacc15, 0.45);
+        const bonusTpDmg = 210 + Math.round(attacker.ad * 0.80 * 0.95) + Math.round((target.maxHp - target.hp) * 0.06);
+        this.applyDamage(attacker, target, attacker.ad + bonusTpDmg, "physical", false);
         if (attacker.isPlayer) {
-          this.spawnFloatingText(target.x, target.z, "⚡ PHI LÔI THẦN TRẢM (-1.5s Hồi Chiêu)!", "text-yellow-300");
+          this.spawnFloatingText(target.x, target.z, "⚡ PHI LÔI THẦN TRẢM (-2.0s Chiêu 1&2, -1.5s Chiêu 3)!", "text-yellow-300");
         }
       } else {
         if (target && !target.isStructure) target.raijinMarkTimer = 6.0;
         this.spawnVfxRing(target.x, target.z, 1.4, 0xfacc15, 0.25);
         this.applyDamage(attacker, target, attacker.ad, "physical", false);
       }
+      return;
+    }
+
+    // v2.2.0 Vexis Basic Attack: Từ trạng thái Tàng Hình hoặc phía sau lưng mục tiêu -> Đòn Đâm Lén Tử Thần (Tất định chí mạng 220% + 180 + 85% AD + 10% Max HP + bỏ qua 35% Giáp)!
+    if (attacker.isHero && attacker.heroData.id === "vexis") {
+      const wasStealthed = attacker.vexisStealthTimer > 0;
+      let isBehind = false;
+      if (target && target.mesh && !target.isStructure) {
+        const tRot = target.mesh.rotation.y || 0;
+        const tForwardX = Math.sin(tRot);
+        const tForwardZ = Math.cos(tRot);
+        const dot = (dx * tForwardX + dz * tForwardZ) / (Math.hypot(dx, dz) || 1);
+        if (dot > 0.25) isBehind = true;
+      }
+      if (wasStealthed && target && !target.isStructure) {
+        attacker.vexisStealthTimer = 0;
+        const tRot = target.mesh ? (target.mesh.rotation.y || 0) : angleY;
+        attacker.x = Math.max(-64, Math.min(64, target.x - Math.sin(tRot) * 1.3));
+        attacker.z = Math.max(-25, Math.min(25, target.z - Math.cos(tRot) * 1.3));
+        if (attacker.mesh) attacker.mesh.position.set(attacker.x, 0, attacker.z);
+        this.recalcHeroStats(attacker);
+      }
+      if ((wasStealthed || isBehind) && target && !target.isStructure) {
+        const backstabRaw = Math.round(attacker.ad * 2.20 + 180 + (attacker.ad * 0.80) * 0.85 + target.maxHp * 0.10);
+        const prevPen = attacker.armorPenPct || 0;
+        attacker.armorPenPct = Math.max(prevPen, 0.35);
+        this.spawnVfxRing(target.x, target.z, 2.4, 0xf43f5e, 0.45);
+        this.applyDamage(attacker, target, backstabRaw, "physical", false);
+        attacker.armorPenPct = prevPen;
+        target.stunTimer = Math.max(target.stunTimer || 0, 0.65);
+        if (attacker.isPlayer) {
+          this.spawnFloatingText(target.x, target.z, "🗡️💥 ĐÒN ĐÂM LÉN TỬ THẦN (220% Chí Mạng + 10% Max HP)!", "text-rose-400");
+        }
+      } else {
+        this.spawnVfxRing(target.x, target.z, 1.35, 0x9333ea, 0.25);
+        this.applyDamage(attacker, target, attacker.ad, "physical", false);
+      }
+      if (target && target.vexisMarkTimer > 0 && !target.dead) {
+        target.vexisMarkTimer = 0;
+        const markBurst = Math.round((target.maxHp - target.hp) * 0.12);
+        this.applyDamage(attacker, target, markBurst, "physical", true);
+        this.healUnit(attacker, Math.round(attacker.maxHp * 0.10));
+        if (attacker.isPlayer) {
+          this.spawnFloatingText(target.x, target.z, "🩸 KÍCH NỔ ẤN TỬ HUYỆT (+12% HP Đã Mất)!", "text-rose-300");
+        }
+      }
+      return;
+    }
+
+    // v2.2.0 Chronos Basic Attack: Chém Lưỡi Hái Thời Không gây ST hỗn hợp + Đánh cắp 0.4s hồi chiêu + Xóa 25% ST trì hoãn!
+    if (attacker.isHero && attacker.heroData.id === "chronos") {
+      this.spawnVfxRing(target.x, target.z, 1.55, 0x10b981, 0.28);
+      this.triggerChronosTimeTheft(attacker, target);
+      const hybridBasic = attacker.ad + Math.round((attacker.ap || 0) * 0.40);
+      this.applyDamage(attacker, target, hybridBasic, "magic", false);
       return;
     }
 
@@ -7868,7 +8614,14 @@ class MobaArena3D {
     if (range > 4.0 || attacker.isStructure) {
       const isSeraphBasic = attacker.isHero && attacker.skinData && attacker.skinData.specialVfx === "seraph";
       const isMiya = attacker.isHero && attacker.heroData.id === "miya";
-      const isHelen = attacker.isHero && attacker.heroData.id === "helen";
+      const isHelen = attacker.isHero && (attacker.heroData.id === "helen" || attacker.heroData.id === "sylphiette");
+      if (attacker.isHero && attacker.heroData.id === "sylphiette") {
+        const lowAlly = this.units
+          .filter((a) => a.isHero && !a.dead && a.team === attacker.team && Math.hypot(a.x - attacker.x, a.z - attacker.z) <= 8.5)
+          .sort((a, b) => (a.hp / a.maxHp) - (b.hp / b.maxHp))[0] || attacker;
+        const lowBonus = (lowAlly.hp / lowAlly.maxHp) < 0.40 ? 1.45 : 1.25;
+        this.healUnit(lowAlly, Math.round(attacker.maxHp * 0.02 * lowBonus));
+      }
       const isFairyMiya = isMiya && attacker.skinData && attacker.skinData.specialVfx === "forest_fairy";
       const col = isHelen ? 0x4ade80 : (attacker.isHero ? this.getVfxColor(attacker) : (attacker.team === "blue" ? 0x60a5fa : 0xf87171));
 
@@ -8086,13 +8839,13 @@ class MobaArena3D {
       }
     }
 
-    // v2.0.0 Phức Hợp Kiếm: Sau khi tung chiêu, trong 5s tiếp theo, chiêu hoặc đòn đánh tiếp theo gây thêm 100% công VL thành ST VL (CD 5s)
+    // v2.2.0 Phức Hợp Kiếm: Sau khi tung chiêu, trong 5s tiếp theo, chiêu hoặc đòn đánh tiếp theo gây thêm 80% công VL thành ST VL (CD 5s)
     if (attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("phuc_hop_spellblade") && attacker.phucHopReadyTimer > 0 && !(attacker.phucHopCd > 0)) {
       attacker.phucHopReadyTimer = 0;
       attacker.phucHopCd = 5.0;
-      dmg += attacker.ad * 1.0;
+      dmg += attacker.ad * 0.80;
       if (attacker.isPlayer) {
-        this.spawnFloatingText(target.x, target.z, "🌟 Phức Hợp Kiếm (+100% AD)!", "text-amber-300");
+        this.spawnFloatingText(target.x, target.z, "🌟 Phức Hợp Kiếm (+80% AD)!", "text-amber-300");
       }
     }
 
@@ -8124,17 +8877,18 @@ class MobaArena3D {
 
     if (!isSkill && attacker.itemEffects && attacker.itemEffects.has("phantom_hit")) dmg += 60;
     if (isSkill && attacker.itemEffects && attacker.itemEffects.has("soul_burn") && !target.isStructure) dmg += target.hp * 0.05;
-    if (attacker.itemEffects && attacker.itemEffects.has("fenrir_execute") && (target.hp / target.maxHp) < 0.5) dmg *= 1.30;
+    if (attacker.itemEffects && attacker.itemEffects.has("fenrir_execute") && (target.hp / target.maxHp) < 0.5) dmg *= 1.20;
 
     if (attacker.isHero && !target.isStructure) {
       const hId = attacker.heroData.id;
       if (hId === "aurelia") {
-        attacker.passiveStacks = ((attacker.passiveStacks || 0) + 1) % 3;
+        // v2.2.0 Aurelia Nerf: Đủ 4 ấn mới kích nổ, gây 140 (+35% AP) + 3.5% HP tối đa, đóng băng 0.8s
+        attacker.passiveStacks = ((attacker.passiveStacks || 0) + 1) % 4;
         if (attacker.passiveStacks === 0) {
-          dmg += 180 + attacker.ap * 0.45 + target.maxHp * 0.05;
-          target.stunTimer = Math.max(target.stunTimer || 0, 1.2);
-          attacker.mana = Math.min(attacker.maxMana, attacker.mana + Math.round(attacker.maxMana * 0.06));
-          if (attacker.isPlayer) this.spawnFloatingText(target.x, target.z, "❄️ ẤN BĂNG VĨNH CỬU!", "text-sky-300");
+          dmg += 140 + (attacker.ap * 0.80) * 0.35 + target.maxHp * 0.035;
+          target.stunTimer = Math.max(target.stunTimer || 0, 0.8 * (1 - (target.tenacity || 0)));
+          attacker.mana = Math.min(attacker.maxMana, attacker.mana + Math.round(attacker.maxMana * 0.05));
+          if (attacker.isPlayer) this.spawnFloatingText(target.x, target.z, "❄️ ẤN BĂNG VĨNH CỬU (4 Ấn)!", "text-sky-300");
         }
       } else if (hId === "ignis" && isSkill) {
         dmg += target.maxHp * 0.03;
@@ -8148,12 +8902,12 @@ class MobaArena3D {
       } else if (hId === "zephyr" && !isSkill) {
         attacker.basicHitCounter = ((attacker.basicHitCounter || 0) + 1) % 3;
         if (attacker.basicHitCounter === 0) {
-          dmg += 110 + attacker.ad * 0.60 + (target.maxHp - target.hp) * 0.05;
-          attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(attacker.maxHp * 0.05));
+          dmg += 145 + attacker.ad * 0.75 + (target.maxHp - target.hp) * 0.07;
+          attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(attacker.maxHp * 0.06));
           if (attacker.isPlayer) this.spawnFloatingText(target.x, target.z, "⚡ ẢNH SÁT LIÊN KÍCH!", "text-purple-300");
         }
       } else if (hId === "nyx" && !isSkill) {
-        attacker.basicHitCounter = ((attacker.basicHitCounter || 0) + 1) % 5;
+        attacker.basicHitCounter = ((attacker.basicHitCounter || 0) + 1) % 4;
         if (attacker.basicHitCounter === 0) {
           attacker.nyxFrenzyTimer = 4.0;
           this.recalcHeroStats(attacker);
@@ -8233,12 +8987,24 @@ class MobaArena3D {
     if (target.isHero && target.heroData.id === "gideon" && target.shieldTimer > 0 && target.shield > 0) {
       rawMitigated = Math.max(1, Math.round(rawMitigated * 0.55));
     }
+    // v2.2.0 Nội Tại Tướng Cận Chiến: Giảm 12% sát thương nhận vào từ đòn đánh thường của tướng đánh xa (range >= 6.0m)!
+    if (!isSkill && target.isHero && target.isMeleeHero && attacker && attacker.isHero && (attacker.heroData.range || 3.0) >= 6.0) {
+      rawMitigated = Math.max(1, Math.round(rawMitigated * 0.88));
+    }
+    // v2.2.0 Chronos Nội Tại (Ngân Hàng Thời Gian): 35% sát thương nhận vào được giam vào Đồng Hồ Cát (trì hoãn rỉ máu trong 4s)!
+    if (target.isHero && target.heroData && target.heroData.id === "chronos") {
+      const delayedPart = Math.round(rawMitigated * 0.35);
+      target.chronosDelayedDmgPool = (target.chronosDelayedDmgPool || 0) + delayedPart;
+      rawMitigated = Math.max(1, rawMitigated - delayedPart);
+    }
 
     const finalDmg = rawMitigated;
 
     if ((attacker.isHero || attacker.isSummon) && !target.isStructure) {
       if (!isSkill && attacker.lifesteal > 0) {
-        this.healUnit(attacker, Math.round(finalDmg * attacker.lifesteal));
+        // v2.2.0 Cân bằng Xạ Thủ: Tướng đánh xa (range >= 6.0m) chỉ hưởng 70% hiệu quả hút máu trên đòn đánh thường
+        const rangedLsPenalty = (attacker.isHero && (attacker.heroData.range || 3.0) >= 6.0) ? 0.70 : 1.0;
+        this.healUnit(attacker, Math.round(finalDmg * attacker.lifesteal * rangedLsPenalty));
       }
       if ((isSkill || (attacker.isHero && attacker.heroData.id === "sasuke" && attacker.sasukeWBuffTimer > 0)) && attacker.spellVamp > 0) {
         this.healUnit(attacker, Math.round(finalDmg * attacker.spellVamp));
@@ -8262,7 +9028,7 @@ class MobaArena3D {
     if (attacker && attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("truong_no_boom") && !target.isStructure && !(attacker.truongNoCd > 0) && !this._inTruongNoProc) {
       attacker.truongNoCd = 5.0;
       this._inTruongNoProc = true;
-      const boomDmg = Math.max(30, Math.round((attacker.ap || 0) * 1.40));
+      const boomDmg = Math.max(30, Math.round((attacker.ap || 0) * 1.00));
       this.spawnVfxRing(target.x, target.z, 2.0, 0xf97316, 0.45);
       this.units.forEach((enemy) => {
         if (enemy.dead || enemy.team === attacker.team) return;
@@ -8493,6 +9259,11 @@ class MobaArena3D {
         } else if (killer.heroData.id === "zephyr") {
           killer.skillCds[0] = 0;
           killer.skillCds[1] = 0;
+        } else if (killer.heroData.id === "vexis") {
+          killer.skillCds[0] = 0; // Vexis hạ gục làm mới ngay Bước Đi Trong Bóng Tối (Chiêu 1)
+          if (killer.isPlayer) {
+            this.spawnFloatingText(killer.x, killer.z, "👤 HẠ GỤC: LÀM MỚI TÀNG HÌNH [CHIÊU 1]!", "text-purple-300");
+          }
         }
 
         this.units.forEach((ally) => {
@@ -8722,6 +9493,7 @@ class MobaArena3D {
     this.units.forEach((other) => {
       if (other.dead || other.id === unit.id || other.team === unit.team) return;
       if (other.team === "neutral" && (!unit.isHero || Math.hypot(other.x - unit.x, other.z - unit.z) > maxRange)) return;
+      if (other.vexisStealthTimer > 0) return; // Vexis đang Tàng Hình không thể bị khóa mục tiêu!
       if (other.inBush && !unit.inBush && Math.hypot(other.x - unit.x, other.z - unit.z) > 3.2) return;
 
       const d = Math.hypot(other.x - unit.x, other.z - unit.z);
@@ -9130,7 +9902,8 @@ class MobaArena3D {
       this.spawnMinionWave(-51, 51);
     }
 
-    // 3. v1.6.0 Jungle Camp Spawner (Đợt đầu ở 13s; Rồng Kradus tối đa 3 lần)
+    // 3. v2.2.0 Jungle Camp Spawner & Real-Time Growth (Quái thường tăng trưởng mỗi 45s; Rồng Kradus tăng trưởng mỗi 1p30s = 90s!)
+    this.applyPeriodicJungleGrowth();
     if (this.jungleSpawns) {
       this.jungleSpawns.forEach((camp) => {
         if (!camp.activeMob && !camp.exhausted) {
@@ -9468,10 +10241,73 @@ class MobaArena3D {
       }
       if (u.shisuiFireTimer > 0) {
         u.shisuiFireTimer = Math.max(0, u.shisuiFireTimer - dt);
+        u.shisuiFireDir = { x: Math.sin(u.mesh.rotation.y), z: Math.cos(u.mesh.rotation.y), angle: u.mesh.rotation.y };
         u.shisuiFireTick = (u.shisuiFireTick || 0) - dt;
         if (u.shisuiFireTick <= 0 && u.shisuiFireTimer > 0) {
           u.shisuiFireTick = 0.25;
           this.triggerShisuiFireTick(u);
+        }
+      }
+      // v2.2.0 Sylphiette Passive (9m Aura 1.5% Max HP/s) & Ult Sanctuary (5% Max HP/s)
+      if (u.isHero && u.heroData.id === "sylphiette") {
+        u.sylphiettePassiveTick = (u.sylphiettePassiveTick || 0) + dt;
+        if (u.sylphiettePassiveTick >= 1.0) {
+          u.sylphiettePassiveTick -= 1.0;
+          const ultActive = u.sylphietteUltBuffTimer > 0;
+          const radius = ultActive ? 10.0 : 9.0;
+          const pctPerSec = ultActive ? 0.065 : 0.015;
+          this.units.forEach((ally) => {
+            if (ally.dead || ally.team !== u.team) return;
+            if (Math.hypot(ally.x - u.x, ally.z - u.z) <= radius + (ally.radius || 1.0)) {
+              const lowBonus = (ally.hp / ally.maxHp) < 0.40 ? 1.45 : 1.25;
+              this.healUnit(ally, Math.round(ally.maxHp * pctPerSec * lowBonus));
+            }
+          });
+        }
+      }
+      if (u.sylphietteWSpeedTimer > 0) {
+        u.sylphietteWSpeedTimer -= dt;
+        if (u.sylphietteWSpeedTimer <= 0) {
+          u.sylphietteWSpeedTimer = 0;
+          if (u.isHero) this.recalcHeroStats(u);
+        }
+      }
+      if (u.sylphietteUltBuffTimer > 0) {
+        u.sylphietteUltBuffTimer -= dt;
+        if (u.sylphietteUltBuffTimer <= 0) {
+          u.sylphietteUltBuffTimer = 0;
+          if (u.isHero) this.recalcHeroStats(u);
+        }
+      }
+      // v2.2.0 Vexis Stealth Timer & Mark Timer
+      if (u.vexisStealthTimer > 0) {
+        u.vexisStealthTimer -= dt;
+        if (u.vexisStealthTimer <= 0) {
+          u.vexisStealthTimer = 0;
+          if (u.isHero) this.recalcHeroStats(u);
+        }
+      }
+      if (u.vexisMarkTimer > 0) {
+        u.vexisMarkTimer = Math.max(0, u.vexisMarkTimer - dt);
+      }
+      // v2.2.0 Chronos Delayed Damage Pool (drains 25% of pool per second over 4s, never lethal on its own below 1 HP) & Rewind Field
+      if (u.isHero && u.heroData.id === "chronos" && (u.chronosDelayedDmgPool || 0) > 0) {
+        const bleedStep = Math.min(u.chronosDelayedDmgPool, Math.max(1, u.chronosDelayedDmgPool * 0.25 * dt));
+        u.chronosDelayedDmgPool = Math.max(0, Number((u.chronosDelayedDmgPool - bleedStep).toFixed(2)));
+        u.hp = Math.max(1, Math.round(u.hp - bleedStep));
+      }
+      if (u.chronosRewindTimer > 0) {
+        u.chronosRewindTimer = Math.max(0, u.chronosRewindTimer - dt);
+        // Accelerate Chronos cooldown recovery by an extra +100% (total 200% speed)
+        for (let i = 0; i < 3; i++) {
+          if (u.skillCds[i] > 0) u.skillCds[i] = Math.max(0, u.skillCds[i] - dt);
+        }
+      }
+      if (u.chronosSlowDebuffTimer > 0) {
+        u.chronosSlowDebuffTimer -= dt;
+        if (u.chronosSlowDebuffTimer <= 0) {
+          u.chronosSlowDebuffTimer = 0;
+          if (u.isHero) this.recalcHeroStats(u);
         }
       }
       if (u.lucSiBuffTimer > 0) {
@@ -9648,8 +10484,8 @@ class MobaArena3D {
       u.inBush = this.bushes.some((b) => Math.hypot(u.x - b.x, u.z - b.z) <= b.r);
 
       if (u.isPlayer) {
-        // Player WASD + Touch Joystick movement
-        if (!(u.stunTimer > 0) && !(u.painChibakuTimer > 0) && !(u.shisuiFireTimer > 0)) {
+        // Player WASD + Touch Joystick movement (v2.2.0: Shisui can move at 50% speed during Hoả Độn!)
+        if (!(u.stunTimer > 0) && !(u.painChibakuTimer > 0)) {
           let mx = (this.keys.d ? 1 : 0) - (this.keys.a ? 1 : 0) + this.joyVec.x;
           let mz = (this.keys.s ? 1 : 0) - (this.keys.w ? 1 : 0) + this.joyVec.z;
           const mLen = Math.hypot(mx, mz);
@@ -9660,7 +10496,8 @@ class MobaArena3D {
             }
             mx /= mLen;
             mz /= mLen;
-            const spd = u.moveSpeed * (u.slowTimer > 0 ? (1 - (u.slowPct || 0.35)) : 1.0);
+            const shisuiChannelMult = u.shisuiFireTimer > 0 ? 0.50 : 1.0;
+            const spd = u.moveSpeed * shisuiChannelMult * (u.slowTimer > 0 ? (1 - (u.slowPct || 0.35)) : 1.0);
             u.x = Math.max(-65, Math.min(65, u.x + mx * spd * dt));
             u.z = Math.max(-26, Math.min(26, u.z + mz * spd * dt));
             u.mesh.position.set(u.x, 0, u.z);
@@ -9775,17 +10612,17 @@ class MobaArena3D {
       if (st.dead) return;
       if (st.crystal) st.crystal.rotation.y += 1.5 * dt;
 
-      // v1.6.0: Trụ chính nếu không bị kẻ địch tấn công trong 10s sẽ tự hồi 50 HP / 1s
+      // v2.2.0: Trụ chính (50.000 HP) nếu không bị kẻ địch tấn công trong 10s sẽ tự hồi 200 HP / 1s
       st.outOfCombatTimer = (st.outOfCombatTimer || 0) + dt;
       if (st.kind === "core" && st.outOfCombatTimer >= 10.0 && st.hp < st.maxHp) {
-        st.hp = Math.min(st.maxHp, Number((st.hp + 50 * dt).toFixed(2)));
+        st.hp = Math.min(st.maxHp, Number((st.hp + 200 * dt).toFixed(2)));
       }
 
       if (st.atkCd > 0) st.atkCd = Math.max(0, st.atkCd - dt);
       if (st.atkCd <= 0) {
         let target = this.units.find((u) => u.isMinion && !u.dead && u.team !== st.team && Math.hypot(u.x - st.x, u.z - st.z) <= st.range);
         if (!target) {
-          target = this.units.find((u) => u.isHero && !u.dead && u.team !== st.team && Math.hypot(u.x - st.x, u.z - st.z) <= st.range);
+          target = this.units.find((u) => u.isHero && !u.dead && !(u.vexisStealthTimer > 0) && u.team !== st.team && Math.hypot(u.x - st.x, u.z - st.z) <= st.range);
         }
         if (target) {
           st.atkCd = 1.15;
@@ -9884,9 +10721,9 @@ class MobaArena3D {
             if (p.skillRef.hpPctCur) totalProjDmg += hitEnemy.hp * p.skillRef.hpPctCur;
             if (p.skillRef.hpPctMissing) totalProjDmg += (hitEnemy.maxHp - hitEnemy.hp) * p.skillRef.hpPctMissing;
           }
-          // Aurelia Q: hitting a slowed/stunned target refunds 1.0s cooldown on Q
+          // v2.2.0 Aurelia Q: hitting a slowed/stunned target refunds 0.5s cooldown on Q
           if (p.caster && p.caster.isHero && p.caster.heroData.id === "aurelia" && p.skillIdx === 0 && (hitEnemy.slowTimer > 0 || hitEnemy.stunTimer > 0)) {
-            p.caster.skillCds[0] = Math.max(0, p.caster.skillCds[0] - 1.0);
+            p.caster.skillCds[0] = Math.max(0, p.caster.skillCds[0] - 0.5);
           }
           if (p.applyRinneganMark && !hitEnemy.isStructure) {
             hitEnemy.rinneganMarkTimer = 9.0;
@@ -10113,10 +10950,10 @@ class MobaArena3D {
 
 window.MobaArena3D = MobaArena3D;
 
-</script>
+  </script>
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v2.1.0 SUPER UPDATE)
+// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v2.2.0 META OVERHAUL)
 // ============================================================================
 
 class GameUIController {
@@ -11335,6 +12172,21 @@ class GameUIController {
       if (p.kaelenLightslingerReady) {
         badges.push(`<span class="px-2 py-0.5 rounded bg-cyan-600/35 border border-cyan-400 text-cyan-200 text-[9px] font-bold">🔫🔫 Song Súng Tinh Không: Đòn kế bắn 2 phát (-1s CD Chiêu 2)</span>`);
       }
+      if (p.isMeleeHero) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-emerald-600/30 border border-emerald-400 text-emerald-200 text-[9px] font-bold">⚔️ Nội Tại Cận Chiến: +25% Kháng Hiệu Ứng • -12% ST Đòn Bắn Xa</span>`);
+      }
+      if (p.vexisStealthTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-purple-600/40 border border-purple-300 text-purple-100 text-[9px] font-bold">👤 Tàng Hình Hư Không: ${p.vexisStealthTimer.toFixed(1)}s (+55% Tốc • Đòn kế Đâm Lén 220% Chí Mạng)</span>`);
+      }
+      if (p.sylphietteUltBuffTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-emerald-500/40 border border-emerald-300 text-emerald-100 text-[9px] font-bold">🌳 Thánh Vực Cổ Thụ: ${p.sylphietteUltBuffTimer.toFixed(1)}s (+80 Giáp/KP • Hồi 5% HP/s)</span>`);
+      }
+      if (p.heroData && p.heroData.id === "chronos" && (p.chronosDelayedDmgPool || 0) > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-amber-600/40 border border-amber-300 text-amber-100 text-[9px] font-bold">⏳ Ngân Hàng Thời Gian: ${Math.round(p.chronosDelayedDmgPool)} ST Trì Hoãn (Bấm [2/W] Xóa & Phản Nổ!)</span>`);
+      }
+      if (p.chronosRewindTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-teal-600/40 border border-teal-300 text-teal-100 text-[9px] font-bold">🕰️ Nghịch Đảo Thời Không: ${p.chronosRewindTimer.toFixed(1)}s (Tốc Hồi Chiêu x200%)</span>`);
+      }
       if (p.heroData && p.heroData.id === "obito") {
         if (p.obitoHuHoaTimer > 0) {
           badges.push(`<span class="px-2 py-0.5 rounded bg-cyan-500/35 border border-cyan-300 text-cyan-100 text-[9px] font-bold">🌀 Đang Hư Hoá: ${p.obitoHuHoaTimer.toFixed(1)}s (Bấm lại [Q] để tắt • Khóa chiêu 2 & 3)</span>`);
@@ -11618,6 +12470,6 @@ window.addEventListener("load", () => {
   window.UI.init();
 });
 
-</script>
+  </script>
 </body>
 </html>
