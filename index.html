@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legends of Eternia 3D - v1.8.1 (3v3 Isometric MOBA)</title>
+  <title>Legends of Eternia 3D - v2.0.0 (3v3 Isometric MOBA)</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
-/* Custom Scrollbar & Game UI Polish */
+/* Custom Scrollbar & Game UI Polish - v2.0.0 Royal Gold & Obsidian Edition */
 * {
   box-sizing: border-box;
   user-select: none;
@@ -35,6 +35,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #475569;
 }
+@keyframes runePulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.55; }
+  50% { transform: scale(1.06) rotate(180deg); opacity: 0.9; }
+}
+.lobby-rune-halo {
+  animation: runePulse 14s linear infinite;
+}
 
 </style>
 </head>
@@ -57,7 +64,7 @@ body {
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base md:text-lg font-black tracking-wider text-white">LEGENDS OF ETERNIA 3D</h1>
-            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v1.8.1</span>
+            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v2.0.0</span>
           </div>
           <div id="lobby-rank-summary" class="text-xs font-bold text-slate-300"></div>
         </div>
@@ -105,7 +112,7 @@ body {
 
             <button onclick="window.UI.openModal('modal-shop')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
               <span class="flex items-center gap-2.5">🛒 <span>CỬA HÀNG (SHOP)</span></span>
-              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">Tướng • Skin • 32 Đồ</span>
+              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">Tướng • Skin • 30 Đồ Mới</span>
             </button>
 
             <button onclick="window.UI.openModal('modal-rank')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-sm flex items-center justify-between shadow-lg transition">
@@ -160,7 +167,8 @@ body {
         </div>
 
         <div class="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
-          <canvas id="lobby-3d-canvas" class="w-full h-full"></canvas>
+          <div class="lobby-rune-halo pointer-events-none absolute inset-3 rounded-full border-2 border-dashed border-amber-400/40 shadow-[0_0_50px_rgba(251,191,36,0.22)]"></div>
+          <canvas id="lobby-3d-canvas" class="relative z-10 w-full h-full"></canvas>
         </div>
 
         <button onclick="window.UI.startRankedMatch()" class="mt-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-black text-base tracking-wide shadow-2xl border-2 border-amber-200 transition transform hover:scale-105">
@@ -177,7 +185,7 @@ body {
 
     <!-- Lobby Footer -->
     <footer class="z-20 px-6 py-2 bg-slate-950/90 border-t border-slate-800/80 flex flex-wrap justify-between items-center text-[11px] text-slate-400">
-      <div>Bản đồ 3v3 Isometric v1.8.1: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
+      <div>Bản đồ 3v3 Isometric v2.0.0: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
       <div>Thưởng trận: Thắng +500–800 Vàng | Thua +50–120 Vàng</div>
     </footer>
   </div>
@@ -221,7 +229,7 @@ body {
           <button onclick="window.UI.setShopTab('heroes')" class="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold">🦸 Mua Nhân Vật</button>
           <button onclick="window.UI.setShopTab('skins')" class="px-3 py-1.5 rounded-xl bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/40 text-purple-300 text-xs font-bold">✨ Mua Skin Hiệu Ứng</button>
           <button onclick="window.UI.setShopTab('ruby')" class="px-3 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 text-xs font-bold">♦️ Sự Kiện Ruby</button>
-          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 32 Trang Bị Trong Trận</button>
+          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 30 Trang Bị v2.0.0 Trong Trận</button>
           <button onclick="window.UI.openModal(null)" class="ml-2 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold">✕ Đóng</button>
         </div>
       </div>
@@ -319,8 +327,25 @@ body {
       <div id="hud-preorder-status" class="hidden px-2.5 py-1 rounded-lg bg-slate-950/85 border border-slate-700 text-[10px] text-amber-200 shadow"></div>
     </div>
 
+    <!-- Top Dead Heroes Respawn Countdown Bar -->
+    <div id="hud-dead-heroes-bar" class="hidden fixed top-14 left-1/2 -translate-x-1/2 z-30 flex flex-wrap items-center justify-center gap-1.5 pointer-events-none"></div>
+
+    <!-- First Blood & Multi-Kill Banner (v2.0.0) -->
+    <div id="ingame-kill-banner" class="hidden fixed top-16 left-1/2 -translate-x-1/2 z-40 px-7 py-2.5 rounded-2xl bg-gradient-to-r from-rose-950/95 via-red-900/90 to-slate-950/95 border-2 border-rose-400 shadow-2xl flex flex-col items-center pointer-events-none">
+      <div id="kill-banner-title" class="text-sm md:text-base font-black tracking-wider text-amber-300 drop-shadow">🩸 CHIẾN CÔNG ĐẦU (FIRST BLOOD)!</div>
+      <div id="kill-banner-sub" class="text-xs font-extrabold text-white mt-0.5"></div>
+    </div>
+
+    <!-- Player Respawn Countdown Overlay (v2.0.0) -->
+    <div id="player-respawn-overlay" class="hidden pointer-events-none fixed inset-x-0 top-1/3 -translate-y-1/2 z-30 flex flex-col items-center justify-center">
+      <div class="px-6 py-3.5 rounded-3xl bg-slate-950/90 border-2 border-rose-500/80 shadow-2xl text-center">
+        <div class="text-xs font-extrabold uppercase tracking-wider text-rose-400">⏳ Tướng Đang Đếm Ngược Hồi Sinh (Hồi Chiêu Vẫn Tiếp Tục Chạy)</div>
+        <div id="player-respawn-seconds" class="text-3xl font-black text-amber-300 mt-1">5.0s</div>
+      </div>
+    </div>
+
     <!-- Announcement Banner -->
-    <div id="ingame-announcement" class="hidden fixed top-20 left-1/2 -translate-x-1/2 z-30 px-6 py-2 rounded-2xl bg-slate-950/95 border border-amber-400 text-amber-300 font-extrabold text-sm shadow-2xl"></div>
+    <div id="ingame-announcement" class="hidden fixed top-28 left-1/2 -translate-x-1/2 z-30 px-6 py-2 rounded-2xl bg-slate-950/95 border border-amber-400 text-amber-300 font-extrabold text-sm shadow-2xl"></div>
 
     <!-- Bottom-Left Touch / Mouse Virtual Joystick (Works alongside WASD) -->
     <div id="joystick-zone" class="fixed bottom-5 left-5 z-30 w-28 h-28 rounded-full bg-slate-900/65 border-2 border-slate-600/80 flex items-center justify-center touch-none">
@@ -377,6 +402,11 @@ body {
 
     <!-- Bottom-Right Action & Skill Buttons -->
     <div class="fixed bottom-4 right-4 z-30 flex items-end gap-2.5">
+      <button id="hud-skill-btn-3" onclick="window.UI.arena3D.castPlayerActiveItem()" class="hidden relative w-14 h-14 rounded-2xl bg-gradient-to-b from-emerald-600 to-slate-900 hover:from-emerald-500 border-2 border-emerald-300 flex flex-col items-center justify-center shadow-xl active:scale-95" title="Chủ động Bảo Khí Nhẫn Cụ [Phím 4 / F]: Nối dây hồi 8% HP/s cho đồng đội thấp máu nhất trong 8m và bản thân suốt 5s">
+        <span class="text-[10px] font-black text-emerald-200">[Chiêu 4 / 4]</span>
+        <span class="text-[9px] font-extrabold text-white text-center px-1 leading-tight mt-0.5">📿 Bảo Khí</span>
+        <div id="hud-skill-cd-3" class="hidden absolute inset-0 rounded-2xl bg-slate-950/85 flex items-center justify-center text-xs font-black text-amber-300"></div>
+      </button>
       <button onclick="window.UI.arena3D.castPlayerSkill(0)" class="relative w-16 h-16 rounded-2xl bg-gradient-to-b from-sky-600 to-slate-900 hover:from-sky-500 border-2 border-sky-400 flex flex-col items-center justify-center shadow-xl active:scale-95">
         <span class="text-xs font-black text-sky-200">[Chiêu 1 / Q]</span>
         <span id="hud-skill-name-0" class="text-[10px] font-bold text-white text-center px-1 leading-tight mt-0.5">Skill 1</span>
@@ -413,11 +443,13 @@ body {
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
             <button onclick="window.UI.setInGameShopCategory('PRESET')" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold">⭐ Bộ Trang Bị Mẫu (6 Món)</button>
-            <button onclick="window.UI.setInGameShopCategory('ALL')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold">Tất Cả (32)</button>
-            <button onclick="window.UI.setInGameShopCategory('Physical')" class="px-2.5 py-1 rounded-lg bg-rose-900/60 hover:bg-rose-800 text-rose-300 text-xs font-bold">⚔️ Công Vật Lý (9)</button>
-            <button onclick="window.UI.setInGameShopCategory('Magic')" class="px-2.5 py-1 rounded-lg bg-purple-900/60 hover:bg-purple-800 text-purple-300 text-xs font-bold">🔮 Công Phép (9)</button>
-            <button onclick="window.UI.setInGameShopCategory('Tank')" class="px-2.5 py-1 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 text-emerald-300 text-xs font-bold">🛡️ Đỡ Đòn (8)</button>
-            <button onclick="window.UI.setInGameShopCategory('Boots')" class="px-2.5 py-1 rounded-lg bg-sky-900/60 hover:bg-sky-800 text-sky-300 text-xs font-bold">👢 Giày (6)</button>
+            <button onclick="window.UI.setInGameShopCategory('ALL')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold">Tất Cả (30)</button>
+            <button onclick="window.UI.setInGameShopCategory('Physical')" class="px-2.5 py-1 rounded-lg bg-rose-900/60 hover:bg-rose-800 text-rose-300 text-xs font-bold">⚔️ Vật Lý (11)</button>
+            <button onclick="window.UI.setInGameShopCategory('Magic')" class="px-2.5 py-1 rounded-lg bg-purple-900/60 hover:bg-purple-800 text-purple-300 text-xs font-bold">🔮 Phép (7)</button>
+            <button onclick="window.UI.setInGameShopCategory('Tank')" class="px-2.5 py-1 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 text-emerald-300 text-xs font-bold">🛡️ Thủ (7)</button>
+            <button onclick="window.UI.setInGameShopCategory('Support')" class="px-2.5 py-1 rounded-lg bg-teal-900/60 hover:bg-teal-800 text-teal-300 text-xs font-bold">📿 Phụ Trợ (1)</button>
+            <button onclick="window.UI.setInGameShopCategory('Jungle')" class="px-2.5 py-1 rounded-lg bg-amber-900/60 hover:bg-amber-800 text-amber-300 text-xs font-bold">🏹 Đi Rừng (1)</button>
+            <button onclick="window.UI.setInGameShopCategory('Boots')" class="px-2.5 py-1 rounded-lg bg-sky-900/60 hover:bg-sky-800 text-sky-300 text-xs font-bold">👢 Giày (3)</button>
             <button onclick="window.UI.toggleInGameShop()" class="ml-2 px-3 py-1 rounded-lg bg-rose-600 text-white text-xs font-extrabold">✕ Đóng [P]</button>
           </div>
         </div>
@@ -449,11 +481,11 @@ body {
 
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v1.7.0 MASTER GAME DATA
+// LEGENDS OF ETERNIA 3D - v2.0.0 MASTER GAME DATA
 // ============================================================================
 // 14 Heroes (including Miya, Helen, Pain, Nagato, Shisui & Grock), 32 Unique Items, 14 Rank Tiers, Preset Builds
 window.GAME_DATA = {
-  version: "1.8.1",
+  version: "2.0.0",
 
   defaultResources: {
     gold: 12500,
@@ -1020,7 +1052,7 @@ window.GAME_DATA = {
           adScale: 0,
           cc: "none",
           vfxColor: 0x38bdf8,
-          desc: "Bản thân hoá trạng thái Hư Hoá trong 8s, trong thời gian này có thể bấm lại kỹ năng để tắt Hư Hoá. Hư Hoá giúp bản thân hút toàn bộ kỹ năng phóng vào bản thân, tuy nhiên trong trạng thái này không thể dùng kỹ năng (khi hút hiện Kamui xoáy như Hình 2). Hồi chiêu: 35s, giảm 0.1s mỗi 1 cấp."
+          desc: "Bản thân hoá trạng thái Hư Hoá trong 8s (bấm lại Q để tắt sớm). Hư Hoá giúp Obito hút toàn bộ các chiêu thức dạng phóng ra (đạn/kỹ năng bay) hoặc ném/giáng xuống (như Thiên Thạch, Cung Thiên Đoạt, Địa Bộc Thiên Tinh, Cung Siêu Amaterasu...) nhắm vào Obito (khi hút hiện Xoáy Kamui như Hình 2); không hút các chiêu cận chiến vật lý như đấm, chém lướt. Trong lúc Hư Hoá không thể dùng kỹ năng khác. Hồi chiêu: 35s, giảm 0.1s mỗi 1 cấp."
         },
         {
           key: "W",
@@ -1036,7 +1068,7 @@ window.GAME_DATA = {
           adScale: 0.80,
           cc: "slow",
           vfxColor: 0x6366f1,
-          desc: "Sử dụng toàn bộ kỹ năng hút được trong lúc Hư Hoá phóng ngược ra qua vòng xoáy Kamui (Hình 2). Hồi chiêu: 5s, giảm 0.03s mỗi 1 level."
+          desc: "Chỉ cần bấm 1 lần để xả/phóng toàn bộ những kỹ năng đã hút được trong lúc Hư Hoá ra qua vòng xoáy Kamui (Hình 2). Hồi chiêu: 5s, giảm 0.03s mỗi 1 level."
         },
         {
           key: "E",
@@ -1059,47 +1091,381 @@ window.GAME_DATA = {
     }
   ],
 
-  // 32 DIVERSE IN-MATCH ITEMS
+  // 30 NEW IN-MATCH ITEMS (v2.0.0 OVERHAUL)
   items: [
-    // --- NHÁNH GIÀY & CƠ BẢN (BOOTS & STARTER - 6 ITEMS) ---
-    { id: "boots_speed", name: "Giày Tốc Hành (Boots of Speed)", category: "Boots", tier: 1, cost: 300, icon: "👢", stats: { moveSpeed: 0.35 }, passiveName: "Bước Nhẹ", passiveDesc: "Nội tại Duy Nhất - Bước Nhẹ: +0.35 Tốc độ di chuyển cơ bản." },
-    { id: "boots_armor", name: "Giày Hộ Vệ (Sonic Greaves)", category: "Boots", tier: 2, cost: 720, icon: "🥾", stats: { moveSpeed: 0.65, armor: 110 }, passiveName: "Kiên Định Vật Lý", passiveDesc: "Nội tại Duy Nhất - Kiên Định: Giảm 15% sát thương từ đòn đánh thường của địch." },
-    { id: "boots_resist", name: "Giày Kiên Cường (Gilded Greaves)", category: "Boots", tier: 2, cost: 740, icon: "🛡️", stats: { moveSpeed: 0.65, mr: 110 }, passiveName: "Kháng Hiệu Ứng", passiveDesc: "Nội tại Duy Nhất - Kháng Phép: Giảm 35% thời gian bị làm choáng và làm chậm." },
-    { id: "boots_arcane", name: "Giày Thuật Sư (Enchanted Kicks)", category: "Boots", tier: 2, cost: 750, icon: "🔮", stats: { moveSpeed: 0.65, ap: 45, magicPen: 75 }, passiveName: "Bí Thuật", passiveDesc: "Nội tại Duy Nhất - Bí Thuật: +75 Xuyên giáp phép thẳng." },
-    { id: "boots_atk", name: "Giày Du Mục (War Boots)", category: "Boots", tier: 2, cost: 720, icon: "⚡", stats: { moveSpeed: 0.65, atkSpeed: 0.25 }, passiveName: "Thần Tốc", passiveDesc: "Nội tại Duy Nhất - Thần Tốc: Mỗi đòn đánh thường hồi nhẹ 15 máu." },
-    { id: "boots_cdr", name: "Giày Thuật Pháp (Flashy Boots)", category: "Boots", tier: 2, cost: 710, icon: "⏳", stats: { moveSpeed: 0.65, cdr: 0.15, mana: 200 }, passiveName: "Tinh Thông", passiveDesc: "Nội tại Duy Nhất - Tinh Thông: Giảm 15% thời gian hồi chiêu thức." },
+    // --- 1–10: NHÁNH VẬT LÝ (PHYSICAL) ---
+    {
+      id: "thuong_longinus",
+      name: "Thương Longinus",
+      category: "Physical",
+      tier: 3,
+      cost: 2020,
+      icon: "🔱",
+      stats: { ad: 80, cdr: 0.15, hp: 400, armorPenFlat: 60 },
+      passiveName: "Phá Giáp Longinus",
+      passiveDesc: "Nội tại Duy Nhất: +60 Xuyên giáp. Gây sát thương sẽ trừ 6% giáp của mục tiêu, tối đa 4 lần (24% giáp) trong 5s (hồi chiêu mỗi tầng: 0.3s).",
+      effectKey: "longinus_shred"
+    },
+    {
+      id: "kiem_fafnir",
+      name: "Kiếm Fafnir",
+      category: "Physical",
+      tier: 3,
+      cost: 2080,
+      icon: "🗡️",
+      stats: { ad: 50, atkSpeed: 0.30, lifesteal: 0.10 },
+      passiveName: "Hơi Thở Rồng Fafnir",
+      passiveDesc: "Nội tại Duy Nhất: Đánh thường gây thêm sát thương vật lý bằng 8% HP hiện tại của mục tiêu.",
+      effectKey: "fafnir_onhit"
+    },
+    {
+      id: "thanh_kiem",
+      name: "Thánh Kiếm",
+      category: "Physical",
+      tier: 3,
+      cost: 2150,
+      icon: "⚔️",
+      stats: { ad: 100, crit: 0.25, critDmgBonus: 0.30 },
+      passiveName: "Thánh Kích Chí Mạng",
+      passiveDesc: "Nội tại Duy Nhất: +25% tỉ lệ chí mạng, +30% sát thương chí mạng.",
+      effectKey: "thanh_kiem_crit"
+    },
+    {
+      id: "kiem_muramasa",
+      name: "Kiếm Muramasa",
+      category: "Physical",
+      tier: 3,
+      cost: 2050,
+      icon: "🔪",
+      stats: { ad: 80, cdr: 0.10, hp: 500, armorPenPct: 0.35 },
+      passiveName: "Yêu Đao Xuyên Phá",
+      passiveDesc: "Nội tại Duy Nhất: +35% xuyên giáp.",
+      effectKey: "muramasa_pen"
+    },
+    {
+      id: "quy_kiem",
+      name: "Quỷ Kiếm",
+      category: "Physical",
+      tier: 3,
+      cost: 2180,
+      icon: "🩸",
+      stats: { ad: 100, lifesteal: 0.25, hp: 600 },
+      passiveName: "Huyết Quỷ Tái Sinh",
+      passiveDesc: "Nội tại Duy Nhất: Khi nhận sát thương, lập tức hồi HP bằng 8% HP tối đa (hồi chiêu: 15s).",
+      effectKey: "quy_kiem_heal"
+    },
+    {
+      id: "phuc_hop_kiem",
+      name: "Phức Hợp Kiếm",
+      category: "Physical",
+      tier: 3,
+      cost: 2250,
+      icon: "🌟",
+      stats: { ad: 70, atkSpeed: 0.15, cdr: 0.10, hp: 600 },
+      passiveName: "Cuồng Bạo Cường Kích",
+      passiveDesc: "Nội tại Duy Nhất: Sau khi tung chiêu, trong 5s tiếp theo, chiêu hoặc đòn đánh tiếp theo gây thêm 100% công vật lý thành sát thương vật lý (hồi chiêu: 5s).",
+      effectKey: "phuc_hop_spellblade"
+    },
+    {
+      id: "song_dao_bao_tap",
+      name: "Song Đao Bão Táp",
+      category: "Physical",
+      tier: 3,
+      cost: 1980,
+      icon: "🌪️",
+      stats: { atkSpeed: 0.35, moveSpeedPct: 0.07, crit: 0.25 },
+      passiveName: "Cuồng Phong Chí Mạng",
+      passiveDesc: "Nội tại Duy Nhất: Sau khi gây sát thương chí mạng, trong 2s sẽ giảm hồi chiêu cho toàn bộ kỹ năng 0.5s.",
+      effectKey: "song_dao_crit_cdr"
+    },
+    {
+      id: "nanh_fenrir",
+      name: "Nanh Fenrir",
+      category: "Physical",
+      tier: 3,
+      cost: 2750,
+      icon: "🐺",
+      stats: { ad: 180, cdr: 0.05 },
+      passiveName: "Nanh Sói Chinh Phạt",
+      passiveDesc: "Nội tại Duy Nhất: Khi HP của mục tiêu dưới 50%, tăng 30% sát thương gây ra.",
+      effectKey: "fenrir_execute"
+    },
+    {
+      id: "dao_truy_hon",
+      name: "Đao Truy Hồn",
+      category: "Physical",
+      tier: 3,
+      cost: 2000,
+      icon: "🪓",
+      stats: { ad: 80, armor: 100, mr: 120, hp: 800 },
+      passiveName: "Trảm Hồn Giảm Hồi Máu",
+      passiveDesc: "Nội tại Duy Nhất: Đánh thường hoặc chiêu trúng đích làm mục tiêu giảm 40% hiệu quả hồi HP trong 2s (hồi chiêu: 5s).",
+      effectKey: "grievous_wounds_ad"
+    },
+    {
+      id: "liem_doat_menh",
+      name: "Liềm Đoạt Mệnh",
+      category: "Physical",
+      tier: 3,
+      cost: 2120,
+      icon: "🌙",
+      stats: { ad: 75, atkSpeed: 0.15, hp: 500 },
+      passiveName: "Tử Thần Hộ Mệnh",
+      passiveDesc: "Nội tại Duy Nhất: Khi nhận sát thương chí tử, không bị kết liễu mà trở nên bất tử trong 2s và tăng 25% tốc chạy trong 5s (hồi chiêu: 75s).",
+      effectKey: "liem_undying"
+    },
 
-    // --- NHÁNH CÔNG VẬT LÝ (PHYSICAL ATTACK - 9 ITEMS) ---
-    { id: "phy_iron_sword", name: "Kiếm Sắt (Iron Shortsword)", category: "Physical", tier: 1, cost: 400, icon: "🗡️", stats: { ad: 30 }, passiveName: "Sắc Bén", passiveDesc: "Nội tại Duy Nhất - Sắc Bén: Đòn đánh thường gây thêm 15 sát thương lên lính và quái." },
-    { id: "phy_vamp_dagger", name: "Đoản Đao Huyết (Vampiric Dagger)", category: "Physical", tier: 2, cost: 950, icon: "🔪", stats: { ad: 50, lifesteal: 0.10 }, passiveName: "Hút Sinh Lực", passiveDesc: "Nội tại Duy Nhất - Hút Sinh Lực: +10% Hút máu vật lý từ đòn đánh thường." },
-    { id: "phy_warhammer", name: "Búa Chiến (Heavy Warhammer)", category: "Physical", tier: 2, cost: 1100, icon: "🔨", stats: { ad: 65, hp: 300, cdr: 0.10 }, passiveName: "Chấn Kích", passiveDesc: "Nội tại Duy Nhất - Chấn Kích: Gây sát thương vật lý giúp tăng 5% tốc chạy trong 1.5s." },
-    { id: "phy_blade_eternity", name: "Kiếm Vĩnh Cửu (Blade of Eternity)", category: "Physical", tier: 3, cost: 2150, icon: "⚔️", stats: { ad: 120, crit: 0.25 }, passiveName: "Chí Mạng Tuyệt Đối", passiveDesc: "Nội tại Duy Nhất - Vô Cực: Đòn chí mạng gây 240% sát thương thay vì 200%.", effectKey: "crit_boost" },
-    { id: "phy_bloodthirster", name: "Rìu Huyết Quản (Bloodthirster Axe)", category: "Physical", tier: 3, cost: 2050, icon: "🪓", stats: { ad: 100, lifesteal: 0.22, hp: 400 }, passiveName: "Huyết Tế", passiveDesc: "Nội tại Duy Nhất - Huyết Tế: Hạ gục hoặc phụ hạ tướng hồi ngay 18% máu tối đa.", effectKey: "blood_feast" },
-    { id: "phy_phantom_bow", name: "Cung Bóng Ma (Phantom Bow)", category: "Physical", tier: 3, cost: 1980, icon: "🏹", stats: { ad: 65, atkSpeed: 0.40, crit: 0.20, moveSpeed: 0.30 }, passiveName: "Liên Xạ", passiveDesc: "Nội tại Duy Nhất - Liên Xạ: Mỗi đòn đánh thường gây thêm 60 sát thương vật lý trên đòn bắn.", effectKey: "phantom_hit" },
-    { id: "phy_titan_breaker", name: "Phá Giáp Thương (Titan Breaker)", category: "Physical", tier: 3, cost: 2100, icon: "🔱", stats: { ad: 95, cdr: 0.15, armorPenPct: 0.40 }, passiveName: "Xuyên Thấu Giáp", passiveDesc: "Nội tại Duy Nhất - Xuyên Phá: Bỏ qua 40% Giáp Vật Lý của mục tiêu.", effectKey: "armor_pen" },
-    { id: "phy_omni_arms", name: "Phức Hợp Kiếm (Omni Arms)", category: "Physical", tier: 3, cost: 2250, icon: "🌟", stats: { ad: 75, atkSpeed: 0.20, lifesteal: 0.10, hp: 500, cdr: 0.10 }, passiveName: "Ngũ Hành Cường Kích", passiveDesc: "Nội tại Duy Nhất - Cường Kích: Sau khi dùng chiêu, đòn đánh kế tiếp gây thêm 100% Công VL.", effectKey: "spellblade_ad" },
-    { id: "phy_fenrir_tooth", name: "Nanh Fenrir (Fenrir's Tooth)", category: "Physical", tier: 3, cost: 2650, icon: "🐺", stats: { ad: 180 }, passiveName: "Chinh Phạt", passiveDesc: "Nội tại Duy Nhất - Chinh Phạt: Tăng thêm 30% tổng sát thương lên mục tiêu dưới 50% máu.", effectKey: "fenrir_execute" },
+    // --- 11–12: NHÁNH PHỤ TRỢ & ĐI RỪNG (SUPPORT & JUNGLE) ---
+    {
+      id: "bao_khi_nhan_cu",
+      name: "Bảo Khí Nhẫn Cụ",
+      category: "Support",
+      tier: 3,
+      cost: 1250,
+      icon: "📿",
+      stats: { hp: 1200, moveSpeedPct: 0.12 },
+      supportTankOnly: true,
+      hasActiveSkill: true,
+      passiveName: "Nhẫn Cụ Hộ Vệ & Dây Sinh Mệnh [Phím 4]",
+      passiveDesc: "Chỉ Hỗ Trợ / Đỡ Đòn mới được mua. Nội tại Duy Nhất: Trước phút thứ 3 (180s), tách khỏi cơ chế chia vàng lính và nhận +10 vàng/1s (sau 3 phút trở lại bình thường). Chủ Động [Chiêu 4]: Nối dây vào đồng đội gần nhất có %HP thấp nhất trong 8m suốt 5s, hồi 8% HP bản thân/1s cho đồng đội và bản thân (vượt quá 8m dây tự ngắt, hồi chiêu: 25s).",
+      effectKey: "bao_khi_support"
+    },
+    {
+      id: "kiem_truy_hon",
+      name: "Kiếm Truy Hồn",
+      category: "Jungle",
+      tier: 3,
+      cost: 1750,
+      icon: "🏹",
+      stats: { ad: 90, ap: 150, cdr: 0.08, moveSpeedPct: 0.10 },
+      passiveName: "Thợ Săn Rừng Xanh",
+      passiveDesc: "Nội tại Duy Nhất: Nhận thêm 30% vàng từ quái rừng và gây thêm 10% sát thương lên quái rừng. Tung chiêu làm chậm mục tiêu 20% trong 1.5s.",
+      effectKey: "kiem_truy_hon_jg"
+    },
 
-    // --- NHÁNH CÔNG PHÉP (MAGIC ATTACK - 9 ITEMS) ---
-    { id: "mag_tome", name: "Sách Phép (Apprentice Tome)", category: "Magic", tier: 1, cost: 400, icon: "📘", stats: { ap: 45 }, passiveName: "Khai Sáng", passiveDesc: "Nội tại Duy Nhất - Khai Sáng: +15 Hồi năng lượng mỗi 5 giây." },
-    { id: "mag_crystal", name: "Pha Lê Ma Thuật (Mystic Crystal)", category: "Magic", tier: 2, cost: 1000, icon: "💠", stats: { ap: 85, mana: 250, cdr: 0.10 }, passiveName: "Tích Tụ Ma Lực", passiveDesc: "Nội tại Duy Nhất - Tích Tụ: Khi lên cấp hồi ngay 20% máu và năng lượng." },
-    { id: "mag_blasting_wand", name: "Trượng Bùng Nổ (Blasting Wand)", category: "Magic", tier: 2, cost: 1150, icon: "🪄", stats: { ap: 100, magicPen: 45 }, passiveName: "Phá Ma", passiveDesc: "Nội tại Duy Nhất - Phá Ma: Kỹ năng trúng đích nổ thêm 50 sát thương phép." },
-    { id: "mag_archmage_crown", name: "Vương Miện Đại Pháp Sư (Archmage Crown)", category: "Magic", tier: 3, cost: 2300, icon: "👑", stats: { ap: 220 }, passiveName: "Ma Pháp Tối Thượng", passiveDesc: "Nội tại Duy Nhất - Thần Trí: Tăng thêm +35% tổng Công Phép hiện có.", effectKey: "ap_multiplier" },
-    { id: "mag_void_staff", name: "Trượng Hư Không (Void Staff)", category: "Magic", tier: 3, cost: 2050, icon: "🌌", stats: { ap: 145, cdr: 0.10, magicPenPct: 0.45 }, passiveName: "Hư Không Xuyên Phá", passiveDesc: "Nội tại Duy Nhất - Diệt Ma: Bỏ qua 45% Kháng Phép của kẻ địch.", effectKey: "magic_pen" },
-    { id: "mag_frostbite_tome", name: "Sách Băng Giá (Frostbite Tome)", category: "Magic", tier: 3, cost: 2100, icon: "❄️", stats: { ap: 135, hp: 700, cdr: 0.10 }, passiveName: "Trói Buộc Hàn Băng", passiveDesc: "Nội tại Duy Nhất - Hàn Băng: Kỹ năng trúng đích làm chậm 25% tốc chạy của địch trong 2s.", effectKey: "spell_slow" },
-    { id: "mag_soul_reaver", name: "Ngọc Đoạt Hồn (Soul Reaver Orb)", category: "Magic", tier: 3, cost: 2150, icon: "🔥", stats: { ap: 150, spellVamp: 0.25, cdr: 0.15 }, passiveName: "Thiêu Đốt Linh Hồn", passiveDesc: "Nội tại Duy Nhất - Hút Hồn: +25% Hút máu phép và gây thêm 5% máu hiện tại của địch.", effectKey: "soul_burn" },
-    { id: "mag_apocalypse", name: "Trượng Tận Thế (Apocalypse Staff)", category: "Magic", tier: 3, cost: 2200, icon: "⚡", stats: { ap: 165, atkSpeed: 0.15, cdr: 0.10, moveSpeed: 0.25 }, passiveName: "Ma Kiếm Lôi Quang", passiveDesc: "Nội tại Duy Nhất - Lôi Kiếm: Sau khi dùng chiêu, đòn đánh kế tiếp gây thêm 80% Công Phép.", effectKey: "spellblade_ap" },
-    { id: "mag_arctic_orb", name: "Quả Cầu Băng Sương (Arctic Orb)", category: "Magic", tier: 3, cost: 2080, icon: "🧊", stats: { ap: 160, armor: 120 }, passiveName: "Khiên Băng Bảo Hộ", passiveDesc: "Nội tại Duy Nhất - Ngưng Đọng: Khi máu dưới 35%, tự động tạo lá chắn 650 máu (hồi 20s).", effectKey: "ice_barrier" },
+    // --- 13–19: NHÁNH THỦ / ĐỠ ĐÒN (TANK) ---
+    {
+      id: "ao_choang_than_ra",
+      name: "Áo Choàng Thần Ra",
+      category: "Tank",
+      tier: 3,
+      cost: 1920,
+      icon: "☀️",
+      stats: { armor: 225, hp: 1000 },
+      passiveName: "Hào Quang Thần Lửa",
+      passiveDesc: "Nội tại Duy Nhất: Kẻ địch trong phạm vi gần (3.5m) bị thiêu đốt và giảm 20% hiệu quả hồi phục kéo dài 2s.",
+      effectKey: "than_ra_aura"
+    },
+    {
+      id: "khien_that_truyen",
+      name: "Khiên Thất Truyền",
+      category: "Tank",
+      tier: 3,
+      cost: 2050,
+      icon: "🛡️",
+      stats: { armor: 275, hp: 1200 },
+      passiveName: "Trấn Áp Cổ Đại",
+      passiveDesc: "Nội tại Duy Nhất: Khi chịu sát thương, giảm 30% tốc đánh và 15% tốc chạy của kẻ địch ra đòn trong 3s.",
+      effectKey: "khien_that_truyen_slow"
+    },
+    {
+      id: "khien_huyen_thoai",
+      name: "Khiên Huyền Thoại",
+      category: "Tank",
+      tier: 3,
+      cost: 2100,
+      icon: "💠",
+      stats: { cdr: 0.30, mana: 400, mr: 300, armor: 180 },
+      passiveName: "Lĩnh Vực Băng Giá",
+      passiveDesc: "Nội tại Duy Nhất: Giảm 30% tốc đánh của toàn bộ mục tiêu địch trong phạm vi 5m xung quanh bản thân.",
+      effectKey: "khien_huyen_thoai_aura"
+    },
+    {
+      id: "giap_gaia",
+      name: "Giáp Gaia",
+      category: "Tank",
+      tier: 3,
+      cost: 1980,
+      icon: "🌿",
+      stats: { hp: 1200, mr: 200 },
+      passiveName: "Sinh Lực Đại Địa",
+      passiveDesc: "Nội tại Duy Nhất: Mỗi 7% HP bản thân mất đi sẽ tăng thêm +1% khả năng hồi phục nhận vào.",
+      effectKey: "gaia_heal_amp"
+    },
+    {
+      id: "giap_thong_kho",
+      name: "Giáp Thống Khổ",
+      category: "Tank",
+      tier: 3,
+      cost: 2020,
+      icon: "🌵",
+      stats: { ad: 50, armor: 220, mr: 200, hp: 700 },
+      passiveName: "Phản Kích Thống Khổ",
+      passiveDesc: "Nội tại Duy Nhất: Khi nhận sát thương, phản lại bị động 8% sát thương kẻ địch gây ra.",
+      effectKey: "thong_kho_reflect"
+    },
+    {
+      id: "giap_hoi_sinh",
+      name: "Giáp Hồi Sinh",
+      category: "Tank",
+      tier: 3,
+      cost: 2250,
+      icon: "👼",
+      stats: { armor: 120, mr: 90, hp: 500 },
+      passiveName: "Phục Sinh Vĩnh Cửu",
+      passiveDesc: "Nội tại Duy Nhất: Hồi sinh ngay tại chỗ 1 lần sau khi chết với 45% HP tối đa (hồi chiêu: 200s, vẫn đếm ngược khi đang chết).",
+      effectKey: "revive_200"
+    },
+    {
+      id: "khien_quang_thanh",
+      name: "Khiên Quang Thánh",
+      category: "Tank",
+      tier: 3,
+      cost: 2080,
+      icon: "✨",
+      stats: { cdr: 0.10, hp: 1200, armor: 50, mr: 50 },
+      passiveName: "Quang Khiên Chuyển Hóa",
+      passiveDesc: "Nội tại Duy Nhất: Trong 5s sau khi gây sát thương, tạo giáp ảo cho bản thân bằng 20% sát thương gây ra (hồi chiêu: 10s).",
+      effectKey: "quang_thanh_shield"
+    },
 
-    // --- NHÁNH ĐỠ ĐÒN & PHÒNG THỦ (TANK & DEFENSE - 8 ITEMS) ---
-    { id: "tank_vitality", name: "Ngọc Sinh Mệnh (Vitality Ruby)", category: "Tank", tier: 1, cost: 400, icon: "❤️", stats: { hp: 450 }, passiveName: "Dẻo Dai", passiveDesc: "Nội tại Duy Nhất - Dẻo Dai: +20 Hồi máu mỗi 5 giây." },
-    { id: "tank_chain_vest", name: "Giáp Xích Sắt (Chainmail Vest)", category: "Tank", tier: 2, cost: 980, icon: "⛓️", stats: { armor: 140, hp: 500 }, passiveName: "Cứng Cáp", passiveDesc: "Nội tại Duy Nhất - Cứng Cáp: Giảm 30 sát thương vật lý nhận từ mọi đòn đánh." },
-    { id: "tank_aegis_valor", name: "Khiên Dũng Cảm (Aegis of Valor)", category: "Tank", tier: 3, cost: 2050, icon: "🛡️", stats: { armor: 320, mana: 400, cdr: 0.20 }, passiveName: "Uy Áp Chiến Trường", passiveDesc: "Nội tại Duy Nhất - Uy Áp: Kẻ địch tấn công bạn bị giảm 25% Tốc đánh và 15% Tốc chạy.", effectKey: "aegis_slow" },
-    { id: "tank_gaia_embrace", name: "Giáp Gaia (Gaia's Embrace)", category: "Tank", tier: 3, cost: 2000, icon: "🌿", stats: { mr: 260, hp: 1150, moveSpeed: 0.25 }, passiveName: "Suối Nguồn Tái Sinh", passiveDesc: "Nội tại Duy Nhất - Hồi Sinh Tự Nhiên: Khi chịu sát thương, hồi 8% máu tối đa trong 2s (hồi 8s).", effectKey: "gaia_regen" },
-    { id: "tank_thornmail", name: "Giáp Gai Phản Đòn (Thornmail Armor)", category: "Tank", tier: 3, cost: 1980, icon: "🌵", stats: { armor: 300, hp: 900 }, passiveName: "Phản Kích Gai Nhọn", passiveDesc: "Nội tại Duy Nhất - Phản Đòn: Phản lại 22% sát thương vật lý nhận vào thành sát thương phép.", effectKey: "thorn_reflect" },
-    { id: "tank_crimson_banner", name: "Huân Chương Huyết Chiến (Crimson Banner)", category: "Tank", tier: 3, cost: 2020, icon: "🚩", stats: { armor: 200, mr: 200, hp: 950 }, passiveName: "Khải Hoàn Ca", passiveDesc: "Nội tại Duy Nhất - Khải Hoàn: Tham gia hạ gục giúp hồi 22% máu tối đa và tạo khiên 350 máu.", effectKey: "banner_triumph" },
-    { id: "tank_longevity", name: "Phù Chú Trường Thọ (Amulet of Longevity)", category: "Tank", tier: 3, cost: 2450, icon: "📿", stats: { hp: 1850, cdr: 0.10 }, passiveName: "Đại Sinh Mệnh", passiveDesc: "Nội tại Duy Nhất - Trường Thọ: Tăng +12% máu tối đa và hồi 2.5% máu mỗi giây ngoài giao tranh.", effectKey: "longevity" },
-    { id: "tank_immortal_heart", name: "Trái Tim Bất Tử (Immortal Heart)", category: "Tank", tier: 3, cost: 2350, icon: "👼", stats: { armor: 180, mr: 180, hp: 800 }, passiveName: "Phục Sinh Bất Diệt", passiveDesc: "Nội tại Duy Nhất - Tái Sinh: Khi bị hạ gục sẽ hồi sinh ngay tại chỗ với 45% máu tối đa (hồi 120s).", effectKey: "revive" }
+    // --- 20–26: NHÁNH PHÉP (MAGIC) ---
+    {
+      id: "truong_no_dung_dung",
+      name: "Trượng Nổ Đùng Đùng",
+      category: "Magic",
+      tier: 3,
+      cost: 2050,
+      icon: "💥",
+      stats: { ap: 200, moveSpeedPct: 0.05 },
+      passiveName: "Vụ Nổ Pháp Thuật",
+      passiveDesc: "Nội tại Duy Nhất: Khi gây sát thương sẽ tạo một vùng nổ bán kính 2m gây thêm 140% công phép của bản thân lên mục tiêu trúng chiêu (hồi chiêu: 5s).",
+      effectKey: "truong_no_boom"
+    },
+    {
+      id: "vuong_mien_xa_ran",
+      name: "Vương Miện Xà Rắn",
+      category: "Magic",
+      tier: 3,
+      cost: 2350,
+      icon: "👑",
+      stats: { ap: 240 },
+      passiveName: "Quyền Năng Xà Vương",
+      passiveDesc: "Nội tại Duy Nhất: Tăng +30% tổng công phép hiện tại.",
+      effectKey: "xa_ran_ap_mult"
+    },
+    {
+      id: "quyen_truong_than_ran",
+      name: "Quyền Trượng Thần Rắn",
+      category: "Magic",
+      tier: 3,
+      cost: 2150,
+      icon: "🐍",
+      stats: { ap: 160, spellVamp: 0.25, hp: 800 },
+      passiveName: "Huyết Xà Chuyển Hóa",
+      passiveDesc: "Nội tại Duy Nhất: Mỗi 2% hút máu phép hiện có sẽ chuyển thành +1% giảm hồi chiêu.",
+      effectKey: "than_ran_vamp_cdr"
+    },
+    {
+      id: "thap_tu_kiem",
+      name: "Thập Tự Kiếm",
+      category: "Magic",
+      tier: 3,
+      cost: 2120,
+      icon: "✝️",
+      stats: { atkSpeed: 0.20, ap: 180, moveSpeedPct: 0.08 },
+      passiveName: "Thập Tự Quang Kiếm",
+      passiveDesc: "Nội tại Duy Nhất: Đòn đánh thường kế tiếp giúp tăng +15% tốc đánh trong 3s (hồi chiêu: 8s). Mỗi đòn đánh thường gây thêm sát thương phép bằng 30% công phép hiện tại (hồi chiêu: 0.2s).",
+      effectKey: "thap_tu_onhit"
+    },
+    {
+      id: "truong_hon_mang",
+      name: "Trượng Hỗn Mang",
+      category: "Magic",
+      tier: 3,
+      cost: 2020,
+      icon: "🌌",
+      stats: { ap: 180, cdr: 0.10, magicPenPct: 0.40 },
+      passiveName: "Hỗn Mang Xuyên Thấu",
+      passiveDesc: "Nội tại Duy Nhất: +40% xuyên giáp phép.",
+      effectKey: "hon_mang_pen"
+    },
+    {
+      id: "sach_truy_hon",
+      name: "Sách Truy Hồn",
+      category: "Magic",
+      tier: 3,
+      cost: 1980,
+      icon: "📕",
+      stats: { ap: 140, cdr: 0.10, hp: 600 },
+      passiveName: "Ấn Chú Trói Hồn",
+      passiveDesc: "Nội tại Duy Nhất: Đánh thường hoặc chiêu trúng đích làm mục tiêu giảm 40% hiệu quả hồi HP trong 2s (hồi chiêu: 5s).",
+      effectKey: "grievous_wounds_ap"
+    },
+    {
+      id: "sach_thanh",
+      name: "Sách Thánh",
+      category: "Magic",
+      tier: 3,
+      cost: 2850,
+      icon: "📖",
+      stats: { ap: 350, cdr: 0.10, hp: 900 },
+      passiveName: "Thánh Điển Bất Hoại",
+      passiveDesc: "Nội tại Duy Nhất: Mỗi 100 công phép hiện có giúp giảm 0.1% sát thương nhận vào.",
+      effectKey: "sach_thanh_mitigation"
+    },
+
+    // --- 27–29: NHÁNH GIÀY (BOOTS) ---
+    {
+      id: "giay_thuat_si",
+      name: "Giày Thuật Sĩ",
+      category: "Boots",
+      tier: 2,
+      cost: 710,
+      icon: "⏳",
+      stats: { moveSpeed: 0.65, cdr: 0.15 },
+      passiveName: "Thần Tốc Thuật Sĩ",
+      passiveDesc: "Nội tại Duy Nhất: +60 tốc chạy (+0.65 tốc chạy 3D), +15% giảm hồi chiêu.",
+      effectKey: "boots_cdr"
+    },
+    {
+      id: "giay_phu_thuy",
+      name: "Giày Phù Thuỷ",
+      category: "Boots",
+      tier: 2,
+      cost: 750,
+      icon: "🔮",
+      stats: { moveSpeed: 0.65, magicPen: 100 },
+      passiveName: "Thần Tốc Phù Thuỷ",
+      passiveDesc: "Nội tại Duy Nhất: +60 tốc chạy (+0.65 tốc chạy 3D), +100 xuyên giáp phép.",
+      effectKey: "boots_mpen"
+    },
+    {
+      id: "giay_du_muc",
+      name: "Giày Du Mục",
+      category: "Boots",
+      tier: 2,
+      cost: 720,
+      icon: "⚡",
+      stats: { moveSpeed: 0.65, atkSpeed: 0.20 },
+      passiveName: "Thần Tốc Du Mục",
+      passiveDesc: "Nội tại Duy Nhất: +60 tốc chạy (+0.65 tốc chạy 3D), +20% tốc đánh.",
+      effectKey: "boots_as"
+    },
+
+    // --- 30: TRANG BỊ ĐẶC BIỆT SONG CÔNG (HYBRID EXECUTE) ---
+    {
+      id: "thien_phat_kiem",
+      name: "Thiên Phạt Kiếm",
+      category: "Physical",
+      tier: 3,
+      cost: 2550,
+      icon: "⚜️",
+      stats: { ad: 80, ap: 90, moveSpeedPct: 0.08 },
+      passiveName: "Ấn Thiên Phạt Kết Liễu",
+      passiveDesc: "Nội tại Duy Nhất: Ban đầu có 8 điểm Thiên Phạt (1 điểm = 1% tỉ lệ kết liễu). Khi HP mục tiêu <= 8%, đòn đánh/chiêu có tỉ lệ [Số điểm]% kết liễu ngay mục tiêu. Tiêu diệt 1 mục tiêu nhận +10 điểm (tối đa 80 điểm). Khi bản thân chết bị giảm 40% số điểm đang có (tối thiểu 8 điểm).",
+      effectKey: "thien_phat_execute"
+    }
   ],
 
   // SHOP SKINS
@@ -1141,71 +1507,71 @@ window.GAME_DATA = {
     }
   ],
 
-  // BỘ TRANG BỊ MẪU (PRESET BUILDS - 6 MÓN CHUẨN CHO MỖI TƯỚNG)
+  // BỘ TRANG BỊ MẪU (PRESET BUILDS - 6 MÓN CHUẨN v2.0.0 CHO MỖI TƯỚNG)
   presetBuilds: {
     aurelia: {
-      title: "Băng Pháp Khống Chế & Sốc Sát Thương",
-      items: ["boots_arcane", "mag_frostbite_tome", "mag_archmage_crown", "mag_soul_reaver", "mag_void_staff", "mag_arctic_orb"]
+      title: "Băng Pháp Sốc Sát Thương & Đại Pháp Sư",
+      items: ["giay_phu_thuy", "truong_no_dung_dung", "vuong_mien_xa_ran", "truong_hon_mang", "quyen_truong_than_ran", "sach_thanh"]
     },
     ignis: {
-      title: "Hỏa Pháp Thiêu Đốt Liên Hoàn",
-      items: ["boots_cdr", "mag_soul_reaver", "mag_archmage_crown", "mag_void_staff", "mag_apocalypse", "mag_arctic_orb"]
+      title: "Hỏa Pháp Thiêu Đốt & Hút Máu Phép",
+      items: ["giay_thuat_si", "quyen_truong_than_ran", "truong_no_dung_dung", "vuong_mien_xa_ran", "truong_hon_mang", "sach_thanh"]
     },
     zephyr: {
-      title: "Sát Thủ Bóng Đêm Chí Mạng",
-      items: ["boots_atk", "phy_omni_arms", "phy_blade_eternity", "phy_titan_breaker", "phy_fenrir_tooth", "tank_immortal_heart"]
+      title: "Sát Thủ Bóng Đêm Xuyên Phá & Thiên Phạt",
+      items: ["giay_du_muc", "kiem_truy_hon", "thuong_longinus", "phuc_hop_kiem", "nanh_fenrir", "liem_doat_menh"]
     },
     nyx: {
-      title: "Huyết Sát Kết Liễu Liên Hoàn",
-      items: ["boots_armor", "phy_bloodthirster", "phy_titan_breaker", "phy_omni_arms", "phy_fenrir_tooth", "tank_immortal_heart"]
+      title: "Huyết Sát Đoạt Mệnh & Kết Liễu Thiên Phạt",
+      items: ["giay_thuat_si", "quy_kiem", "thuong_longinus", "kiem_muramasa", "nanh_fenrir", "thien_phat_kiem"]
     },
     gideon: {
-      title: "Pháo Đài Bất Diệt Chống Chịu",
-      items: ["boots_armor", "tank_aegis_valor", "tank_gaia_embrace", "tank_thornmail", "tank_longevity", "tank_immortal_heart"]
+      title: "Pháo Đài Hoàng Kim Bảo Khí & Bất Diệt",
+      items: ["bao_khi_nhan_cu", "giay_thuat_si", "khien_that_truyen", "giap_gaia", "giap_thong_kho", "giap_hoi_sinh"]
     },
     thorn: {
-      title: "Cổ Thụ Hồi Phục Vĩnh Cửu",
-      items: ["boots_resist", "tank_gaia_embrace", "tank_aegis_valor", "tank_crimson_banner", "tank_longevity", "tank_immortal_heart"]
+      title: "Cổ Thụ Ngàn Năm Hồi Phục & Phản Đòn",
+      items: ["bao_khi_nhan_cu", "giay_thuat_si", "ao_choang_than_ra", "giap_gaia", "khien_huyen_thoai", "giap_hoi_sinh"]
     },
     valen: {
-      title: "Chiến Thần Bán Tank Hút Máu",
-      items: ["boots_armor", "phy_bloodthirster", "phy_titan_breaker", "phy_omni_arms", "tank_aegis_valor", "tank_gaia_embrace"]
+      title: "Chiến Thần Long Kiếm Bán Tank Hút Máu",
+      items: ["giay_du_muc", "thuong_longinus", "phuc_hop_kiem", "quy_kiem", "khien_that_truyen", "giap_hoi_sinh"]
     },
     kael: {
-      title: "Lôi Quyền Liên Kích Tốc Đánh",
-      items: ["boots_resist", "phy_omni_arms", "phy_phantom_bow", "phy_bloodthirster", "tank_crimson_banner", "tank_immortal_heart"]
+      title: "Thiết Quyền Lôi Điện Tốc Đánh & Giáp Ảo",
+      items: ["giay_du_muc", "phuc_hop_kiem", "kiem_fafnir", "thuong_longinus", "khien_quang_thanh", "liem_doat_menh"]
     },
     miya: {
       title: "Thần Cung Đoạn Mệnh Liên Xạ Chí Mạng",
-      items: ["boots_atk", "phy_phantom_bow", "phy_blade_eternity", "phy_bloodthirster", "phy_titan_breaker", "phy_fenrir_tooth"]
+      items: ["giay_du_muc", "song_dao_bao_tap", "thanh_kiem", "kiem_fafnir", "kiem_muramasa", "nanh_fenrir"]
     },
     helen: {
-      title: "Thánh Nữ Nguyệt Hải Hồi Phục & Giảm Hồi Chiêu",
-      items: ["boots_cdr", "mag_frostbite_tome", "tank_gaia_embrace", "tank_longevity", "mag_archmage_crown", "tank_immortal_heart"]
+      title: "Tinh Linh Nguyệt Hải Bảo Khí & Giảm Hồi Chiêu",
+      items: ["bao_khi_nhan_cu", "giay_thuat_si", "khien_huyen_thoai", "giap_gaia", "vuong_mien_xa_ran", "giap_hoi_sinh"]
     },
     pain: {
-      title: "Thiên Đạo Luân Hồi Xuyên Phá & Sốc Sát Thương Dạng 2",
-      items: ["boots_armor", "phy_titan_breaker", "phy_omni_arms", "phy_bloodthirster", "phy_fenrir_tooth", "tank_immortal_heart"]
+      title: "Thiên Đạo Luân Hồi Xuyên Giáp & Thiên Phạt",
+      items: ["giay_thuat_si", "kiem_truy_hon", "thuong_longinus", "phuc_hop_kiem", "nanh_fenrir", "thien_phat_kiem"]
     },
     nagato: {
-      title: "Rinnegan Liên Xạ Chí Mạng & Cường Hóa Ma Tượng",
-      items: ["boots_atk", "phy_phantom_bow", "phy_blade_eternity", "phy_bloodthirster", "phy_titan_breaker", "phy_fenrir_tooth"]
+      title: "Rinnegan Liên Xạ Chí Mạng & Fafnir",
+      items: ["giay_du_muc", "kiem_fafnir", "thanh_kiem", "song_dao_bao_tap", "kiem_muramasa", "nanh_fenrir"]
     },
     shisui: {
-      title: "Susanoo Lục Bảo Xuyên Phá & Sốc Sát Thương Ấn Chiến Thần",
-      items: ["boots_cdr", "phy_omni_arms", "phy_titan_breaker", "phy_bloodthirster", "phy_fenrir_tooth", "tank_immortal_heart"]
+      title: "Susanoo Lục Bảo Sốc Sát Thương & Thiên Phạt",
+      items: ["giay_thuat_si", "kiem_truy_hon", "thuong_longinus", "phuc_hop_kiem", "nanh_fenrir", "thien_phat_kiem"]
     },
     grock: {
-      title: "Pháo Đài Thạch Thần Chống Chịu Tuyệt Đối & Giảm Hồi Chiêu",
-      items: ["boots_armor", "tank_aegis_valor", "tank_gaia_embrace", "tank_thornmail", "tank_longevity", "tank_immortal_heart"]
+      title: "Pháo Đài Thạch Thần Bảo Khí & Phản Đòn",
+      items: ["bao_khi_nhan_cu", "giay_thuat_si", "khien_that_truyen", "giap_gaia", "giap_thong_kho", "giap_hoi_sinh"]
     },
     sasuke: {
-      title: "Chúa Tể Susanoo Liên Xạ Phép Thuật Amaterasu 50 Tầng",
-      items: ["boots_atk", "mag_apocalypse", "mag_soul_reaver", "mag_archmage_crown", "mag_void_staff", "phy_phantom_bow"]
+      title: "Chúa Tể Susanoo Liên Xạ Phép Thuật 50 Tầng",
+      items: ["giay_du_muc", "thap_tu_kiem", "quyen_truong_than_ran", "vuong_mien_xa_ran", "truong_hon_mang", "sach_thanh"]
     },
     obito: {
-      title: "Hư Hoá Kamui Phản Chiêu & Trường Xích Lục Đạo",
-      items: ["boots_cdr", "tank_aegis_valor", "mag_frostbite_tome", "tank_gaia_embrace", "tank_longevity", "tank_immortal_heart"]
+      title: "Hư Hoá Kamui Bảo Khí Nhẫn Cụ & Quang Thánh",
+      items: ["bao_khi_nhan_cu", "giay_thuat_si", "khien_huyen_thoai", "khien_quang_thanh", "giap_gaia", "giap_hoi_sinh"]
     }
   }
 };
@@ -1213,7 +1579,7 @@ window.GAME_DATA = {
 </script>
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v1.5.0 THREE.JS ISOMETRIC ENGINE
+// LEGENDS OF ETERNIA 3D - v2.0.0 THREE.JS ISOMETRIC ENGINE
 // ============================================================================
 
 class SoundManager {
@@ -1282,6 +1648,16 @@ class SoundManager {
         gain.gain.linearRampToValueAtTime(0.01, now + 0.4);
         osc.start(now);
         osc.stop(now + 0.4);
+      } else if (type === "firstblood") {
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(293.66, now);
+        osc.frequency.setValueAtTime(440.0, now + 0.12);
+        osc.frequency.setValueAtTime(587.33, now + 0.24);
+        osc.frequency.setValueAtTime(880.0, now + 0.38);
+        gain.gain.setValueAtTime(0.20, now);
+        gain.gain.linearRampToValueAtTime(0.01, now + 0.65);
+        osc.start(now);
+        osc.stop(now + 0.65);
       }
     } catch (e) {}
   }
@@ -3006,7 +3382,7 @@ class MobaArena3D {
       if (k === "q" || k === "1") this.castPlayerSkill(0);
       if (e.key === "2") this.castPlayerSkill(1);
       if (k === "e" || k === "3" || k === "r") this.castPlayerSkill(2);
-      if (k === "f") this.castPlayerSkill(1);
+      if (e.key === "4" || k === "f") this.castPlayerActiveItem();
       if (k === " ") {
         e.preventDefault();
         this.playerBasicAttack();
@@ -3231,6 +3607,7 @@ class MobaArena3D {
     this.pendingSkillIndex = null;
     this.attackPriorityMode = "HERO";
     this.kradusMinionBuff = { blue: false, red: false };
+    this.firstBloodClaimed = false;
 
     this.units = [];
     this.projectiles = [];
@@ -3420,9 +3797,39 @@ class MobaArena3D {
     unit.sasukeWBuffTimer = 0; // Sasuke Skill 2: 8s Susanoo dạng bao bọc (+80% AS, +10% MS, +30% Slow, +15% SpellVamp)
     unit.sasukeBasicSusanooFlash = 0;
     unit.sasukeSlowBonus = 0;
-    unit.obitoHuHoaTimer = 0; // v1.8.1 Obito Skill 1: 8s Hư Hoá (bấm lại Q để tắt, hút toàn bộ kỹ năng, không thể dùng chiêu khác)
+    unit.obitoHuHoaTimer = 0; // v2.0.0 Obito Skill 1: 8s Hư Hoá (bấm lại Q để tắt, hút toàn bộ chiêu phóng/ném vào Obito)
     unit.obitoAbsorbedSkills = []; // Danh sách toàn bộ kỹ năng Obito đã hút được trong lúc Hư Hoá
     unit.obitoKamuiSwirlFlash = 0;
+    // v2.0.0 New 30-Item Passives & Active Skill 4 State
+    unit.armorPenFlat = 0;
+    unit.longinusStacks = 0;
+    unit.longinusTimer = 0;
+    unit.longinusIcd = 0;
+    unit.quyKiemCd = 0;
+    unit.phucHopCd = 0;
+    unit.phucHopReadyTimer = 0;
+    unit.songDaoWindowTimer = 0;
+    unit.grievousTimer = 0;
+    unit.grievousCd = 0;
+    unit.liemCd = 0;
+    unit.liemInvulnTimer = 0;
+    unit.liemSpeedTimer = 0;
+    unit.activeItemCd = 0; // Bảo Khí Nhẫn Cụ 4th skill CD (25s)
+    unit.baoKhiTetherTimer = 0;
+    unit.baoKhiTetherTarget = null;
+    unit.baoKhiTetherTick = 0;
+    unit.baoKhiGoldTick = 0;
+    unit.thanRaBurnTick = 0;
+    unit.khienThatTruyenSlowTimer = 0;
+    unit.quangThanhCd = 0;
+    unit.quangThanhWindowTimer = 0;
+    unit.truongNoCd = 0;
+    unit.thapTuBuffCd = 0;
+    unit.thapTuAsBuffTimer = 0;
+    unit.thapTuOnhitCd = 0;
+    unit.thienPhatPoints = 8; // Thiên Phạt Kiếm: Ban đầu có 8 điểm (tối đa 80 điểm, chết -40%)
+    unit.killStreakCount = 0;
+    unit.multiKillTimer = 0;
     if (mesh && mesh.userData && mesh.userData.susanooWrapGroup) {
       mesh.userData.susanooWrapGroup.visible = false;
     }
@@ -3455,10 +3862,14 @@ class MobaArena3D {
     let lifesteal = 0;
     let spellVamp = 0;
     let cdr = 0;
+    let armorPenFlat = 0;
     let armorPenPct = 0;
     let magicPen = 0;
     let magicPenPct = 0;
+    let moveSpeedPctBonus = 0;
+    let bootsSpeedApplied = false;
     const effects = new Set();
+    const uniquePassivesApplied = new Set();
 
     u.items.forEach((it) => {
       const s = it.stats || {};
@@ -3468,19 +3879,40 @@ class MobaArena3D {
       if (s.ap) ap += s.ap;
       if (s.armor) armor += s.armor;
       if (s.mr) mr += s.mr;
-      if (s.moveSpeed) moveSpeed += s.moveSpeed;
       if (s.atkSpeed) atkSpeed += s.atkSpeed;
-      if (s.crit) crit += s.crit;
       if (s.lifesteal) lifesteal += s.lifesteal;
       if (s.spellVamp) spellVamp += s.spellVamp;
       if (s.cdr) cdr += s.cdr;
-      if (s.armorPenPct) armorPenPct = Math.max(armorPenPct, s.armorPenPct);
-      if (s.magicPen) magicPen += s.magicPen;
-      if (s.magicPenPct) magicPenPct = Math.max(magicPenPct, s.magicPenPct);
+      if (s.moveSpeedPct) moveSpeedPctBonus += s.moveSpeedPct;
+
+      // Unique Passives DO NOT STACK when buying 2 identical items!
+      const isFirstCopy = !uniquePassivesApplied.has(it.id);
+      if (isFirstCopy) {
+        uniquePassivesApplied.add(it.id);
+        if (s.moveSpeed && !bootsSpeedApplied) {
+          moveSpeed += s.moveSpeed;
+          bootsSpeedApplied = true;
+        }
+        if (s.crit) crit += s.crit;
+        if (s.critDmgBonus) critDmgBonus += s.critDmgBonus;
+        if (s.armorPenFlat) armorPenFlat += s.armorPenFlat;
+        if (s.armorPenPct) armorPenPct = Math.max(armorPenPct, s.armorPenPct);
+        if (s.magicPen) magicPen += s.magicPen;
+        if (s.magicPenPct) magicPenPct = Math.max(magicPenPct, s.magicPenPct);
+      } else {
+        // Non-unique crit from Song Đao Bão Táp still adds base crit if different, but duplicate item's unique passive doesn't stack
+        if (it.id === "song_dao_bao_tap" && s.crit) crit += s.crit;
+      }
       if (it.effectKey) effects.add(it.effectKey);
     });
 
-    if (effects.has("ap_multiplier")) ap = Math.round(ap * 1.35);
+    if (moveSpeedPctBonus > 0) {
+      moveSpeed = Number((moveSpeed * (1 + moveSpeedPctBonus)).toFixed(3));
+    }
+    // Vương Miện Xà Rắn: Tăng +30% công phép hiện tại (Nội tại duy nhất)
+    if (effects.has("xa_ran_ap_mult") || effects.has("ap_multiplier")) {
+      ap = Math.round(ap * 1.30);
+    }
     if (effects.has("longevity")) maxHp = Math.round(maxHp * 1.12);
     if (u.buffAdTimer > 0) ad = Math.round(ad * 1.30);
 
@@ -3583,6 +4015,33 @@ class MobaArena3D {
     } else {
       u.sasukeSlowBonus = 0;
     }
+    // v2.0.0 Thập Tự Kiếm: +15% tốc đánh trong 3s
+    if (u.thapTuAsBuffTimer > 0) {
+      atkSpeed += u.baseStats.atkSpeed * 0.15;
+    }
+    // v2.0.0 Liềm Đoạt Mệnh: +25% tốc chạy trong 5s khi kích hoạt bất tử
+    if (u.liemSpeedTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.25).toFixed(3));
+    }
+    // v2.0.0 Khiên Thất Truyền Debuff: Khi chịu ST từ chủ sở hữu Khiên Thất Truyền -> giảm 30% tốc đánh & 15% tốc chạy trong 3s
+    if (u.khienThatTruyenSlowTimer > 0) {
+      atkSpeed = Number((atkSpeed * 0.70).toFixed(3));
+      moveSpeed = Number((moveSpeed * 0.85).toFixed(3));
+    }
+    // v2.0.0 Khiên Huyền Thoại Aura: Giảm 30% tốc đánh của mục tiêu trong phạm vi 5m
+    if (u.khienHuyenThoaiAuraDebuff) {
+      atkSpeed = Number((atkSpeed * 0.70).toFixed(3));
+    }
+    // v2.0.0 Thương Longinus Shred: Trừ 6% giáp mỗi tầng (tối đa 4 tầng = 24% trong 5s)
+    if (u.longinusTimer > 0 && (u.longinusStacks || 0) > 0) {
+      const shredMult = Math.max(0.5, 1 - Math.min(4, u.longinusStacks) * 0.06);
+      armor = Math.round(armor * shredMult);
+    }
+    // v2.0.0 Quyền Trượng Thần Rắn: Mỗi 2% hút máu phép chuyển thành +1% giảm hồi chiêu
+    if (effects.has("than_ran_vamp_cdr") && spellVamp > 0) {
+      const bonusCdrFromVamp = Math.floor((spellVamp * 100 + 1e-6) / 2) * 0.01;
+      cdr += bonusCdrFromVamp;
+    }
     // v1.7.0 Grock Skill 1 Debuff: Kẻ địch bị hất tung bị giảm 30% Tốc đánh
     if (u.grockAsSlowTimer > 0) {
       atkSpeed = Number((atkSpeed * (1 - (u.grockAsSlowPct || 0.30))).toFixed(3));
@@ -3600,7 +4059,8 @@ class MobaArena3D {
     u.critDmgBonus = critDmgBonus;
     u.lifesteal = Math.min(0.95, lifesteal);
     u.spellVamp = Math.min(0.85, Number(spellVamp.toFixed(2)));
-    u.cdr = Math.min(u.thuatSiBuffTimer > 0 ? 0.60 : 0.40, Number(cdr.toFixed(2)));
+    u.cdr = Math.min(0.60, Number(cdr.toFixed(2)));
+    u.armorPenFlat = armorPenFlat;
     u.armorPenPct = armorPenPct;
     u.magicPen = magicPen;
     u.magicPenPct = magicPenPct;
@@ -3614,23 +4074,23 @@ class MobaArena3D {
   // First jungle wave spawns at 13s. Replaces all old monsters with Lực Sĩ, Thuật Sĩ, Khỉ Nhỏ, Tiểu Quái & Rồng Kradus.
   initJungleCamps() {
     this.jungleSpawns = [
-      // Rừng Phải mỗi bên: Lực Sĩ (1100 HP, +15%/đợt hồi sinh, hồi 120s, 150 vàng + Bùa Lực Sĩ 80s: +15% ST, +10% làm chậm)
-      { id: "jg_blue_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: -22, z: 16, baseHp: 1100, baseAd: 85, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0xf97316, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
-      { id: "jg_red_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: 22, z: 16, baseHp: 1100, baseAd: 85, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0xf97316, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
+      // v2.0.0 Rừng Phải mỗi bên: Lực Sĩ (4000 HP ban đầu, +30% trên chỉ số gốc mỗi đợt hồi sinh, hồi 120s, 150 vàng + Bùa Lực Sĩ 80s: +15% ST, +10% làm chậm)
+      { id: "jg_blue_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: -22, z: 16, baseHp: 4000, baseAd: 105, scalePerRespawn: 0.30, gold: 150, exp: 175, color: 0xf97316, scale: 1.22, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
+      { id: "jg_red_luc_si", campType: "luc_si", jungleSide: "right", name: "Lực Sĩ", x: 22, z: 16, baseHp: 4000, baseAd: 105, scalePerRespawn: 0.30, gold: 150, exp: 175, color: 0xf97316, scale: 1.22, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "luc_si" },
 
-      // Rừng Trái mỗi bên: Thuật Sĩ (1000 HP, +15%/đợt hồi sinh, hồi 120s, 150 vàng + Bùa Thuật Sĩ 80s: +20% giảm hồi chiêu, +10% tốc chạy)
-      { id: "jg_blue_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: -22, z: -16, baseHp: 1000, baseAd: 80, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0x38bdf8, scale: 1.15, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
-      { id: "jg_red_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: 22, z: -16, baseHp: 1000, baseAd: 80, scalePerRespawn: 0.15, gold: 150, exp: 165, color: 0x38bdf8, scale: 1.15, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
+      // v2.0.0 Rừng Trái mỗi bên: Thuật Sĩ (3800 HP ban đầu, +32% trên chỉ số gốc mỗi đợt hồi sinh, hồi 120s, 150 vàng + Bùa Thuật Sĩ 80s: +20% giảm hồi chiêu, +10% tốc chạy)
+      { id: "jg_blue_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: -22, z: -16, baseHp: 3800, baseAd: 95, scalePerRespawn: 0.32, gold: 150, exp: 175, color: 0x38bdf8, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
+      { id: "jg_red_thuat_si", campType: "thuat_si", jungleSide: "left", name: "Thuật Sĩ", x: 22, z: -16, baseHp: 3800, baseAd: 95, scalePerRespawn: 0.32, gold: 150, exp: 175, color: 0x38bdf8, scale: 1.18, timer: 13.0, respawnTime: 120, respawnCount: 0, spawnCount: 0, buffType: "thuat_si" },
 
-      // Rừng Trái mỗi bên (gần Thuật Sĩ): Khỉ Nhỏ (500 HP, +8%/đợt hồi sinh, hồi 60s, 80 vàng)
-      { id: "jg_blue_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: -30, z: -19, baseHp: 500, baseAd: 55, scalePerRespawn: 0.08, gold: 80, exp: 95, color: 0xa3e635, scale: 0.85, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
-      { id: "jg_red_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: 30, z: -19, baseHp: 500, baseAd: 55, scalePerRespawn: 0.08, gold: 80, exp: 95, color: 0xa3e635, scale: 0.85, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      // v2.0.0 Rừng Trái mỗi bên (gần Thuật Sĩ): Khỉ Nhỏ (2000 HP ban đầu, +22% trên chỉ số gốc mỗi đợt hồi sinh, hồi 60s, 80 vàng)
+      { id: "jg_blue_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: -30, z: -19, baseHp: 2000, baseAd: 68, scalePerRespawn: 0.22, gold: 80, exp: 105, color: 0xa3e635, scale: 0.90, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      { id: "jg_red_khi_nho", campType: "khi_nho", jungleSide: "left", name: "Khỉ Nhỏ", x: 30, z: -19, baseHp: 2000, baseAd: 68, scalePerRespawn: 0.22, gold: 80, exp: 105, color: 0xa3e635, scale: 0.90, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
 
-      // Rừng Phải mỗi bên (gần Lực Sĩ): Tiểu Quái (400 HP, +8%/đợt hồi sinh, hồi 60s, 80 vàng)
-      { id: "jg_blue_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: -30, z: 19, baseHp: 400, baseAd: 50, scalePerRespawn: 0.08, gold: 80, exp: 90, color: 0xc084fc, scale: 0.78, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
-      { id: "jg_red_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: 30, z: 19, baseHp: 400, baseAd: 50, scalePerRespawn: 0.08, gold: 80, exp: 90, color: 0xc084fc, scale: 0.78, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      // v2.0.0 Rừng Phải mỗi bên (gần Lực Sĩ): Tiểu Quái (2500 HP ban đầu, +22% trên chỉ số gốc mỗi đợt hồi sinh, hồi 60s, 80 vàng)
+      { id: "jg_blue_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: -30, z: 19, baseHp: 2500, baseAd: 72, scalePerRespawn: 0.22, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
+      { id: "jg_red_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: 30, z: 19, baseHp: 2500, baseAd: 72, scalePerRespawn: 0.22, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
 
-      // Chính giữa Rừng Phải của cả 2 bên: Rồng Kradus (50000 HP, +30%/đợt xuất hiện, tối đa 3 lần, 1000 vàng + Lính tăng 25% ST)
+      // v2.0.0 Chính giữa Rừng Phải của cả 2 bên: Rồng Kradus (50000 HP, +30%/đợt xuất hiện, tối đa 3 lần, 1000 vàng + Lính tăng 25% ST)
       { id: "jg_kradus", campType: "kradus", jungleSide: "center_right", name: "Rồng Kradus", x: 0, z: 20, baseHp: 50000, baseAd: 220, scalePerRespawn: 0.30, gold: 1000, exp: 450, color: 0xfacc15, scale: 1.85, timer: 13.0, respawnTime: 90, respawnCount: 0, spawnCount: 0, maxSpawns: 3, isBoss: true, isKradus: true }
     ];
   }
@@ -3720,20 +4180,21 @@ class MobaArena3D {
   // Base stats increase by +5% per wave (e.g., Wave 1 = +5%, Wave 2 = +10%, Wave 3 = +15%).
   spawnMinionWave(customBlueX = -51, customRedX = 51) {
     this.waveCount++;
-    const waveMult = Number((1 + this.waveCount * 0.05).toFixed(4));
+    // v2.0.0: Đợt lính đầu (wave 1) có chỉ số gốc chuẩn; mỗi đợt tiếp theo chỉ số tăng 40% lên chỉ số gốc!
+    const waveMult = Number((1 + (this.waveCount - 1) * 0.40).toFixed(4));
 
     const waveTemplate = [
-      // 3 Lính Đấu Sĩ (tầm gần, 80 vàng, ít exp nhất)
-      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 750, baseAd: 48, range: 2.6, gold: 80, exp: 35, scale: 0.68, laneZ: -2.4, rowOffset: 0 },
-      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 750, baseAd: 48, range: 2.6, gold: 80, exp: 35, scale: 0.68, laneZ: 0.0, rowOffset: 0 },
-      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 750, baseAd: 48, range: 2.6, gold: 80, exp: 35, scale: 0.68, laneZ: 2.4, rowOffset: 0 },
-      // 4 Lính Xạ Thủ (tầm xa, 100 vàng)
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: -2.7, rowOffset: 1.8 },
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: -0.9, rowOffset: 1.8 },
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: 0.9, rowOffset: 1.8 },
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 520, baseAd: 60, range: 6.2, gold: 100, exp: 55, scale: 0.56, laneZ: 2.7, rowOffset: 1.8 },
-      // 1 Lính Quái Vật (tầm xa, 200 vàng, HP cao)
-      { kind: "Lính Quái Vật", minionType: "monster", baseHp: 1800, baseAd: 96, range: 7.2, gold: 200, exp: 95, scale: 0.98, laneZ: 0.0, rowOffset: 3.6 }
+      // 3 Lính Đấu Sĩ (tầm gần, 80 vàng/1 lính, cho ít exp nhất, Đợt 1: HP 2000, mg 80, giáp + kháng phép 50)
+      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 2000, baseAd: 80, baseArmor: 50, baseMr: 50, range: 2.6, gold: 80, exp: 40, scale: 0.68, laneZ: -2.4, rowOffset: 0 },
+      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 2000, baseAd: 80, baseArmor: 50, baseMr: 50, range: 2.6, gold: 80, exp: 40, scale: 0.68, laneZ: 0.0, rowOffset: 0 },
+      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 2000, baseAd: 80, baseArmor: 50, baseMr: 50, range: 2.6, gold: 80, exp: 40, scale: 0.68, laneZ: 2.4, rowOffset: 0 },
+      // 4 Lính Xạ Thủ (tầm xa, 100 vàng/lính, Đợt 1: HP 1500, mg 95, giáp + kháng phép 30)
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: -2.7, rowOffset: 1.8 },
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: -0.9, rowOffset: 1.8 },
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: 0.9, rowOffset: 1.8 },
+      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: 2.7, rowOffset: 1.8 },
+      // 1 Lính Quái Vật (tầm xa, 200 vàng/lính, HP cao, Đợt 1: HP 4000, mg 110, giáp + kháng phép 70)
+      { kind: "Lính Quái Vật", minionType: "monster", baseHp: 4000, baseAd: 110, baseArmor: 70, baseMr: 70, range: 7.2, gold: 200, exp: 110, scale: 0.98, laneZ: 0.0, rowOffset: 3.6 }
     ];
 
     ["blue", "red"].forEach((team) => {
@@ -3769,6 +4230,8 @@ class MobaArena3D {
 
         const scaledHp = Math.round(t.baseHp * waveMult);
         const baseScaledAd = Math.round(t.baseAd * waveMult);
+        const scaledArmor = Math.round((t.baseArmor || 50) * waveMult);
+        const scaledMr = Math.round((t.baseMr || 50) * waveMult);
         const finalAd = hasKradusBuff ? Math.round(baseScaledAd * 1.25) : baseScaledAd;
 
         const minion = {
@@ -3785,13 +4248,15 @@ class MobaArena3D {
           radius: 0.75 * t.scale,
           baseHp: t.baseHp,
           baseAd: t.baseAd,
+          baseArmor: t.baseArmor || 50,
+          baseMr: t.baseMr || 50,
           hp: scaledHp,
           maxHp: scaledHp,
           unbuffedAd: baseScaledAd,
           ad: finalAd,
           kradusBuffed: hasKradusBuff,
-          armor: 30,
-          mr: 25,
+          armor: scaledArmor,
+          mr: scaledMr,
           range: t.range,
           moveSpeed: 4.35,
           atkSpeed: 1.0,
@@ -3991,6 +4456,7 @@ class MobaArena3D {
 
   // Miya Skill 2 (Thiên Đoạt): Chiếc cung rơi từ trên trời xuống (phạm vi 10m = bán kính 5m), làm nứt đất (với skin Thần Tiên Rừng) và chia ra 6 chiếc cung phóng 6 hướng (phạm vi 5m)
   spawnMiyaThienDoatVfx(caster, cx, cz, rawDmg, isFairySkin) {
+    if (caster) caster._currentCastingSkill = { name: "Thiên Đoạt", type: "miya_w_bowfall", cc: "root" };
     const radius10m = 5.0; // Diameter 10m = Radius 5m
     const bowColor = isFairySkin ? 0xf472b6 : 0x38bdf8;
     const goldColor = isFairySkin ? 0xfacc15 : 0xe0f2fe;
@@ -4108,6 +4574,150 @@ class MobaArena3D {
     this.spawnVfxRing(tx, tz, 1.6, 0x4ade80, 0.55);
   }
 
+  // v2.0.0 Universal Heal Calculation (handles Đao/Sách Truy Hồn -40% heal, Áo Choàng Thần Ra -20% heal, and Giáp Gaia +1% heal per 7% missing HP)
+  healUnit(target, rawHealAmount) {
+    if (!target || target.dead || rawHealAmount <= 0) return 0;
+    let mult = 1.0;
+    // Giảm hồi máu (Đao Truy Hồn / Sách Truy Hồn: -40%; Áo Choàng Thần Ra: -20%)
+    if (target.grievousTimer > 0) {
+      mult *= (1 - (target.grievousPct || 0.40));
+    } else if (target.thanRaGrievousTimer > 0) {
+      mult *= 0.80;
+    }
+    // Giáp Gaia: Mỗi 7% HP bản thân mất đi tăng +1% khả năng hồi phục
+    if (target.isHero && target.itemEffects && target.itemEffects.has("gaia_heal_amp") && target.maxHp > 0) {
+      const missingPct = Math.max(0, (1 - target.hp / target.maxHp) * 100);
+      const stacks7 = Math.floor((missingPct + 1e-6) / 7);
+      if (stacks7 > 0) {
+        mult *= (1 + stacks7 * 0.01);
+      }
+    }
+    const finalHeal = Math.max(1, Math.round(rawHealAmount * mult));
+    target.hp = Math.min(target.maxHp, target.hp + finalHeal);
+    return finalHeal;
+  }
+
+  // v2.0.0 Bảo Khí Nhẫn Cụ — Kỹ Năng Chủ Động Thứ 4 (Phím [4 / F]):
+  // Nối dây vào 1 đồng đội gần nhất có %HP thấp nhất trong phạm vi 8m trong 5s, liên tục hồi HP bằng 8% HP bản thân/1s cho đồng đội đó và cho bản thân.
+  // Nếu vượt quá 8m dây tự ngắt. Hồi chiêu: 25s.
+  castPlayerActiveItem() {
+    if (!this.player || this.player.dead) return;
+    this.activateBaoKhiSkill(this.player);
+  }
+
+  activateBaoKhiSkill(caster) {
+    if (!caster || caster.dead || !caster.isHero) return false;
+    const hasBaoKhi = caster.items && caster.items.some((it) => it.id === "bao_khi_nhan_cu");
+    if (!hasBaoKhi) {
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "Cần mua Bảo Khí Nhẫn Cụ để dùng Chiêu 4!", "text-amber-300");
+      }
+      return false;
+    }
+    if (caster.activeItemCd > 0) {
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, `Bảo Khí Nhẫn Cụ đang hồi (${caster.activeItemCd.toFixed(1)}s)!`, "text-rose-400");
+      }
+      return false;
+    }
+
+    // Tìm đồng đội gần nhất có %HP thấp nhất trong phạm vi 8m
+    const alliesIn8m = this.units
+      .filter((u) => u.isHero && !u.dead && u.team === caster.team && u.id !== caster.id && Math.hypot(u.x - caster.x, u.z - caster.z) <= 8.0)
+      .sort((a, b) => (a.hp / a.maxHp) - (b.hp / b.maxHp));
+
+    const targetAlly = alliesIn8m[0] || caster; // Nếu không có đồng đội trong 8m, tự kích hoạt hộ vệ hồi phục cho bản thân
+    caster.activeItemCd = 25.0; // Hồi chiêu: 25s
+    caster.baoKhiTetherTarget = targetAlly;
+    caster.baoKhiTetherTimer = 5.0;
+    caster.baoKhiTetherTick = 0.90;
+    this.updateBaoKhiTetherBeam(caster, 0);
+    this.spawnVfxRing(caster.x, caster.z, 2.5, 0x34d399, 0.55);
+    if (targetAlly !== caster) {
+      this.spawnVfxRing(targetAlly.x, targetAlly.z, 2.5, 0xfacc15, 0.55);
+    }
+    if (caster.isPlayer) {
+      window.SFX.play("skill");
+      this.spawnFloatingText(
+        caster.x,
+        caster.z,
+        targetAlly !== caster
+          ? `📿 BẢO KHÍ NHẪN CỤ: Nối Dây -> ${targetAlly.name} (5s: Hồi 8% HP/s cả hai)!`
+          : "📿 BẢO KHÍ NHẪN CỤ: Hộ Vệ Sinh Mệnh (5s: Hồi 8% HP/s)!",
+        "text-emerald-300"
+      );
+    }
+    return true;
+  }
+
+  updateBaoKhiTetherBeam(caster, dt) {
+    if (caster.baoKhiTetherTimer > 0) {
+      const ally = caster.baoKhiTetherTarget;
+      // Kiểm tra nếu đồng đội chết hoặc vượt quá phạm vi 8m thì dây tự ngắt!
+      if (!ally || ally.dead || (ally !== caster && Math.hypot(ally.x - caster.x, ally.z - caster.z) > 8.0)) {
+        caster.baoKhiTetherTimer = 0;
+        caster.baoKhiTetherTarget = null;
+        if (caster.baoKhiMesh) caster.baoKhiMesh.visible = false;
+        if (caster.isPlayer && ally && !ally.dead) {
+          this.spawnFloatingText(caster.x, caster.z, "⚠️ Vượt quá 8m — Dây Bảo Khí Nhẫn Cụ đã tự ngắt!", "text-amber-300");
+        }
+        return;
+      }
+
+      caster.baoKhiTetherTimer -= dt;
+      // Liên tục hồi HP bằng 8% HP bản thân / 1s cho đồng đội đó và cả bản thân!
+      const rawPerSec = caster.maxHp * 0.08;
+      if (dt > 0) {
+        this.healUnit(caster, rawPerSec * dt);
+        if (ally !== caster) {
+          this.healUnit(ally, rawPerSec * dt);
+        }
+      }
+
+      caster.baoKhiTetherTick = (caster.baoKhiTetherTick || 0) + dt;
+      if (caster.baoKhiTetherTick >= 1.0) {
+        caster.baoKhiTetherTick -= 1.0;
+        const tickVal = Math.round(caster.maxHp * 0.08);
+        this.spawnVfxRing(caster.x, caster.z, 1.5, 0x34d399, 0.35);
+        if (ally !== caster) {
+          this.spawnVfxRing(ally.x, ally.z, 1.5, 0xfacc15, 0.35);
+        }
+        if (caster.isPlayer || ally.isPlayer) {
+          this.spawnFloatingText(ally.x, ally.z, `+${tickVal} HP (Bảo Khí Nhẫn Cụ)`, "text-emerald-300");
+        }
+      }
+
+      if (ally !== caster) {
+        if (!caster.baoKhiMesh) {
+          const bGroup = new THREE.Group();
+          const jadeLine = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.08, 0.08, 1.0, 8).rotateX(Math.PI / 2),
+            new THREE.MeshBasicMaterial({ color: 0x34d399, transparent: true, opacity: 0.92 })
+          );
+          jadeLine.position.x = -0.10;
+          const goldLine = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.08, 0.08, 1.0, 8).rotateX(Math.PI / 2),
+            new THREE.MeshBasicMaterial({ color: 0xfacc15, transparent: true, opacity: 0.92 })
+          );
+          goldLine.position.x = 0.10;
+          bGroup.add(jadeLine, goldLine);
+          this.worldGroup.add(bGroup);
+          caster.baoKhiMesh = bGroup;
+        }
+        const mx = (caster.x + ally.x) * 0.5;
+        const mz = (caster.z + ally.z) * 0.5;
+        const dist = Math.max(0.2, Math.hypot(ally.x - caster.x, ally.z - caster.z));
+        caster.baoKhiMesh.visible = true;
+        caster.baoKhiMesh.position.set(mx, 1.55, mz);
+        caster.baoKhiMesh.rotation.y = Math.atan2(ally.x - caster.x, ally.z - caster.z);
+        caster.baoKhiMesh.scale.set(1, 1, dist);
+      }
+    } else {
+      caster.baoKhiTetherTimer = 0;
+      if (caster.baoKhiMesh) caster.baoKhiMesh.visible = false;
+    }
+  }
+
   // Helen Skill 2 (Sợi Dây Liên Kết): Dây ánh sáng đôi màu Vàng - Xanh Dương nối giữa Helen và đồng đội
   updateHelenTetherBeam(caster, dt) {
     if (caster.helenTetherTimer > 0 && caster.helenTetherTarget && !caster.helenTetherTarget.dead) {
@@ -4188,6 +4798,7 @@ class MobaArena3D {
     if (!caster || caster.dead) return;
     const isForm2 = !!caster.painChibakuIsForm2;
     const skill = caster.heroData.skills[2];
+    caster._currentCastingSkill = skill;
     const rawDmg = skill.dmgBase + caster.ad * (skill.adScale || 1.85);
 
     // Determine target zone: for Player, use current mouseWorld (clamped to 12m range) so player can choose drop zone after charging!
@@ -4390,6 +5001,7 @@ class MobaArena3D {
 
   // v1.8.0 Uchiha Sasuke Kỹ Năng 1: Nổ Cung Siêu Amaterasu & Tạo Vùng Hắc Hỏa Bán Kính 5m Trong 3s Đốt HP
   triggerSasukeAmaterasuExplosion(caster, ex, ez, rawDmg, skill) {
+    if (caster) caster._currentCastingSkill = skill || { name: "Cung Siêu Amaterasu", type: "sasuke_q_amaterasu" };
     const rad5m = 5.0;
     this.spawnVfxRing(ex, ez, rad5m, 0x9333ea, 0.85);
     this.spawnVfxRing(ex, ez, rad5m * 0.65, 0x09090b, 0.85);
@@ -4682,6 +5294,7 @@ class MobaArena3D {
     const segDx = x1 - x0;
     const segDz = z1 - z0;
     const segLenSq = segDx * segDx + segDz * segDz;
+    caster._currentCastingSkill = { name: "Thạch Chấn Xung Kích", type: "grock_q_dash" };
     const dmg = caster.grockDashRawDmg || (260 + caster.ad);
 
     this.units.forEach((u) => {
@@ -4894,6 +5507,11 @@ class MobaArena3D {
       window.SFX.play(skillIdx === 2 ? "ult" : "skill");
     }
 
+    caster._currentCastingSkill = skill;
+    // v2.0.0 Phức Hợp Kiếm: Sau khi tung chiêu, trong 5s tiếp theo, chiêu/đòn đánh kế tiếp gây thêm 100% công VL (CD 5s)
+    if (caster.itemEffects && caster.itemEffects.has("phuc_hop_spellblade") && !(caster.phucHopCd > 0)) {
+      caster.phucHopReadyTimer = 5.0;
+    }
     const rawDmg = skill.dmgBase + (caster.ad * (skill.adScale || 0)) + (caster.ap * (skill.apScale || 0));
     const dmgType = (skill.apScale || 0) >= (skill.adScale || 0) ? "magic" : "physical";
     const clampDist = Math.min(dist, skill.range);
@@ -6106,13 +6724,27 @@ class MobaArena3D {
   applyDamage(attacker, target, rawDmg, dmgType, isSkill) {
     if (!target || target.dead) return;
 
-    // v1.8.1 Obito Uchiha Kỹ năng 1 (Hư Hoá): Hút toàn bộ kỹ năng phóng vào bản thân, hiện Kamui xoáy như Hình 2!
+    // v2.0.0 Obito Uchiha Kỹ năng 1 (Hư Hoá):
+    // Hút toàn bộ các chiêu có dạng phóng ra (projectiles/skillshots) hoặc ném/giáng xuống (Thiên thạch, Cung Thiên Đoạt, Địa Bộc Thiên Tinh, Cung Siêu Amaterasu...).
+    // KHÔNG hút các chiêu cận chiến vật lý như đấm, chém lướt (dash_stun, dash_slash, grock_q_dash, cone_slash, spin_aoe, blink_burst, execute_leap).
     if (isSkill && target.isHero && target.heroData && target.heroData.id === "obito" && target.obitoHuHoaTimer > 0 && attacker && attacker.team !== target.team) {
-      const skName = (attacker.heroData && attacker.heroData.skills && attacker.heroData.skills[0]) ? `Kỹ năng của ${attacker.heroData.name}` : "Kỹ Năng Địch";
-      this.absorbSkillIntoObitoKamui(target, attacker, rawDmg, dmgType, { name: skName }, "slow", this.getVfxColor(attacker));
-      target.stunTimer = 0;
-      target.slowTimer = 0;
-      return 0;
+      const MELEE_NON_ABSORB_TYPES = new Set([
+        "dash_slash", "dash_stun", "grock_q_dash", "cone_slash", "spin_aoe",
+        "blink_burst", "execute_leap", "leap_arena", "shield_buff", "self_aoe_buff",
+        "aoe_quake", "shisui_w_genjutsu"
+      ]);
+      const skObj = attacker._currentCastingSkill || null;
+      const skType = skObj ? skObj.type : "";
+      const isMeleeSkill = MELEE_NON_ABSORB_TYPES.has(skType);
+      if (!isMeleeSkill) {
+        const skName = (skObj && skObj.name)
+          ? skObj.name
+          : ((attacker.heroData && attacker.heroData.skills && attacker.heroData.skills[0]) ? `Chiêu phóng của ${attacker.heroData.name}` : "Chiêu Phóng/Ném");
+        this.absorbSkillIntoObitoKamui(target, attacker, rawDmg, dmgType, skObj || { name: skName }, (skObj && skObj.cc) || "slow", this.getVfxColor(attacker));
+        target.stunTimer = 0;
+        target.slowTimer = 0;
+        return 0;
+      }
     }
 
     // Reset structure out-of-combat timer whenever attacked by an enemy
@@ -6155,23 +6787,74 @@ class MobaArena3D {
       attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, Number((c - 0.1).toFixed(2))));
     }
 
+    // v2.0.0 Liềm Đoạt Mệnh: Nếu mục tiêu đang trong 2s Bất Tử của Liềm Đoạt Mệnh, miễn nhiễm sát thương!
+    if (target.isHero && target.liemInvulnTimer > 0) {
+      if (attacker && (attacker.isPlayer || target.isPlayer)) {
+        this.spawnFloatingText(target.x, target.z, "🌙 BẤT TỬ (Liềm Đoạt Mệnh)!", "text-amber-300");
+      }
+      return 0;
+    }
+
+    // v2.0.0 Kiếm Truy Hồn: +10% ST lên quái rừng; Tung chiêu làm chậm mục tiêu 20%
+    if (attacker && attacker.itemEffects && attacker.itemEffects.has("kiem_truy_hon_jg")) {
+      if (target.isMonster) {
+        dmg *= 1.10;
+      }
+      if (isSkill && !target.isStructure) {
+        target.slowTimer = Math.max(target.slowTimer || 0, 1.5);
+        target.slowPct = Math.max(target.slowPct || 0.20, 0.20);
+      }
+    }
+
     let isCrit = false;
     if (!isSkill && (attacker.isHero || attacker.isSummon) && !target.isStructure) {
       if (Math.random() < (attacker.crit || 0.05)) {
         isCrit = true;
-        let critMult = (attacker.itemEffects && attacker.itemEffects.has("crit_boost")) ? 2.4 : 2.0;
-        critMult += (attacker.critDmgBonus || 0); // Miya Ult adds +50% Crit Damage
+        let critMult = 2.0 + (attacker.critDmgBonus || 0); // Thánh Kiếm adds +30% Crit Dmg, Miya Ult adds +50% Crit Dmg
         dmg *= critMult;
+        // v2.0.0 Song Đao Bão Táp: Sau khi gây ST chí mạng, trong 2s sẽ giảm hồi chiêu cho toàn bộ kỹ năng 0.5s
+        if (attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("song_dao_crit_cdr")) {
+          attacker.songDaoWindowTimer = 2.0;
+          attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, Number((c - 0.5).toFixed(2))));
+        }
+      }
+    }
+
+    // v2.0.0 Kiếm Fafnir: Đánh thường gây thêm ST VL bằng 8% HP hiện tại của mục tiêu
+    if (!isSkill && attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("fafnir_onhit") && !target.isStructure) {
+      dmg += target.hp * 0.08;
+    }
+
+    // v2.0.0 Thập Tự Kiếm:
+    // - Đòn đánh thường kế tiếp giúp tăng +15% tốc đánh trong 3s (CD 8s)
+    // - Mỗi đòn đánh thường gây thêm ST bằng 30% công phép hiện tại (CD 0.2s)
+    if (!isSkill && attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("thap_tu_onhit") && !target.isStructure) {
+      if (!(attacker.thapTuBuffCd > 0)) {
+        attacker.thapTuBuffCd = 8.0;
+        attacker.thapTuAsBuffTimer = 3.0;
+        this.recalcHeroStats(attacker);
+      }
+      if (!(attacker.thapTuOnhitCd > 0)) {
+        attacker.thapTuOnhitCd = 0.2;
+        dmg += (attacker.ap || 0) * 0.30;
+      }
+    }
+
+    // v2.0.0 Phức Hợp Kiếm: Sau khi tung chiêu, trong 5s tiếp theo, chiêu hoặc đòn đánh tiếp theo gây thêm 100% công VL thành ST VL (CD 5s)
+    if (attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("phuc_hop_spellblade") && attacker.phucHopReadyTimer > 0 && !(attacker.phucHopCd > 0)) {
+      attacker.phucHopReadyTimer = 0;
+      attacker.phucHopCd = 5.0;
+      dmg += attacker.ad * 1.0;
+      if (attacker.isPlayer) {
+        this.spawnFloatingText(target.x, target.z, "🌟 Phức Hợp Kiếm (+100% AD)!", "text-amber-300");
       }
     }
 
     if (!isSkill && attacker.isHero && attacker.spellbladeReady) {
       attacker.spellbladeReady = false;
-      if (attacker.itemEffects && attacker.itemEffects.has("spellblade_ad")) dmg += attacker.ad * 1.0;
-      if (attacker.itemEffects && attacker.itemEffects.has("spellblade_ap")) dmg += attacker.ap * 0.8;
       if (attacker.heroData.id === "zephyr") {
         dmg += 110 + attacker.ad * 0.60 + (target.maxHp - target.hp) * 0.05;
-        attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(attacker.maxHp * 0.05));
+        this.healUnit(attacker, Math.round(attacker.maxHp * 0.05));
       } else if (attacker.heroData.id === "nyx") {
         dmg += attacker.ad * 0.75;
       }
@@ -6247,25 +6930,91 @@ class MobaArena3D {
       }
     }
 
+    // v2.0.0 Thương Longinus: Gây ST sẽ trừ 6% giáp mục tiêu, tối đa 4 lần (24%) trong 5s (CD 0.3s)
+    if (attacker && attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("longinus_shred") && !target.isStructure && !(attacker.longinusIcd > 0)) {
+      attacker.longinusIcd = 0.3;
+      target.longinusStacks = Math.min(4, (target.longinusStacks || 0) + 1);
+      target.longinusTimer = 5.0;
+      if (target.isHero) this.recalcHeroStats(target);
+    }
+
+    // v2.0.0 Đao Truy Hồn / Sách Truy Hồn: Đánh thường hoặc chiêu làm mục tiêu giảm 40% hiệu quả hồi HP trong 2s (CD 5s)
+    if (attacker && attacker.isHero && attacker.itemEffects && (attacker.itemEffects.has("grievous_wounds_ad") || attacker.itemEffects.has("grievous_wounds_ap")) && !target.isStructure) {
+      if (!(attacker.grievousCd > 0)) {
+        attacker.grievousCd = 5.0;
+        target.grievousTimer = 2.0;
+        target.grievousPct = 0.40;
+      }
+    }
+
     let def = dmgType === "magic" ? (target.mr || 50) : (target.armor || 50);
+    if (!target.isHero && dmgType === "physical" && target.longinusTimer > 0 && (target.longinusStacks || 0) > 0) {
+      def *= Math.max(0.5, 1 - Math.min(4, target.longinusStacks) * 0.06);
+    }
     if (attacker.isHero || attacker.isSummon) {
-      if (dmgType === "physical" && attacker.armorPenPct) def *= (1 - attacker.armorPenPct);
-      else if (dmgType === "magic") {
+      if (dmgType === "physical") {
+        if (attacker.armorPenPct) def *= (1 - attacker.armorPenPct);
+        if (attacker.armorPenFlat) def = Math.max(0, def - attacker.armorPenFlat);
+      } else if (dmgType === "magic") {
         if (attacker.magicPenPct) def *= (1 - attacker.magicPenPct);
         if (attacker.magicPen) def = Math.max(0, def - attacker.magicPen);
       }
     }
-    const finalDmg = (attacker && attacker.isStructure)
+
+    let rawMitigated = (attacker && attacker.isStructure)
       ? Math.max(1, Math.round(dmg))
       : Math.max(12, Math.round(dmg * (200 / (200 + Math.max(0, def)))));
 
+    // v2.0.0 Sách Thánh: Mỗi 100 công phép giảm 0.1% ST nhận vào
+    if (target.isHero && target.itemEffects && target.itemEffects.has("sach_thanh_mitigation") && (target.ap || 0) >= 100) {
+      const stacks100Ap = Math.floor((target.ap || 0) / 100);
+      const dmgRedPct = Math.min(0.25, stacks100Ap * 0.001);
+      rawMitigated = Math.max(1, Math.round(rawMitigated * (1 - dmgRedPct)));
+    }
+
+    const finalDmg = rawMitigated;
+
     if ((attacker.isHero || attacker.isSummon) && !target.isStructure) {
       if (!isSkill && attacker.lifesteal > 0) {
-        attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(finalDmg * attacker.lifesteal));
+        this.healUnit(attacker, Math.round(finalDmg * attacker.lifesteal));
       }
       if ((isSkill || (attacker.isHero && attacker.heroData.id === "sasuke" && attacker.sasukeWBuffTimer > 0)) && attacker.spellVamp > 0) {
-        attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(finalDmg * attacker.spellVamp));
+        this.healUnit(attacker, Math.round(finalDmg * attacker.spellVamp));
       }
+    }
+
+    // v2.0.0 Khiên Quang Thánh: Trong 5s sau khi gây ST, tạo giáp ảo cho bản thân bằng 20% ST gây ra (CD 10s)
+    if (attacker && attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("quang_thanh_shield") && !target.isStructure) {
+      if (!(attacker.quangThanhCd > 0) && !(attacker.quangThanhWindowTimer > 0)) {
+        attacker.quangThanhWindowTimer = 5.0;
+        attacker.quangThanhCd = 10.0;
+      }
+      if (attacker.quangThanhWindowTimer > 0) {
+        const addShield = Math.max(15, Math.round(finalDmg * 0.20));
+        attacker.shield = Math.min(attacker.maxHp, (attacker.shield || 0) + addShield);
+        attacker.shieldTimer = Math.max(attacker.shieldTimer || 0, 4.0);
+      }
+    }
+
+    // v2.0.0 Trượng Nổ Đùng Đùng: Khi gây ST sẽ tạo vùng nổ 2m gây 140% công phép của bản thân lên mục tiêu trúng chiêu (CD 5s)
+    if (attacker && attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("truong_no_boom") && !target.isStructure && !(attacker.truongNoCd > 0) && !this._inTruongNoProc) {
+      attacker.truongNoCd = 5.0;
+      this._inTruongNoProc = true;
+      const boomDmg = Math.max(30, Math.round((attacker.ap || 0) * 1.40));
+      this.spawnVfxRing(target.x, target.z, 2.0, 0xf97316, 0.45);
+      this.units.forEach((enemy) => {
+        if (enemy.dead || enemy.team === attacker.team) return;
+        if (Math.hypot(enemy.x - target.x, enemy.z - target.z) <= 2.0 + (enemy.radius || 0.8)) {
+          const mrDef = enemy.mr || 30;
+          const netBoom = Math.max(10, Math.round(boomDmg * (200 / (200 + mrDef))));
+          enemy.hp = Math.max(0, enemy.hp - netBoom);
+          if (enemy.hp <= 0) this.handleEntityDeath(attacker, enemy);
+        }
+      });
+      if (attacker.isPlayer) {
+        this.spawnFloatingText(target.x, target.z, `💥 Trượng Nổ Đùng Đùng (+${boomDmg})!`, "text-orange-300");
+      }
+      this._inTruongNoProc = false;
     }
 
     let remDmg = finalDmg;
@@ -6276,6 +7025,43 @@ class MobaArena3D {
     }
 
     target.hp = Math.max(0, target.hp - remDmg);
+
+    // v2.0.0 Thiên Phạt Kiếm: Ban đầu có 8 điểm Thiên Phạt (1 điểm = 1% tỉ lệ kết liễu).
+    // Khi HP mục tiêu <= 8%, có tỉ lệ [Số điểm]% kết liễu ngay mục tiêu!
+    if (target.hp > 0 && !target.isStructure && attacker && attacker.isHero && attacker.itemEffects && attacker.itemEffects.has("thien_phat_execute")) {
+      const targetHpPct = target.hp / Math.max(1, target.maxHp);
+      if (targetHpPct <= 0.08) {
+        const pts = Math.max(8, Math.min(80, attacker.thienPhatPoints || 8));
+        const roll = (attacker._forceThienPhatExecute) ? 0 : (Math.random() * 100);
+        if (roll < pts) {
+          // Check Liềm Đoạt Mệnh before executing
+          if (target.isHero && target.itemEffects && target.itemEffects.has("liem_undying") && !(target.liemCd > 0)) {
+            target.hp = 1;
+            target.liemCd = 75.0;
+            target.liemInvulnTimer = 2.0;
+            target.liemSpeedTimer = 5.0;
+            this.recalcHeroStats(target);
+            this.spawnVfxRing(target.x, target.z, 2.6, 0xfacc15, 0.75);
+            this.spawnFloatingText(target.x, target.z, "🌙 LIỀM ĐOẠT MỆNH: BẤT TỬ 2S & +25% TỐC CHẠY!", "text-yellow-300");
+          } else {
+            target.hp = 0;
+            this.spawnVfxPillar(target.x, target.z, 1.8, 5.5, 0xfacc15, 0.75);
+            this.spawnFloatingText(target.x, target.z, `⚜️ THIÊN PHẠT KẾT LIỄU (${pts}%)!`, "text-yellow-300");
+          }
+        }
+      }
+    }
+
+    // v2.0.0 Liềm Đoạt Mệnh: Khi nhận ST chí tử (hp <= 0), không bị kết liễu mà trở nên bất tử trong 2s và tăng 25% tốc chạy trong 5s (CD 75s)
+    if (target.hp <= 0 && target.isHero && target.itemEffects && target.itemEffects.has("liem_undying") && !(target.liemCd > 0)) {
+      target.hp = 1;
+      target.liemCd = 75.0;
+      target.liemInvulnTimer = 2.0;
+      target.liemSpeedTimer = 5.0;
+      this.recalcHeroStats(target);
+      this.spawnVfxRing(target.x, target.z, 2.8, 0xfacc15, 0.75);
+      this.spawnFloatingText(target.x, target.z, "🌙 LIỀM ĐOẠT MỆNH: BẤT TỬ 2S & +25% TỐC CHẠY!", "text-yellow-300");
+    }
 
     if (target.isHero && target.hp > 0) {
       // Nagato Passive: Tăng 80% tốc đánh trong 2s khi nhận sát thương
@@ -6289,24 +7075,36 @@ class MobaArena3D {
         this.recalcHeroStats(target);
         target.hp = exactHp;
       }
-      if ((target.hp / target.maxHp) < 0.40 && target.gaiaCd <= 0) {
-        if (target.heroData.id === "gideon" || (target.itemEffects && target.itemEffects.has("ice_barrier"))) {
-          target.shield = 650;
-          target.shieldTimer = 4.0;
-          target.gaiaCd = 20.0;
-          this.spawnFloatingText(target.x, target.z, "+KHIÊN BẢO HỘ!", "text-amber-300");
+      // Gideon Passive Shield (<40% HP)
+      if ((target.hp / target.maxHp) < 0.40 && target.gaiaCd <= 0 && target.heroData.id === "gideon") {
+        target.shield = Math.round(target.maxHp * 0.18);
+        target.shieldTimer = 5.0;
+        target.gaiaCd = 20.0;
+        this.spawnFloatingText(target.x, target.z, "+THÁNH KHIÊN BẢO HỘ!", "text-amber-300");
+      }
+      // v2.0.0 Quỷ Kiếm: Khi nhận ST, hồi HP bằng 8% HP tối đa (CD 15s)
+      if (target.itemEffects && target.itemEffects.has("quy_kiem_heal") && !(target.quyKiemCd > 0)) {
+        target.quyKiemCd = 15.0;
+        const healed = this.healUnit(target, Math.round(target.maxHp * 0.08));
+        if (target.isPlayer) {
+          this.spawnFloatingText(target.x, target.z, `🩸 Quỷ Kiếm +${healed} HP!`, "text-rose-300");
         }
       }
-      if (target.itemEffects && target.itemEffects.has("gaia_regen") && target.gaiaCd <= 0) {
-        target.hp = Math.min(target.maxHp, target.hp + Math.round(target.maxHp * 0.08));
-        target.gaiaCd = 8.0;
+      // v2.0.0 Khiên Thất Truyền: Khi chịu ST, giảm 30% tốc đánh và 15% tốc chạy của kẻ địch ra đòn trong 3s
+      if (target.itemEffects && target.itemEffects.has("khien_that_truyen_slow") && attacker && !attacker.isStructure && !attacker.dead) {
+        attacker.khienThatTruyenSlowTimer = 3.0;
+        attacker.slowTimer = Math.max(attacker.slowTimer || 0, 3.0);
+        attacker.slowPct = Math.max(attacker.slowPct || 0.15, 0.15);
+        if (attacker.isHero) this.recalcHeroStats(attacker);
       }
-      if (target.itemEffects && target.itemEffects.has("thorn_reflect") && dmgType === "physical" && attacker.isHero) {
-        attacker.hp = Math.max(1, attacker.hp - Math.round(finalDmg * 0.22));
+      // v2.0.0 Giáp Thống Khổ: Khi nhận ST, phản lại bị động 8% ST địch gây ra
+      if (target.itemEffects && target.itemEffects.has("thong_kho_reflect") && attacker && !attacker.isStructure && !attacker.dead) {
+        const reflectDmg = Math.max(1, Math.round(finalDmg * 0.08));
+        attacker.hp = Math.max(1, attacker.hp - reflectDmg);
       }
     }
 
-    if (attacker.isPlayer || target.isPlayer) {
+    if (attacker && (attacker.isPlayer || target.isPlayer)) {
       const col = isCrit ? "text-amber-300 text-sm" : (dmgType === "magic" ? "text-purple-300" : "text-rose-300");
       this.spawnFloatingText(target.x, target.z, `${isCrit ? "💥" : "-"}${finalDmg}`, col);
     }
@@ -6321,15 +7119,25 @@ class MobaArena3D {
     if (victim.dead) return;
     if (killer && killer.isSummon && killer.ownerHero) killer = killer.ownerHero;
 
-    if (victim.isHero && victim.itemEffects && victim.itemEffects.has("revive") && victim.reviveCd <= 0) {
-      victim.reviveCd = 120;
+    // v2.0.0 Giáp Hồi Sinh: Hồi sinh ngay tại chỗ 1 lần sau khi chết (hồi chiêu: 200s)
+    if (victim.isHero && victim.itemEffects && (victim.itemEffects.has("revive_200") || victim.itemEffects.has("revive")) && victim.reviveCd <= 0) {
+      victim.reviveCd = 200.0;
       victim.hp = Math.round(victim.maxHp * 0.45);
       this.spawnVfxRing(victim.x, victim.z, 3.0, 0xfacc15, 0.8);
-      this.spawnFloatingText(victim.x, victim.z, "TÁI SINH BẤT TỬ!", "text-yellow-300");
+      this.spawnFloatingText(victim.x, victim.z, "👼 GIÁP HỒI SINH (Hồi chiêu 200s)!", "text-yellow-300");
       return;
     }
 
     victim.dead = true;
+
+    // v2.0.0 Thiên Phạt Kiếm: Tiêu diệt 1 mục tiêu nhận +10 điểm (tối đa 80 điểm)
+    if (killer && killer.isHero && killer.team !== victim.team && killer.itemEffects && killer.itemEffects.has("thien_phat_execute")) {
+      const prevPts = killer.thienPhatPoints || 8;
+      killer.thienPhatPoints = Math.min(80, prevPts + 10);
+      if (killer.isPlayer) {
+        this.spawnFloatingText(killer.x, killer.z, `⚜️ +10 Điểm Thiên Phạt (${killer.thienPhatPoints}/80%)!`, "text-yellow-300");
+      }
+    }
 
     if (victim.isStructure) {
       victim.mesh.visible = false;
@@ -6358,29 +7166,55 @@ class MobaArena3D {
       victim.deaths++;
       victim.respawnTimer = 6 + victim.level * 1.2;
       victim.recallChannelTimer = 0;
+      victim.baoKhiTetherTimer = 0;
+      if (victim.baoKhiMesh) victim.baoKhiMesh.visible = false;
+      victim.helenTetherTimer = 0;
+      if (victim.tetherMesh) victim.tetherMesh.visible = false;
       victim.mesh.visible = false;
       if (victim.hudEl) victim.hudEl.style.display = "none";
+
+      // v2.0.0 Thiên Phạt Kiếm: Nếu bản thân chết sẽ bị giảm 40% số điểm đang có!
+      if (victim.itemEffects && victim.itemEffects.has("thien_phat_execute")) {
+        const curPts = victim.thienPhatPoints || 8;
+        victim.thienPhatPoints = Math.max(8, Math.round(curPts * 0.60));
+        if (victim.isPlayer) {
+          this.spawnFloatingText(victim.x, victim.z, `⚜️ Tử trận: -40% Điểm Thiên Phạt (Còn ${victim.thienPhatPoints} điểm)`, "text-rose-400");
+        }
+      }
 
       if (killer && killer.isHero && killer.team !== victim.team) {
         killer.kills++;
         killer.gold += 220;
         this.giveHeroExp(killer, 240);
+
+        // Multi-kill & First Blood tracking (v2.0.0)
+        const isFirstBlood = !this.firstBloodClaimed;
+        if (isFirstBlood) {
+          this.firstBloodClaimed = true;
+          killer.gold += 100; // Bonus First Blood gold
+        }
+        if (killer.multiKillTimer > 0) {
+          killer.killStreakCount = (killer.killStreakCount || 1) + 1;
+        } else {
+          killer.killStreakCount = 1;
+        }
+        killer.multiKillTimer = 10.0;
+
+        if (killer.isPlayer || isFirstBlood) {
+          window.SFX.play(isFirstBlood ? "firstblood" : "kill");
+        }
         if (killer.isPlayer) {
-          window.SFX.play("kill");
-          this.spawnFloatingText(victim.x, victim.z, "+220 Vàng (Hạ Gục!)", "text-amber-300");
+          this.spawnFloatingText(victim.x, victim.z, isFirstBlood ? "🩸 CHIẾN CÔNG ĐẦU (+320 Vàng)!" : "+220 Vàng (Hạ Gục!)", "text-amber-300");
         }
 
         if (killer.heroData.id === "nyx") {
           killer.skillCds = killer.skillCds.map((c) => c * 0.4);
-          killer.hp = Math.min(killer.maxHp, Math.round(killer.hp + killer.maxHp * 0.15));
+          this.healUnit(killer, Math.round(killer.maxHp * 0.15));
           killer.nyxFrenzyTimer = 4.0;
           this.recalcHeroStats(killer);
         } else if (killer.heroData.id === "zephyr") {
           killer.skillCds[0] = 0;
           killer.skillCds[1] = 0;
-        }
-        if (killer.itemEffects && killer.itemEffects.has("blood_feast")) {
-          killer.hp = Math.min(killer.maxHp, Math.round(killer.hp + killer.maxHp * 0.18));
         }
 
         this.units.forEach((ally) => {
@@ -6393,7 +7227,11 @@ class MobaArena3D {
           }
         });
 
-        if (window.UI && window.UI.showAnnouncement) {
+        // Check if entire enemy team is wiped out (ACE / Quét Sạch)
+        const enemyHeroesAlive = this.units.filter((u) => u.isHero && u.team === victim.team && !u.dead).length;
+        if (window.UI && window.UI.showKillBanner) {
+          window.UI.showKillBanner(killer, victim, isFirstBlood, killer.killStreakCount, enemyHeroesAlive === 0);
+        } else if (window.UI && window.UI.showAnnouncement) {
           window.UI.showAnnouncement(`⚔️ ${killer.name} đã hạ gục ${victim.name}!`);
         }
       }
@@ -6417,11 +7255,67 @@ class MobaArena3D {
       const goldR = victim.goldReward || 80;
       const expR = victim.expReward || 55;
 
-      if (killer && killer.isHero) {
-        killer.gold += goldR;
+      // v2.0.0: Chia sẻ EXP và Vàng của Lính cho đồng đội ở gần trong phạm vi 20m:
+      // + Người kết liễu được lính nhận 60% EXP và Vàng, người ở gần trong 20m nhận 40% (nếu 2 người ở gần thì mỗi người 20%).
+      // + Lưu ý Nội tại Bảo Khí Nhẫn Cụ: Trước phút thứ 3 (matchTime < 180s), người sở hữu Bảo Khí Nhẫn Cụ tách khỏi cơ chế chia vàng của lính!
+      if (victim.isMinion && killer && killer.isHero) {
+        const nearbyAllies20m = this.units.filter(
+          (h) => h.isHero && !h.dead && h.team === killer.team && h.id !== killer.id && Math.hypot(h.x - victim.x, h.z - victim.z) <= 20.0
+        );
+        // Filter allies eligible for gold share (exclude Bảo Khí Nhẫn Cụ holders before 180s)
+        const goldEligibleAllies = nearbyAllies20m.filter(
+          (h) => !(this.matchTime < 180.0 && h.itemEffects && h.itemEffects.has("bao_khi_support"))
+        );
+
+        // EXP Share (60% killer / 40% split among nearby allies within 20m)
+        if (nearbyAllies20m.length === 0) {
+          this.giveHeroExp(killer, expR);
+        } else {
+          const killerExp = Math.round(expR * 0.60);
+          const allyExpEach = Math.round((expR * 0.40) / nearbyAllies20m.length);
+          this.giveHeroExp(killer, killerExp);
+          nearbyAllies20m.forEach((ally) => this.giveHeroExp(ally, allyExpEach));
+        }
+
+        // Gold Share (60% killer / 40% split among gold-eligible allies within 20m)
+        const killerPre3BaoKhi = (this.matchTime < 180.0 && killer.itemEffects && killer.itemEffects.has("bao_khi_support"));
+        if (goldEligibleAllies.length === 0) {
+          if (!killerPre3BaoKhi) {
+            killer.gold += goldR;
+            if (killer.isPlayer) {
+              window.SFX.play("gold");
+              this.spawnFloatingText(victim.x, victim.z, `+${goldR} Vàng`, "text-yellow-300");
+            }
+          } else {
+            // Killer has Bảo Khí Nhẫn Cụ before 3m and no ally nearby -> still grant last-hit gold if solo, or if ally nearby give 100% to ally
+            killer.gold += goldR;
+          }
+        } else {
+          const killerGold = killerPre3BaoKhi ? 0 : Math.round(goldR * 0.60);
+          const remainingGoldPct = killerPre3BaoKhi ? 1.0 : 0.40;
+          const allyGoldEach = Math.round((goldR * remainingGoldPct) / goldEligibleAllies.length);
+          killer.gold += killerGold;
+          goldEligibleAllies.forEach((ally) => {
+            ally.gold += allyGoldEach;
+            if (ally.isPlayer) {
+              this.spawnFloatingText(victim.x, victim.z, `+${allyGoldEach} Vàng (Chia sẻ 20m)`, "text-amber-200");
+            }
+          });
+          if (killer.isPlayer && killerGold > 0) {
+            window.SFX.play("gold");
+            this.spawnFloatingText(victim.x, victim.z, `+${killerGold} Vàng (60%)`, "text-yellow-300");
+          }
+        }
+      } else if (killer && killer.isHero) {
+        // Quái rừng: Nếu có Kiếm Truy Hồn thì nhận thêm +30% vàng từ quái rừng!
+        let finalMonsterGold = goldR;
+        if (victim.isMonster && killer.itemEffects && killer.itemEffects.has("kiem_truy_hon_jg")) {
+          finalMonsterGold = Math.round(goldR * 1.30);
+        }
+        killer.gold += finalMonsterGold;
         this.giveHeroExp(killer, expR);
         if (victim.isMonster) {
-          killer.hp = Math.min(killer.maxHp, Math.round(killer.hp + killer.maxHp * 0.10));
+          this.healUnit(killer, Math.round(killer.maxHp * 0.10));
           killer.mana = Math.min(killer.maxMana, Math.round(killer.mana + killer.maxMana * 0.15));
 
           // Bùa Lực Sĩ (80s): +15% sát thương, +10% khả năng làm chậm
@@ -6458,7 +7352,7 @@ class MobaArena3D {
         }
         if (killer.isPlayer) {
           window.SFX.play("gold");
-          this.spawnFloatingText(victim.x, victim.z, `+${goldR} Vàng`, "text-yellow-300");
+          this.spawnFloatingText(victim.x, victim.z, `+${finalMonsterGold} Vàng`, "text-yellow-300");
         }
       } else {
         this.units.forEach((h) => {
@@ -6620,6 +7514,10 @@ class MobaArena3D {
     if (hero.items.length >= 6) return { ok: false, msg: "Đã đầy 6 ô trang bị!" };
     const itemObj = window.GAME_DATA.items.find((i) => i.id === itemId);
     if (!itemObj) return { ok: false, msg: "Trang bị không hợp lệ" };
+    // v2.0.0: Bảo Khí Nhẫn Cụ chỉ tướng Hỗ trợ / Đỡ đòn mới được mua!
+    if (itemObj.supportTankOnly && hero.heroData && hero.heroData.roleKey !== "Support" && hero.heroData.roleKey !== "Tank") {
+      return { ok: false, msg: "Bảo Khí Nhẫn Cụ chỉ dành riêng cho tướng Hỗ Trợ hoặc Đỡ Đòn!" };
+    }
     if (hero.gold < itemObj.cost) return { ok: false, msg: `Thiếu ${itemObj.cost - hero.gold} Vàng trong trận!` };
 
     hero.gold -= itemObj.cost;
@@ -6658,10 +7556,10 @@ class MobaArena3D {
 
       // High-rank AI (Mythic+ / aiMult >= 1.65) checks if player has high Magic or Physical damage and counter-builds
       if (this.aiMult >= 1.65 && this.player && bot.team === "red" && bot.items.length === 3) {
-        if (this.player.ap > 250 && !bot.items.some((i) => i.id === "tank_gaia_embrace")) {
-          nextItemId = "tank_gaia_embrace";
-        } else if (this.player.ad > 240 && !bot.items.some((i) => i.id === "tank_aegis_valor")) {
-          nextItemId = "tank_aegis_valor";
+        if (this.player.ap > 250 && !bot.items.some((i) => i.id === "giap_gaia")) {
+          nextItemId = "giap_gaia";
+        } else if (this.player.ad > 240 && !bot.items.some((i) => i.id === "khien_that_truyen")) {
+          nextItemId = "khien_that_truyen";
         }
       }
 
@@ -6734,6 +7632,16 @@ class MobaArena3D {
       if (!alliedMinionsUnderTower && !canDive) {
         bot.towerRetreatTimer = 1.6; // Lock retreat state for 1.6s so bot never jitters on the border!
         return;
+      }
+    }
+
+    // 4a. v2.0.0 Support / Tank Bot AI: Tự động kích hoạt Chiêu 4 (Bảo Khí Nhẫn Cụ) khi đồng đội trong 8m thấp máu
+    if ((bot.heroData.roleKey === "Support" || bot.heroData.roleKey === "Tank") && bot.items.some((i) => i.id === "bao_khi_nhan_cu") && !(bot.activeItemCd > 0)) {
+      const lowAlly8m = this.units.find(
+        (a) => a.isHero && !a.dead && a.team === bot.team && (a.hp / a.maxHp) < 0.78 && Math.hypot(a.x - bot.x, a.z - bot.z) <= 8.0
+      );
+      if (lowAlly8m) {
+        this.activateBaoKhiSkill(bot);
       }
     }
 
@@ -6909,6 +7817,10 @@ class MobaArena3D {
       this.units.forEach((u) => {
         if (u.isHero && !u.dead) {
           u.gold += 4;
+          // v2.0.0 Bảo Khí Nhẫn Cụ: Trước phút thứ 3 (180s), mỗi 1s nhận thêm +10 vàng!
+          if (this.matchTime < 180.0 && u.itemEffects && u.itemEffects.has("bao_khi_support")) {
+            u.gold += 10;
+          }
           const fX = u.team === "blue" ? -64 : 64;
           if (Math.hypot(u.x - fX, u.z) <= 6.5) {
             u.hp = Math.min(u.maxHp, u.hp + Math.round(u.maxHp * 0.14));
@@ -6947,6 +7859,21 @@ class MobaArena3D {
     this.units.forEach((u) => {
       if (u.dead) {
         if (u.isHero) {
+          // v2.0.0: Khi đang chết (đếm ngược hồi sinh), thời gian hồi chiêu của kỹ năng và nội tại trang bị VẪN ĐẾM NGƯỢC!
+          for (let i = 0; i < 3; i++) {
+            if (u.skillCds[i] > 0) u.skillCds[i] = Math.max(0, u.skillCds[i] - dt);
+            if (u.painForm1Cds && u.painForm1Cds[i] > 0) u.painForm1Cds[i] = Math.max(0, u.painForm1Cds[i] - dt);
+          }
+          if (u.activeItemCd > 0) u.activeItemCd = Math.max(0, u.activeItemCd - dt);
+          if (u.reviveCd > 0) u.reviveCd = Math.max(0, u.reviveCd - dt);
+          if (u.liemCd > 0) u.liemCd = Math.max(0, u.liemCd - dt);
+          if (u.quyKiemCd > 0) u.quyKiemCd = Math.max(0, u.quyKiemCd - dt);
+          if (u.phucHopCd > 0) u.phucHopCd = Math.max(0, u.phucHopCd - dt);
+          if (u.quangThanhCd > 0) u.quangThanhCd = Math.max(0, u.quangThanhCd - dt);
+          if (u.truongNoCd > 0) u.truongNoCd = Math.max(0, u.truongNoCd - dt);
+          if (u.thapTuBuffCd > 0) u.thapTuBuffCd = Math.max(0, u.thapTuBuffCd - dt);
+          if (u.gaiaCd > 0) u.gaiaCd = Math.max(0, u.gaiaCd - dt);
+
           u.respawnTimer -= dt;
           if (u.respawnTimer <= 0) {
             u.dead = false;
@@ -6968,6 +7895,23 @@ class MobaArena3D {
       if (u.slowTimer > 0) u.slowTimer = Math.max(0, u.slowTimer - dt);
       if (u.gaiaCd > 0) u.gaiaCd = Math.max(0, u.gaiaCd - dt);
       if (u.reviveCd > 0) u.reviveCd = Math.max(0, u.reviveCd - dt);
+      if (u.activeItemCd > 0) u.activeItemCd = Math.max(0, u.activeItemCd - dt);
+      if (u.liemCd > 0) u.liemCd = Math.max(0, u.liemCd - dt);
+      if (u.liemInvulnTimer > 0) u.liemInvulnTimer = Math.max(0, u.liemInvulnTimer - dt);
+      if (u.quyKiemCd > 0) u.quyKiemCd = Math.max(0, u.quyKiemCd - dt);
+      if (u.phucHopCd > 0) u.phucHopCd = Math.max(0, u.phucHopCd - dt);
+      if (u.phucHopReadyTimer > 0) u.phucHopReadyTimer = Math.max(0, u.phucHopReadyTimer - dt);
+      if (u.songDaoWindowTimer > 0) u.songDaoWindowTimer = Math.max(0, u.songDaoWindowTimer - dt);
+      if (u.grievousCd > 0) u.grievousCd = Math.max(0, u.grievousCd - dt);
+      if (u.grievousTimer > 0) u.grievousTimer = Math.max(0, u.grievousTimer - dt);
+      if (u.thanRaGrievousTimer > 0) u.thanRaGrievousTimer = Math.max(0, u.thanRaGrievousTimer - dt);
+      if (u.longinusIcd > 0) u.longinusIcd = Math.max(0, u.longinusIcd - dt);
+      if (u.quangThanhCd > 0) u.quangThanhCd = Math.max(0, u.quangThanhCd - dt);
+      if (u.quangThanhWindowTimer > 0) u.quangThanhWindowTimer = Math.max(0, u.quangThanhWindowTimer - dt);
+      if (u.truongNoCd > 0) u.truongNoCd = Math.max(0, u.truongNoCd - dt);
+      if (u.thapTuBuffCd > 0) u.thapTuBuffCd = Math.max(0, u.thapTuBuffCd - dt);
+      if (u.thapTuOnhitCd > 0) u.thapTuOnhitCd = Math.max(0, u.thapTuOnhitCd - dt);
+      if (u.multiKillTimer > 0) u.multiKillTimer = Math.max(0, u.multiKillTimer - dt);
       if (u.shieldTimer > 0) {
         u.shieldTimer -= dt;
         if (u.shieldTimer <= 0) u.shield = 0;
@@ -7009,6 +7953,66 @@ class MobaArena3D {
         this.updateHelenTetherBeam(u, dt);
       } else if (u.tetherMesh && u.tetherMesh.visible) {
         u.tetherMesh.visible = false;
+      }
+      if (u.baoKhiTetherTimer > 0) {
+        this.updateBaoKhiTetherBeam(u, dt);
+      } else if (u.baoKhiMesh && u.baoKhiMesh.visible) {
+        u.baoKhiMesh.visible = false;
+      }
+      if (u.liemSpeedTimer > 0) {
+        u.liemSpeedTimer -= dt;
+        if (u.liemSpeedTimer <= 0) {
+          u.liemSpeedTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.thapTuAsBuffTimer > 0) {
+        u.thapTuAsBuffTimer -= dt;
+        if (u.thapTuAsBuffTimer <= 0) {
+          u.thapTuAsBuffTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.khienThatTruyenSlowTimer > 0) {
+        u.khienThatTruyenSlowTimer -= dt;
+        if (u.khienThatTruyenSlowTimer <= 0) {
+          u.khienThatTruyenSlowTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.longinusTimer > 0) {
+        u.longinusTimer -= dt;
+        if (u.longinusTimer <= 0) {
+          u.longinusTimer = 0;
+          u.longinusStacks = 0;
+          statsDirty = true;
+        }
+      }
+      // v2.0.0 Áo Choàng Thần Ra Aura: Kẻ địch trong phạm vi gần (3.5m) bị giảm 20% hiệu quả hồi phục kéo dài 2s & chịu sát thương đốt nhẹ
+      if (u.isHero && u.itemEffects && u.itemEffects.has("than_ra_aura")) {
+        u.thanRaBurnTick = (u.thanRaBurnTick || 0) + dt;
+        const doBurn = u.thanRaBurnTick >= 1.0;
+        if (doBurn) u.thanRaBurnTick -= 1.0;
+        this.units.forEach((enemy) => {
+          if (enemy.dead || enemy.team === u.team) return;
+          if (Math.hypot(enemy.x - u.x, enemy.z - u.z) <= 3.5 + (enemy.radius || 0.8)) {
+            enemy.thanRaGrievousTimer = 2.0;
+            if (doBurn) {
+              const burnDmg = Math.round(35 + (u.level || 1) * 4);
+              enemy.hp = Math.max(1, enemy.hp - burnDmg);
+            }
+          }
+        });
+      }
+      // v2.0.0 Khiên Huyền Thoại Aura: Giảm 30% tốc đánh của mục tiêu địch trong phạm vi 5m
+      if (u.isHero) {
+        const nearEnemyWithKhienHuyenThoai = this.units.some(
+          (e) => e.isHero && !e.dead && e.team !== u.team && e.itemEffects && e.itemEffects.has("khien_huyen_thoai_aura") && Math.hypot(e.x - u.x, e.z - u.z) <= 5.0
+        );
+        if (nearEnemyWithKhienHuyenThoai !== !!u.khienHuyenThoaiAuraDebuff) {
+          u.khienHuyenThoaiAuraDebuff = nearEnemyWithKhienHuyenThoai;
+          statsDirty = true;
+        }
       }
       if (u.nyxFrenzyTimer > 0) {
         u.nyxFrenzyTimer -= dt;
@@ -7731,7 +8735,7 @@ window.MobaArena3D = MobaArena3D;
 </script>
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v1.8.1)
+// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v2.0.0 SUPER UPDATE)
 // ============================================================================
 
 class GameUIController {
@@ -7744,7 +8748,7 @@ class GameUIController {
     this.heroRoleFilter = "ALL";
     this.shopTab = "heroes"; // "heroes" | "skins" | "ruby" | "items_catalog"
     this.inGameShopCat = "PRESET"; // "PRESET" | "ALL" | "Physical" | "Magic" | "Tank" | "Boots"
-    this.selectedShopItemId = "boots_atk";
+    this.selectedShopItemId = "giay_du_muc";
     this.preOrderItemId = null; // Đặt trước trang bị (Pre-ordered item ID)
     this.lobby3D = null;
     this.arena3D = null;
@@ -7848,6 +8852,43 @@ class GameUIController {
     this.annTimer = setTimeout(() => {
       banner.classList.add("hidden");
     }, 3000);
+  }
+
+  // v2.0.0 First Blood / Multi-Kill / Ace Banner Notification
+  showKillBanner(killer, victim, isFirstBlood, streakCount, isAce) {
+    const killBox = document.getElementById("ingame-kill-banner");
+    const titleEl = document.getElementById("kill-banner-title");
+    const subEl = document.getElementById("kill-banner-sub");
+    if (!killBox || !titleEl || !subEl) {
+      this.showAnnouncement(`⚔️ ${killer.name} đã hạ gục ${victim.name}!`);
+      return;
+    }
+
+    let badgeTitle = "⚔️ HẠ GỤC (KILL)";
+    let borderClass = "border-amber-400 from-slate-950/95 via-amber-950/90 to-slate-950/95";
+    if (isFirstBlood) {
+      badgeTitle = "🩸 CHIẾN CÔNG ĐẦU (FIRST BLOOD)!";
+      borderClass = "border-rose-400 from-rose-950/95 via-red-900/90 to-slate-950/95";
+    } else if (isAce) {
+      badgeTitle = "💀 QUÉT SẠCH (ACE)!";
+      borderClass = "border-purple-400 from-purple-950/95 via-indigo-950/90 to-slate-950/95";
+    } else if (streakCount >= 3) {
+      badgeTitle = "🔥 BA MẠNG LIÊN TIẾP (TRIPLE KILL)!";
+      borderClass = "border-amber-300 from-amber-950/95 via-orange-900/90 to-slate-950/95";
+    } else if (streakCount === 2) {
+      badgeTitle = "⚡ HAI MẠNG LIÊN TIẾP (DOUBLE KILL)!";
+      borderClass = "border-sky-400 from-sky-950/95 via-blue-900/90 to-slate-950/95";
+    }
+
+    killBox.className = `fixed top-16 left-1/2 -translate-x-1/2 z-40 px-7 py-2.5 rounded-2xl bg-gradient-to-r ${borderClass} border-2 shadow-2xl flex flex-col items-center pointer-events-none transition-all duration-300`;
+    titleEl.textContent = badgeTitle;
+    subEl.textContent = `${killer.name} ⚔️ ${victim.name}`;
+    killBox.classList.remove("hidden");
+
+    clearTimeout(this.killBannerTimer);
+    this.killBannerTimer = setTimeout(() => {
+      killBox.classList.add("hidden");
+    }, 3400);
   }
 
   // ==========================================================================
@@ -8290,7 +9331,10 @@ class GameUIController {
     if (s.lifesteal) parts.push(`+${Math.round(s.lifesteal * 100)}% Hút máu VL`);
     if (s.spellVamp) parts.push(`+${Math.round(s.spellVamp * 100)}% Hút máu Phép`);
     if (s.cdr) parts.push(`+${Math.round(s.cdr * 100)}% Giảm hồi chiêu`);
-    if (s.moveSpeed) parts.push(`+${s.moveSpeed} Tốc chạy`);
+    if (s.moveSpeed) parts.push(`+60 Tốc chạy (+${s.moveSpeed} 3D)`);
+    if (s.moveSpeedPct) parts.push(`+${Math.round(s.moveSpeedPct * 100)}% Tốc chạy`);
+    if (s.critDmgBonus) parts.push(`+${Math.round(s.critDmgBonus * 100)}% ST Chí mạng`);
+    if (s.armorPenFlat) parts.push(`+${s.armorPenFlat} Xuyên Giáp`);
     if (s.armorPenPct) parts.push(`+${Math.round(s.armorPenPct * 100)}% Xuyên Giáp`);
     if (s.magicPen) parts.push(`+${s.magicPen} Xuyên Phép`);
     if (s.magicPenPct) parts.push(`+${Math.round(s.magicPenPct * 100)}% Xuyên Phép`);
@@ -8904,7 +9948,61 @@ class GameUIController {
       if (activePerfectSusanoo) {
         badges.push(`<span class="px-2 py-0.5 rounded bg-indigo-600/35 border border-indigo-400 text-indigo-200 text-[9px] font-bold">⚔️ Susanoo Hoàn Chỉnh: ${activePerfectSusanoo.hp.toLocaleString("vi-VN")}/${activePerfectSusanoo.maxHp.toLocaleString("vi-VN")} HP (400% AS)</span>`);
       }
+      if (p.itemEffects && p.itemEffects.has("thien_phat_execute")) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-amber-500/35 border border-amber-300 text-amber-100 text-[9px] font-bold">⚜️ Thiên Phạt Kiếm: ${p.thienPhatPoints || 8}/80 Điểm (${p.thienPhatPoints || 8}% Tỉ Lệ Kết Liễu ≤8% HP)</span>`);
+      }
+      if (p.baoKhiTetherTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-emerald-500/35 border border-emerald-300 text-emerald-100 text-[9px] font-bold">📿 Dây Bảo Khí Nhẫn Cụ: ${p.baoKhiTetherTimer.toFixed(1)}s (+8% HP/s)</span>`);
+      }
+      if (p.liemInvulnTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-yellow-500/40 border border-yellow-300 text-yellow-100 text-[9px] font-bold">🌙 Liềm Đoạt Mệnh Bất Tử: ${p.liemInvulnTimer.toFixed(1)}s</span>`);
+      }
       buffBox.innerHTML = badges.join(" ");
+    }
+
+    // v2.0.0 Respawn Countdown Overlay (for Player) & Top Respawn Status Pills (for all dead heroes)
+    const respawnOverlay = document.getElementById("player-respawn-overlay");
+    const respawnSecondsEl = document.getElementById("player-respawn-seconds");
+    if (respawnOverlay && respawnSecondsEl) {
+      if (p.dead && p.respawnTimer > 0) {
+        respawnOverlay.classList.remove("hidden");
+        respawnSecondsEl.textContent = p.respawnTimer.toFixed(1) + "s";
+      } else {
+        respawnOverlay.classList.add("hidden");
+      }
+    }
+    const deadBar = document.getElementById("hud-dead-heroes-bar");
+    if (deadBar) {
+      const deadHeroes = arena.units.filter((u) => u.isHero && u.dead && u.respawnTimer > 0);
+      if (deadHeroes.length > 0) {
+        deadBar.classList.remove("hidden");
+        deadBar.innerHTML = deadHeroes.map((dh) => {
+          const isBlue = dh.team === "blue";
+          return `<span class="px-2.5 py-0.5 rounded-lg border text-[10px] font-extrabold ${isBlue ? "bg-sky-950/90 border-sky-400 text-sky-200" : "bg-rose-950/90 border-rose-400 text-rose-200"}">⏳ ${dh.heroData.name}: Hồi sinh sau ${Math.ceil(dh.respawnTimer)}s</span>`;
+        }).join(" ");
+      } else {
+        deadBar.classList.add("hidden");
+      }
+    }
+
+    // v2.0.0 4th Active Skill Button (Bảo Khí Nhẫn Cụ - [Chiêu 4 / Phím 4])
+    const btn4 = document.getElementById("hud-skill-btn-3");
+    const cd4 = document.getElementById("hud-skill-cd-3");
+    if (btn4) {
+      const hasBaoKhi = p.items && p.items.some((it) => it.id === "bao_khi_nhan_cu");
+      if (hasBaoKhi) {
+        btn4.classList.remove("hidden");
+        if (cd4) {
+          if (p.activeItemCd > 0) {
+            cd4.classList.remove("hidden");
+            cd4.textContent = p.activeItemCd.toFixed(1) + "s";
+          } else {
+            cd4.classList.add("hidden");
+          }
+        }
+      } else {
+        btn4.classList.add("hidden");
+      }
     }
 
     const hpBar = document.getElementById("hud-hp-bar");
