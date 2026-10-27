@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legends of Eternia 3D - v2.0.0 (3v3 Isometric MOBA)</title>
+  <title>Legends of Eternia 3D - v2.1.0 (3v3 Isometric MOBA)</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
-/* Custom Scrollbar & Game UI Polish - v2.0.0 Royal Gold & Obsidian Edition */
+/* Custom Scrollbar & Game UI Polish - v2.1.0 Royal Gold & Obsidian Edition */
 * {
   box-sizing: border-box;
   user-select: none;
@@ -64,7 +64,7 @@ body {
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base md:text-lg font-black tracking-wider text-white">LEGENDS OF ETERNIA 3D</h1>
-            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v2.0.0</span>
+            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v2.1.0</span>
           </div>
           <div id="lobby-rank-summary" class="text-xs font-bold text-slate-300"></div>
         </div>
@@ -107,7 +107,7 @@ body {
           <div class="space-y-2.5">
             <button onclick="window.UI.openModal('modal-heroes')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
               <span class="flex items-center gap-2.5">🦸 <span>NHÂN VẬT (HEROES)</span></span>
-              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">16 Tướng</span>
+              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">21 Tướng</span>
             </button>
 
             <button onclick="window.UI.openModal('modal-shop')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
@@ -185,23 +185,23 @@ body {
 
     <!-- Lobby Footer -->
     <footer class="z-20 px-6 py-2 bg-slate-950/90 border-t border-slate-800/80 flex flex-wrap justify-between items-center text-[11px] text-slate-400">
-      <div>Bản đồ 3v3 Isometric v2.0.0: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
+      <div>Bản đồ 3v3 Isometric v2.1.0: 4 Trụ Ngoài + 1 Trụ Chính mỗi phe • Đợt 8 Lính mỗi 25s • Quái Rừng Lực Sĩ, Thuật Sĩ & Rồng Kradus</div>
       <div>Thưởng trận: Thắng +500–800 Vàng | Thua +50–120 Vàng</div>
     </footer>
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODAL 1: NHÂN VẬT (16 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
+  <!-- MODAL 1: NHÂN VẬT (21 HEROES ROSTER - ĐÃ CÓ & CHƯA CÓ)                 -->
   <!-- ===================================================================== -->
   <div id="modal-heroes" class="hidden fixed inset-0 z-40 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
     <div class="w-full max-w-6xl max-h-[90vh] bg-slate-900 border border-slate-700 rounded-3xl flex flex-col overflow-hidden shadow-2xl">
       <div class="px-6 py-4 bg-slate-950 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (16 HEROES ROSTER)</h3>
+          <h3 class="text-lg font-black text-white">🦸 HỆ THỐNG NHÂN VẬT (21 HEROES ROSTER)</h3>
           <p class="text-xs text-slate-400">Xem tướng Đã Sở Hữu / Chưa Sở Hữu, Ngoại hình 3D riêng biệt và bộ 3 Kỹ Năng + 1 Nội Tại</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (16)</button>
+          <button onclick="window.UI.setHeroRoleFilter('ALL')" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">Tất Cả (21)</button>
           <button onclick="window.UI.setHeroRoleFilter('Support')" class="px-3 py-1.5 rounded-xl bg-teal-900/60 hover:bg-teal-800 text-xs font-bold text-teal-300">Hỗ Trợ (Support)</button>
           <button onclick="window.UI.setHeroRoleFilter('Marksman')" class="px-3 py-1.5 rounded-xl bg-emerald-900/60 hover:bg-emerald-800 text-xs font-bold text-emerald-300">Xạ Thủ (Marksman)</button>
           <button onclick="window.UI.setHeroRoleFilter('Mage')" class="px-3 py-1.5 rounded-xl bg-sky-900/60 hover:bg-sky-800 text-xs font-bold text-sky-300">Pháp Sư (Mage)</button>
@@ -229,7 +229,7 @@ body {
           <button onclick="window.UI.setShopTab('heroes')" class="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold">🦸 Mua Nhân Vật</button>
           <button onclick="window.UI.setShopTab('skins')" class="px-3 py-1.5 rounded-xl bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/40 text-purple-300 text-xs font-bold">✨ Mua Skin Hiệu Ứng</button>
           <button onclick="window.UI.setShopTab('ruby')" class="px-3 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 text-xs font-bold">♦️ Sự Kiện Ruby</button>
-          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 30 Trang Bị v2.0.0 Trong Trận</button>
+          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 30 Trang Bị v2.1.0 Trong Trận</button>
           <button onclick="window.UI.openModal(null)" class="ml-2 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold">✕ Đóng</button>
         </div>
       </div>
@@ -330,13 +330,13 @@ body {
     <!-- Top Dead Heroes Respawn Countdown Bar -->
     <div id="hud-dead-heroes-bar" class="hidden fixed top-14 left-1/2 -translate-x-1/2 z-30 flex flex-wrap items-center justify-center gap-1.5 pointer-events-none"></div>
 
-    <!-- First Blood & Multi-Kill Banner (v2.0.0) -->
+    <!-- First Blood & Multi-Kill Banner (v2.1.0) -->
     <div id="ingame-kill-banner" class="hidden fixed top-16 left-1/2 -translate-x-1/2 z-40 px-7 py-2.5 rounded-2xl bg-gradient-to-r from-rose-950/95 via-red-900/90 to-slate-950/95 border-2 border-rose-400 shadow-2xl flex flex-col items-center pointer-events-none">
       <div id="kill-banner-title" class="text-sm md:text-base font-black tracking-wider text-amber-300 drop-shadow">🩸 CHIẾN CÔNG ĐẦU (FIRST BLOOD)!</div>
       <div id="kill-banner-sub" class="text-xs font-extrabold text-white mt-0.5"></div>
     </div>
 
-    <!-- Player Respawn Countdown Overlay (v2.0.0) -->
+    <!-- Player Respawn Countdown Overlay (v2.1.0) -->
     <div id="player-respawn-overlay" class="hidden pointer-events-none fixed inset-x-0 top-1/3 -translate-y-1/2 z-30 flex flex-col items-center justify-center">
       <div class="px-6 py-3.5 rounded-3xl bg-slate-950/90 border-2 border-rose-500/80 shadow-2xl text-center">
         <div class="text-xs font-extrabold uppercase tracking-wider text-rose-400">⏳ Tướng Đang Đếm Ngược Hồi Sinh (Hồi Chiêu Vẫn Tiếp Tục Chạy)</div>
@@ -485,7 +485,7 @@ body {
 // ============================================================================
 // 14 Heroes (including Miya, Helen, Pain, Nagato, Shisui & Grock), 32 Unique Items, 14 Rank Tiers, Preset Builds
 window.GAME_DATA = {
-  version: "2.0.0",
+  version: "2.1.0",
 
   defaultResources: {
     gold: 12500,
@@ -626,11 +626,11 @@ window.GAME_DATA = {
       baseStats: { hp: 4650, mana: 500, ad: 94, ap: 0, armor: 185, mr: 165, moveSpeed: 4.85, atkSpeed: 0.92 },
       passive: {
         name: "Thánh Khiên Hoàng Kim (Golden Bulwark)",
-        desc: "Mỗi 5 đòn đánh thường, Gideon đập khiên phát nổ ánh kim gây thêm 6% HP tối đa của bản thân thành sát thương vật lý và làm choáng 0.6s. Khi HP xuống dưới 40%, tự động nhận Khiên chắn bằng 18% HP tối đa trong 5s (hồi 20s)."
+        desc: "Mỗi 5 đòn đánh thường, Gideon đập khiên phát nổ ánh kim gây thêm 6% HP tối đa của bản thân thành sát thương vật lý và làm choáng 0.6s. Khi HP xuống dưới 40%, tự động nhận Khiên chắn bằng 25% HP tối đa trong 5s và giải trừ làm chậm (hồi 20s)."
       },
       skills: [
         { key: "Q", name: "Khiên Sư Tử Húc", cd: 7.0, cdReducePerLevel: 0.25, mana: 55, range: 6.0, radius: 3.2, type: "dash_stun", dmgBase: 220, apScale: 0, adScale: 0.90, casterMaxHpScale: 0.05, cc: "stun", desc: "Húc khiên lao tới 6m gây 220 (+90% AD) + 5% HP tối đa của Gideon thành sát thương vật lý, làm choáng 1.2s và giảm 20% Công VL của kẻ địch trong 3s. (Mỗi cấp giảm 0.25s hồi chiêu)." },
-        { key: "W", name: "Pháo Đài Thánh Quang", cd: 10.5, cdReducePerLevel: 0.35, mana: 70, range: 4.2, radius: 4.2, type: "shield_buff", dmgBase: 180, apScale: 0, adScale: 0.65, selfShieldMaxHpPct: 0.12, cc: "shield", desc: "Dựng vòm khiên Hoàng Kim bán kính 4.2m: tạo Lá chắn bằng 500 (+12% HP tối đa) cho bản thân và đồng minh gần trong 4s, giảm 35% sát thương nhận vào và chấn động địch xung quanh. (Mỗi cấp giảm 0.35s hồi chiêu)." },
+        { key: "W", name: "Pháo Đài Thánh Quang", cd: 10.5, cdReducePerLevel: 0.35, mana: 70, range: 4.2, radius: 4.2, type: "shield_buff", dmgBase: 180, apScale: 0, adScale: 0.65, selfShieldMaxHpPct: 0.15, cc: "shield", desc: "Dựng vòm khiên Hoàng Kim bán kính 4.2m: tạo Lá chắn bằng 500 (+15% HP tối đa) cho bản thân và đồng minh gần trong 4s, giảm 45% sát thương nhận vào và chấn động địch xung quanh. (Mỗi cấp giảm 0.35s hồi chiêu)." },
         { key: "E", name: "Địa Chấn Đại Chùy", cd: 20.0, cdReducePerLevel: 0.65, mana: 100, range: 5.2, radius: 5.2, type: "aoe_quake", dmgBase: 440, apScale: 0, adScale: 1.25, hpPctMax: 0.10, cc: "knockup", desc: "Đập đại chùy làm trồi lên 8 cột đá bán kính 5.2m, gây 440 (+125% AD) + 10% HP tối đa của mục tiêu, hất tung toàn bộ địch 1.5s và tăng +120 Giáp/Kháng phép cho Gideon trong 5s. (Mỗi cấp giảm 0.65s hồi chiêu)." }
       ]
     },
@@ -685,7 +685,7 @@ window.GAME_DATA = {
     {
       id: "kael",
       name: "Kael",
-      title: "Thiết Quyền Lôi Điện",
+      title: "Chiến Thần Lôi Quyền (Rework v2.1.0)",
       role: "Đấu Sĩ (Fighter)",
       roleKey: "Fighter",
       ownedByDefault: false,
@@ -695,15 +695,15 @@ window.GAME_DATA = {
       accentColor: 0x67e8f9,
       weaponType: "gauntlets",
       range: 2.9,
-      baseStats: { hp: 3900, mana: 470, ad: 120, ap: 30, armor: 142, mr: 128, moveSpeed: 5.15, atkSpeed: 1.18 },
+      baseStats: { hp: 4050, mana: 480, ad: 125, ap: 40, armor: 148, mr: 135, moveSpeed: 5.20, atkSpeed: 1.22 },
       passive: {
-        name: "Lôi Quang Xung Kích (Thunder Combo)",
-        desc: "Sau mỗi lần dùng kỹ năng, 2 đòn đánh thường kế tiếp được cường hóa Lôi Quyền: tăng +60% Tốc đánh, phóng tia sét dây chuyền gây thêm 95 (+45% AD) sát thương phép, hồi 4% HP tối đa và giảm 0.6s hồi tất cả kỹ năng."
+        name: "Lôi Ấn Tích Tụ (Thunder Brand — Rework v2.1.0)",
+        desc: "Đánh thường và kỹ năng trúng đích khắc 1 tầng 'Lôi Ấn' lên mục tiêu (tối đa 4 tầng). Khi đủ 4 tầng sẽ giáng Thiên Lôi gây 8% HP tối đa của mục tiêu thành sát thương chuẩn, làm choáng 0.75s và hồi 6% HP tối đa cho Kael."
       },
       skills: [
-        { key: "Q", name: "Thiết Quyền Lôi Động", cd: 5.5, cdReducePerLevel: 0.2, mana: 45, range: 6.5, radius: 3.2, type: "dash_stun", dmgBase: 255, apScale: 0, adScale: 1.15, selfShieldMaxHpPct: 0.10, cc: "stun", desc: "Đấm lướt điện từ 6.5m gây 255 (+115% AD) sát thương vật lý, làm choáng 1.0s và tạo Lá chắn Điện Từ bằng 320 (+10% HP tối đa) trong 3.5s. (Mỗi cấp giảm 0.2s hồi chiêu)." },
-        { key: "W", name: "Sóng Điện Cao Áp", cd: 7.5, cdReducePerLevel: 0.25, mana: 55, range: 8.0, type: "skillshot", dmgBase: 270, apScale: 0.45, adScale: 1.10, hpPctCur: 0.05, cc: "slow", desc: "Đá quét sóng xung kích điện tầm xa 8m gây 270 (+110% AD +45% AP) + 5% HP hiện tại của mục tiêu và làm chậm 50% tốc chạy trong 2s. (Mỗi cấp giảm 0.25s hồi chiêu)." },
-        { key: "E", name: "Cực Hạn Lôi Thần", cd: 19.0, cdReducePerLevel: 0.7, mana: 100, range: 6.5, radius: 4.5, type: "overdrive_burst", dmgBase: 510, apScale: 0.50, adScale: 1.50, hpPctMax: 0.08, cc: "knockup", desc: "Bùng nổ Vòm Sấm Sét bán kính 4.5m gây 510 (+150% AD +50% AP) + 8% HP tối đa của mục tiêu, hất tung 1.2s và tăng +35% Công VL, +25% Tốc chạy trong 6s. (Mỗi cấp giảm 0.7s hồi chiêu)." }
+        { key: "Q", name: "Lôi Ảnh Tam Đoạn", cd: 8.0, cdReducePerLevel: 0.25, mana: 45, range: 9.0, radius: 3.4, type: "kael_q_twin_dash", dmgBase: 280, apScale: 0.30, adScale: 1.25, cc: "knockup", desc: "Lướt điện quang 2 nhịp liên tiếp (4.5m/nhịp, tổng 9m) tung cú đấm móc sấm sét gây 280 (+125% AD +30% AP) sát thương vật lý, hất tung kẻ địch 0.5s ở nhịp 2 và khắc 2 tầng Lôi Ấn. (Hồi chiêu: 8s, mỗi cấp giảm 0.25s)." },
+        { key: "W", name: "Từ Trường Lôi Ngục", cd: 10.0, cdReducePerLevel: 0.3, mana: 60, range: 5.0, radius: 5.0, type: "kael_w_mag_field", dmgBase: 260, apScale: 0.50, adScale: 1.05, selfShieldMaxHpPct: 0.12, cc: "pull", desc: "Tạo vùng từ trường điện bán kính 5m quanh bản thân trong 3.5s: hút nhẹ kẻ địch về tâm mỗi giây, gây 260 (+105% AD +50% AP) sát thương và cấp cho Kael lớp Giáp ảo bằng 12% HP tối đa. (Hồi chiêu: 10s, mỗi cấp giảm 0.3s)." },
+        { key: "E", name: "Lôi Thần Giáng Thế", cd: 22.0, cdReducePerLevel: 0.75, mana: 100, range: 8.5, radius: 6.0, type: "kael_e_thunder_god", dmgBase: 560, apScale: 0.60, adScale: 1.60, hpPctMissing: 0.12, cc: "knockup", desc: "Kael nhảy vọt lên không trung hóa thành tia sét khổng lồ (không thể bị chọn làm mục tiêu trong 0.8s) rồi giáng mạnh xuống vùng chỉ định bán kính 6m, gây 560 (+160% AD +60% AP) + 12% HP đã mất của địch và để lại vùng bão điện 4s. (Hồi chiêu: 22s, mỗi cấp giảm 0.75s)." }
       ]
     },
     {
@@ -751,8 +751,8 @@ window.GAME_DATA = {
         desc: "Đánh thường phóng ra quả cầu nhỏ màu xanh lá. Mỗi khi tung chiêu, Helen hồi 3% Năng lượng tối đa cho bản thân và ban cho đồng minh gần nhất lớp lá chắn 160 (+30% AP) kèm +15% Tốc chạy trong 2s."
       },
       skills: [
-        { key: "Q", name: "Thiên Thạch Tinh Tú (360°)", cd: 8.0, cdReducePer2Levels: 0.5, mana: 200, range: 8.0, radius: 8.0, type: "helen_q_meteor", dmgBase: 240, apScale: 0.75, adScale: 0, hpPctMax: 0.03, healConvertPct: 0.30, cc: "slow", desc: "Chiêu diện rộng 360 độ phạm vi 8m xung quanh Helen: nếu có địch sẽ xuất hiện thiên thạch nhỏ rơi xuống vị trí đó gây 240 (+75% AP) + 3% HP tối đa của mục tiêu, làm chậm 30% trong 1s. 30% ST gây ra được chuyển thành hồi phục cho bản thân Helen. Hồi chiêu 8s, lên 2 cấp giảm 0.5s hồi chiêu (200 năng lượng)." },
-        { key: "W", name: "Sợi Dây Liên Kết", cd: 15.0, cdReducePerLevel: 0.4, mana: 400, range: 14.0, radius: 14.0, type: "helen_w_tether", dmgBase: 0, apScale: 0, adScale: 0, cc: "none", desc: "Nối dây ánh sáng màu vàng - xanh dương vào 1 đồng đội: hồi phục HP bằng 8% HP còn lại của bản thân Helen / 1s cho đồng đội. Tồn tại trong 5s. Hồi chiêu 15s, mỗi 1 cấp giảm 0.4s hồi chiêu (400 năng lượng)." },
+        { key: "Q", name: "Thiên Thạch Tinh Tú (360°)", cd: 8.0, cdReducePer2Levels: 0.5, mana: 110, range: 8.0, radius: 8.0, type: "helen_q_meteor", dmgBase: 240, apScale: 0.75, adScale: 0, hpPctMax: 0.05, healConvertPct: 0.30, cc: "slow", desc: "Chiêu diện rộng 360 độ phạm vi 8m xung quanh Helen: nếu có địch sẽ xuất hiện thiên thạch nhỏ rơi xuống vị trí đó gây 240 (+75% AP) + 5% HP tối đa của mục tiêu, làm chậm 30% trong 1s. 30% ST gây ra được chuyển thành hồi phục cho bản thân Helen. Hồi chiêu 8s, lên 2 cấp giảm 0.5s hồi chiêu (110 năng lượng)." },
+        { key: "W", name: "Sợi Dây Liên Kết", cd: 12.0, cdReducePerLevel: 0.4, mana: 180, range: 14.0, radius: 14.0, type: "helen_w_tether", dmgBase: 0, apScale: 0, adScale: 0, cc: "none", desc: "Nối dây ánh sáng màu vàng - xanh dương vào 1 đồng đội: hồi phục HP bằng 8% HP còn lại của bản thân Helen / 1s cho đồng đội. Tồn tại trong 5s. Hồi chiêu 12s, mỗi 1 cấp giảm 0.4s hồi chiêu (180 năng lượng)." },
         { key: "E", name: "Nguyệt Cung Cá Heo", cd: 50.0, cdReducePerLevel: 0.9, mana: 300, range: 8.5, radius: 8.0, type: "helen_e_ult", dmgBase: 0, apScale: 0, adScale: 0, cc: "none", desc: "Helen nhảy lên chiếc ghế hình cung trăng của mình, sau đó có 1 con cá heo màu xanh xương nhạt lớn bay xung quanh Helen. Nếu đã nối dây thì Chiêu 2 được giảm thời gian hồi chiêu còn 1s. Duy trì trong 7s. Hồi chiêu 50s, mỗi tăng 1 cấp giảm 0.9s hồi chiêu (300 năng lượng)." }
       ]
     },
@@ -802,9 +802,9 @@ window.GAME_DATA = {
         desc: "Đánh thường tạo ra bàn tay thứ 3 bắn tia chớp chakra về phía địch. Tăng +80% Tốc đánh trong 2s khi nhận sát thương. Khi đánh thường lên mục tiêu có dấu ấn 'Rinnegan', tăng +30% Tỉ lệ chí mạng và +25% Tốc đánh trong 5s."
       },
       skills: [
-        { key: "Q", name: "Tên Lửa Tu La Đạo", cd: 18.0, cdReducePerLevel: 0.3, mana: 60, range: 10.0, radius: 2.5, type: "nagato_q_missile", dmgBase: 310, apScale: 0, adScale: 1.35, cc: "mark", desc: "Phóng 1 tên lửa bay đến mục tiêu gần nhất trong phạm vi 10m gây 310 (+135% AD) ST vật lý và đánh dấu 'Rinnegan' lên kẻ địch trong 9s. Hồi chiêu: 18s (giảm 0.3s mỗi level)." },
+        { key: "Q", name: "Tên Lửa Tu La Đạo", cd: 11.0, cdReducePerLevel: 0.3, mana: 60, range: 12.0, radius: 2.5, type: "nagato_q_missile", dmgBase: 310, apScale: 0, adScale: 1.35, cc: "mark", desc: "Phóng 1 tên lửa bay đến mục tiêu gần nhất trong phạm vi 12m gây 310 (+135% AD) ST vật lý và đánh dấu 'Rinnegan' lên kẻ địch trong 9s. Hồi chiêu: 11s (giảm 0.3s mỗi level)." },
         { key: "W", name: "Lục Đạo Phân Thân", cd: 20.0, cdReducePerLevel: 0.5, mana: 85, range: 9.0, radius: 4.0, type: "nagato_w_clones", dmgBase: 0, apScale: 0, adScale: 0, cc: "none", desc: "Triệu hồi ra 3 phân thân tồn tại trong 20s; phân thân tự động tấn công và vẫn có thể dùng các kỹ năng của Nagato (trừ Kỹ năng 2). Hồi chiêu: 20s (giảm 0.5s mỗi level)." },
-        { key: "E", name: "Ngoại Đạo Ma Tượng", cd: 90.0, cdReducePerLevel: 2.2, mana: 140, range: 12.0, radius: 4.5, type: "nagato_e_gedo", dmgBase: 480, apScale: 0, adScale: 1.50, cc: "knockup", desc: "Nhảy tới 1 kẻ địch gần nhất trong phạm vi 12m và triệu hồi 1 Ma Tượng (10.000 HP, tồn tại 20s, có chỉ số giống bản thân Nagato) liên tục đánh thường vào mục tiêu bị nhảy trúng. Hồi chiêu: 90s (giảm 2.2s mỗi level)." }
+        { key: "E", name: "Ngoại Đạo Ma Tượng", cd: 55.0, cdReducePerLevel: 1.5, mana: 120, range: 12.0, radius: 4.5, type: "nagato_e_gedo", dmgBase: 480, apScale: 0, adScale: 1.50, cc: "knockup", desc: "Nhảy tới 1 kẻ địch gần nhất trong phạm vi 12m và triệu hồi 1 Ma Tượng (16.000 HP + 10% HP mỗi cấp, tồn tại 20s, có chỉ số giống bản thân Nagato) liên tục đánh thường vào mục tiêu bị nhảy trúng. Hồi chiêu: 55s (giảm 1.5s mỗi level)." }
       ]
     }    ,
     {
@@ -963,8 +963,8 @@ window.GAME_DATA = {
       summonPortraitImg: "data:image/jpeg;base64,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",
       baseStats: { hp: 3150, mana: 680, ad: 85, ap: 150, armor: 88, mr: 82, moveSpeed: 5.10, atkSpeed: 1.25 },
       passive: {
-        name: "Hắc Hỏa Amaterasu (Tối Đa 50 Tầng — Sát Thương Phép)",
-        desc: "Sasuke gây Sát Thương Phép trên cả đòn đánh thường và toàn bộ kỹ năng. Mỗi 1 lần bắn vào mục tiêu tích 1 tầng 'Amaterasu', tối đa 50 tầng. Nếu trong 3s không bắn tiếp toàn bộ tầng biến mất. Mỗi 1 tầng tăng 10% tốc đánh (tối đa +500% tốc đánh khi đạt đủ 50 tầng, hiển thị trực tiếp số tầng trên thanh HUD)."
+        name: "Hắc Hỏa Amaterasu (Tối Đa 35 Tầng — Sát Thương Phép)",
+        desc: "Sasuke gây Sát Thương Phép trên cả đòn đánh thường và toàn bộ kỹ năng. Mỗi 1 lần bắn vào mục tiêu tích 1 tầng 'Amaterasu', tối đa 35 tầng. Nếu trong 3.5s không bắn tiếp toàn bộ tầng biến mất. Mỗi 1 tầng tăng 8% tốc đánh (tối đa +280% tốc đánh khi đạt đủ 35 tầng, hiển thị trực tiếp số tầng trên thanh HUD)."
       },
       skills: [
         {
@@ -1013,7 +1013,7 @@ window.GAME_DATA = {
           adScale: 0.75,
           cc: "slow",
           vfxColor: 0xc084fc,
-          desc: "Triệu hồi Susanoo dạng hoàn chỉnh (Hình 3) có tốc đánh là 400% (4.0 đòn/giây), liên tục bắn cung ST Phép vào mục tiêu địch. HP là 40.000 (tăng 10% HP mỗi cấp nhân vật)."
+          desc: "Triệu hồi Susanoo dạng hoàn chỉnh (Hình 3) có tốc đánh là 300% (3.0 đòn/giây), liên tục bắn cung ST Phép vào mục tiêu địch. HP là 28.000 (tăng 8% HP mỗi cấp nhân vật)."
         }
       ]
     },
@@ -1041,9 +1041,9 @@ window.GAME_DATA = {
         {
           key: "Q",
           name: "Hư Hoá",
-          cd: 35.0,
-          cdReducePerLevel: 0.1,
-          mana: 65,
+          cd: 26.0,
+          cdReducePerLevel: 0.25,
+          mana: 60,
           range: 6.0,
           radius: 3.5,
           type: "obito_q_kamui_phase",
@@ -1052,7 +1052,7 @@ window.GAME_DATA = {
           adScale: 0,
           cc: "none",
           vfxColor: 0x38bdf8,
-          desc: "Bản thân hoá trạng thái Hư Hoá trong 8s (bấm lại Q để tắt sớm). Hư Hoá giúp Obito hút toàn bộ các chiêu thức dạng phóng ra (đạn/kỹ năng bay) hoặc ném/giáng xuống (như Thiên Thạch, Cung Thiên Đoạt, Địa Bộc Thiên Tinh, Cung Siêu Amaterasu...) nhắm vào Obito (khi hút hiện Xoáy Kamui như Hình 2); không hút các chiêu cận chiến vật lý như đấm, chém lướt. Trong lúc Hư Hoá không thể dùng kỹ năng khác. Hồi chiêu: 35s, giảm 0.1s mỗi 1 cấp."
+          desc: "Bản thân hoá trạng thái Hư Hoá trong 6s (bấm lại Q để tắt sớm). Hư Hoá giúp Obito hút toàn bộ các chiêu thức dạng phóng ra (đạn/kỹ năng bay) hoặc ném/giáng xuống nhắm vào Obito (khi hút hiện Xoáy Kamui như Hình 2); không hút các chiêu cận chiến vật lý như đấm, chém lướt. Trong lúc Hư Hoá không thể dùng kỹ năng khác. Hồi chiêu: 26s, giảm 0.25s mỗi 1 cấp."
         },
         {
           key: "W",
@@ -1068,7 +1068,7 @@ window.GAME_DATA = {
           adScale: 0.80,
           cc: "slow",
           vfxColor: 0x6366f1,
-          desc: "Chỉ cần bấm 1 lần để xả/phóng toàn bộ những kỹ năng đã hút được trong lúc Hư Hoá ra qua vòng xoáy Kamui (Hình 2). Hồi chiêu: 5s, giảm 0.03s mỗi 1 level."
+          desc: "Chỉ cần bấm 1 lần để xả/phóng toàn bộ những kỹ năng đã hút được trong lúc Hư Hoá ra qua vòng xoáy Kamui (Hình 2), gây tăng thêm +15% tổng sát thương và làm chậm mục tiêu 40% trong 1.5s. Hồi chiêu: 5s, giảm 0.03s mỗi 1 level."
         },
         {
           key: "E",
@@ -1086,6 +1086,359 @@ window.GAME_DATA = {
           cc: "pull",
           vfxColor: 0xa855f7,
           desc: "Ném ra 1 dây xích ra phạm vi 15m, trên đường bay có địch sẽ bị kéo lại. Lúc đó Obito sẽ sử dụng Siêu Hắc Bổng đâm vào mục tiêu đó gây ST lớn kèm 18% HP tối đa mục tiêu. Hồi chiêu: 50s, mỗi 1 cấp giảm 0.9s."
+        }
+      ]
+    },
+    {
+      id: "madara",
+      name: "Madara Uchiha",
+      title: "Thập Vĩ Lục Đạo — Chúa Tể Luân Hồi",
+      role: "Pháp Sư / Đấu Sĩ (Mage)",
+      roleKey: "Mage",
+      ownedByDefault: true,
+      priceGold: 18888,
+      priceDiamonds: 599,
+      color: 0xc084fc,
+      accentColor: 0xfef08a,
+      weaponType: "six_paths_staff",
+      range: 8.2,
+      baseStats: { hp: 3650, mana: 720, ad: 78, ap: 145, armor: 115, mr: 110, moveSpeed: 5.05, atkSpeed: 1.08 },
+      passive: {
+        name: "Luân Mộ Biên Ngục (Limbo Hengoku)",
+        desc: "Mỗi 4 đòn đánh hoặc kỹ năng trúng đích, Phân thân vô hình Limbo của Madara xuất kích chém sóng không gian gây thêm +30% Công phép thành sát thương phép và hồi cho Madara 5% HP đã mất."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Tiên Pháp: Âm Độn Lôi Phá",
+          cd: 6.5,
+          cdReducePerLevel: 0.2,
+          mana: 55,
+          range: 10.0,
+          radius: 4.2,
+          type: "madara_q_lightning",
+          dmgBase: 290,
+          apScale: 0.95,
+          adScale: 0,
+          hpPctCur: 0.06,
+          cc: "slow",
+          vfxColor: 0xa855f7,
+          desc: "Phóng chùm tia sét tím Lục Đạo hình quạt tầm xa 10m gây 290 (+95% AP) + 6% HP hiện tại của mục tiêu thành sát thương phép và làm chậm 50% trong 1.5s. (Hồi chiêu: 6.5s, mỗi cấp giảm 0.2s)."
+        },
+        {
+          key: "W",
+          name: "Hoàn Vũ Hắc Cầu (Cầu Đạo Ngọc)",
+          cd: 11.0,
+          cdReducePerLevel: 0.3,
+          mana: 75,
+          range: 9.0,
+          radius: 4.5,
+          type: "madara_w_orbs",
+          dmgBase: 320,
+          apScale: 1.05,
+          adScale: 0,
+          cc: "slow",
+          vfxColor: 0x09090b,
+          desc: "Xoay 9 Hắc Cầu Đạo Ngọc hộ thể trong 4s giúp giảm 35% sát thương nhận vào, tăng 20% tốc chạy và phóng Hắc Cầu xuyên mục tiêu gây 320 (+105% AP) sát thương phép. (Hồi chiêu: 11s, mỗi cấp giảm 0.3s)."
+        },
+        {
+          key: "E",
+          name: "Thiên Ngại Chấn Tinh (Song Thiên Thạch)",
+          cd: 34.0,
+          cdReducePerLevel: 0.8,
+          mana: 130,
+          range: 11.5,
+          radius: 7.0,
+          type: "madara_e_twin_meteors",
+          dmgBase: 520,
+          apScale: 1.25,
+          adScale: 0,
+          hpPctMax: 0.10,
+          cc: "knockup",
+          vfxColor: 0xd946ef,
+          desc: "Triệu hồi 2 đại thiên thạch khổng lồ rơi liên tiếp xuống vùng chỉ định bán kính 7m: mỗi thiên thạch gây 520 (+125% AP) + 10% HP tối đa của mục tiêu và hất tung toàn bộ kẻ địch 1.5s. (Hồi chiêu: 34s, mỗi cấp giảm 0.8s)."
+        }
+      ]
+    },
+    {
+      id: "minato",
+      name: "Minato Namikaze",
+      title: "Tia Chớp Vàng Làng Lá",
+      role: "Sát Thủ (Assassin)",
+      roleKey: "Assassin",
+      ownedByDefault: true,
+      priceGold: 18888,
+      priceDiamonds: 599,
+      color: 0xfacc15,
+      accentColor: 0x38bdf8,
+      weaponType: "raijin_kunai",
+      range: 3.2,
+      baseStats: { hp: 3380, mana: 520, ad: 142, ap: 0, armor: 104, mr: 98, moveSpeed: 5.45, atkSpeed: 1.32 },
+      passive: {
+        name: "Phi Lôi Thần Ấn (Flying Raijin Mark)",
+        desc: "Đánh thường và kỹ năng khắc 'Ấn Phi Lôi Thần' lên kẻ địch trong 6s. Đánh thường vào mục tiêu có Ấn sẽ dịch chuyển tức thời ra sau lưng mục tiêu, gây thêm 130 (+65% AD) sát thương vật lý và giảm 1.5s hồi toàn bộ kỹ năng."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Phi Lôi Thần Kunai",
+          cd: 7.0,
+          cdReducePerLevel: 0.25,
+          mana: 45,
+          range: 13.0,
+          radius: 3.2,
+          type: "minato_q_kunai",
+          dmgBase: 295,
+          apScale: 0,
+          adScale: 1.30,
+          cc: "mark",
+          vfxColor: 0xfacc15,
+          desc: "Phóng thanh Kunai 3 chấu tầm xa 13m gây 295 (+130% AD) sát thương vật lý và khắc Ấn Phi Lôi Thần. Trong 4s có thể bấm lại Chiêu 1 để dịch chuyển tức thời tới vị trí Kunai/mục tiêu và chém xoay vòng 360°. (Hồi chiêu: 7s, mỗi cấp giảm 0.25s)."
+        },
+        {
+          key: "W",
+          name: "Xoáy Rasengan Tốc Biến",
+          cd: 8.5,
+          cdReducePerLevel: 0.3,
+          mana: 60,
+          range: 7.0,
+          radius: 3.4,
+          type: "minato_w_rasengan",
+          dmgBase: 310,
+          apScale: 0,
+          adScale: 1.35,
+          hpPctMissing: 0.08,
+          cc: "stun",
+          vfxColor: 0x38bdf8,
+          desc: "Lướt tia chớp 7m nện cầu xoáy Rasengan vào mục tiêu gây 310 (+135% AD) + 8% HP đã mất, làm choáng 1.0s và tăng 40% tốc chạy trong 2s. (Hồi chiêu: 8.5s, mỗi cấp giảm 0.3s)."
+        },
+        {
+          key: "E",
+          name: "Phi Lôi Thần Liên Trảm: Cửu Vĩ Chakra",
+          cd: 24.0,
+          cdReducePerLevel: 0.7,
+          mana: 100,
+          range: 9.0,
+          radius: 5.5,
+          type: "minato_e_kurama_flash",
+          dmgBase: 620,
+          apScale: 0,
+          adScale: 1.85,
+          hpPctMissing: 0.14,
+          cc: "stun",
+          vfxColor: 0xfef08a,
+          desc: "Hóa trạng thái Chakra Cửu Vĩ Hoàng Kim, phóng 6 tia chớp vàng dịch chuyển liên hoàn (không thể bị chọn làm mục tiêu) chém toàn bộ kẻ địch trong bán kính 9m rồi giáng Đại Ngọc Rasengan gây 620 (+185% AD) + 14% HP đã mất. (Hồi chiêu: 24s, mỗi cấp giảm 0.7s)."
+        }
+      ]
+    },
+    {
+      id: "itachi",
+      name: "Itachi Uchiha",
+      title: "Ảo Thuật Nguyệt Độc — Susanoo Chu Tước",
+      role: "Pháp Sư (Mage)",
+      roleKey: "Mage",
+      ownedByDefault: true,
+      priceGold: 18888,
+      priceDiamonds: 599,
+      color: 0xdc2626,
+      accentColor: 0xf97316,
+      weaponType: "crow_totsuka",
+      range: 8.5,
+      baseStats: { hp: 3250, mana: 700, ad: 62, ap: 148, armor: 92, mr: 100, moveSpeed: 5.05, atkSpeed: 1.05 },
+      passive: {
+        name: "Phân Thân Quạ Đen (Crow Genjutsu)",
+        desc: "Mỗi khi tung đủ 3 kỹ năng hoặc khi HP xuống dưới 30% (hồi 25s), Itachi tự động phân tách thành đàn quạ đen giải trừ mọi khống chế, tăng 50% tốc chạy trong 1.5s và phóng quạ gây thiêu đốt phép."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Hỏa Độn: Hào Hỏa Cầu & Thiên Chiếu",
+          cd: 6.5,
+          cdReducePerLevel: 0.2,
+          mana: 55,
+          range: 10.0,
+          radius: 3.8,
+          type: "itachi_q_amaterasu_fire",
+          dmgBase: 280,
+          apScale: 0.90,
+          adScale: 0,
+          cc: "slow",
+          vfxColor: 0xef4444,
+          desc: "Phóng đại cầu lửa đỏ bọc Hắc Hỏa Amaterasu tầm xa 10m phát nổ gây 280 (+90% AP) sát thương phép và để lại vùng lửa đen 3s đốt 3% HP tối đa của mục tiêu mỗi giây. (Hồi chiêu: 6.5s, mỗi cấp giảm 0.2s)."
+        },
+        {
+          key: "W",
+          name: "Nguyệt Độc — Tsukuyomi",
+          cd: 11.0,
+          cdReducePerLevel: 0.35,
+          mana: 75,
+          range: 9.0,
+          radius: 3.5,
+          type: "itachi_w_tsukuyomi",
+          dmgBase: 320,
+          apScale: 1.05,
+          adScale: 0,
+          hpPctMax: 0.10,
+          cc: "stun",
+          vfxColor: 0x991b1b,
+          desc: "Khóa mục tiêu trong phạm vi 9m vào không gian Ảo Thuật Nguyệt Độc Đỏ Thẫm: làm choáng 1.5s, gây 320 (+105% AP) + 10% HP tối đa thành sát thương phép và giảm 30% Kháng phép trong 3s. (Hồi chiêu: 11s, mỗi cấp giảm 0.35s)."
+        },
+        {
+          key: "E",
+          name: "Susanoo Kiếm Totsuka & Khiên Yata",
+          cd: 30.0,
+          cdReducePerLevel: 0.75,
+          mana: 120,
+          range: 11.0,
+          radius: 5.0,
+          type: "itachi_e_totsuka",
+          dmgBase: 550,
+          apScale: 1.40,
+          adScale: 0,
+          hpPctMissing: 0.15,
+          cc: "slow",
+          vfxColor: 0xf97316,
+          desc: "Triệu hồi Susanoo Chu Tước Đỏ Cam trong 6s: Khiên Yata phản lại 40% sát thương nhận vào và tạo Giáp ảo 22% HP tối đa, đồng thời vung Kiếm Totsuka chém dọc 11m gây 550 (+140% AP) + 15% HP đã mất và làm chậm 60%. (Hồi chiêu: 30s, mỗi cấp giảm 0.75s)."
+        }
+      ]
+    },
+    {
+      id: "seraphina",
+      name: "Seraphina",
+      title: "Nữ Thần Tinh Hà — Khúc Nhạc Vũ Trụ",
+      role: "Hỗ Trợ (Support)",
+      roleKey: "Support",
+      ownedByDefault: true,
+      priceGold: 13888,
+      priceDiamonds: 399,
+      color: 0xf472b6,
+      accentColor: 0x38bdf8,
+      weaponType: "starlight_harp",
+      range: 8.8,
+      baseStats: { hp: 3500, mana: 1200, ad: 56, ap: 115, armor: 105, mr: 115, moveSpeed: 5.00, atkSpeed: 1.02 },
+      passive: {
+        name: "Giai Điệu Cộng Hưởng (Starlight Harmony)",
+        desc: "Mỗi khi Seraphina tung kỹ năng sẽ phát sóng âm Tinh Hà bán kính 8m giúp toàn bộ đồng minh xung quanh tăng +15% Tốc đánh trong 3s và hồi 3% HP tối đa."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Khúc Nhạc Sao Băng",
+          cd: 7.0,
+          cdReducePerLevel: 0.25,
+          mana: 70,
+          range: 10.0,
+          radius: 4.0,
+          type: "seraphina_q_starwave",
+          dmgBase: 265,
+          apScale: 0.85,
+          adScale: 0,
+          cc: "slow",
+          vfxColor: 0xf472b6,
+          desc: "Phóng luồng sóng âm ánh sao tầm xa 10m gây 265 (+85% AP) sát thương phép và làm chậm kẻ địch 35%, đồng thời hồi 220 (+55% AP) HP cho các đồng minh trên đường bay. (Hồi chiêu: 7s, mỗi cấp giảm 0.25s)."
+        },
+        {
+          key: "W",
+          name: "Khiên Hòa Âm Vũ Trụ",
+          cd: 11.5,
+          cdReducePerLevel: 0.35,
+          mana: 95,
+          range: 8.0,
+          radius: 8.0,
+          type: "seraphina_w_shield",
+          dmgBase: 0,
+          apScale: 0.80,
+          adScale: 0,
+          cc: "shield",
+          vfxColor: 0x38bdf8,
+          desc: "Tạo vòm Khiên Tinh Hà cho bản thân và toàn bộ đồng minh trong bán kính 8m, hấp thụ 450 (+80% AP +10% HP tối đa) sát thương và tăng 25% tốc chạy trong 3s. (Hồi chiêu: 11.5s, mỗi cấp giảm 0.35s)."
+        },
+        {
+          key: "E",
+          name: "Khúc Khải Hoàn Vĩnh Cửu",
+          cd: 28.0,
+          cdReducePerLevel: 0.8,
+          mana: 130,
+          range: 9.0,
+          radius: 9.0,
+          type: "seraphina_e_encore",
+          dmgBase: 440,
+          apScale: 1.15,
+          adScale: 0,
+          cc: "stun",
+          vfxColor: 0xfef08a,
+          desc: "Tỏa sóng đại nhạc hội Tinh Hà bán kính 9m: mê hoặc/làm choáng toàn bộ kẻ địch 1.6s gây 440 (+115% AP) sát thương phép, đồng thời hồi 18% HP tối đa cho đồng minh và giảm 2s hồi chiêu của họ. (Hồi chiêu: 28s, mỗi cấp giảm 0.8s)."
+        }
+      ]
+    },
+    {
+      id: "kaelen",
+      name: "Kaelen",
+      title: "Xạ Thủ Hư Không — Song Súng Tinh Không",
+      role: "Xạ Thủ (Marksman)",
+      roleKey: "Marksman",
+      ownedByDefault: true,
+      priceGold: 18888,
+      priceDiamonds: 599,
+      color: 0x6366f1,
+      accentColor: 0x22d3ee,
+      weaponType: "dual_pistols",
+      range: 9.0,
+      baseStats: { hp: 3120, mana: 560, ad: 138, ap: 0, armor: 86, mr: 84, moveSpeed: 5.10, atkSpeed: 1.30 },
+      passive: {
+        name: "Song Súng Tinh Không (Void Lightslinger)",
+        desc: "Sau mỗi lần sử dụng kỹ năng, đòn đánh thường kế tiếp của Kaelen bắn liên thanh 2 phát đạn Hư Không (phát thứ 2 gây 60% AD có chí mạng) và giảm ngay 1.0s hồi chiêu của Bước Nhảy Không Gian (Chiêu 2)."
+      },
+      skills: [
+        {
+          key: "Q",
+          name: "Tia Laze Xuyên Thấu",
+          cd: 6.0,
+          cdReducePerLevel: 0.2,
+          mana: 50,
+          range: 11.0,
+          radius: 2.2,
+          type: "kaelen_q_laser",
+          dmgBase: 290,
+          apScale: 0,
+          adScale: 1.35,
+          hpPctCur: 0.06,
+          cc: "slow",
+          vfxColor: 0x22d3ee,
+          desc: "Bắn tia Laze Hư Không xuyên thấu 11m gây 290 (+135% AD) + 6% HP hiện tại của mọi kẻ địch trên đường thẳng. (Hồi chiêu: 6s, mỗi cấp giảm 0.2s)."
+        },
+        {
+          key: "W",
+          name: "Bước Nhảy Không Gian",
+          cd: 9.0,
+          cdReducePerLevel: 0.3,
+          mana: 55,
+          range: 6.5,
+          radius: 3.0,
+          type: "kaelen_w_dash",
+          dmgBase: 210,
+          apScale: 0,
+          adScale: 0.95,
+          cc: "none",
+          vfxColor: 0x818cf8,
+          desc: "Lướt dịch chuyển nhanh 6.5m, lập tức kích hoạt nội tại Song Súng Tinh Không và tăng +35% Tốc đánh trong 3s. (Hồi chiêu: 9s, mỗi cấp giảm 0.3s; mỗi phát bắn đôi giảm 1s hồi chiêu này)."
+        },
+        {
+          key: "E",
+          name: "Mưa Đạn Thanh Trừng (The Culling)",
+          cd: 24.0,
+          cdReducePerLevel: 0.7,
+          mana: 100,
+          range: 10.5,
+          radius: 4.5,
+          type: "kaelen_e_barrage",
+          dmgBase: 640,
+          apScale: 0,
+          adScale: 2.10,
+          hpPctMissing: 0.12,
+          cc: "slow",
+          vfxColor: 0x38bdf8,
+          desc: "Kaelen vừa di chuyển vừa xả liên hoàn 16 loạt đạn năng lượng Hư Không về phía trước tầm xa 10.5m, gây tổng cộng 640 (+210% AD) + 12% HP đã mất thành sát thương vật lý và tăng 20% tốc chạy. (Hồi chiêu: 24s, mỗi cấp giảm 0.7s)."
         }
       ]
     }
@@ -1504,6 +1857,20 @@ window.GAME_DATA = {
       specialVfx: "forest_fairy",
       portraitImg: "data:image/jpeg;base64,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",
       desc: "Tóc hồng vàng thướt tha, trang phục Thần Tiên đa sắc xanh ngọc - vàng hồng, cung hoa thần lấp lánh; Đánh thường bắn mũi tên vàng nảy tia sáng; Chiêu 1 bay lượn trên không bắn đại tiễn; Chiêu 2 làm nứt toạc mặt đất; Chiêu 3 triệu hồi Linh Hồn Vàng Hồng hỗ trợ."
+    },
+    {
+      id: "skin_sasuke_cosmic_sss",
+      heroId: "sasuke",
+      name: "Sasuke: Thần Vũ Trụ Ngân Hà",
+      rarity: "Bậc SSS Tối Thượng",
+      freeByDefault: true,
+      priceDiamonds: 1299,
+      priceRuby: 350,
+      color: 0xfacc15,
+      accentColor: 0x38bdf8,
+      vfxColor: 0xfef08a,
+      specialVfx: "cosmic_sss",
+      desc: "[BẬC SSS TỐI THƯỢNG] Giáp Thần Vũ Trụ Hoàng Kim - Tinh Vân Xanh Tím, tóc bạch kim ánh sao, Vòng Nhật Thực Hoàng Kim & hành tinh nhỏ xoay quanh; Susanoo Bao Bọc và Susanoo Hoàn Chỉnh hóa thành Thần Vũ Trụ Hoàng Kim; Biến về 3.7s mở Cổng Tinh Hà Không Gian 3D; Thông báo hạ địch độc quyền Bậc SSS [THẦN VŨ TRỤ PHÁN QUYẾT TINH HÀ]!"
     }
   ],
 
@@ -1572,6 +1939,26 @@ window.GAME_DATA = {
     obito: {
       title: "Hư Hoá Kamui Bảo Khí Nhẫn Cụ & Quang Thánh",
       items: ["bao_khi_nhan_cu", "giay_thuat_si", "khien_huyen_thoai", "khien_quang_thanh", "giap_gaia", "giap_hoi_sinh"]
+    },
+    madara: {
+      title: "Thập Vĩ Lục Đạo Song Thiên Thạch & Hút Máu Phép",
+      items: ["giay_phu_thuy", "quyen_truong_than_ran", "truong_no_dung_dung", "vuong_mien_xa_ran", "truong_hon_mang", "sach_thanh"]
+    },
+    minato: {
+      title: "Tia Chớp Vàng Phi Lôi Thần Xuyên Phá & Thiên Phạt",
+      items: ["giay_du_muc", "kiem_truy_hon", "thuong_longinus", "phuc_hop_kiem", "nanh_fenrir", "thien_phat_kiem"]
+    },
+    itachi: {
+      title: "Ảo Thuật Nguyệt Độc & Susanoo Kiếm Totsuka",
+      items: ["giay_phu_thuy", "truong_no_dung_dung", "quyen_truong_than_ran", "vuong_mien_xa_ran", "truong_hon_mang", "sach_thanh"]
+    },
+    seraphina: {
+      title: "Nữ Thần Tinh Hà Bảo Khí Nhẫn Cụ & Hòa Âm",
+      items: ["bao_khi_nhan_cu", "giay_thuat_si", "khien_huyen_thoai", "vuong_mien_xa_ran", "giap_gaia", "giap_hoi_sinh"]
+    },
+    kaelen: {
+      title: "Song Súng Tinh Không Liên Xạ Chí Mạng",
+      items: ["giay_du_muc", "kiem_fafnir", "thanh_kiem", "song_dao_bao_tap", "phuc_hop_kiem", "nanh_fenrir"]
     }
   }
 };
@@ -2532,17 +2919,50 @@ function createHeroMesh(heroData, team, skinData) {
     blueCrystalTip.position.set(0.35, 0.35, 2.15);
     weaponGroup.add(stonePillar, mossBand1, mossBand2, blueCrystalTip);
   } else if (hId === "sasuke") {
-    // --- UCHIHA SASUKE (XẠ THỦ RINNEGAN & SUSANOO DẠNG BAO BỌC - DESIGNED FROM IMAGE 1 & IMAGE 2) ---
-    const tunicMat = new THREE.MeshStandardMaterial({ color: 0xcbd5e1, roughness: 0.45, metalness: 0.1 });
-    const darkNavyMat = new THREE.MeshStandardMaterial({ color: 0x1e1b4b, roughness: 0.55 });
+    // --- UCHIHA SASUKE (XẠ THỦ RINNEGAN & SKIN BẬC SSS THẦN VŨ TRỤ NGÂN HÀ) ---
+    const isCosmicSSS = skinData && skinData.specialVfx === "cosmic_sss";
+    const tunicMat = new THREE.MeshStandardMaterial({
+      color: isCosmicSSS ? 0xfacc15 : 0xcbd5e1,
+      emissive: isCosmicSSS ? 0xb45309 : 0x000000,
+      emissiveIntensity: isCosmicSSS ? 0.35 : 0,
+      roughness: isCosmicSSS ? 0.22 : 0.45,
+      metalness: isCosmicSSS ? 0.75 : 0.1
+    });
+    const darkNavyMat = new THREE.MeshStandardMaterial({
+      color: isCosmicSSS ? 0x1e1b4b : 0x1e1b4b,
+      emissive: isCosmicSSS ? 0x312e81 : 0x000000,
+      emissiveIntensity: isCosmicSSS ? 0.4 : 0,
+      roughness: 0.35
+    });
     const skinMat = new THREE.MeshStandardMaterial({ color: 0xfde68a, roughness: 0.38 });
-    const hairBlackMat = new THREE.MeshStandardMaterial({ color: 0x09090b, roughness: 0.35, metalness: 0.2 });
-    const ropePurpleMat = new THREE.MeshStandardMaterial({ color: 0x7c3aed, emissive: 0x4c1d95, emissiveIntensity: 0.35, roughness: 0.35 });
-    const sharinganRedMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
-    const rinneganPurpleMat = new THREE.MeshBasicMaterial({ color: 0xc084fc });
-    const susanooVioletMat = new THREE.MeshBasicMaterial({ color: 0x9333ea, transparent: true, opacity: 0.72, side: THREE.DoubleSide });
-    const susanooBrightMat = new THREE.MeshBasicMaterial({ color: 0xd8b4fe, transparent: true, opacity: 0.88, side: THREE.DoubleSide });
-    const amaterasuBlackMat = new THREE.MeshBasicMaterial({ color: 0x09090b });
+    const hairBlackMat = new THREE.MeshStandardMaterial({
+      color: isCosmicSSS ? 0xe0f2fe : 0x09090b,
+      emissive: isCosmicSSS ? 0x38bdf8 : 0x000000,
+      emissiveIntensity: isCosmicSSS ? 0.45 : 0,
+      roughness: 0.25,
+      metalness: 0.3
+    });
+    const ropePurpleMat = new THREE.MeshStandardMaterial({
+      color: isCosmicSSS ? 0x38bdf8 : 0x7c3aed,
+      emissive: isCosmicSSS ? 0x0284c7 : 0x4c1d95,
+      emissiveIntensity: 0.45,
+      roughness: 0.3
+    });
+    const sharinganRedMat = new THREE.MeshBasicMaterial({ color: isCosmicSSS ? 0xfef08a : 0xef4444 });
+    const rinneganPurpleMat = new THREE.MeshBasicMaterial({ color: isCosmicSSS ? 0x38bdf8 : 0xc084fc });
+    const susanooVioletMat = new THREE.MeshBasicMaterial({
+      color: isCosmicSSS ? 0xfacc15 : 0x9333ea,
+      transparent: true,
+      opacity: 0.78,
+      side: THREE.DoubleSide
+    });
+    const susanooBrightMat = new THREE.MeshBasicMaterial({
+      color: isCosmicSSS ? 0x7dd3fc : 0xd8b4fe,
+      transparent: true,
+      opacity: 0.92,
+      side: THREE.DoubleSide
+    });
+    const amaterasuBlackMat = new THREE.MeshBasicMaterial({ color: isCosmicSSS ? 0xfef08a : 0x09090b });
 
     // Dark Shinobi Pants & Boots
     const legGeo = new THREE.CylinderGeometry(0.16, 0.13, 0.96, 10);
@@ -2671,6 +3091,32 @@ function createHeroMesh(heroData, team, skinData) {
 
     bodyRoot.add(susanooWrapGroup);
     root.userData.susanooWrapGroup = susanooWrapGroup;
+
+    // BẬC SSS THẦN VŨ TRỤ NGÂN HÀ: Vòng Nhật Thực Hoàng Kim xoay sau lưng + 3 Hành Tinh Tinh Hà quỹ đạo
+    if (isCosmicSSS) {
+      const cosmicHaloGroup = new THREE.Group();
+      cosmicHaloGroup.position.set(0, 2.15, -0.48);
+      const eclipseRing = new THREE.Mesh(
+        new THREE.TorusGeometry(1.18, 0.065, 10, 32),
+        new THREE.MeshBasicMaterial({ color: 0xfacc15 })
+      );
+      const starRing = new THREE.Mesh(
+        new THREE.TorusGeometry(1.42, 0.035, 8, 32),
+        new THREE.MeshBasicMaterial({ color: 0x38bdf8 })
+      );
+      cosmicHaloGroup.add(eclipseRing, starRing);
+      for (let pIdx = 0; pIdx < 4; pIdx++) {
+        const pAng = (pIdx / 4) * Math.PI * 2;
+        const planet = new THREE.Mesh(
+          new THREE.OctahedronGeometry(0.18, 1),
+          new THREE.MeshBasicMaterial({ color: pIdx % 2 === 0 ? 0xfef08a : 0x38bdf8 })
+        );
+        planet.position.set(Math.cos(pAng) * 1.42, Math.sin(pAng) * 1.42, 0);
+        cosmicHaloGroup.add(planet);
+      }
+      bodyRoot.add(cosmicHaloGroup);
+      root.userData.orbitGroup = cosmicHaloGroup;
+    }
   } else if (hId === "obito") {
     // --- OBITO UCHIHA (HỖ TRỢ KAMUI HƯ HOÁ & HẮC BỔNG LỤC ĐẠO - DESIGNED FROM IMAGE 1 & IMAGE 2) ---
     const robeIndigoMat = new THREE.MeshStandardMaterial({ color: 0x2e2a5a, roughness: 0.48, metalness: 0.12 });
@@ -2780,6 +3226,230 @@ function createHeroMesh(heroData, team, skinData) {
     }
     bodyRoot.add(kamuiVortexGroup);
     root.userData.kamuiVortexGroup = kamuiVortexGroup;
+  } else if (hId === "madara") {
+    // --- MADARA UCHIHA (THẬP VĨ LỤC ĐẠO — ÁO CHOÀNG LỤC ĐẠO TRẮNG, 9 HẮC CẦU ĐẠO NGỌC & TÍCH TRƯỢNG LỤC ĐẠO) ---
+    const sageWhiteMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, emissive: 0xe2e8f0, emissiveIntensity: 0.2, roughness: 0.3 });
+    const darkInnerMat = new THREE.MeshStandardMaterial({ color: 0x09090b, roughness: 0.45 });
+    const goldMagatamaMat = new THREE.MeshBasicMaterial({ color: 0xfacc15 });
+    const crimsonHairMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, emissive: 0xc084fc, emissiveIntensity: 0.25, roughness: 0.3 });
+    const truthOrbMat = new THREE.MeshBasicMaterial({ color: 0x09090b });
+    const orbHaloMat = new THREE.MeshBasicMaterial({ color: 0xc084fc, transparent: true, opacity: 0.65 });
+
+    // Black Six Paths Boots & Flowing White Sage Coat
+    const legGeo = new THREE.CylinderGeometry(0.16, 0.13, 0.95, 10);
+    const lLeg = new THREE.Mesh(legGeo, darkInnerMat);
+    lLeg.position.set(-0.24, 0.48, 0);
+    const rLeg = new THREE.Mesh(legGeo, darkInnerMat);
+    rLeg.position.set(0.24, 0.48, 0);
+    const robeSkirt = new THREE.Mesh(new THREE.ConeGeometry(0.96, 1.45, 12), sageWhiteMat);
+    robeSkirt.position.y = 0.88;
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.48, 0.42, 1.18, 12), sageWhiteMat);
+    torso.position.y = 1.52;
+    const blackCollar = new THREE.Mesh(new THREE.CylinderGeometry(0.49, 0.45, 0.34, 12), darkInnerMat);
+    blackCollar.position.y = 2.06;
+    bodyRoot.add(lLeg, rLeg, robeSkirt, torso, blackCollar);
+
+    // 6 Black Magatama Tomoe Emblems across chest
+    for (let m = -2; m <= 2; m++) {
+      const tomoe = new THREE.Mesh(new THREE.OctahedronGeometry(0.08, 0), goldMagatamaMat);
+      tomoe.position.set(m * 0.13, 1.82 - Math.abs(m) * 0.04, 0.46);
+      bodyRoot.add(tomoe);
+    }
+
+    // Head, Six Paths Horned Forehead Crown, Rinnegan + Rinne Sharingan Third Eye & Long Spiky White-Silver Hair
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.40, 14, 14), new THREE.MeshStandardMaterial({ color: 0xfef2f2 }));
+    head.position.y = 2.34;
+    const hornPlate = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.16, 14), sageWhiteMat);
+    hornPlate.position.y = 2.48;
+    const hornL = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.48, 6), sageWhiteMat);
+    hornL.position.set(-0.26, 2.74, 0.22);
+    hornL.rotation.z = 0.25;
+    const hornR = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.48, 6), sageWhiteMat);
+    hornR.position.set(0.26, 2.74, 0.22);
+    hornR.rotation.z = -0.25;
+    const thirdEye = new THREE.Mesh(new THREE.SphereGeometry(0.065, 8, 8), new THREE.MeshBasicMaterial({ color: 0xef4444 }));
+    thirdEye.position.set(0, 2.52, 0.40);
+    const mane = new THREE.Mesh(new THREE.ConeGeometry(0.58, 1.65, 10), crimsonHairMat);
+    mane.position.set(0, 2.05, -0.32);
+    mane.rotation.x = 0.28;
+    bodyRoot.add(head, hornPlate, hornL, hornR, thirdEye, mane);
+
+    // 9 Floating Black Truth-Seeking Orbs (Hắc Cầu Đạo Ngọc) in a halo ring behind Madara
+    const orbsHalo = new THREE.Group();
+    orbsHalo.position.set(0, 2.05, -0.52);
+    for (let i = 0; i < 9; i++) {
+      const a = (i / 9) * Math.PI * 2;
+      const orbG = new THREE.Group();
+      const core = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), truthOrbMat);
+      const glow = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 8), orbHaloMat);
+      orbG.add(core, glow);
+      orbG.position.set(Math.cos(a) * 1.18, Math.sin(a) * 1.18, 0);
+      orbsHalo.add(orbG);
+    }
+    bodyRoot.add(orbsHalo);
+    root.userData.orbitGroup = orbsHalo;
+
+    // WeaponGroup: Six Paths Shakujo Staff (Tích Trượng Lục Đạo)
+    const staffShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 2.75, 8), truthOrbMat);
+    const sunRing = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.05, 8, 18), goldMagatamaMat);
+    sunRing.position.y = 1.42;
+    weaponGroup.add(staffShaft, sunRing);
+  } else if (hId === "minato") {
+    // --- MINATO NAMIKAZE (TIA CHỚP VÀNG LÀNG LÁ — ÁO CHOÀNG HOKAGE ĐỆ TỨ, TÓC VÀNG & KUNAI PHI LÔI THẦN + RASENGAN) ---
+    const hokageWhiteMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.3 });
+    const flameHemMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
+    const joninVestMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.45 });
+    const navySuitMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.5 });
+    const yellowHairMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, emissive: 0xeab308, emissiveIntensity: 0.3, roughness: 0.25 });
+    const rasenganMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.88 });
+
+    const legGeo = new THREE.CylinderGeometry(0.16, 0.13, 0.96, 10);
+    const lLeg = new THREE.Mesh(legGeo, navySuitMat);
+    lLeg.position.set(-0.23, 0.48, 0);
+    const rLeg = new THREE.Mesh(legGeo, navySuitMat);
+    rLeg.position.set(0.23, 0.48, 0);
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.38, 1.18, 12), joninVestMat);
+    torso.position.y = 1.45;
+    // Iconic White Hokage Cloak with Red Flame Hem
+    const cloak = new THREE.Mesh(new THREE.ConeGeometry(0.95, 1.48, 12, 1, true), hokageWhiteMat);
+    cloak.position.set(0, 1.15, -0.10);
+    const flameRing = new THREE.Mesh(new THREE.CylinderGeometry(0.96, 0.98, 0.24, 12, 1, true), flameHemMat);
+    flameRing.position.set(0, 0.52, -0.10);
+    bodyRoot.add(lLeg, rLeg, torso, cloak, flameRing);
+
+    // Left Hand holding Swirling Rasengan Sphere
+    const rasenganOrb = new THREE.Mesh(new THREE.SphereGeometry(0.28, 12, 12), rasenganMat);
+    rasenganOrb.position.set(-0.68, 1.55, 0.45);
+    const rasenganCore = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 10), new THREE.MeshBasicMaterial({ color: 0xe0f2fe }));
+    rasenganCore.position.copy(rasenganOrb.position);
+    bodyRoot.add(rasenganOrb, rasenganCore);
+
+    // Head, Leaf Headband & Spiky Golden Hair
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.39, 14, 14), new THREE.MeshStandardMaterial({ color: 0xfde68a }));
+    head.position.y = 2.30;
+    const hairGroup = new THREE.Group();
+    hairGroup.position.y = 2.45;
+    for (let i = 0; i < 9; i++) {
+      const ang = (i / 9) * Math.PI * 2;
+      const spike = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.52, 6), yellowHairMat);
+      spike.position.set(Math.sin(ang) * 0.25, 0.08, Math.cos(ang) * 0.25);
+      spike.rotation.z = -Math.sin(ang) * 0.55;
+      hairGroup.add(spike);
+    }
+    bodyRoot.add(head, hairGroup);
+
+    // WeaponGroup: 3-Pronged Flying Raijin Kunai (Phi Lôi Thần Kunai)
+    const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.55, 8).rotateX(Math.PI / 2), hokageWhiteMat);
+    const centerProng = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.85, 4).rotateX(Math.PI / 2), yellowHairMat);
+    centerProng.position.z = 0.65;
+    const leftProng = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.55, 4).rotateX(Math.PI / 2), yellowHairMat);
+    leftProng.position.set(-0.18, 0, 0.52);
+    leftProng.rotation.y = -0.28;
+    const rightProng = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.55, 4).rotateX(Math.PI / 2), yellowHairMat);
+    rightProng.position.set(0.18, 0, 0.52);
+    rightProng.rotation.y = 0.28;
+    weaponGroup.add(handle, centerProng, leftProng, rightProng);
+  } else if (hId === "itachi") {
+    // --- ITACHI UCHIHA (ẢO THUẬT NGUYỆT ĐỘC — ÁO CHOÀNG AKATSUKI, ĐÀN QUẠ ĐEN & SUSANOO CHU TƯỚC ĐỎ CAM) ---
+    const akatsukiBlackMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.4 });
+    const redCloudMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
+    const susanooOrangeMat = new THREE.MeshBasicMaterial({ color: 0xf97316, transparent: true, opacity: 0.76, side: THREE.DoubleSide });
+    const totsukaFlameMat = new THREE.MeshBasicMaterial({ color: 0xfef08a, transparent: true, opacity: 0.9 });
+
+    const cloak = new THREE.Mesh(new THREE.ConeGeometry(0.92, 1.85, 12), akatsukiBlackMat);
+    cloak.position.y = 0.98;
+    const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.52, 0.44, 0.42, 12, 1, true), akatsukiBlackMat);
+    collar.position.y = 2.02;
+    const cloud1 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), redCloudMat);
+    cloud1.scale.set(1.4, 0.75, 0.3);
+    cloud1.position.set(0.15, 1.38, 0.48);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.39, 14, 14), new THREE.MeshStandardMaterial({ color: 0xfde68a }));
+    head.position.y = 2.34;
+    const hair = new THREE.Mesh(new THREE.SphereGeometry(0.42, 12, 12), akatsukiBlackMat);
+    hair.position.set(0, 2.40, -0.05);
+    const eyeL = new THREE.Mesh(new THREE.SphereGeometry(0.055, 8, 8), redCloudMat);
+    eyeL.position.set(-0.13, 2.36, 0.35);
+    const eyeR = new THREE.Mesh(new THREE.SphereGeometry(0.055, 8, 8), redCloudMat);
+    eyeR.position.set(0.13, 2.36, 0.35);
+    bodyRoot.add(cloak, collar, cloud1, head, hair, eyeL, eyeR);
+
+    // 4 Orbiting Black Crows + Crimson-Orange Susanoo Ribcage
+    const crowOrbit = new THREE.Group();
+    crowOrbit.position.y = 1.95;
+    for (let c = 0; c < 4; c++) {
+      const a = (c / 4) * Math.PI * 2;
+      const crow = new THREE.Mesh(new THREE.ConeGeometry(0.18, 0.45, 5).rotateX(Math.PI / 2), akatsukiBlackMat);
+      crow.position.set(Math.cos(a) * 1.25, (c % 2) * 0.25, Math.sin(a) * 1.25);
+      crowOrbit.add(crow);
+    }
+    for (let r = 0; r < 2; r++) {
+      const rib = new THREE.Mesh(new THREE.TorusGeometry(0.95 + r * 0.1, 0.065, 8, 20, Math.PI * 1.35), susanooOrangeMat);
+      rib.rotation.x = Math.PI / 2;
+      rib.position.y = 1.05 + r * 0.45;
+      bodyRoot.add(rib);
+    }
+    bodyRoot.add(crowOrbit);
+    root.userData.orbitGroup = crowOrbit;
+
+    // WeaponGroup: Sword of Totsuka (Kiếm Totsuka) & Yata Mirror Shield
+    const totsukaBlade = new THREE.Mesh(new THREE.ConeGeometry(0.18, 2.1, 8).rotateX(Math.PI / 2), totsukaFlameMat);
+    totsukaBlade.position.z = 0.85;
+    const yataShield = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.65, 0.08, 16).rotateZ(Math.PI / 2), susanooOrangeMat);
+    yataShield.position.set(-1.55, 0.1, 0.35);
+    weaponGroup.add(totsukaBlade, yataShield);
+  } else if (hId === "seraphina") {
+    // --- SERAPHINA (NỮ THẦN TINH HÀ — VÁY ÁNH SAO HỒNG XANH, ĐÔI CÁNH TINH VÂN & ĐÀN HẠC VŨ TRỤ) ---
+    const starPinkMat = new THREE.MeshStandardMaterial({ color: 0xf472b6, emissive: 0xdb2777, emissiveIntensity: 0.28, roughness: 0.25 });
+    const cyanStarMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, emissive: 0x0284c7, emissiveIntensity: 0.35, roughness: 0.2 });
+    const goldMat = new THREE.MeshBasicMaterial({ color: 0xfef08a });
+
+    const gown = new THREE.Mesh(new THREE.ConeGeometry(0.92, 1.55, 16), starPinkMat);
+    gown.position.y = 0.82;
+    const bodice = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.30, 0.85, 12), cyanStarMat);
+    bodice.position.y = 1.62;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.40, 14, 14), new THREE.MeshStandardMaterial({ color: 0xffe4e6 }));
+    head.position.y = 2.34;
+    const hair = new THREE.Mesh(new THREE.ConeGeometry(0.48, 1.65, 12), starPinkMat);
+    hair.position.set(0, 1.85, -0.35);
+    hair.rotation.x = -2.5;
+    const crown = new THREE.Mesh(new THREE.OctahedronGeometry(0.24, 0), goldMat);
+    crown.position.set(0, 2.82, 0.1);
+    bodyRoot.add(gown, bodice, head, hair, crown);
+
+    // Floating Starlight Harp in WeaponGroup
+    const harpFrame = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.07, 8, 20, Math.PI * 1.25), goldMat);
+    harpFrame.rotation.y = Math.PI / 2;
+    const harpCore = new THREE.Mesh(new THREE.OctahedronGeometry(0.22, 0), cyanStarMat);
+    weaponGroup.add(harpFrame, harpCore);
+  } else if (hId === "kaelen") {
+    // --- KAELEN (XẠ THỦ HƯ KHÔNG — GIÁP THỢ SĂN KHÔNG GIAN & SONG SÚNG PLASMA TINH KHÔNG) ---
+    const voidArmorMat = new THREE.MeshStandardMaterial({ color: 0x312e81, roughness: 0.32, metalness: 0.6 });
+    const plasmaCyanMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee });
+    const capeMat = new THREE.MeshBasicMaterial({ color: 0x6366f1, transparent: true, opacity: 0.82 });
+
+    const legGeo = new THREE.CylinderGeometry(0.16, 0.13, 0.96, 10);
+    const lLeg = new THREE.Mesh(legGeo, voidArmorMat);
+    lLeg.position.set(-0.24, 0.48, 0);
+    const rLeg = new THREE.Mesh(legGeo, voidArmorMat);
+    rLeg.position.set(0.24, 0.48, 0);
+    const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.46, 0.38, 1.20, 12), voidArmorMat);
+    torso.position.y = 1.45;
+    const cape = new THREE.Mesh(new THREE.BoxGeometry(0.92, 1.45, 0.08), capeMat);
+    cape.position.set(0, 1.28, -0.42);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.40, 14, 14), new THREE.MeshStandardMaterial({ color: 0xfde68a }));
+    head.position.y = 2.32;
+    const visor = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.14, 0.22), plasmaCyanMat);
+    visor.position.set(0, 2.34, 0.36);
+    const hair = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.55, 8), new THREE.MeshStandardMaterial({ color: 0xe2e8f0 }));
+    hair.position.y = 2.72;
+    bodyRoot.add(lLeg, rLeg, torso, cape, head, visor, hair);
+
+    // Dual Void Plasma Pistols (Song Súng Tinh Không)
+    const pistolR = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.22, 0.85), plasmaCyanMat);
+    pistolR.position.set(0, 0, 0.45);
+    const pistolL = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.22, 0.85), plasmaCyanMat);
+    pistolL.position.set(-1.62, 0, 0.45);
+    weaponGroup.add(pistolR, pistolL);
   }
 
   // 3. Aurelia Thiên Sứ (SS) Angel Wings
@@ -3030,15 +3700,15 @@ function createGedoMazoMesh(team) {
 }
 
 // --- UCHIHA SASUKE: 3D CUNG TÊN HẮC HỎA AMATERASU & 3D SUSANOO DẠNG HOÀN CHỈNH (HÌNH 3) ---
-function createAmaterasuArrowMesh(scale = 1.15, isSuper = false) {
+function createAmaterasuArrowMesh(scale = 1.15, isSuper = false, isCosmicSSS = false) {
   const arrow = new THREE.Group();
-  const blackFlameMat = new THREE.MeshBasicMaterial({ color: 0x09090b });
+  const blackFlameMat = new THREE.MeshBasicMaterial({ color: isCosmicSSS ? 0xfacc15 : 0x09090b });
   const violetChakraMat = new THREE.MeshBasicMaterial({
-    color: isSuper ? 0xd8b4fe : 0xa855f7,
+    color: isCosmicSSS ? 0x38bdf8 : (isSuper ? 0xd8b4fe : 0xa855f7),
     transparent: true,
-    opacity: 0.92
+    opacity: 0.94
   });
-  const corePurpleMat = new THREE.MeshBasicMaterial({ color: 0x9333ea });
+  const corePurpleMat = new THREE.MeshBasicMaterial({ color: isCosmicSSS ? 0xfef08a : 0x9333ea });
 
   const shaft = new THREE.Mesh(
     new THREE.CylinderGeometry(0.06 * scale, 0.06 * scale, 1.65 * scale, 8).rotateX(Math.PI / 2),
@@ -3064,27 +3734,27 @@ function createAmaterasuArrowMesh(scale = 1.15, isSuper = false) {
   return arrow;
 }
 
-function createPerfectSusanooMesh(team) {
+function createPerfectSusanooMesh(team, isCosmicSSS = false) {
   const root = new THREE.Group();
   const violetArmorMat = new THREE.MeshStandardMaterial({
-    color: 0x7c3aed,
-    emissive: 0x581c87,
-    emissiveIntensity: 0.55,
-    roughness: 0.25,
-    metalness: 0.3,
+    color: isCosmicSSS ? 0xfacc15 : 0x7c3aed,
+    emissive: isCosmicSSS ? 0xb45309 : 0x581c87,
+    emissiveIntensity: 0.62,
+    roughness: 0.22,
+    metalness: isCosmicSSS ? 0.75 : 0.3,
     transparent: true,
-    opacity: 0.88
+    opacity: 0.90
   });
   const brightChakraMat = new THREE.MeshBasicMaterial({
-    color: 0xe9d5ff,
+    color: isCosmicSSS ? 0x38bdf8 : 0xe9d5ff,
     transparent: true,
-    opacity: 0.92,
+    opacity: 0.94,
     side: THREE.DoubleSide
   });
   const darkPurpleMat = new THREE.MeshStandardMaterial({
-    color: 0x3b0764,
-    roughness: 0.35,
-    metalness: 0.4
+    color: isCosmicSSS ? 0x1e3a8a : 0x3b0764,
+    roughness: 0.3,
+    metalness: 0.5
   });
   const eyeGlowMat = new THREE.MeshBasicMaterial({ color: 0xfef08a });
 
@@ -3792,8 +4462,27 @@ class MobaArena3D {
       hudEl: this.createFloatingHud(isPlayer ? heroData.name : `${heroData.name}`, team, false)
     };
 
-    unit.amaterasuStacks = 0; // Sasuke Passive: Tối đa 50 tầng Amaterasu (+10% AS / tầng)
-    unit.amaterasuStackTimer = 0; // v1.8.1: Nếu trong 3s không bắn tiếp toàn bộ tầng biến mất!
+    unit.amaterasuStacks = 0; // v2.1.0 Sasuke Passive: Tối đa 35 tầng Amaterasu (+8% AS / tầng, max +280% AS)
+    unit.amaterasuStackTimer = 0; // v2.1.0: Nếu trong 3.5s không bắn tiếp toàn bộ tầng biến mất!
+    unit.kaelLoiAnStacks = 0; // v2.1.0 Kael Rework Passive: Lôi Ấn (tối đa 4 tầng)
+    unit.kaelMagFieldTimer = 0; // v2.1.0 Kael W: 3.5s Từ Trường Lôi Ngục
+    unit.kaelMagFieldTick = 0;
+    unit.kaelUntargetableTimer = 0; // v2.1.0 Kael E: 0.8s Lôi Thần Giáng Thế
+    unit.madaraOrbShieldTimer = 0; // v2.1.0 Madara W: 4s Hoàn Vũ Hắc Cầu (-35% ST nhận vào, +20% MS)
+    unit.minatoKunaiWindowTimer = 0; // v2.1.0 Minato Q recast window (4s)
+    unit.minatoKunaiPos = null;
+    unit.minatoSpeedTimer = 0;
+    unit.itachiSkillCastCount = 0;
+    unit.itachiCrowCd = 0;
+    unit.itachiCrowSpeedTimer = 0;
+    unit.itachiSusanooTimer = 0; // v2.1.0 Itachi E: 6s Khiên Yata phản 40% ST
+    unit.seraphinaAuraAsTimer = 0; // v2.1.0 Seraphina Passive: +15% AS 3s
+    unit.seraphinaWSpeedTimer = 0;
+    unit.kaelenLightslingerReady = false; // v2.1.0 Kaelen Passive: Bắn 2 phát & -1s CD W
+    unit.kaelenWAsTimer = 0;
+    unit.kaelenCullingTimer = 0;
+    unit.kaelenCullingTick = 0;
+    unit.kaelenCullingDir = null;
     unit.sasukeWBuffTimer = 0; // Sasuke Skill 2: 8s Susanoo dạng bao bọc (+80% AS, +10% MS, +30% Slow, +15% SpellVamp)
     unit.sasukeBasicSusanooFlash = 0;
     unit.sasukeSlowBonus = 0;
@@ -4001,10 +4690,32 @@ class MobaArena3D {
         mr = Math.round(mr * defMult);
       }
     }
-    // v1.8.0 Uchiha Sasuke Nội Tại: Mỗi 1 lần bắn tích 1 tầng "Amaterasu" (tối đa 50 tầng). Mỗi 1 tầng tăng 10% tốc đánh!
+    // v2.1.0 Uchiha Sasuke Nội Tại (Cân bằng): Mỗi 1 lần bắn tích 1 tầng "Amaterasu" (tối đa 35 tầng). Mỗi 1 tầng tăng 8% tốc đánh (tối đa +280% AS)!
     if (u.heroData && u.heroData.id === "sasuke" && (u.amaterasuStacks || 0) > 0) {
-      const stacks = Math.min(50, u.amaterasuStacks);
-      atkSpeed += u.baseStats.atkSpeed * (0.10 * stacks);
+      const stacks = Math.min(35, u.amaterasuStacks);
+      atkSpeed += u.baseStats.atkSpeed * (0.08 * stacks);
+    }
+    // v2.1.0 New Heroes Buffs (Madara W, Minato W, Itachi Passive, Seraphina Passive/W, Kaelen W/E)
+    if (u.madaraOrbShieldTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.20).toFixed(3));
+    }
+    if (u.minatoSpeedTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.40).toFixed(3));
+    }
+    if (u.itachiCrowSpeedTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.50).toFixed(3));
+    }
+    if (u.seraphinaAuraAsTimer > 0) {
+      atkSpeed += u.baseStats.atkSpeed * 0.15;
+    }
+    if (u.seraphinaWSpeedTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.25).toFixed(3));
+    }
+    if (u.kaelenWAsTimer > 0) {
+      atkSpeed += u.baseStats.atkSpeed * 0.35;
+    }
+    if (u.kaelenCullingTimer > 0) {
+      moveSpeed = Number((moveSpeed * 1.20).toFixed(3));
     }
     // v1.8.0 Uchiha Sasuke Kỹ Năng 2 (8s Susanoo Dạng Bao Bọc): +80% tốc đánh, +10% tốc chạy, +30% khả năng làm chậm, +15% hút máu phép
     if (u.sasukeWBuffTimer > 0) {
@@ -4533,6 +5244,63 @@ class MobaArena3D {
     }
   }
 
+  // v2.1.0 Kael Rework Passive Helper: Lôi Ấn Tích Tụ (4 stacks -> 8% Max HP True Damage + 0.75s Stun + Heal 6% Max HP)
+  applyKaelLoiAnStacks(caster, target, addStacks = 1) {
+    if (!caster || !target || target.dead || target.isStructure) return;
+    target.kaelLoiAnStacks = (target.kaelLoiAnStacks || 0) + addStacks;
+    if (target.kaelLoiAnStacks >= 4) {
+      target.kaelLoiAnStacks -= 4;
+      const trueDmg = Math.max(50, Math.round(target.maxHp * 0.08));
+      target.hp = Math.max(0, target.hp - trueDmg);
+      target.stunTimer = Math.max(target.stunTimer || 0, 0.75);
+      this.healUnit(caster, Math.round(caster.maxHp * 0.06));
+      this.spawnVfxPillar(target.x, target.z, 1.5, 5.5, 0x38bdf8, 0.55);
+      if (caster.isPlayer) {
+        this.spawnFloatingText(target.x, target.z, `⚡ THIÊN LÔI NỔ (-${trueDmg} ST Chuẩn & Choáng 0.75s)!`, "text-cyan-300");
+      }
+      if (target.hp <= 0) {
+        this.handleEntityDeath(caster, target);
+      }
+    }
+  }
+
+  // v2.1.0 BẬC SSS THẦN VŨ TRỤ NGÂN HÀ: Hiệu Ứng Biến Về 3.7s Mở Cổng Tinh Hà Không Gian 3D
+  spawnCosmicSSSRecallVfx(x, z, duration = 3.7) {
+    const group = new THREE.Group();
+    group.position.set(x, 0, z);
+    const portalOuter = new THREE.Mesh(
+      new THREE.RingGeometry(0.4, 2.8, 36).rotateX(-Math.PI / 2),
+      new THREE.MeshBasicMaterial({ color: 0xfacc15, side: THREE.DoubleSide, transparent: true, opacity: 0.88 })
+    );
+    portalOuter.position.y = 0.08;
+    const portalInner = new THREE.Mesh(
+      new THREE.RingGeometry(0.1, 2.1, 32).rotateX(-Math.PI / 2),
+      new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.82 })
+    );
+    portalInner.position.y = 0.11;
+    const nebulaBeam = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.6, 2.2, 8.5, 24),
+      new THREE.MeshBasicMaterial({ color: 0x818cf8, transparent: true, opacity: 0.45 })
+    );
+    nebulaBeam.position.y = 4.25;
+    group.add(portalOuter, portalInner, nebulaBeam);
+
+    const sparkles = [];
+    const goldMat = new THREE.MeshBasicMaterial({ color: 0xfef08a, transparent: true, opacity: 0.95 });
+    const cyanMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.95 });
+    for (let i = 0; i < 18; i++) {
+      const sp = new THREE.Mesh(new THREE.OctahedronGeometry(0.24, 0), i % 2 === 0 ? goldMat : cyanMat);
+      const ang = (i / 18) * Math.PI * 2;
+      const rad = 1.3 + (i % 3) * 0.45;
+      sp.position.set(Math.cos(ang) * rad, (i % 5) * 0.7 + 0.4, Math.sin(ang) * rad);
+      sp.userData = { ang, rad, speedY: 2.5 + (i % 3) * 0.7 };
+      group.add(sp);
+      sparkles.push(sp);
+    }
+    this.worldGroup.add(group);
+    this.vfxList.push({ mesh: group, sparkles, timer: duration, maxTime: duration, type: "sparkle_recall" });
+  }
+
   // Sparkling Recall VFX
   spawnSparkleRecallVfx(x, z, duration = 1.0) {
     const group = new THREE.Group();
@@ -4898,11 +5666,14 @@ class MobaArena3D {
     });
   }
 
-  // Nagato Skill 3: Triệu hồi Ngoại Đạo Ma Tượng (10.000 HP, tồn tại 20s, chỉ số giống bản thân, liên tục đánh mục tiêu bị nhảy trúng)
+  // v2.1.0 Nagato Skill 3 (Buff): Triệu hồi Ngoại Đạo Ma Tượng (16.000 HP + 10% HP mỗi cấp, tồn tại 20s)
   spawnGedoMazoSummon(caster, sx, sz, preferredTarget) {
     const mesh = createGedoMazoMesh(caster.team);
     mesh.position.set(sx, 0, sz);
     this.worldGroup.add(mesh);
+
+    const lvl = Math.max(1, caster.level || 1);
+    const gedoMaxHp = Math.round(16000 * (1 + (lvl - 1) * 0.10));
 
     const gedo = {
       id: `gedo_mazo_${caster.team}_${Date.now()}`,
@@ -4911,12 +5682,12 @@ class MobaArena3D {
       ownerHero: caster,
       heroData: caster.heroData,
       team: caster.team,
-      name: "Ngoại Đạo Ma Tượng (10.000 HP)",
+      name: `Ngoại Đạo Ma Tượng (${gedoMaxHp.toLocaleString("vi-VN")} HP)`,
       x: sx,
       z: sz,
       radius: 1.75,
-      hp: 10000,
-      maxHp: 10000,
+      hp: gedoMaxHp,
+      maxHp: gedoMaxHp,
       ad: caster.ad,
       ap: caster.ap,
       armor: caster.armor,
@@ -4952,21 +5723,25 @@ class MobaArena3D {
       }
     });
 
-    const mesh = createPerfectSusanooMesh(caster.team);
+    const isCosmicSSS = !!(caster.skinData && caster.skinData.specialVfx === "cosmic_sss");
+    const mesh = createPerfectSusanooMesh(caster.team, isCosmicSSS);
     mesh.position.set(sx, 0, sz);
     this.worldGroup.add(mesh);
 
     const lvl = Math.max(1, caster.level || 1);
-    const calcHp = Math.round(40000 * (1 + (lvl - 1) * 0.10));
+    // v2.1.0 Balance: Susanoo Hoàn Chỉnh 28.000 HP (+8% HP mỗi cấp), tốc đánh 300% (3.0)
+    const calcHp = Math.round(28000 * (1 + (lvl - 1) * 0.08));
 
     const susanoo = {
       id: `perfect_susanoo_${caster.team}_${Date.now()}`,
       isSummon: true,
       isPerfectSusanoo: true,
+      isCosmicSSS,
       ownerHero: caster,
       heroData: caster.heroData,
+      skinData: caster.skinData,
       team: caster.team,
-      name: `Susanoo Hoàn Chỉnh (${calcHp.toLocaleString("vi-VN")} HP)`,
+      name: `${isCosmicSSS ? "🌌 Susanoo Thần Vũ Trụ" : "Susanoo Hoàn Chỉnh"} (${calcHp.toLocaleString("vi-VN")} HP)`,
       x: sx,
       z: sz,
       radius: 1.95,
@@ -4978,8 +5753,8 @@ class MobaArena3D {
       mr: caster.mr + 60,
       range: 10.5,
       moveSpeed: caster.moveSpeed * 1.05,
-      atkSpeed: 4.0, // 400% tốc đánh!
-      baseAtkSpeed: 4.0,
+      atkSpeed: 3.0, // 300% tốc đánh (v2.1.0)!
+      baseAtkSpeed: 3.0,
       crit: caster.crit,
       critDmgBonus: caster.critDmgBonus || 0,
       lifesteal: caster.lifesteal || 0,
@@ -4993,7 +5768,7 @@ class MobaArena3D {
       slowPct: 0.35,
       dead: false,
       mesh,
-      hudEl: this.createFloatingHud(`⚔️ Susanoo Hoàn Chỉnh (${Math.round(calcHp / 1000)}k HP • 400% AS)`, caster.team, true)
+      hudEl: this.createFloatingHud(`${isCosmicSSS ? "🌌 Susanoo Vũ Trụ" : "⚔️ Susanoo Hoàn Chỉnh"} (${Math.round(calcHp / 1000)}k HP • 300% AS)`, caster.team, true)
     };
     this.units.push(susanoo);
     return susanoo;
@@ -5002,24 +5777,25 @@ class MobaArena3D {
   // v1.8.0 Uchiha Sasuke Kỹ Năng 1: Nổ Cung Siêu Amaterasu & Tạo Vùng Hắc Hỏa Bán Kính 5m Trong 3s Đốt HP
   triggerSasukeAmaterasuExplosion(caster, ex, ez, rawDmg, skill) {
     if (caster) caster._currentCastingSkill = skill || { name: "Cung Siêu Amaterasu", type: "sasuke_q_amaterasu" };
+    const isCosmicSSS = !!(caster && caster.skinData && caster.skinData.specialVfx === "cosmic_sss");
     const rad5m = 5.0;
-    this.spawnVfxRing(ex, ez, rad5m, 0x9333ea, 0.85);
-    this.spawnVfxRing(ex, ez, rad5m * 0.65, 0x09090b, 0.85);
-    this.spawnVfxPillar(ex, ez, 1.85, 5.2, 0xa855f7, 0.75);
+    this.spawnVfxRing(ex, ez, rad5m, isCosmicSSS ? 0xfacc15 : 0x9333ea, 0.85);
+    this.spawnVfxRing(ex, ez, rad5m * 0.65, isCosmicSSS ? 0x38bdf8 : 0x09090b, 0.85);
+    this.spawnVfxPillar(ex, ez, 1.85, 5.2, isCosmicSSS ? 0xfef08a : 0xa855f7, 0.75);
 
     // Initial explosion damage in 5m radius
     this.damageEnemiesInArea(caster, ex, ez, rad5m, rawDmg, "magic", "slow", skill);
 
-    // Create 3D Black-Purple Amaterasu Burn Zone (radius 5m, duration 3.0s)
+    // Create 3D Black-Purple Amaterasu or SSS Cosmic Black-Hole Galaxy Vortex (radius 5m, duration 3.0s)
     const zoneGroup = new THREE.Group();
     zoneGroup.position.set(ex, 0.06, ez);
     const outerRing = new THREE.Mesh(
       new THREE.RingGeometry(0.4, rad5m, 32).rotateX(-Math.PI / 2),
-      new THREE.MeshBasicMaterial({ color: 0x581c87, side: THREE.DoubleSide, transparent: true, opacity: 0.62 })
+      new THREE.MeshBasicMaterial({ color: isCosmicSSS ? 0xfacc15 : 0x581c87, side: THREE.DoubleSide, transparent: true, opacity: 0.68 })
     );
     const blackCore = new THREE.Mesh(
       new THREE.RingGeometry(0.1, rad5m * 0.72, 24).rotateX(-Math.PI / 2),
-      new THREE.MeshBasicMaterial({ color: 0x09090b, side: THREE.DoubleSide, transparent: true, opacity: 0.78 })
+      new THREE.MeshBasicMaterial({ color: isCosmicSSS ? 0x1e3a8a : 0x09090b, side: THREE.DoubleSide, transparent: true, opacity: 0.82 })
     );
     blackCore.position.y = 0.02;
     zoneGroup.add(outerRing, blackCore);
@@ -5706,12 +6482,431 @@ class MobaArena3D {
       return;
     }
 
-    // --- v1.8.1 OBITO UCHIHA SKILLS (KỸ NĂNG 1: HƯ HOÁ, KỸ NĂNG 2: KAMUI, KỸ NĂNG 3: TRƯỜNG XÍCH LỤC ĐẠO) ---
+    // --- v2.1.0 KAEL REWORK SKILLS (LÔI ẢNH TAM ĐOẠN, TỪ TRƯỜNG LÔI NGỤC, LÔI THẦN GIÁNG THẾ) ---
+    if (skill.type === "kael_q_twin_dash") {
+      // Chiêu 1 mới: Lướt điện quang 2 nhịp liên tiếp (4.5m/nhịp, tổng 9m), hất tung 0.5s ở nhịp 2 và khắc 2 tầng Lôi Ấn
+      const stepDist = Math.min(dist, 9.0);
+      const midX = Math.max(-64, Math.min(64, caster.x + dirX * (stepDist * 0.5)));
+      const midZ = Math.max(-25, Math.min(25, caster.z + dirZ * (stepDist * 0.5)));
+      const endX = Math.max(-64, Math.min(64, caster.x + dirX * stepDist));
+      const endZ = Math.max(-25, Math.min(25, caster.z + dirZ * stepDist));
+
+      this.spawnVfxRing(caster.x, caster.z, 2.2, 0x06b6d4, 0.45);
+      this.spawnVfxRing(midX, midZ, 2.6, 0x38bdf8, 0.55);
+      caster.x = endX;
+      caster.z = endZ;
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.spawnVfxRing(endX, endZ, 3.4, 0x67e8f9, 0.65);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        const dMid = Math.hypot(u.x - midX, u.z - midZ);
+        const dEnd = Math.hypot(u.x - endX, u.z - endZ);
+        if (dMid <= 3.4 + u.radius || dEnd <= 3.4 + u.radius) {
+          this.applyDamage(caster, u, rawDmg, "physical", true);
+          u.stunTimer = Math.max(u.stunTimer || 0, 0.5);
+          this.applyKaelLoiAnStacks(caster, u, 2);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "⚡ LÔI ẢNH TAM ĐOẠN (Lướt 2 Nhịp + Hất Tung)!", "text-cyan-300");
+      }
+      return;
+    }
+
+    if (skill.type === "kael_w_mag_field") {
+      // Chiêu 2 mới: Từ Trường Lôi Ngục (Bán kính 5m trong 3.5s, hút nhẹ mỗi giây + Giáp ảo 12% HP tối đa)
+      const shieldVal = Math.round(caster.maxHp * 0.12);
+      caster.shield = Math.max(caster.shield || 0, shieldVal);
+      caster.shieldTimer = 3.5;
+      caster.kaelMagFieldTimer = 3.5;
+      caster.kaelMagFieldTick = 0.85;
+      this.spawnVfxRing(caster.x, caster.z, 5.0, 0x06b6d4, 0.85);
+      this.damageEnemiesInArea(caster, caster.x, caster.z, 5.0, rawDmg, "physical", "pull", skill);
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, `🧲 TỪ TRƯỜNG LÔI NGỤC (+${shieldVal} Giáp Ảo • Hút 3.5s)!`, "text-cyan-300");
+      }
+      return;
+    }
+
+    if (skill.type === "kael_e_thunder_god") {
+      // Chiêu 3 mới: Lôi Thần Giáng Thế (Nhảy vọt hóa sét không thể chọn làm mục tiêu 0.8s, giáng xuống bán kính 6m gây ST + 12% HP đã mất + bão điện 4s)
+      caster.kaelUntargetableTimer = 0.8;
+      caster.liemInvulnTimer = Math.max(caster.liemInvulnTimer || 0, 0.8);
+      caster.x = aimX;
+      caster.z = aimZ;
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.spawnHeroSpecificAoeVfx("kael", aimX, aimZ, 6.0, 0x38bdf8, 0.95);
+      this.spawnVfxPillar(aimX, aimZ, 2.5, 7.5, 0x67e8f9, 0.85);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 6.0 + u.radius) {
+          const bonusMissing = (u.maxHp - u.hp) * 0.12;
+          this.applyDamage(caster, u, rawDmg + bonusMissing, "physical", true);
+          u.stunTimer = Math.max(u.stunTimer || 0, 1.25);
+          this.applyKaelLoiAnStacks(caster, u, 2);
+        }
+      });
+
+      if (!this.amaterasuZones) this.amaterasuZones = [];
+      const stormGroup = new THREE.Group();
+      stormGroup.position.set(aimX, 0.06, aimZ);
+      const stormRing = new THREE.Mesh(
+        new THREE.RingGeometry(0.5, 6.0, 32).rotateX(-Math.PI / 2),
+        new THREE.MeshBasicMaterial({ color: 0x06b6d4, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
+      );
+      stormGroup.add(stormRing);
+      this.worldGroup.add(stormGroup);
+      this.amaterasuZones.push({
+        caster,
+        x: aimX,
+        z: aimZ,
+        radius: 6.0,
+        timer: 4.0,
+        maxTime: 4.0,
+        tickTimer: 0.8,
+        tickDmg: Math.round(90 + caster.ad * 0.35),
+        mesh: stormGroup
+      });
+
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "⚡ LÔI THẦN GIÁNG THẾ (Bão Điện 6m • 4s)!", "text-cyan-300");
+      }
+      return;
+    }
+
+    // --- v2.1.0 5 NEW HEROES SKILLS (MADARA, MINATO, ITACHI, SERAPHINA, KAELEN) ---
+    if (skill.type === "madara_q_lightning") {
+      // Madara Q: Tiên Pháp: Âm Độn Lôi Phá (10m quạt sét tím Lục Đạo + 6% HP hiện tại + làm chậm 50%)
+      this.spawnVfxRing(aimX, aimZ, 4.2, 0xa855f7, 0.65);
+      this.spawnVfxPillar(aimX, aimZ, 1.6, 5.5, 0xc084fc, 0.55);
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        const d = Math.hypot(u.x - caster.x, u.z - caster.z);
+        const dAim = Math.hypot(u.x - aimX, u.z - aimZ);
+        if (d <= 10.0 + u.radius && dAim <= 4.5 + u.radius) {
+          this.applyDamage(caster, u, rawDmg + u.hp * 0.06, "magic", true);
+          u.slowTimer = Math.max(u.slowTimer || 0, 1.5);
+          u.slowPct = Math.max(u.slowPct || 0.50, 0.50);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "⚡ TIÊN PHÁP: ÂM ĐỘN LÔI PHÁ (+6% HP Hiện Tại)!", "text-purple-300");
+      }
+      return;
+    }
+
+    if (skill.type === "madara_w_orbs") {
+      // Madara W: Hoàn Vũ Hắc Cầu (4s giảm 35% ST nhận vào, +20% tốc chạy & phóng Hắc Cầu Đạo Ngọc)
+      caster.madaraOrbShieldTimer = 4.0;
+      caster.shield = Math.max(caster.shield || 0, Math.round(420 + caster.ap * 0.85));
+      caster.shieldTimer = 4.0;
+      this.recalcHeroStats(caster);
+      this.spawnVfxRing(caster.x, caster.z, 4.5, 0x09090b, 0.75);
+      this.damageEnemiesInArea(caster, aimX, aimZ, 4.5, rawDmg, "magic", "slow", skill);
+      if (caster.isPlayer) {
+        this.spawnFloatingText(caster.x, caster.z, "⚫ HOÀN VŨ HẮC CẦU (4s: -35% ST Nhận Vào & +20% Tốc Chạy)!", "text-purple-300");
+      }
+      return;
+    }
+
+    if (skill.type === "madara_e_twin_meteors") {
+      // Madara E: Thiên Ngại Chấn Tinh (Giáng 2 đại thiên thạch liên tiếp bán kính 7m, mỗi quả gây ST + 10% HP tối đa + hất tung 1.5s)
+      const rad7m = 7.0;
+      this.spawnMeteorFallVfx(aimX, aimZ, rad7m, 0x7e22ce, 0.95);
+      this.spawnVfxRing(aimX, aimZ, rad7m, 0xd946ef, 1.15);
+
+      const strikeMeteor = (label) => {
+        this.units.forEach((u) => {
+          if (u.dead || u.team === caster.team) return;
+          if (Math.hypot(u.x - aimX, u.z - aimZ) <= rad7m + u.radius) {
+            this.applyDamage(caster, u, rawDmg + u.maxHp * 0.10, "magic", true);
+            u.stunTimer = Math.max(u.stunTimer || 0, 1.5);
+          }
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(aimX, aimZ, label, "text-fuchsia-300");
+        }
+      };
+
+      strikeMeteor("☄️ THIÊN NGẠI CHẤN TINH — THIÊN THẠCH #1 (+10% Max HP)!");
+      // Second consecutive meteor impact
+      this.spawnMeteorFallVfx(aimX + 0.8, aimZ - 0.6, rad7m * 1.05, 0xc084fc, 1.25);
+      strikeMeteor("☄️☄️ SONG THIÊN THẠCH LỤC ĐẠO — THIÊN THẠCH #2 (+10% Max HP)!");
+      return;
+    }
+
+    if (skill.type === "minato_q_kunai") {
+      // Minato Q: Phi Lôi Thần Kunai (13m + khắc Ấn Phi Lôi Thần + dịch chuyển chém xoay)
+      this.spawnVfxRing(caster.x, caster.z, 2.0, 0xfacc15, 0.45);
+      caster.x = aimX;
+      caster.z = aimZ;
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.spawnVfxRing(aimX, aimZ, 3.4, 0xfef08a, 0.65);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 3.6 + u.radius) {
+          u.raijinMarkTimer = 6.0;
+          this.applyDamage(caster, u, rawDmg, "physical", true);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "⚡ PHI LÔI THẦN KUNAI (Khắc Ấn 6s)!", "text-yellow-300");
+      }
+      return;
+    }
+
+    if (skill.type === "minato_w_rasengan") {
+      // Minato W: Xoáy Rasengan Tốc Biến (7m + 8% HP đã mất + choáng 1.0s + 40% tốc chạy 2s)
+      caster.x = aimX;
+      caster.z = aimZ;
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      caster.minatoSpeedTimer = 2.0;
+      this.recalcHeroStats(caster);
+      this.spawnVfxRing(aimX, aimZ, 3.4, 0x38bdf8, 0.65);
+      this.spawnVfxPillar(aimX, aimZ, 1.5, 4.5, 0x38bdf8, 0.55);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 3.4 + u.radius) {
+          u.raijinMarkTimer = 6.0;
+          this.applyDamage(caster, u, rawDmg + (u.maxHp - u.hp) * 0.08, "physical", true);
+          u.stunTimer = Math.max(u.stunTimer || 0, 1.0);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "🌀 XOÁY RASENGAN TỐC BIẾN (+40% Tốc Chạy)!", "text-sky-300");
+      }
+      return;
+    }
+
+    if (skill.type === "minato_e_kurama_flash") {
+      // Minato E: Phi Lôi Thần Liên Trảm: Cửu Vĩ Chakra (6 tia chớp vàng dịch chuyển liên hoàn bán kính 9m + Đại Ngọc Rasengan)
+      caster.liemInvulnTimer = Math.max(caster.liemInvulnTimer || 0, 1.0);
+      caster.x = aimX;
+      caster.z = aimZ;
+      if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+      this.spawnVfxRing(aimX, aimZ, 6.5, 0xfacc15, 0.95);
+      this.spawnVfxPillar(aimX, aimZ, 2.6, 7.0, 0xfef08a, 0.85);
+
+      this.units.forEach((u) => {
+        if (u.dead || u.team === caster.team) return;
+        if (Math.hypot(u.x - aimX, u.z - aimZ) <= 6.5 + u.radius) {
+          u.raijinMarkTimer = 6.0;
+          this.applyDamage(caster, u, rawDmg + (u.maxHp - u.hp) * 0.14, "physical", true);
+          u.stunTimer = Math.max(u.stunTimer || 0, 1.25);
+        }
+      });
+      if (caster.isPlayer) {
+        this.spawnFloatingText(aimX, aimZ, "🦊⚡ PHI LÔI THẦN LIÊN TRẢM: CỬU VĨ CHAKRA!", "text-amber-300");
+      }
+      return;
+    }
+
+    if (skill.type.startsWith("itachi_")) {
+      // Itachi Passive: Mỗi 3 lần tung kỹ năng phân tách thành đàn quạ đen giải khống chế & +50% tốc chạy
+      caster.itachiSkillCastCount = (caster.itachiSkillCastCount || 0) + 1;
+      if (caster.itachiSkillCastCount >= 3) {
+        caster.itachiSkillCastCount = 0;
+        caster.stunTimer = 0;
+        caster.slowTimer = 0;
+        caster.itachiCrowSpeedTimer = 1.5;
+        this.recalcHeroStats(caster);
+        this.spawnVfxRing(caster.x, caster.z, 2.8, 0xef4444, 0.55);
+      }
+
+      if (skill.type === "itachi_q_amaterasu_fire") {
+        this.spawnVfxRing(aimX, aimZ, 3.8, 0xef4444, 0.75);
+        this.spawnVfxRing(aimX, aimZ, 2.6, 0x09090b, 0.75);
+        this.damageEnemiesInArea(caster, aimX, aimZ, 3.8, rawDmg, "magic", "slow", skill);
+        if (!this.amaterasuZones) this.amaterasuZones = [];
+        const zG = new THREE.Group();
+        zG.position.set(aimX, 0.06, aimZ);
+        zG.add(new THREE.Mesh(new THREE.RingGeometry(0.2, 3.8, 24).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0x09090b, side: THREE.DoubleSide, transparent: true, opacity: 0.75 })));
+        this.worldGroup.add(zG);
+        this.amaterasuZones.push({
+          caster,
+          x: aimX,
+          z: aimZ,
+          radius: 3.8,
+          timer: 3.0,
+          maxTime: 3.0,
+          tickTimer: 0.5,
+          tickDmg: Math.round(65 + caster.ap * 0.25),
+          mesh: zG
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(aimX, aimZ, "🔥 HÀO HỎA CẦU & THIÊN CHIẾU (Đốt 3% Max HP/s)!", "text-rose-400");
+        }
+        return;
+      }
+
+      if (skill.type === "itachi_w_tsukuyomi") {
+        this.spawnVfxRing(aimX, aimZ, 3.5, 0x991b1b, 0.85);
+        this.spawnVfxPillar(aimX, aimZ, 1.8, 6.0, 0xdc2626, 0.75);
+        this.units.forEach((u) => {
+          if (u.dead || u.team === caster.team) return;
+          if (Math.hypot(u.x - aimX, u.z - aimZ) <= 3.6 + u.radius) {
+            u.shredMrTimer = 3.0;
+            if (u.isHero) this.recalcHeroStats(u);
+            this.applyDamage(caster, u, rawDmg + u.maxHp * 0.10, "magic", true);
+            u.stunTimer = Math.max(u.stunTimer || 0, 1.5);
+          }
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(aimX, aimZ, "🌙 NGUYỆT ĐỘC TSUKUYOMI (Choáng 1.5s & -30% Kháng Phép)!", "text-rose-400");
+        }
+        return;
+      }
+
+      if (skill.type === "itachi_e_totsuka") {
+        caster.itachiSusanooTimer = 6.0;
+        const shieldVal = Math.round(caster.maxHp * 0.22);
+        caster.shield = Math.max(caster.shield || 0, shieldVal);
+        caster.shieldTimer = 6.0;
+        this.spawnVfxRing(caster.x, caster.z, 5.0, 0xf97316, 0.95);
+        this.spawnVfxPillar(aimX, aimZ, 2.2, 6.8, 0xfef08a, 0.85);
+        this.units.forEach((u) => {
+          if (u.dead || u.team === caster.team) return;
+          if (Math.hypot(u.x - aimX, u.z - aimZ) <= 5.2 + u.radius || Math.hypot(u.x - caster.x, u.z - caster.z) <= 5.0 + u.radius) {
+            this.applyDamage(caster, u, rawDmg + (u.maxHp - u.hp) * 0.15, "magic", true);
+            u.slowTimer = Math.max(u.slowTimer || 0, 2.0);
+            u.slowPct = 0.60;
+          }
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(caster.x, caster.z, "🗡️🛡️ SUSANOO KIẾM TOTSUKA & KHIÊN YATA (Phản 40% ST)!", "text-orange-300");
+        }
+        return;
+      }
+    }
+
+    if (skill.type.startsWith("seraphina_")) {
+      // Seraphina Passive: Giai Điệu Cộng Hưởng (+15% AS 3s & hồi 3% Max HP cho đồng minh trong 8m)
+      this.units.forEach((ally) => {
+        if (ally.dead || ally.team !== caster.team) return;
+        if (Math.hypot(ally.x - caster.x, ally.z - caster.z) <= 8.0 + (ally.radius || 1.0)) {
+          ally.seraphinaAuraAsTimer = 3.0;
+          if (ally.isHero) this.recalcHeroStats(ally);
+          this.healUnit(ally, Math.round(ally.maxHp * 0.03));
+        }
+      });
+
+      if (skill.type === "seraphina_q_starwave") {
+        this.spawnVfxRing(aimX, aimZ, 4.0, 0xf472b6, 0.65);
+        this.damageEnemiesInArea(caster, aimX, aimZ, 4.0, rawDmg, "magic", "slow", skill);
+        const allyHeal = Math.round(220 + caster.ap * 0.55);
+        this.units.forEach((ally) => {
+          if (ally.dead || ally.team !== caster.team) return;
+          if (Math.hypot(ally.x - aimX, ally.z - aimZ) <= 4.5 + (ally.radius || 1.0)) {
+            this.healUnit(ally, allyHeal);
+          }
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(aimX, aimZ, `🎶 KHÚC NHẠC SAO BĂNG (Hồi +${allyHeal} HP Đồng Minh)!`, "text-pink-300");
+        }
+        return;
+      }
+
+      if (skill.type === "seraphina_w_shield") {
+        const shieldVal = Math.round(450 + caster.ap * 0.80 + caster.maxHp * 0.10);
+        this.spawnVfxRing(caster.x, caster.z, 8.0, 0x38bdf8, 0.85);
+        this.units.forEach((ally) => {
+          if (ally.dead || ally.team !== caster.team) return;
+          if (Math.hypot(ally.x - caster.x, ally.z - caster.z) <= 8.0 + (ally.radius || 1.0)) {
+            ally.shield = Math.max(ally.shield || 0, shieldVal);
+            ally.shieldTimer = 4.0;
+            ally.seraphinaWSpeedTimer = 3.0;
+            if (ally.isHero) this.recalcHeroStats(ally);
+          }
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(caster.x, caster.z, `🛡️ KHIÊN HÒA ÂM VŨ TRỤ (+${shieldVal} Giáp Ảo & +25% Tốc Chạy)!`, "text-sky-300");
+        }
+        return;
+      }
+
+      if (skill.type === "seraphina_e_encore") {
+        this.spawnVfxRing(aimX, aimZ, 8.5, 0xfef08a, 0.95);
+        this.spawnVfxPillar(aimX, aimZ, 2.5, 6.5, 0xf472b6, 0.85);
+        this.units.forEach((u) => {
+          if (u.dead) return;
+          if (Math.hypot(u.x - aimX, u.z - aimZ) <= 9.0 + (u.radius || 1.0)) {
+            if (u.team !== caster.team) {
+              this.applyDamage(caster, u, rawDmg, "magic", true);
+              u.stunTimer = Math.max(u.stunTimer || 0, 1.6);
+            } else {
+              this.healUnit(u, Math.round(u.maxHp * 0.18));
+              if (u.isHero && u.skillCds) {
+                u.skillCds = u.skillCds.map((c) => Math.max(0, Number((c - 2.0).toFixed(2))));
+              }
+            }
+          }
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(aimX, aimZ, "🌟 KHÚC KHẢI HOÀN VĨNH CỬU (Mê Hoặc 1.6s & Hồi 18% HP Đồng Minh)!", "text-amber-200");
+        }
+        return;
+      }
+    }
+
+    if (skill.type.startsWith("kaelen_")) {
+      // Kaelen Passive: Sau mỗi lần dùng kỹ năng, đòn đánh thường kế tiếp bắn 2 viên đạn Hư Không và giảm 1s hồi Chiêu 2
+      caster.kaelenLightslingerReady = true;
+
+      if (skill.type === "kaelen_q_laser") {
+        this.spawnVfxRing(aimX, aimZ, 2.5, 0x22d3ee, 0.55);
+        this.units.forEach((u) => {
+          if (u.dead || u.team === caster.team) return;
+          const vx = u.x - caster.x;
+          const vz = u.z - caster.z;
+          const proj = vx * dirX + vz * dirZ;
+          const perp = Math.abs(vx * (-dirZ) + vz * dirX);
+          if (proj >= -0.5 && proj <= 11.0 + u.radius && perp <= 2.2 + u.radius) {
+            this.applyDamage(caster, u, rawDmg + u.hp * 0.06, "physical", true);
+            u.slowTimer = Math.max(u.slowTimer || 0, 1.2);
+          }
+        });
+        if (caster.isPlayer) {
+          this.spawnFloatingText(aimX, aimZ, "🔫 TIA LAZE XUYÊN THẤU (+6% HP Hiện Tại)!", "text-cyan-300");
+        }
+        return;
+      }
+
+      if (skill.type === "kaelen_w_dash") {
+        this.spawnVfxRing(caster.x, caster.z, 1.8, 0x818cf8, 0.4);
+        caster.x = aimX;
+        caster.z = aimZ;
+        if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
+        caster.kaelenWAsTimer = 3.0;
+        this.recalcHeroStats(caster);
+        this.spawnVfxRing(aimX, aimZ, 2.4, 0x22d3ee, 0.5);
+        if (caster.isPlayer) {
+          this.spawnFloatingText(caster.x, caster.z, "⚡ BƯỚC NHẢY KHÔNG GIAN (+35% Tốc Đánh & Nạp Song Súng)!", "text-indigo-300");
+        }
+        return;
+      }
+
+      if (skill.type === "kaelen_e_barrage") {
+        caster.kaelenCullingTimer = 3.0;
+        caster.kaelenCullingTick = 0.15;
+        caster.kaelenCullingDir = { x: dirX, z: dirZ };
+        this.recalcHeroStats(caster);
+        this.spawnVfxRing(caster.x, caster.z, 3.5, 0x38bdf8, 0.75);
+        this.damageEnemiesInArea(caster, aimX, aimZ, 4.5, rawDmg, "physical", "slow", skill);
+        if (caster.isPlayer) {
+          this.spawnFloatingText(caster.x, caster.z, "🌌 MƯA ĐẠN THANH TRỪNG (16 Loạt Đạn Hư Không)!", "text-cyan-300");
+        }
+        return;
+      }
+    }
+
+    // --- v2.1.0 OBITO UCHIHA SKILLS (KỸ NĂNG 1: HƯ HOÁ 6S, KỸ NĂNG 2: KAMUI +15% ST & CHẬM 40%, KỸ NĂNG 3: TRƯỜNG XÍCH LỤC ĐẠO) ---
     if (skill.type === "obito_q_kamui_phase") {
-      // Kỹ năng 1: Hư Hoá: Bản thân hoá trạng thái Hư Hoá trong 8s, trong thời gian này có thể bấm lại kỹ năng để tắt Hư Hoá.
-      // Hư Hoá giúp bản thân hút toàn bộ kỹ năng phóng vào bản thân, tuy nhiên trong trạng thái này không thể dùng kỹ năng (khi hút hiện Kamui xoáy như hình 2).
-      // Hồi chiêu: 35s, giảm 0.1s mỗi 1 cấp
-      caster.obitoHuHoaTimer = 8.0;
+      // v2.1.0 Kỹ năng 1: Hư Hoá trong 6s (CD 26s, -0.25s/cấp)
+      caster.obitoHuHoaTimer = 6.0;
       caster.stunTimer = 0;
       caster.slowTimer = 0;
       if (!caster.obitoAbsorbedSkills) caster.obitoAbsorbedSkills = [];
@@ -5723,7 +6918,7 @@ class MobaArena3D {
         this.spawnFloatingText(
           caster.x,
           caster.z,
-          "🌀 HƯ HOÁ (8s: Hút Toàn Bộ Kỹ Năng • Bấm Lại Q Để Tắt)!",
+          "🌀 HƯ HOÁ (6s: Hút Toàn Bộ Kỹ Năng Phóng/Ném • Bấm Lại Q Để Tắt)!",
           "text-cyan-300"
         );
       }
@@ -5731,7 +6926,7 @@ class MobaArena3D {
     }
 
     if (skill.type === "obito_w_kamui_release") {
-      // Kỹ năng 2: Kamui: Sử dụng toàn bộ kĩ năng hút được phóng ra. Hồi chiêu: 5s, giảm 0.03s mỗi 1 level
+      // v2.1.0 Kỹ năng 2: Kamui: Phóng toàn bộ kĩ năng hút được, gây tăng +15% sát thương và làm chậm 40% trong 1.5s!
       if (!caster.obitoAbsorbedSkills) caster.obitoAbsorbedSkills = [];
       const absorbedList = [...caster.obitoAbsorbedSkills];
       caster.obitoAbsorbedSkills = [];
@@ -5747,15 +6942,13 @@ class MobaArena3D {
         ? absorbedList
         : [{ skillName: "Xoáy Không Gian Kamui", dmg: rawDmg, dmgType: "magic", cc: "slow", vfxCol: 0x6366f1 }];
 
-      // Immediately strike enemies in front & launch all absorbed skills out from the Kamui Vortex!
       skillsToFire.forEach((ab, idx) => {
         const spread = skillsToFire.length > 1 ? ((idx - (skillsToFire.length - 1) / 2) * 0.16) : 0;
         const ang = baseAngle + spread;
         const sDirX = Math.sin(ang);
         const sDirZ = Math.cos(ang);
-        const unleashDmg = Math.round(ab.dmg + caster.ap * 0.65 + caster.ad * 0.55);
+        const unleashDmg = Math.round((ab.dmg + caster.ap * 0.65 + caster.ad * 0.55) * 1.15);
 
-        // Check if an enemy is right in the Kamui vortex path (<= 11m) for instant guaranteed impact + visual projectile
         let hitImmediate = null;
         let bestDist = Infinity;
         this.units.forEach((u) => {
@@ -5774,6 +6967,10 @@ class MobaArena3D {
           this.spawnVfxRing(hitImmediate.x, hitImmediate.z, 2.4, ab.vfxCol || 0x38bdf8, 0.55);
           this.applyDamage(caster, hitImmediate, unleashDmg, ab.dmgType || "magic", true);
           this.applyCrowdControl(caster, hitImmediate, ab.cc || "slow");
+          if (!hitImmediate.isStructure) {
+            hitImmediate.slowTimer = Math.max(hitImmediate.slowTimer || 0, 1.5);
+            hitImmediate.slowPct = Math.max(hitImmediate.slowPct || 0.40, 0.40);
+          }
         } else {
           const orbMesh = new THREE.Mesh(
             new THREE.OctahedronGeometry(0.62, 1),
@@ -6071,7 +7268,7 @@ class MobaArena3D {
     if (skill.type === "nagato_q_missile") {
       // Kỹ năng 1: Phóng 1 tên lửa bay đến mục tiêu gần nhất trong phạm vi 10m. Kẻ địch bị đánh dấu "Rinnegan" trong 9s.
       const nearEnemies = this.units
-        .filter((u) => !u.dead && u.team !== caster.team && Math.hypot(u.x - caster.x, u.z - caster.z) <= 10.0 + u.radius)
+        .filter((u) => !u.dead && u.team !== caster.team && Math.hypot(u.x - caster.x, u.z - caster.z) <= 12.0 + u.radius)
         .sort((a, b) => {
           if (a.isHero !== b.isHero) return a.isHero ? -1 : 1;
           return Math.hypot(a.x - caster.x, a.z - caster.z) - Math.hypot(b.x - caster.x, b.z - caster.z);
@@ -6183,7 +7380,7 @@ class MobaArena3D {
         if (Math.hypot(u.x - caster.x, u.z - caster.z) <= rad8m + u.radius) {
           hitCount++;
           this.spawnSmallTargetMeteorVfx(u.x, u.z);
-          const targetTotalRaw = rawDmg + u.maxHp * 0.03; // +3% HP tối đa của mục tiêu
+          const targetTotalRaw = rawDmg + u.maxHp * 0.05; // v2.1.0 Buff: +5% HP tối đa của mục tiêu
           const dealt = this.applyDamage(caster, u, targetTotalRaw, "magic", true) || 0;
           totalDealt += dealt;
           u.slowTimer = Math.max(u.slowTimer || 0, 1.0); // Làm chậm 30% trong 1s
@@ -6610,6 +7807,54 @@ class MobaArena3D {
       return;
     }
 
+    // v2.1.0 Minato Namikaze Basic Attack: Nếu mục tiêu có Ấn Phi Lôi Thần, dịch chuyển ra sau lưng chém thêm ST và giảm 1.5s hồi toàn bộ kỹ năng!
+    if (attacker.isHero && attacker.heroData.id === "minato") {
+      if (target && !target.isStructure && target.raijinMarkTimer > 0) {
+        target.raijinMarkTimer = 0;
+        const behindX = Math.max(-64, Math.min(64, target.x + Math.sin(angleY) * 1.4));
+        const behindZ = Math.max(-25, Math.min(25, target.z + Math.cos(angleY) * 1.4));
+        attacker.x = behindX;
+        attacker.z = behindZ;
+        if (attacker.mesh) attacker.mesh.position.set(attacker.x, 0, attacker.z);
+        attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, Number((c - 1.5).toFixed(2))));
+        this.spawnVfxRing(target.x, target.z, 2.2, 0xfacc15, 0.4);
+        this.applyDamage(attacker, target, attacker.ad + 130 + Math.round(attacker.ad * 0.65), "physical", false);
+        if (attacker.isPlayer) {
+          this.spawnFloatingText(target.x, target.z, "⚡ PHI LÔI THẦN TRẢM (-1.5s Hồi Chiêu)!", "text-yellow-300");
+        }
+      } else {
+        if (target && !target.isStructure) target.raijinMarkTimer = 6.0;
+        this.spawnVfxRing(target.x, target.z, 1.4, 0xfacc15, 0.25);
+        this.applyDamage(attacker, target, attacker.ad, "physical", false);
+      }
+      return;
+    }
+
+    // v2.1.0 Kaelen Passive (Song Súng Tinh Không): Sau khi dùng kỹ năng, đòn đánh kế tiếp bắn 2 phát và giảm 1.0s hồi Chiêu 2!
+    if (attacker.isHero && attacker.heroData.id === "kaelen" && attacker.kaelenLightslingerReady) {
+      attacker.kaelenLightslingerReady = false;
+      if (attacker.skillCds && attacker.skillCds[1] > 0) {
+        attacker.skillCds[1] = Math.max(0, Number((attacker.skillCds[1] - 1.0).toFixed(2)));
+      }
+      const secondBolt = new THREE.Mesh(new THREE.SphereGeometry(0.28, 8, 8), new THREE.MeshBasicMaterial({ color: 0x22d3ee }));
+      secondBolt.position.set(attacker.x, 1.45, attacker.z);
+      this.worldGroup.add(secondBolt);
+      this.projectiles.push({
+        caster: attacker,
+        targetUnit: target,
+        x: attacker.x,
+        z: attacker.z,
+        speed: 30,
+        dmg: Math.round(attacker.ad * 0.60),
+        dmgType: "physical",
+        isAutoAttack: true,
+        mesh: secondBolt
+      });
+      if (attacker.isPlayer) {
+        this.spawnFloatingText(attacker.x, attacker.z, "🔫🔫 SONG SÚNG TINH KHÔNG (-1s Hồi Chiêu 2)!", "text-cyan-300");
+      }
+    }
+
     // v1.6.0 Tower Shot Scaling: phát đầu 120 (Trụ Ngoài) hoặc 150 (Trụ Chính), mỗi phát tiếp theo +40% ST
     let attackDmgToUse = attacker.ad;
     if (attacker.isStructure) {
@@ -6655,20 +7900,21 @@ class MobaArena3D {
           if (attacker.mesh && attacker.mesh.userData && attacker.mesh.userData.susanooWrapGroup) {
             attacker.mesh.userData.susanooWrapGroup.visible = true;
           }
-          // v1.8.1 Nội tại Sasuke: Mỗi 1 lần bắn vào mục tiêu tích 1 tầng "Amaterasu" (tối đa 50 tầng, +10% tốc đánh/tầng).
-          // Nếu trong 3s không bắn tiếp toàn bộ tầng biến mất!
-          attacker.amaterasuStackTimer = 3.0;
+          // v2.1.0 Nội tại Sasuke: Mỗi 1 lần bắn vào mục tiêu tích 1 tầng "Amaterasu" (tối đa 35 tầng, +8% tốc đánh/tầng, max +280% AS).
+          // Nếu trong 3.5s không bắn tiếp toàn bộ tầng biến mất!
+          attacker.amaterasuStackTimer = 3.5;
           const prevStacks = attacker.amaterasuStacks || 0;
-          if (prevStacks < 50) {
-            attacker.amaterasuStacks = Math.min(50, prevStacks + 1);
+          if (prevStacks < 35) {
+            attacker.amaterasuStacks = Math.min(35, prevStacks + 1);
           }
           this.recalcHeroStats(attacker);
           attacker.atkCd = 1 / (attacker.atkSpeed || 1.0);
         }
-        // v1.8.1: Sasuke gây ST phép kể cả đánh thường!
+        // Sasuke gây ST phép kể cả đánh thường!
         attackDmgToUse = Math.max(attacker.ad, Math.round((attacker.ap || 0) + (attacker.ad || 0) * 0.75));
+        const isCosmicArrow = !!((attacker.skinData && attacker.skinData.specialVfx === "cosmic_sss") || attacker.isCosmicSSS);
         const arrowScale = attacker.isPerfectSusanoo ? 1.65 : (attacker.sasukeWBuffTimer > 0 ? 1.42 : 1.15);
-        bolt = createAmaterasuArrowMesh(arrowScale, !!attacker.isPerfectSusanoo);
+        bolt = createAmaterasuArrowMesh(arrowScale, !!attacker.isPerfectSusanoo, isCosmicArrow);
         bolt.rotation.y = angleY;
       } else {
         bolt = new THREE.Mesh(
@@ -6860,12 +8106,20 @@ class MobaArena3D {
       }
     }
 
-    if (!isSkill && attacker.isHero && attacker.heroData.id === "kael" && attacker.kaelComboCharges > 0) {
-      attacker.kaelComboCharges--;
-      dmg += 95 + attacker.ad * 0.45;
-      attacker.hp = Math.min(attacker.maxHp, attacker.hp + Math.round(attacker.maxHp * 0.04));
-      attacker.skillCds = attacker.skillCds.map((c) => Math.max(0, c - 0.6));
-      if (attacker.kaelComboCharges <= 0) this.recalcHeroStats(attacker);
+    // v2.1.0 Kael Rework Passive: Đánh thường khắc 1 tầng Lôi Ấn (đủ 4 tầng giáng Thiên Lôi gây 8% Max HP ST chuẩn + choáng 0.75s + hồi 6% Max HP)
+    if (!isSkill && attacker.isHero && attacker.heroData.id === "kael" && !target.isStructure) {
+      this.applyKaelLoiAnStacks(attacker, target, 1);
+    }
+    // v2.1.0 Madara Passive (Luân Mộ Biên Ngục — Limbo): Mỗi 4 đòn đánh/chiêu trúng đích gây thêm 30% AP ST phép và hồi 5% HP đã mất
+    if (attacker.isHero && attacker.heroData.id === "madara" && !target.isStructure) {
+      attacker.passiveStacks = ((attacker.passiveStacks || 0) + 1) % 4;
+      if (attacker.passiveStacks === 0) {
+        dmg += Math.round((attacker.ap || 0) * 0.30);
+        this.healUnit(attacker, Math.round((attacker.maxHp - attacker.hp) * 0.05));
+        if (attacker.isPlayer) {
+          this.spawnFloatingText(target.x, target.z, "👁️ LUÂN MỘ BIÊN NGỤC (Limbo +30% AP)!", "text-purple-300");
+        }
+      }
     }
 
     if (!isSkill && attacker.itemEffects && attacker.itemEffects.has("phantom_hit")) dmg += 60;
@@ -6971,6 +8225,14 @@ class MobaArena3D {
       const dmgRedPct = Math.min(0.25, stacks100Ap * 0.001);
       rawMitigated = Math.max(1, Math.round(rawMitigated * (1 - dmgRedPct)));
     }
+    // v2.1.0 Madara W (Hoàn Vũ Hắc Cầu): Giảm 35% sát thương nhận vào trong 4s
+    if (target.isHero && target.madaraOrbShieldTimer > 0) {
+      rawMitigated = Math.max(1, Math.round(rawMitigated * 0.65));
+    }
+    // v2.1.0 Gideon W (Pháo Đài Thánh Quang): Giảm 45% sát thương nhận vào khi đang có Khiên W
+    if (target.isHero && target.heroData.id === "gideon" && target.shieldTimer > 0 && target.shield > 0) {
+      rawMitigated = Math.max(1, Math.round(rawMitigated * 0.55));
+    }
 
     const finalDmg = rawMitigated;
 
@@ -7075,12 +8337,28 @@ class MobaArena3D {
         this.recalcHeroStats(target);
         target.hp = exactHp;
       }
-      // Gideon Passive Shield (<40% HP)
+      // v2.1.0 Gideon Passive Shield (<40% HP): Nhận Khiên chắn bằng 25% HP tối đa trong 5s và giải trừ làm chậm!
       if ((target.hp / target.maxHp) < 0.40 && target.gaiaCd <= 0 && target.heroData.id === "gideon") {
-        target.shield = Math.round(target.maxHp * 0.18);
+        target.shield = Math.round(target.maxHp * 0.25);
         target.shieldTimer = 5.0;
+        target.slowTimer = 0;
         target.gaiaCd = 20.0;
-        this.spawnFloatingText(target.x, target.z, "+THÁNH KHIÊN BẢO HỘ!", "text-amber-300");
+        this.spawnFloatingText(target.x, target.z, "🛡️ THÁNH KHIÊN BẢO HỘ (25% Max HP & Giải Làm Chậm)!", "text-amber-300");
+      }
+      // v2.1.0 Itachi Passive (Phân Thân Quạ Đen): Khi HP < 30% tự động phân tách thành đàn quạ đen giải khống chế & +50% tốc chạy!
+      if ((target.hp / target.maxHp) < 0.30 && !(target.itachiCrowCd > 0) && target.heroData.id === "itachi") {
+        target.itachiCrowCd = 25.0;
+        target.stunTimer = 0;
+        target.slowTimer = 0;
+        target.itachiCrowSpeedTimer = 1.5;
+        this.recalcHeroStats(target);
+        this.spawnVfxRing(target.x, target.z, 2.8, 0xef4444, 0.65);
+        this.spawnFloatingText(target.x, target.z, "🐦‍⬛ PHÂN THÂN QUẠ ĐEN (Giải Khống Chế & +50% Tốc Chạy)!", "text-rose-400");
+      }
+      // v2.1.0 Itachi Skill 3 (Khiên Yata): Phản lại 40% ST nhận vào trong 6s Susanoo Chu Tước!
+      if (target.heroData.id === "itachi" && target.itachiSusanooTimer > 0 && attacker && !attacker.isStructure && !attacker.dead) {
+        const yataReflect = Math.max(10, Math.round(finalDmg * 0.40));
+        attacker.hp = Math.max(1, attacker.hp - yataReflect);
       }
       // v2.0.0 Quỷ Kiếm: Khi nhận ST, hồi HP bằng 8% HP tối đa (CD 15s)
       if (target.itemEffects && target.itemEffects.has("quy_kiem_heal") && !(target.quyKiemCd > 0)) {
@@ -7383,7 +8661,7 @@ class MobaArena3D {
       if (hero.heroData && hero.heroData.id === "sasuke") {
         this.units.forEach((su) => {
           if (su.isPerfectSusanoo && su.ownerHero === hero && !su.dead) {
-            const newMaxHp = Math.round(40000 * (1 + (hero.level - 1) * 0.10));
+            const newMaxHp = Math.round(28000 * (1 + (hero.level - 1) * 0.08));
             const diffHp = Math.max(0, newMaxHp - su.maxHp);
             su.maxHp = newMaxHp;
             su.hp = Math.min(su.maxHp, su.hp + diffHp);
@@ -7484,12 +8762,17 @@ class MobaArena3D {
     this.player.recallChannelTimer = 3.7;
     this.player.recallVfxCounter = 0;
     const isSeraph = this.player.skinData && this.player.skinData.specialVfx === "seraph";
-    if (isSeraph) {
+    const isCosmicSSS = this.player.skinData && this.player.skinData.specialVfx === "cosmic_sss";
+    if (isCosmicSSS) {
+      this.spawnCosmicSSSRecallVfx(this.player.x, this.player.z, 3.7);
+      this.spawnFloatingText(this.player.x, this.player.z, "🌌 [SSS THẦN VŨ TRỤ] Khai Mở Cổng Tinh Hà Biến Về (3.7s)...", "text-amber-300");
+    } else if (isSeraph) {
       this.spawnSparkleRecallVfx(this.player.x, this.player.z, 3.7);
+      this.spawnFloatingText(this.player.x, this.player.z, "⏳ Đang Biến Về (3.7s)...", "text-sky-300");
     } else {
       this.spawnVfxRing(this.player.x, this.player.z, 2.2, 0x38bdf8, 3.7);
+      this.spawnFloatingText(this.player.x, this.player.z, "⏳ Đang Biến Về (3.7s)...", "text-sky-300");
     }
-    this.spawnFloatingText(this.player.x, this.player.z, "⏳ Đang Biến Về (3.7s)...", "text-sky-300");
   }
 
   completeRecall(unit) {
@@ -7500,7 +8783,11 @@ class MobaArena3D {
     unit.mesh.position.set(unit.x, 0, unit.z);
     unit.hp = unit.maxHp;
     unit.mana = unit.maxMana;
-    if (isSeraph) {
+    const isCosmicSSS = unit.skinData && unit.skinData.specialVfx === "cosmic_sss";
+    if (isCosmicSSS) {
+      this.spawnCosmicSSSRecallVfx(unit.x, unit.z, 1.35);
+      if (unit.isPlayer) this.spawnFloatingText(unit.x, unit.z, "🌌 [SSS THẦN VŨ TRỤ] Dịch Chuyển Tinh Hà Hoàn Tất (+100% HP/MP)!", "text-amber-300");
+    } else if (isSeraph) {
       this.spawnSparkleRecallVfx(unit.x, unit.z, 1.25);
       if (unit.isPlayer) this.spawnFloatingText(unit.x, unit.z, "✨ Thiên Sứ Giáng Lâm (+100% HP/MP)", "text-amber-200");
     } else {
@@ -8032,6 +9319,100 @@ class MobaArena3D {
       if (u.gideonUltBuffTimer > 0) {
         u.gideonUltBuffTimer -= dt;
         if (u.gideonUltBuffTimer <= 0) statsDirty = true;
+      }
+      if (u.madaraOrbShieldTimer > 0) {
+        u.madaraOrbShieldTimer -= dt;
+        if (u.madaraOrbShieldTimer <= 0) {
+          u.madaraOrbShieldTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.minatoSpeedTimer > 0) {
+        u.minatoSpeedTimer -= dt;
+        if (u.minatoSpeedTimer <= 0) {
+          u.minatoSpeedTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.itachiCrowCd > 0) u.itachiCrowCd = Math.max(0, u.itachiCrowCd - dt);
+      if (u.itachiSusanooTimer > 0) u.itachiSusanooTimer = Math.max(0, u.itachiSusanooTimer - dt);
+      if (u.itachiCrowSpeedTimer > 0) {
+        u.itachiCrowSpeedTimer -= dt;
+        if (u.itachiCrowSpeedTimer <= 0) {
+          u.itachiCrowSpeedTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.seraphinaAuraAsTimer > 0) {
+        u.seraphinaAuraAsTimer -= dt;
+        if (u.seraphinaAuraAsTimer <= 0) {
+          u.seraphinaAuraAsTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.seraphinaWSpeedTimer > 0) {
+        u.seraphinaWSpeedTimer -= dt;
+        if (u.seraphinaWSpeedTimer <= 0) {
+          u.seraphinaWSpeedTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.kaelenWAsTimer > 0) {
+        u.kaelenWAsTimer -= dt;
+        if (u.kaelenWAsTimer <= 0) {
+          u.kaelenWAsTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.kaelenCullingTimer > 0) {
+        u.kaelenCullingTimer -= dt;
+        u.kaelenCullingTick = (u.kaelenCullingTick || 0) - dt;
+        if (u.kaelenCullingTick <= 0 && u.kaelenCullingTimer > 0) {
+          u.kaelenCullingTick = 0.22;
+          const cDir = u.kaelenCullingDir || { x: Math.sin(u.mesh.rotation.y), z: Math.cos(u.mesh.rotation.y) };
+          const pMesh = new THREE.Mesh(new THREE.SphereGeometry(0.26, 8, 8), new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
+          pMesh.position.set(u.x, 1.4, u.z);
+          this.worldGroup.add(pMesh);
+          this.projectiles.push({
+            caster: u,
+            x: u.x,
+            z: u.z,
+            vx: cDir.x * 26,
+            vz: cDir.z * 26,
+            maxDist: 10.5,
+            traveled: 0,
+            radius: 1.15,
+            dmg: Math.round(55 + u.ad * 0.22),
+            dmgType: "physical",
+            cc: "slow",
+            vfxCol: 0x38bdf8,
+            mesh: pMesh
+          });
+        }
+        if (u.kaelenCullingTimer <= 0) {
+          u.kaelenCullingTimer = 0;
+          statsDirty = true;
+        }
+      }
+      if (u.kaelMagFieldTimer > 0) {
+        u.kaelMagFieldTimer -= dt;
+        u.kaelMagFieldTick = (u.kaelMagFieldTick || 0) - dt;
+        if (u.kaelMagFieldTick <= 0 && u.kaelMagFieldTimer > 0) {
+          u.kaelMagFieldTick = 1.0;
+          this.spawnVfxRing(u.x, u.z, 5.0, 0x38bdf8, 0.45);
+          this.units.forEach((enemy) => {
+            if (enemy.dead || enemy.team === u.team) return;
+            if (Math.hypot(enemy.x - u.x, enemy.z - u.z) <= 5.0 + (enemy.radius || 0.8)) {
+              enemy.x += (u.x - enemy.x) * 0.25;
+              enemy.z += (u.z - enemy.z) * 0.25;
+              if (enemy.mesh) enemy.mesh.position.set(enemy.x, 0, enemy.z);
+              this.applyKaelLoiAnStacks(u, enemy, 1);
+            }
+          });
+        }
+      }
+      if (u.raijinMarkTimer > 0) {
+        u.raijinMarkTimer = Math.max(0, u.raijinMarkTimer - dt);
       }
       if (u.shredArmorTimer > 0) {
         u.shredArmorTimer -= dt;
@@ -8735,13 +10116,13 @@ window.MobaArena3D = MobaArena3D;
 </script>
   <script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v2.0.0 SUPER UPDATE)
+// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v2.1.0 SUPER UPDATE)
 // ============================================================================
 
 class GameUIController {
   constructor() {
     this.state = this.loadState();
-    this.selectedHeroId = "obito"; // Highlight new hero Miya or Aurelia
+    this.selectedHeroId = "sasuke"; // Highlight Sasuke with SSS Cosmic Skin or Madara
     if (!this.state.ownedHeroes.includes(this.selectedHeroId)) {
       this.selectedHeroId = "aurelia";
     }
@@ -8864,19 +10245,32 @@ class GameUIController {
       return;
     }
 
-    let badgeTitle = "⚔️ HẠ GỤC (KILL)";
-    let borderClass = "border-amber-400 from-slate-950/95 via-amber-950/90 to-slate-950/95";
+    const isCosmicSSS = !!(killer && killer.skinData && killer.skinData.specialVfx === "cosmic_sss");
+    let badgeTitle = isCosmicSSS ? "🌌 [SSS THẦN VŨ TRỤ] PHÁN QUYẾT TINH HÀ!" : "⚔️ HẠ GỤC (KILL)";
+    let borderClass = isCosmicSSS
+      ? "border-amber-300 from-amber-950/95 via-indigo-950/95 to-sky-950/95 ring-2 ring-sky-400/50"
+      : "border-amber-400 from-slate-950/95 via-amber-950/90 to-slate-950/95";
     if (isFirstBlood) {
-      badgeTitle = "🩸 CHIẾN CÔNG ĐẦU (FIRST BLOOD)!";
-      borderClass = "border-rose-400 from-rose-950/95 via-red-900/90 to-slate-950/95";
+      badgeTitle = isCosmicSSS
+        ? "🌌 [SSS THẦN VŨ TRỤ] PHÁN QUYẾT TINH HÀ — CHIẾN CÔNG ĐẦU!"
+        : "🩸 CHIẾN CÔNG ĐẦU (FIRST BLOOD)!";
+      borderClass = isCosmicSSS
+        ? "border-yellow-300 from-amber-950/95 via-purple-950/95 to-sky-950/95 ring-2 ring-amber-400/60"
+        : "border-rose-400 from-rose-950/95 via-red-900/90 to-slate-950/95";
     } else if (isAce) {
-      badgeTitle = "💀 QUÉT SẠCH (ACE)!";
+      badgeTitle = isCosmicSSS
+        ? "🌠 [SSS THẦN VŨ TRỤ] HỦY DIỆT NGÂN HÀ — QUÉT SẠCH (ACE)!"
+        : "💀 QUÉT SẠCH (ACE)!";
       borderClass = "border-purple-400 from-purple-950/95 via-indigo-950/90 to-slate-950/95";
     } else if (streakCount >= 3) {
-      badgeTitle = "🔥 BA MẠNG LIÊN TIẾP (TRIPLE KILL)!";
+      badgeTitle = isCosmicSSS
+        ? "🌠 [SSS THẦN VŨ TRỤ] THỐNG TRỊ NGÂN HÀ — TRIPLE KILL!"
+        : "🔥 BA MẠNG LIÊN TIẾP (TRIPLE KILL)!";
       borderClass = "border-amber-300 from-amber-950/95 via-orange-900/90 to-slate-950/95";
     } else if (streakCount === 2) {
-      badgeTitle = "⚡ HAI MẠNG LIÊN TIẾP (DOUBLE KILL)!";
+      badgeTitle = isCosmicSSS
+        ? "🌌 [SSS THẦN VŨ TRỤ] SONG TINH ĐOẠT MỆNH — DOUBLE KILL!"
+        : "⚡ HAI MẠNG LIÊN TIẾP (DOUBLE KILL)!";
       borderClass = "border-sky-400 from-sky-950/95 via-blue-900/90 to-slate-950/95";
     }
 
@@ -9930,7 +11324,16 @@ class GameUIController {
         badges.push(`<span class="px-2 py-0.5 rounded bg-sky-500/30 border border-sky-400 text-sky-200 text-[9px] font-bold">🛡️ Hào Quang Thạch Khiên: ${p.grockWBuffTimer.toFixed(1)}s</span>`);
       }
       if (p.heroData && p.heroData.id === "sasuke" && (p.amaterasuStacks || 0) > 0) {
-        badges.push(`<span class="px-2 py-0.5 rounded bg-purple-600/35 border border-purple-400 text-purple-200 text-[9px] font-bold">🔥 Nội Tại Amaterasu: ${p.amaterasuStacks}/50 Tầng (+${p.amaterasuStacks * 10}% Tốc Đánh • ${(p.amaterasuStackTimer || 0).toFixed(1)}s)</span>`);
+        badges.push(`<span class="px-2 py-0.5 rounded bg-purple-600/35 border border-purple-400 text-purple-200 text-[9px] font-bold">🔥 Nội Tại Amaterasu: ${p.amaterasuStacks}/35 Tầng (+${p.amaterasuStacks * 8}% Tốc Đánh • ${(p.amaterasuStackTimer || 0).toFixed(1)}s)</span>`);
+      }
+      if (p.madaraOrbShieldTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-purple-600/35 border border-purple-400 text-purple-200 text-[9px] font-bold">⚫ Hoàn Vũ Hắc Cầu: ${p.madaraOrbShieldTimer.toFixed(1)}s (-35% ST Nhận, +20% Tốc)</span>`);
+      }
+      if (p.itachiSusanooTimer > 0) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-orange-600/35 border border-orange-400 text-orange-200 text-[9px] font-bold">🗡️🛡️ Khiên Yata & Totsuka: ${p.itachiSusanooTimer.toFixed(1)}s (Phản 40% ST)</span>`);
+      }
+      if (p.kaelenLightslingerReady) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-cyan-600/35 border border-cyan-400 text-cyan-200 text-[9px] font-bold">🔫🔫 Song Súng Tinh Không: Đòn kế bắn 2 phát (-1s CD Chiêu 2)</span>`);
       }
       if (p.heroData && p.heroData.id === "obito") {
         if (p.obitoHuHoaTimer > 0) {
@@ -9946,7 +11349,7 @@ class GameUIController {
       }
       const activePerfectSusanoo = arena.units && arena.units.find((u) => u.isPerfectSusanoo && u.ownerHero === p && !u.dead);
       if (activePerfectSusanoo) {
-        badges.push(`<span class="px-2 py-0.5 rounded bg-indigo-600/35 border border-indigo-400 text-indigo-200 text-[9px] font-bold">⚔️ Susanoo Hoàn Chỉnh: ${activePerfectSusanoo.hp.toLocaleString("vi-VN")}/${activePerfectSusanoo.maxHp.toLocaleString("vi-VN")} HP (400% AS)</span>`);
+        badges.push(`<span class="px-2 py-0.5 rounded bg-indigo-600/35 border border-indigo-400 text-indigo-200 text-[9px] font-bold">⚔️ Susanoo Hoàn Chỉnh: ${activePerfectSusanoo.hp.toLocaleString("vi-VN")}/${activePerfectSusanoo.maxHp.toLocaleString("vi-VN")} HP (300% AS)</span>`);
       }
       if (p.itemEffects && p.itemEffects.has("thien_phat_execute")) {
         badges.push(`<span class="px-2 py-0.5 rounded bg-amber-500/35 border border-amber-300 text-amber-100 text-[9px] font-bold">⚜️ Thiên Phạt Kiếm: ${p.thienPhatPoints || 8}/80 Điểm (${p.thienPhatPoints || 8}% Tỉ Lệ Kết Liễu ≤8% HP)</span>`);
