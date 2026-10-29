@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legends of Eternia 3D - v2.2.0 (3v3 Isometric MOBA)</title>
+  <title>Legends of Eternia 3D - v2.3.0 (5v5 3-Lane Isometric MOBA)</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
@@ -64,7 +64,7 @@ body {
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base md:text-lg font-black tracking-wider text-white">LEGENDS OF ETERNIA 3D</h1>
-            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v2.2.0</span>
+            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">v2.3.0</span>
           </div>
           <div id="lobby-rank-summary" class="text-xs font-bold text-slate-300"></div>
         </div>
@@ -103,7 +103,7 @@ body {
       <!-- Left Column: Main Lobby Buttons + Hidden Admin Test Controls -->
       <div class="lg:col-span-3 flex flex-col gap-3">
         <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
-          <div class="text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-2">Sảnh Chờ Chiến Thuật 3v3</div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-2">Sảnh Chờ Chiến Thuật 5v5 (3 Đường)</div>
           <div class="space-y-2.5">
             <button onclick="window.UI.openModal('modal-heroes')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
               <span class="flex items-center gap-2.5">🦸 <span>NHÂN VẬT (HEROES)</span></span>
@@ -112,7 +112,7 @@ body {
 
             <button onclick="window.UI.openModal('modal-shop')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-extrabold text-sm flex items-center justify-between shadow-lg transition">
               <span class="flex items-center gap-2.5">🛒 <span>CỬA HÀNG (SHOP)</span></span>
-              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">Tướng • Skin • 30 Đồ Mới</span>
+              <span class="text-xs bg-slate-950/40 px-2 py-0.5 rounded-lg">Tướng • Skin • 31 Đồ Mới</span>
             </button>
 
             <button onclick="window.UI.openModal('modal-rank')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-sm flex items-center justify-between shadow-lg transition">
@@ -172,7 +172,7 @@ body {
         </div>
 
         <button onclick="window.UI.startRankedMatch()" class="mt-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-black text-base tracking-wide shadow-2xl border-2 border-amber-200 transition transform hover:scale-105">
-          ⚔️ VÀO TRẬN ĐẤU HẠNG 3V3 NGAY
+          ⚔️ VÀO TRẬN ĐẤU HẠNG 5V5 (3 ĐƯỜNG) NGAY
         </button>
       </div>
 
@@ -185,7 +185,7 @@ body {
 
     <!-- Lobby Footer -->
     <footer class="z-20 px-6 py-2 bg-slate-950/90 border-t border-slate-800/80 flex flex-wrap justify-between items-center text-[11px] text-slate-400">
-      <div>Bản đồ 3v3 Isometric v2.2.0: 4 Trụ Ngoài (20.000 HP) + 1 Trụ Chính (50.000 HP) • Quái Rừng tăng trưởng mỗi 45s • Rồng Kradus tăng trưởng mỗi 1p30s</div>
+      <div>Bản đồ 5v5 (3 Đường: EXP • Giữa • Vàng) v2.3.0: Lính ra giây thứ 10 • Cân Bằng Tài Nguyên Chống Snowball • Thiên Khí & Bảo Khí Nhẫn Cụ • 6 Quái Rừng + Rồng Kradus</div>
       <div>Thưởng trận: Thắng +500–800 Vàng | Thua +50–120 Vàng</div>
     </footer>
   </div>
@@ -229,7 +229,7 @@ body {
           <button onclick="window.UI.setShopTab('heroes')" class="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold">🦸 Mua Nhân Vật</button>
           <button onclick="window.UI.setShopTab('skins')" class="px-3 py-1.5 rounded-xl bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/40 text-purple-300 text-xs font-bold">✨ Mua Skin Hiệu Ứng</button>
           <button onclick="window.UI.setShopTab('ruby')" class="px-3 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 text-xs font-bold">♦️ Sự Kiện Ruby</button>
-          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 30 Trang Bị v2.2.0 Trong Trận</button>
+          <button onclick="window.UI.setShopTab('items_catalog')" class="px-3 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-bold">⚔️ Kho 31 Trang Bị v2.3.0 Trong Trận</button>
           <button onclick="window.UI.openModal(null)" class="ml-2 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold">✕ Đóng</button>
         </div>
       </div>
@@ -296,7 +296,7 @@ body {
     <div class="fixed top-3 left-3 z-30 flex items-start gap-3">
       <div class="p-1.5 rounded-2xl bg-slate-950/90 border border-slate-700 shadow-xl">
         <canvas id="minimap-canvas" width="160" height="76" class="rounded-xl block"></canvas>
-        <div class="text-[9px] text-center text-slate-400 mt-0.5 font-semibold">Bản Đồ 3v3 (4 Trụ Ngoài + 1 Trụ Chính)</div>
+        <div class="text-[9px] text-center text-slate-400 mt-0.5 font-semibold">Bản Đồ 5v5 (3 Đường: EXP • Giữa • Vàng)</div>
       </div>
     </div>
 
@@ -443,11 +443,11 @@ body {
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
             <button onclick="window.UI.setInGameShopCategory('PRESET')" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold">⭐ Bộ Trang Bị Mẫu (6 Món)</button>
-            <button onclick="window.UI.setInGameShopCategory('ALL')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold">Tất Cả (30)</button>
+            <button onclick="window.UI.setInGameShopCategory('ALL')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold">Tất Cả (31)</button>
             <button onclick="window.UI.setInGameShopCategory('Physical')" class="px-2.5 py-1 rounded-lg bg-rose-900/60 hover:bg-rose-800 text-rose-300 text-xs font-bold">⚔️ Vật Lý (11)</button>
             <button onclick="window.UI.setInGameShopCategory('Magic')" class="px-2.5 py-1 rounded-lg bg-purple-900/60 hover:bg-purple-800 text-purple-300 text-xs font-bold">🔮 Phép (7)</button>
             <button onclick="window.UI.setInGameShopCategory('Tank')" class="px-2.5 py-1 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 text-emerald-300 text-xs font-bold">🛡️ Thủ (7)</button>
-            <button onclick="window.UI.setInGameShopCategory('Support')" class="px-2.5 py-1 rounded-lg bg-teal-900/60 hover:bg-teal-800 text-teal-300 text-xs font-bold">📿 Phụ Trợ (1)</button>
+            <button onclick="window.UI.setInGameShopCategory('Support')" class="px-2.5 py-1 rounded-lg bg-teal-900/60 hover:bg-teal-800 text-teal-300 text-xs font-bold">📿 Phụ Trợ (2)</button>
             <button onclick="window.UI.setInGameShopCategory('Jungle')" class="px-2.5 py-1 rounded-lg bg-amber-900/60 hover:bg-amber-800 text-amber-300 text-xs font-bold">🏹 Đi Rừng (1)</button>
             <button onclick="window.UI.setInGameShopCategory('Boots')" class="px-2.5 py-1 rounded-lg bg-sky-900/60 hover:bg-sky-800 text-sky-300 text-xs font-bold">👢 Giày (3)</button>
             <button onclick="window.UI.toggleInGameShop()" class="ml-2 px-3 py-1 rounded-lg bg-rose-600 text-white text-xs font-extrabold">✕ Đóng [P]</button>
@@ -479,13 +479,13 @@ body {
     </div>
   </div>
 
-  <script>
+<script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v2.2.0 MASTER GAME DATA (META OVERHAUL)
+// LEGENDS OF ETERNIA 3D - v2.3.0 MASTER GAME DATA (5v5 3-LANE & RESOURCE BALANCE)
 // ============================================================================
 // 14 Heroes (including Miya, Helen, Pain, Nagato, Shisui & Grock), 32 Unique Items, 14 Rank Tiers, Preset Builds
 window.GAME_DATA = {
-  version: "2.2.0",
+  version: "2.3.0",
 
   defaultResources: {
     gold: 12500,
@@ -1175,14 +1175,14 @@ window.GAME_DATA = {
       range: 3.2,
       baseStats: { hp: 3750, mana: 620, ad: 156, ap: 0, armor: 118, mr: 108, moveSpeed: 5.72, atkSpeed: 1.38 },
       passive: {
-        name: "Phi Lôi Thần Ấn & Thần Tốc Thời Không (v2.2.0 Đại Cường Hoá)",
-        desc: "[Nội Tại Mới]: Mỗi lần Minato dịch chuyển (từ Đánh thường có Ấn, Chiêu 1, Chiêu 2 hoặc Chiêu 3) lập tức giảm 0.5s hồi chiêu của Chiêu 1 & Chiêu 2, nhận Khiên Chắn 5% HP tối đa (2s) và hồi 25 Mana! Đánh thường vào mục tiêu có Ấn dịch chuyển ra sau lưng gây thêm 210 (+95% AD) + 6% HP đã mất và giảm thêm 1.5s toàn bộ kỹ năng!"
+        name: "Phi Lôi Thần Ấn & Thần Tốc Thời Không (v2.3.0 Cân Bằng)",
+        desc: "[v2.3.0 Điều Chỉnh]: Mỗi lần Minato dịch chuyển (từ Đánh thường có Ấn, Chiêu 1, Chiêu 2 hoặc Chiêu 3) giảm 0.35s hồi chiêu của Chiêu 1 & Chiêu 2 (giảm từ 0.5s), nhận Khiên Chắn 5% HP tối đa (2s) và hồi 25 Mana! Đánh thường vào mục tiêu có Ấn dịch chuyển ra sau lưng gây thêm 210 (+95% AD) + 6% HP đã mất và giảm thêm 1.5s toàn bộ kỹ năng!"
       },
       skills: [
         {
           key: "Q",
           name: "Phi Lôi Thần Kunai",
-          cd: 5.5,
+          cd: 7.15,
           cdReducePerLevel: 0.25,
           mana: 40,
           range: 13.5,
@@ -1193,12 +1193,12 @@ window.GAME_DATA = {
           adScale: 1.55,
           cc: "mark",
           vfxColor: 0xfacc15,
-          desc: "[v2.2.0 Tăng Sức Mạnh] Phóng thanh Kunai 3 chấu tầm xa 13.5m gây 380 (+155% AD) sát thương vật lý, khắc Ấn Phi Lôi Thần và dịch chuyển tia chớp vàng chém xoay 360° (Kích hoạt nội tại dịch chuyển giảm ngay 0.5s hồi Chiêu 1 & 2! Hồi chiêu: 5.5s)."
+          desc: "[v2.3.0 +30% Hồi Chiêu] Phóng thanh Kunai 3 chấu tầm xa 13.5m gây 380 (+155% AD) sát thương vật lý, khắc Ấn Phi Lôi Thần và dịch chuyển tia chớp vàng chém xoay 360° (Kích hoạt nội tại dịch chuyển giảm 0.35s hồi Chiêu 1 & 2! Hồi chiêu: 7.15s)."
         },
         {
           key: "W",
           name: "Xoáy Rasengan Tốc Biến",
-          cd: 6.5,
+          cd: 8.45,
           cdReducePerLevel: 0.3,
           mana: 50,
           range: 8.0,
@@ -1210,12 +1210,12 @@ window.GAME_DATA = {
           hpPctMissing: 0.12,
           cc: "stun",
           vfxColor: 0x38bdf8,
-          desc: "[v2.2.0 Tăng Sức Mạnh] Dịch chuyển tia chớp 8m nện cầu xoáy Rasengan gây 410 (+165% AD) + 12% HP đã mất, làm choáng 1.1s, tăng +45% tốc chạy 2.5s và kích hoạt nội tại giảm 0.5s hồi Chiêu 1 & 2! (Hồi chiêu: 6.5s)."
+          desc: "[v2.3.0 +30% Hồi Chiêu] Dịch chuyển tia chớp 8m nện cầu xoáy Rasengan gây 410 (+165% AD) + 12% HP đã mất, làm choáng 1.1s, tăng +45% tốc chạy 2.5s và kích hoạt nội tại giảm 0.35s hồi Chiêu 1 & 2! (Hồi chiêu: 8.45s)."
         },
         {
           key: "E",
           name: "Phi Lôi Thần Liên Trảm: Cửu Vĩ Chakra",
-          cd: 19.0,
+          cd: 24.7,
           cdReducePerLevel: 0.7,
           mana: 90,
           range: 10.0,
@@ -1227,7 +1227,7 @@ window.GAME_DATA = {
           hpPctMissing: 0.20,
           cc: "stun",
           vfxColor: 0xfef08a,
-          desc: "[v2.2.0 Tăng Sức Mạnh] Hóa Chakra Cửu Vĩ Hoàng Kim bất khả xâm phạm 1.2s, dịch chuyển liên hoàn chém toàn bộ kẻ địch trong bán kính 10m rồi giáng Đại Ngọc Rasengan gây 780 (+220% AD) + 20% HP đã mất và giảm 0.5s hồi Chiêu 1 & 2! (Hồi chiêu: 19s)."
+          desc: "[v2.3.0 +30% Hồi Chiêu] Hóa Chakra Cửu Vĩ Hoàng Kim bất khả xâm phạm 1.2s, dịch chuyển liên hoàn chém toàn bộ kẻ địch trong bán kính 10m rồi giáng Đại Ngọc Rasengan gây 780 (+220% AD) + 20% HP đã mất và giảm 0.35s hồi Chiêu 1 & 2! (Hồi chiêu: 24.7s)."
         }
       ]
     },
@@ -1782,17 +1782,32 @@ window.GAME_DATA = {
 
     // --- 11–12: NHÁNH PHỤ TRỢ & ĐI RỪNG (SUPPORT & JUNGLE) ---
     {
+      id: "thien_khi",
+      name: "Thiên Khí",
+      category: "Support",
+      tier: 2,
+      cost: 500,
+      icon: "🔮",
+      stats: { hp: 500, moveSpeedPct: 0.06 },
+      supportTankOnly: true,
+      passiveName: "Thiên Khí Hộ Pháp & Giảm 40% Giá Bảo Khí",
+      passiveDesc: "Chỉ Hỗ Trợ / Đỡ Đòn mới được mua (Giá: 500 Vàng). Nội tại Duy Nhất: Giảm 40% giá vàng của Bảo Khí Nhẫn Cụ (từ 1600 còn 960 Vàng; khi mua Bảo Khí Nhẫn Cụ sẽ tự động xoá Thiên Khí khỏi ô đã mua). Trước phút thứ 5 (300s), tách khỏi cơ chế nhận vàng thông thường và nhận +10 vàng/1s (hết 5 phút trở về bình thường).",
+      effectKey: "thien_khi_support"
+    },
+    {
       id: "bao_khi_nhan_cu",
       name: "Bảo Khí Nhẫn Cụ",
       category: "Support",
       tier: 3,
-      cost: 1250,
+      cost: 1600,
+      discountedCostWithThienKhi: 960,
+      replacesItemId: "thien_khi",
       icon: "📿",
       stats: { hp: 1200, moveSpeedPct: 0.12 },
       supportTankOnly: true,
       hasActiveSkill: true,
       passiveName: "Nhẫn Cụ Hộ Vệ & Dây Sinh Mệnh [Phím 4]",
-      passiveDesc: "Chỉ Hỗ Trợ / Đỡ Đòn mới được mua. Nội tại Duy Nhất: Trước phút thứ 3 (180s), tách khỏi cơ chế chia vàng lính và nhận +10 vàng/1s (sau 3 phút trở lại bình thường). Chủ Động [Chiêu 4]: Nối dây vào đồng đội gần nhất có %HP thấp nhất trong 8m suốt 5s, hồi 8% HP bản thân/1s cho đồng đội và bản thân (vượt quá 8m dây tự ngắt, hồi chiêu: 25s).",
+      passiveDesc: "Chỉ Hỗ Trợ / Đỡ Đòn mới được mua (Giá: 1600 Vàng, giảm 40% còn 960 Vàng nếu đang có Thiên Khí và tự động thay thế ô Thiên Khí). Nội tại Duy Nhất: Trước phút thứ 5 (300s), tách khỏi cơ chế nhận vàng thông thường và nhận +13 vàng/1s (hết 5 phút trở về bình thường). Chủ Động [Chiêu 4]: Nối dây vào đồng đội gần nhất có %HP thấp nhất trong 8m suốt 5s, hồi 8% HP bản thân/1s cho đồng đội và bản thân (vượt quá 8m dây tự ngắt, hồi chiêu: 25s).",
       effectKey: "bao_khi_support"
     },
     {
@@ -2187,10 +2202,10 @@ window.GAME_DATA = {
   }
 };
 
-  </script>
-  <script>
+</script>
+<script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - v2.2.0 THREE.JS ISOMETRIC ENGINE (META OVERHAUL)
+// LEGENDS OF ETERNIA 3D - v2.3.0 THREE.JS ISOMETRIC ENGINE (5V5 3-LANE & RESOURCE BALANCE)
 // ============================================================================
 
 class SoundManager {
@@ -4340,7 +4355,7 @@ class MobaArena3D {
     this.running = false;
     this.paused = false;
     this.matchTime = 0;
-    this.waveTimer = 15.0; // v1.6.0: Trận đấu bắt đầu 15s mới xuất hiện đợt lính đầu
+    this.waveTimer = 10.0; // v2.3.0: Trận đấu bắt đầu từ giây thứ 10 (thay vì 15s) xuất hiện đợt lính đầu!
     this.waveCount = 0;
     this.goldTickTimer = 0;
     this.attackPriorityMode = "HERO"; // "HERO" | "MINION_MONSTER" (phím H) | "TOWER" (phím T)
@@ -4466,7 +4481,7 @@ class MobaArena3D {
         this.aimCursor.position.set(
           Math.max(-68, Math.min(68, hit.x)),
           0.08,
-          Math.max(-28, Math.min(28, hit.z))
+          Math.max(-42, Math.min(42, hit.z))
         );
       }
     }
@@ -4478,31 +4493,50 @@ class MobaArena3D {
     }
     if (this.floatContainer) this.floatContainer.innerHTML = "";
 
-    const groundGeo = new THREE.BoxGeometry(156, 1.5, 64);
+    // v2.3.0: Mở rộng bản đồ 5v5 với 3 đường: Đường EXP (z = -26), Đường Giữa (z = 0), Đường Vàng (z = +26)
+    const groundGeo = new THREE.BoxGeometry(156, 1.5, 96);
     const groundMat = new THREE.MeshStandardMaterial({ color: 0x143326, roughness: 0.85 });
     const ground = new THREE.Mesh(groundGeo, groundMat);
     ground.position.y = -0.75;
     ground.receiveShadow = true;
     this.worldGroup.add(ground);
 
-    const laneGeo = new THREE.PlaneGeometry(144, 14);
-    laneGeo.rotateX(-Math.PI / 2);
-    const laneMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.7 });
-    const lane = new THREE.Mesh(laneGeo, laneMat);
-    lane.position.y = 0.02;
-    lane.receiveShadow = true;
-    this.worldGroup.add(lane);
+    const buildLaneRoad = (zPos, laneWidth, roadColor, borderColor) => {
+      const lGeo = new THREE.PlaneGeometry(132, laneWidth);
+      lGeo.rotateX(-Math.PI / 2);
+      const lMat = new THREE.MeshStandardMaterial({ color: roadColor, roughness: 0.7 });
+      const lMesh = new THREE.Mesh(lGeo, lMat);
+      lMesh.position.set(0, 0.02, zPos);
+      lMesh.receiveShadow = true;
+      this.worldGroup.add(lMesh);
 
-    const borderGeo = new THREE.BoxGeometry(142, 0.25, 0.45);
-    const borderMat = new THREE.MeshBasicMaterial({ color: 0x64748b });
-    const bTop = new THREE.Mesh(borderGeo, borderMat);
-    bTop.position.set(0, 0.12, -7.1);
-    const bBot = new THREE.Mesh(borderGeo, borderMat);
-    bBot.position.set(0, 0.12, 7.1);
-    this.worldGroup.add(bTop, bBot);
+      const bGeo = new THREE.BoxGeometry(128, 0.22, 0.35);
+      const bMat = new THREE.MeshBasicMaterial({ color: borderColor });
+      const b1 = new THREE.Mesh(bGeo, bMat);
+      b1.position.set(0, 0.11, zPos - laneWidth * 0.5);
+      const b2 = new THREE.Mesh(bGeo, bMat);
+      b2.position.set(0, 0.11, zPos + laneWidth * 0.5);
+      this.worldGroup.add(b1, b2);
+    };
+
+    // 1. Đường EXP (Top Lane: z = -26, sắc tím-lam): Lính +30% EXP
+    buildLaneRoad(-26, 9.5, 0x312e81, 0x818cf8);
+    // 2. Đường Giữa (Mid Lane: z = 0, sắc xám đá): Đường cân bằng EXP = Vàng
+    buildLaneRoad(0, 11.0, 0x334155, 0x64748b);
+    // 3. Đường Vàng (Bot Lane: z = +26, sắc hoàng kim): Lính +30% Vàng
+    buildLaneRoad(26, 9.5, 0x451a03, 0xfacc15);
+
+    // Đường nối từ Căn Cứ (Base ±58) ra Đường EXP và Đường Vàng
+    [-54, 54].forEach((bx) => {
+      const connGeo = new THREE.PlaneGeometry(10, 56);
+      connGeo.rotateX(-Math.PI / 2);
+      const connMesh = new THREE.Mesh(connGeo, new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.75 }));
+      connMesh.position.set(bx, 0.015, 0);
+      this.worldGroup.add(connMesh);
+    });
 
     const createFountain = (x, color) => {
-      const fGeo = new THREE.CylinderGeometry(5.5, 6.0, 0.3, 32);
+      const fGeo = new THREE.CylinderGeometry(6.0, 6.5, 0.3, 32);
       const fMat = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.45 });
       const f = new THREE.Mesh(fGeo, fMat);
       f.position.set(x, 0.15, 0);
@@ -4512,12 +4546,16 @@ class MobaArena3D {
     createFountain(66, 0xef4444);
 
     this.bushes = [
-      { x: -16, z: -8.5, r: 2.8 },
-      { x: 16, z: -8.5, r: 2.8 },
-      { x: -16, z: 8.5, r: 2.8 },
-      { x: 16, z: 8.5, r: 2.8 },
-      { x: 0, z: -13.5, r: 3.2 },
-      { x: 0, z: 13.5, r: 3.2 }
+      { x: -16, z: -7.5, r: 2.6 },
+      { x: 16, z: -7.5, r: 2.6 },
+      { x: -16, z: 7.5, r: 2.6 },
+      { x: 16, z: 7.5, r: 2.6 },
+      { x: 0, z: -13.0, r: 3.0 },
+      { x: 0, z: 13.0, r: 3.0 },
+      { x: -12, z: -20.5, r: 2.6 },
+      { x: 12, z: -20.5, r: 2.6 },
+      { x: -12, z: 20.5, r: 2.6 },
+      { x: 12, z: 20.5, r: 2.6 }
     ];
     const bushMat = new THREE.MeshStandardMaterial({ color: 0x15803d, transparent: true, opacity: 0.75 });
     this.bushes.forEach((b) => {
@@ -4533,24 +4571,36 @@ class MobaArena3D {
     this.aimCursor.position.set(0, 0.08, 0);
     this.worldGroup.add(this.aimCursor);
 
-    // v2.2.0: Tăng sức mạnh hệ thống trụ:
-    // - 4 Trụ Ngoài mỗi bên: đồng loạt 20.000 HP (bắn phát đầu 135 ST vật lý, mỗi phát tiếp theo +40%)
-    // - 1 Trụ Chính mỗi bên: 50.000 HP (bắn phát đầu 175 ST vật lý, mỗi phát tiếp theo +40%, không bị đánh 10s tự hồi 200 HP/1s)
+    // v2.2.0 & v2.3.0: Hệ thống Trụ 3 Đường (Trụ Ngoài 20.000 HP, Trụ Chính 50.000 HP)
     this.structures = [];
-    this.createStructure("blue", "outer_1", "Trụ Ngoài 1 Xanh", -13, 0, 20000, 135, 8.5, 1.25);
-    this.createStructure("blue", "outer_2", "Trụ Ngoài 2 Xanh", -24, 0, 20000, 135, 8.5, 1.32);
-    this.createStructure("blue", "outer_3", "Trụ Ngoài 3 Xanh", -35, 0, 20000, 135, 8.5, 1.40);
-    this.createStructure("blue", "outer_4", "Trụ Ngoài 4 Xanh", -46, 0, 20000, 135, 8.5, 1.48);
-    this.createStructure("blue", "core", "Trụ Chính Xanh", -58, 0, 50000, 175, 9.5, 2.08);
+    // Đường Giữa (Mid Lane: z = 0)
+    this.createStructure("blue", "outer_mid_1", "Trụ Giữa 1 Xanh", -14, 0, 20000, 135, 8.2, 1.22, "mid");
+    this.createStructure("blue", "outer_mid_2", "Trụ Giữa 2 Xanh", -27, 0, 20000, 135, 8.2, 1.30, "mid");
+    this.createStructure("blue", "outer_mid_3", "Trụ Giữa 3 Xanh", -41, 0, 20000, 135, 8.2, 1.38, "mid");
+    // Đường EXP (Top Lane: z = -26)
+    this.createStructure("blue", "outer_exp_1", "Trụ EXP 1 Xanh", -18, -26, 20000, 135, 8.2, 1.25, "exp");
+    this.createStructure("blue", "outer_exp_2", "Trụ EXP 2 Xanh", -38, -26, 20000, 135, 8.2, 1.36, "exp");
+    // Đường Vàng (Bot Lane: z = +26)
+    this.createStructure("blue", "outer_gold_1", "Trụ Vàng 1 Xanh", -18, 26, 20000, 135, 8.2, 1.25, "gold");
+    this.createStructure("blue", "outer_gold_2", "Trụ Vàng 2 Xanh", -38, 26, 20000, 135, 8.2, 1.36, "gold");
+    // Trụ Chính Xanh (Core: 50.000 HP)
+    this.createStructure("blue", "core", "Trụ Chính Xanh", -58, 0, 50000, 175, 9.5, 2.08, "all");
 
-    this.createStructure("red", "outer_1", "Trụ Ngoài 1 Đỏ", 13, 0, 20000, 135, 8.5, 1.25);
-    this.createStructure("red", "outer_2", "Trụ Ngoài 2 Đỏ", 24, 0, 20000, 135, 8.5, 1.32);
-    this.createStructure("red", "outer_3", "Trụ Ngoài 3 Đỏ", 35, 0, 20000, 135, 8.5, 1.40);
-    this.createStructure("red", "outer_4", "Trụ Ngoài 4 Đỏ", 46, 0, 20000, 135, 8.5, 1.48);
-    this.createStructure("red", "core", "Trụ Chính Đỏ", 58, 0, 50000, 175, 9.5, 2.08);
+    // Đường Giữa Đỏ (Mid Lane: z = 0)
+    this.createStructure("red", "outer_mid_1", "Trụ Giữa 1 Đỏ", 14, 0, 20000, 135, 8.2, 1.22, "mid");
+    this.createStructure("red", "outer_mid_2", "Trụ Giữa 2 Đỏ", 27, 0, 20000, 135, 8.2, 1.30, "mid");
+    this.createStructure("red", "outer_mid_3", "Trụ Giữa 3 Đỏ", 41, 0, 20000, 135, 8.2, 1.38, "mid");
+    // Đường EXP Đỏ (Top Lane: z = -26)
+    this.createStructure("red", "outer_exp_1", "Trụ EXP 1 Đỏ", 18, -26, 20000, 135, 8.2, 1.25, "exp");
+    this.createStructure("red", "outer_exp_2", "Trụ EXP 2 Đỏ", 38, -26, 20000, 135, 8.2, 1.36, "exp");
+    // Đường Vàng Đỏ (Bot Lane: z = +26)
+    this.createStructure("red", "outer_gold_1", "Trụ Vàng 1 Đỏ", 18, 26, 20000, 135, 8.2, 1.25, "gold");
+    this.createStructure("red", "outer_gold_2", "Trụ Vàng 2 Đỏ", 38, 26, 20000, 135, 8.2, 1.36, "gold");
+    // Trụ Chính Đỏ (Core: 50.000 HP)
+    this.createStructure("red", "core", "Trụ Chính Đỏ", 58, 0, 50000, 175, 9.5, 2.08, "all");
   }
 
-  createStructure(team, kind, name, x, z, maxHp, ad, range, scale) {
+  createStructure(team, kind, name, x, z, maxHp, ad, range, scale, laneType = "mid") {
     const group = new THREE.Group();
     const color = team === "blue" ? 0x2563eb : 0xdc2626;
     const glow = team === "blue" ? 0x60a5fa : 0xf87171;
@@ -4584,6 +4634,7 @@ class MobaArena3D {
       isStructure: true,
       team,
       kind,
+      laneType,
       name,
       x,
       z,
@@ -4627,7 +4678,7 @@ class MobaArena3D {
     this.running = true;
     this.paused = false;
     this.matchTime = 0;
-    this.waveTimer = 15.0; // v1.6.0: Trận đấu bắt đầu 15s mới bắt đầu xuất hiện đợt lính đầu
+    this.waveTimer = 10.0; // v2.3.0: Trận đấu bắt đầu từ giây thứ 10 xuất hiện đợt lính đầu!
     this.waveCount = 0;
     this.goldTickTimer = 0;
     this.pendingSkillIndex = null;
@@ -4648,40 +4699,80 @@ class MobaArena3D {
     const pHero = allHeroes.find((h) => h.id === playerHeroId) || allHeroes[0];
     const pSkin = window.GAME_DATA.skins.find((s) => s.id === equippedSkinId) || null;
 
-    const remaining = allHeroes.filter((h) => h.id !== pHero.id);
-    const shuffled = remaining.slice().sort(() => Math.random() - 0.5);
-    const blueBots = [shuffled[0], shuffled[1]];
-    const redPool = shuffled.slice(2);
+    // v2.3.0: Đội hình 5v5 (Bạn + 4 Bot Đồng Đội vs 5 Bot Địch) chia chuẩn theo 5 vị trí chiến thuật:
+    // - Đường Vàng (z = +26): Xạ Thủ (Marksman) đi cùng Hỗ Trợ / Đỡ Đòn (Support / Tank — có thể đảo đường Roam khắp bản đồ)
+    // - Đường EXP (z = -26): Đấu Sĩ (Fighter, đôi khi là Sát Thủ)
+    // - Đường Rừng (Jungle): Sát Thủ (Assassin, đôi khi là Đấu Sĩ)
+    // - Đường Giữa (z = 0): Pháp Sư (Mage)
+    // Tùy vào bản thân (Player) chọn vai trò gì, 4 Bot đồng đội sẽ tự động chọn các đường còn lại!
+    const mapRoleToSlot = (roleKey) => {
+      if (roleKey === "Marksman") return { slot: "GOLD_ADC", laneType: "gold", laneZ: 26, label: "Đường Vàng (Xạ Thủ)" };
+      if (roleKey === "Support" || roleKey === "Tank") return { slot: "GOLD_SUP", laneType: "gold", laneZ: 24.2, isRoamer: true, label: "Hỗ Trợ (Đường Vàng & Roam)" };
+      if (roleKey === "Mage") return { slot: "MID_MAGE", laneType: "mid", laneZ: 0, label: "Đường Giữa (Pháp Sư)" };
+      if (roleKey === "Fighter") return { slot: "EXP_FIGHTER", laneType: "exp", laneZ: -26, label: "Đường EXP (Đấu Sĩ)" };
+      return { slot: "JUNGLE_ASSASSIN", laneType: "jungle", laneZ: 0, isJungler: true, label: "Đi Rừng (Sát Thủ)" };
+    };
 
-    // v1.7.0 Chiến thuật: 1 bot ở team bạn (Red) có nhiệm vụ đi farm rừng (thường là Sát Thủ). Team mình (Blue) không có!
-    let redAssassinIdx = redPool.findIndex((h) => h.roleKey === "Assassin");
-    if (redAssassinIdx === -1) {
-      redAssassinIdx = 0;
-    }
-    const redJunglerHero = redPool.splice(redAssassinIdx, 1)[0];
-    const redBots = [redJunglerHero, redPool[0], redPool[1]];
+    const allSlots = [
+      { slot: "GOLD_ADC", preferredRoles: ["Marksman"], laneType: "gold", laneZ: 26, spawnZ: 4.5, tag: "🏹 Đường Vàng" },
+      { slot: "GOLD_SUP", preferredRoles: ["Support", "Tank"], laneType: "gold", laneZ: 24.2, spawnZ: 6.2, isRoamer: true, tag: "🛡️ Hỗ Trợ/Roam" },
+      { slot: "EXP_FIGHTER", preferredRoles: ["Fighter", "Assassin"], laneType: "exp", laneZ: -26, spawnZ: -4.5, tag: "⚔️ Đường EXP" },
+      { slot: "JUNGLE_ASSASSIN", preferredRoles: ["Assassin", "Fighter"], laneType: "jungle", laneZ: 0, spawnZ: -2.2, isJungler: true, tag: "🌲 Đi Rừng" },
+      { slot: "MID_MAGE", preferredRoles: ["Mage"], laneType: "mid", laneZ: 0, spawnZ: 0, tag: "🔮 Đường Giữa" }
+    ];
 
-    // Spawn Heroes near Fountain outside Main Core (±58)
-    this.player = this.spawnHero(pHero, "blue", true, -62, 0, pSkin);
-    const bBot1 = this.spawnHero(blueBots[0], "blue", false, -61, -3.2, null);
-    const bBot2 = this.spawnHero(blueBots[1], "blue", false, -61, 3.2, null);
-    bBot1.isJungler = false;
-    bBot2.isJungler = false;
+    const playerAssign = mapRoleToSlot(pHero.roleKey);
+    const usedIds = new Set([pHero.id]);
+    const pickHeroForRoles = (prefRoles) => {
+      const candidates = allHeroes.filter((h) => !usedIds.has(h.id) && prefRoles.includes(h.roleKey));
+      const pool = candidates.length > 0 ? candidates : allHeroes.filter((h) => !usedIds.has(h.id));
+      const pick = pool[Math.floor(Math.random() * pool.length)] || allHeroes[0];
+      usedIds.add(pick.id);
+      return pick;
+    };
 
-    const rJungler = this.spawnHero(redBots[0], "red", false, 62, 2.5, null);
-    const rBot2 = this.spawnHero(redBots[1], "red", false, 61, -3.2, null);
-    const rBot3 = this.spawnHero(redBots[2], "red", false, 61, 0, null);
+    // Spawn Player
+    this.player = this.spawnHero(pHero, "blue", true, -62, playerAssign.laneZ === 0 ? 0 : (playerAssign.laneZ > 0 ? 3.5 : -3.5), pSkin);
+    this.player.assignedSlot = playerAssign.slot;
+    this.player.assignedLane = playerAssign.laneType;
+    this.player.laneOffsetZ = playerAssign.laneZ;
+    this.player.isJungler = !!playerAssign.isJungler;
+    this.player.isRoamer = !!playerAssign.isRoamer;
 
-    // Only 1 bot on enemy team is Jungler; Blue team has 0 junglers
-    rJungler.isJungler = true;
-    rJungler.name = `${rJungler.heroData.name} (Rừng Địch)`;
-    if (rJungler.hudEl) {
-      const nameSpan = rJungler.hudEl.querySelector(".hud-name");
-      if (nameSpan) nameSpan.textContent = `🌲 ${rJungler.heroData.name} (Rừng)`;
-    }
-    rBot2.isJungler = false;
-    rBot3.isJungler = false;
-    this.redJunglerBot = rJungler;
+    // Spawn 4 Allied Bots filling the remaining 4 tactical positions
+    const blueSlots = allSlots.filter((s) => s.slot !== playerAssign.slot);
+    blueSlots.forEach((sCfg) => {
+      const botHero = pickHeroForRoles(sCfg.preferredRoles);
+      const bUnit = this.spawnHero(botHero, "blue", false, -61, sCfg.spawnZ, null);
+      bUnit.assignedSlot = sCfg.slot;
+      bUnit.assignedLane = sCfg.laneType;
+      bUnit.laneOffsetZ = sCfg.laneZ;
+      bUnit.isJungler = !!sCfg.isJungler;
+      bUnit.isRoamer = !!sCfg.isRoamer;
+      bUnit.name = `${botHero.name} (${sCfg.tag})`;
+      if (bUnit.hudEl) {
+        const nameSpan = bUnit.hudEl.querySelector(".hud-name");
+        if (nameSpan) nameSpan.textContent = `${sCfg.tag.split(" ")[0]} ${botHero.name}`;
+      }
+      if (bUnit.isJungler) this.blueJunglerBot = bUnit;
+    });
+
+    // Spawn 5 Enemy Bots (Red Team) across all 5 tactical positions
+    allSlots.forEach((sCfg) => {
+      const botHero = pickHeroForRoles(sCfg.preferredRoles);
+      const rUnit = this.spawnHero(botHero, "red", false, 61, sCfg.spawnZ, null);
+      rUnit.assignedSlot = sCfg.slot;
+      rUnit.assignedLane = sCfg.laneType;
+      rUnit.laneOffsetZ = sCfg.laneZ;
+      rUnit.isJungler = !!sCfg.isJungler;
+      rUnit.isRoamer = !!sCfg.isRoamer;
+      rUnit.name = `${botHero.name} (${sCfg.tag} Địch)`;
+      if (rUnit.hudEl) {
+        const nameSpan = rUnit.hudEl.querySelector(".hud-name");
+        if (nameSpan) nameSpan.textContent = `${sCfg.tag.split(" ")[0]} ${botHero.name}`;
+      }
+      if (rUnit.isJungler) this.redJunglerBot = rUnit;
+    });
 
     // v1.6.0: Quái rừng xuất hiện đợt đầu ở giây 13; Lính xuất hiện đợt đầu ở giây 15
     this.initJungleCamps();
@@ -5191,9 +5282,42 @@ class MobaArena3D {
       { id: "jg_blue_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: -30, z: 19, baseHp: 2500, baseAd: 72, growthInterval: 45, growthPctPerStage: 0.12, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
       { id: "jg_red_tieu_quai", campType: "tieu_quai", jungleSide: "right", name: "Tiểu Quái", x: 30, z: 19, baseHp: 2500, baseAd: 72, growthInterval: 45, growthPctPerStage: 0.12, gold: 80, exp: 110, color: 0xc084fc, scale: 0.92, timer: 13.0, respawnTime: 60, respawnCount: 0, spawnCount: 0 },
 
+      // v2.3.0 Quái Rừng Mới Mỗi Bên Rừng: Cua Tinh Thạch (2800 HP ban đầu, tăng +14% chỉ số gốc qua mỗi 45s, hồi 75s, 110 vàng + Lá Chắn Tinh Thạch 10% Max HP & hồi 15% Mana)
+      { id: "jg_blue_cua_tinh_thach", campType: "cua_tinh_thach", jungleSide: "river", name: "Cua Tinh Thạch", x: -12, z: 12, baseHp: 2800, baseAd: 82, growthInterval: 45, growthPctPerStage: 0.14, gold: 110, exp: 135, color: 0x2dd4bf, scale: 1.05, timer: 13.0, respawnTime: 75, respawnCount: 0, spawnCount: 0, buffType: "cua_tinh_thach" },
+      { id: "jg_red_cua_tinh_thach", campType: "cua_tinh_thach", jungleSide: "river", name: "Cua Tinh Thạch", x: 12, z: -12, baseHp: 2800, baseAd: 82, growthInterval: 45, growthPctPerStage: 0.14, gold: 110, exp: 135, color: 0x2dd4bf, scale: 1.05, timer: 13.0, respawnTime: 75, respawnCount: 0, spawnCount: 0, buffType: "cua_tinh_thach" },
+
       // Chính giữa Rừng Phải của cả 2 bên: Rồng Kradus (50000 HP, tăng trưởng +20% chỉ số gốc qua mỗi 1p30s = 90s!, tối đa 3 lần, 1000 vàng + Lính tăng 25% ST)
-      { id: "jg_kradus", campType: "kradus", jungleSide: "center_right", name: "Rồng Kradus", x: 0, z: 20, baseHp: 50000, baseAd: 220, growthInterval: 90, growthPctPerStage: 0.20, gold: 1000, exp: 450, color: 0xfacc15, scale: 1.85, timer: 13.0, respawnTime: 90, respawnCount: 0, spawnCount: 0, maxSpawns: 3, isBoss: true, isKradus: true }
+      { id: "jg_kradus", campType: "kradus", jungleSide: "center_right", name: "Rồng Kradus", x: 0, z: 15, baseHp: 50000, baseAd: 220, growthInterval: 90, growthPctPerStage: 0.20, gold: 1000, exp: 450, color: 0xfacc15, scale: 1.85, timer: 13.0, respawnTime: 90, respawnCount: 0, spawnCount: 0, maxSpawns: 3, isBoss: true, isKradus: true }
     ];
+  }
+
+  // v2.3.0 Cân Bằng Tài Nguyên Trong Trận:
+  // Tính trung bình cấp và vàng của toàn bộ nhân vật trong trận.
+  // Nếu cá thể vượt trội hơn mức trung bình nhiều lần thì giảm hệ số nhận vàng từ lính, rừng và kill!
+  getHeroGoldBalanceMultiplier(hero) {
+    if (!hero || !hero.isHero) return 1.0;
+    const allHeroes = this.units.filter((u) => u.isHero);
+    if (allHeroes.length <= 1) return 1.0;
+
+    let sumGold = 0;
+    let sumLevel = 0;
+    allHeroes.forEach((h) => {
+      sumGold += (h.gold || 0);
+      sumLevel += (h.level || 1);
+    });
+    const avgGold = Math.max(600, sumGold / allHeroes.length);
+    const avgLevel = sumLevel / allHeroes.length;
+    const goldRatio = (hero.gold || 0) / avgGold;
+    const levelDiff = (hero.level || 1) - avgLevel;
+
+    let mult = 1.0;
+    if (goldRatio >= 1.65 || levelDiff >= 3.5) {
+      mult = 0.45; // Quá vượt trội: chỉ nhận 45% vàng từ Lính, Rừng và Kill
+    } else if (goldRatio >= 1.35 || levelDiff >= 2.0) {
+      mult = 0.70; // Vượt trội: nhận 70% vàng từ Lính, Rừng và Kill
+    }
+    hero.resourceGoldMult = mult;
+    return mult;
   }
 
   getJungleGrowthMultiplier(camp) {
@@ -5319,31 +5443,56 @@ class MobaArena3D {
   // - 4 Lính Xạ Thủ (tầm xa, 100 vàng/lính, 55 EXP)
   // - 1 Lính Quái Vật (tầm xa, 200 vàng/lính, HP cao, 95 EXP)
   // Base stats increase by +5% per wave (e.g., Wave 1 = +5%, Wave 2 = +10%, Wave 3 = +15%).
-  spawnMinionWave(customBlueX = -51, customRedX = 51) {
+  // v2.3.0 LÍNH MỚI THEO 3 ĐƯỜNG (Đường EXP z = -26, Đường Giữa z = 0, Đường Vàng z = +26):
+  // - Xuất hiện từ giây thứ 10, mỗi 25s lên 1 đợt lính; chỉ số tăng trưởng mỗi đợt +40% chỉ số gốc như cũ.
+  // - Đường Giữa (Mid):
+  //   + Trước 3p (< 180s): 4 Lính Xạ Thủ / đợt (HP 2000, 30 vàng, 45 EXP)
+  //   + Sau 3p (>= 180s): 1 Lính Đấu Sĩ (HP 2500, 30 vàng, 45 EXP) + 1 Lính Xạ Thủ (HP 1500, 40 vàng, 60 EXP) + 1 Lính Quái Vật (HP 4000, 60 vàng, 95 EXP)
+  // - Đường EXP (Top, z = -26, EXP cao hơn +30%):
+  //   + 1 Lính Đấu Sĩ (HP 2500, 32 vàng, 59 EXP = 45 * 1.3) + 1 Lính Xạ Thủ (HP 1500, 39 vàng, 78 EXP = 60 * 1.3) + 1 Lính Quái Vật (HP 4000, 59 vàng, 124 EXP = 95 * 1.3)
+  // - Đường Vàng (Bot, z = +26, Vàng cao hơn +30%):
+  //   + 1 Lính Đấu Sĩ (HP 2500, base 30 -> 39 vàng = 30 * 1.3, 45 EXP) + 1 Lính Xạ Thủ (HP 1500, base 40 -> 52 vàng = 40 * 1.3, 60 EXP) + 1 Lính Quái Vật (HP 4000, base 60 -> 78 vàng = 60 * 1.3, 95 EXP)
+  spawnMinionWave(customBlueX = -49, customRedX = 49) {
     this.waveCount++;
-    // v2.0.0: Đợt lính đầu (wave 1) có chỉ số gốc chuẩn; mỗi đợt tiếp theo chỉ số tăng 40% lên chỉ số gốc!
     const waveMult = Number((1 + (this.waveCount - 1) * 0.40).toFixed(4));
+    const isBefore3Min = (this.matchTime || 0) < 180.0;
 
-    const waveTemplate = [
-      // 3 Lính Đấu Sĩ (tầm gần, 80 vàng/1 lính, cho ít exp nhất, Đợt 1: HP 2000, mg 80, giáp + kháng phép 50)
-      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 2000, baseAd: 80, baseArmor: 50, baseMr: 50, range: 2.6, gold: 80, exp: 40, scale: 0.68, laneZ: -2.4, rowOffset: 0 },
-      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 2000, baseAd: 80, baseArmor: 50, baseMr: 50, range: 2.6, gold: 80, exp: 40, scale: 0.68, laneZ: 0.0, rowOffset: 0 },
-      { kind: "Lính Đấu Sĩ", minionType: "fighter", baseHp: 2000, baseAd: 80, baseArmor: 50, baseMr: 50, range: 2.6, gold: 80, exp: 40, scale: 0.68, laneZ: 2.4, rowOffset: 0 },
-      // 4 Lính Xạ Thủ (tầm xa, 100 vàng/lính, Đợt 1: HP 1500, mg 95, giáp + kháng phép 30)
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: -2.7, rowOffset: 1.8 },
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: -0.9, rowOffset: 1.8 },
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: 0.9, rowOffset: 1.8 },
-      { kind: "Lính Xạ Thủ", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 100, exp: 65, scale: 0.56, laneZ: 2.7, rowOffset: 1.8 },
-      // 1 Lính Quái Vật (tầm xa, 200 vàng/lính, HP cao, Đợt 1: HP 4000, mg 110, giáp + kháng phép 70)
-      { kind: "Lính Quái Vật", minionType: "monster", baseHp: 4000, baseAd: 110, baseArmor: 70, baseMr: 70, range: 7.2, gold: 200, exp: 110, scale: 0.98, laneZ: 0.0, rowOffset: 3.6 }
+    // 1. Đường Giữa (Mid Lane: z = 0)
+    const midWave = isBefore3Min
+      ? [
+          { kind: "Lính Xạ Thủ (Giữa)", laneType: "mid", minionType: "archer", baseHp: 2000, baseAd: 90, baseArmor: 30, baseMr: 30, range: 6.2, gold: 30, exp: 45, scale: 0.58, laneZ: -2.1, rowOffset: 0 },
+          { kind: "Lính Xạ Thủ (Giữa)", laneType: "mid", minionType: "archer", baseHp: 2000, baseAd: 90, baseArmor: 30, baseMr: 30, range: 6.2, gold: 30, exp: 45, scale: 0.58, laneZ: -0.7, rowOffset: 1.2 },
+          { kind: "Lính Xạ Thủ (Giữa)", laneType: "mid", minionType: "archer", baseHp: 2000, baseAd: 90, baseArmor: 30, baseMr: 30, range: 6.2, gold: 30, exp: 45, scale: 0.58, laneZ: 0.7, rowOffset: 1.2 },
+          { kind: "Lính Xạ Thủ (Giữa)", laneType: "mid", minionType: "archer", baseHp: 2000, baseAd: 90, baseArmor: 30, baseMr: 30, range: 6.2, gold: 30, exp: 45, scale: 0.58, laneZ: 2.1, rowOffset: 2.4 }
+        ]
+      : [
+          { kind: "Lính Đấu Sĩ (Giữa)", laneType: "mid", minionType: "fighter", baseHp: 2500, baseAd: 85, baseArmor: 50, baseMr: 50, range: 2.6, gold: 30, exp: 45, scale: 0.68, laneZ: 0.0, rowOffset: 0 },
+          { kind: "Lính Xạ Thủ (Giữa)", laneType: "mid", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 40, exp: 60, scale: 0.56, laneZ: -1.2, rowOffset: 1.8 },
+          { kind: "Lính Quái Vật (Giữa)", laneType: "mid", minionType: "monster", baseHp: 4000, baseAd: 110, baseArmor: 70, baseMr: 70, range: 7.2, gold: 60, exp: 95, scale: 0.96, laneZ: 1.2, rowOffset: 3.4 }
+        ];
+
+    // 2. Đường EXP (Top Lane: z = -26, EXP +30%)
+    const expWave = [
+      { kind: "Lính Đấu Sĩ (EXP)", laneType: "exp", minionType: "fighter", baseHp: 2500, baseAd: 85, baseArmor: 50, baseMr: 50, range: 2.6, gold: 32, exp: Math.round(45 * 1.30), scale: 0.68, laneZ: -26.0, rowOffset: 0 },
+      { kind: "Lính Xạ Thủ (EXP)", laneType: "exp", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, gold: 39, exp: Math.round(60 * 1.30), scale: 0.56, laneZ: -27.2, rowOffset: 1.8 },
+      { kind: "Lính Quái Vật (EXP)", laneType: "exp", minionType: "monster", baseHp: 4000, baseAd: 110, baseArmor: 70, baseMr: 70, range: 7.2, gold: 59, exp: Math.round(95 * 1.30), scale: 0.96, laneZ: -24.8, rowOffset: 3.4 }
     ];
+
+    // 3. Đường Vàng (Bot Lane: z = +26, Vàng +30%)
+    const goldWave = [
+      { kind: "Lính Đấu Sĩ (Vàng)", laneType: "gold", minionType: "fighter", baseHp: 2500, baseAd: 85, baseArmor: 50, baseMr: 50, range: 2.6, baseGold: 30, gold: Math.round(30 * 1.30), exp: 45, scale: 0.68, laneZ: 26.0, rowOffset: 0 },
+      { kind: "Lính Xạ Thủ (Vàng)", laneType: "gold", minionType: "archer", baseHp: 1500, baseAd: 95, baseArmor: 30, baseMr: 30, range: 6.2, baseGold: 40, gold: Math.round(40 * 1.30), exp: 60, scale: 0.56, laneZ: 24.8, rowOffset: 1.8 },
+      { kind: "Lính Quái Vật (Vàng)", laneType: "gold", minionType: "monster", baseHp: 4000, baseAd: 110, baseArmor: 70, baseMr: 70, range: 7.2, baseGold: 60, gold: Math.round(60 * 1.30), exp: 95, scale: 0.96, laneZ: 27.2, rowOffset: 3.4 }
+    ];
+
+    const allLaneTemplates = [...midWave, ...expWave, ...goldWave];
 
     ["blue", "red"].forEach((team) => {
       const baseX = team === "blue" ? customBlueX : customRedX;
       const dir = team === "blue" ? 1 : -1;
       const hasKradusBuff = !!(this.kradusMinionBuff && this.kradusMinionBuff[team]);
 
-      waveTemplate.forEach((t, idx) => {
+      allLaneTemplates.forEach((t, idx) => {
         const group = new THREE.Group();
         const col = t.minionType === "monster"
           ? (team === "blue" ? 0x2563eb : 0xdc2626)
@@ -5376,8 +5525,9 @@ class MobaArena3D {
         const finalAd = hasKradusBuff ? Math.round(baseScaledAd * 1.25) : baseScaledAd;
 
         const minion = {
-          id: `minion_${team}_${this.waveCount}_${idx}_${Math.random().toString(36).slice(2, 5)}`,
+          id: `minion_${team}_${t.laneType}_${this.waveCount}_${idx}_${Math.random().toString(36).slice(2, 5)}`,
           isMinion: true,
+          laneType: t.laneType,
           minionType: t.minionType,
           waveNumber: this.waveCount,
           waveStatMult: waveMult,
@@ -5405,6 +5555,7 @@ class MobaArena3D {
           stunTimer: 0,
           slowTimer: 0,
           slowPct: 0.35,
+          baseGoldReward: t.baseGold || t.gold,
           goldReward: t.gold,
           expReward: t.exp,
           dead: false,
@@ -6009,7 +6160,7 @@ class MobaArena3D {
         targetPos = new THREE.Vector3(
           Math.max(-64, Math.min(64, caster.x + Math.sin(ang) * cDist)),
           0,
-          Math.max(-25, Math.min(25, caster.z + Math.cos(ang) * cDist))
+          Math.max(-40, Math.min(40, caster.z + Math.cos(ang) * cDist))
         );
       }
     } else {
@@ -6051,7 +6202,7 @@ class MobaArena3D {
     ];
     offsets.forEach((off, idx) => {
       const sx = Math.max(-62, Math.min(62, caster.x + off.dx));
-      const sz = Math.max(-24, Math.min(24, caster.z + off.dz));
+      const sz = Math.max(-40, Math.min(40, caster.z + off.dz));
       const mesh = createHeroMesh(caster.heroData, caster.team, caster.skinData);
       mesh.scale.set(0.88, 0.88, 0.88);
       mesh.position.set(sx, 0, sz);
@@ -6725,7 +6876,7 @@ class MobaArena3D {
     const dmgType = (skill.apScale || 0) >= (skill.adScale || 0) ? "magic" : "physical";
     const clampDist = Math.min(dist, skill.range);
     const aimX = Math.max(-64, Math.min(64, caster.x + dirX * clampDist));
-    const aimZ = Math.max(-25, Math.min(25, caster.z + dirZ * clampDist));
+    const aimZ = Math.max(-40, Math.min(40, caster.z + dirZ * clampDist));
 
     const isSeraphSkin = caster.skinData && caster.skinData.specialVfx === "seraph";
     const isFairyMiya = caster.skinData && caster.skinData.specialVfx === "forest_fairy";
@@ -6757,7 +6908,7 @@ class MobaArena3D {
         const hadChienThan = !!(victim.chienThanMarkTimer > 0 || victim.chienThanMark);
         this.spawnVfxRing(caster.x, caster.z, 2.4, 0xef4444, 0.45);
         caster.x = Math.max(-65, Math.min(65, victim.x));
-        caster.z = Math.max(-26, Math.min(26, victim.z));
+        caster.z = Math.max(-40, Math.min(40, victim.z));
         if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
 
         this.spawnVfxRing(victim.x, victim.z, 3.6, 0x10b981, 0.65);
@@ -6896,7 +7047,7 @@ class MobaArena3D {
       // Kỹ năng 3: Triệu hồi Susanoo dạng hoàn chỉnh (Hình 3) có tốc đánh là 400%, liên tục bắn cung vào mục tiêu địch.
       // HP là 40.000 (tăng 10% HP mỗi cấp nhân vật)
       const sx = Math.max(-62, Math.min(62, caster.x + dirX * 2.6));
-      const sz = Math.max(-24, Math.min(24, caster.z + dirZ * 2.6));
+      const sz = Math.max(-40, Math.min(40, caster.z + dirZ * 2.6));
       const nearTarget = this.findBestTarget(caster, 14.0);
 
       this.spawnVfxRing(sx, sz, 4.8, 0xc084fc, 0.95);
@@ -6920,9 +7071,9 @@ class MobaArena3D {
       // Chiêu 1 mới: Lướt điện quang 2 nhịp liên tiếp (4.5m/nhịp, tổng 9m), hất tung 0.5s ở nhịp 2 và khắc 2 tầng Lôi Ấn
       const stepDist = Math.min(dist, 9.0);
       const midX = Math.max(-64, Math.min(64, caster.x + dirX * (stepDist * 0.5)));
-      const midZ = Math.max(-25, Math.min(25, caster.z + dirZ * (stepDist * 0.5)));
+      const midZ = Math.max(-40, Math.min(40, caster.z + dirZ * (stepDist * 0.5)));
       const endX = Math.max(-64, Math.min(64, caster.x + dirX * stepDist));
-      const endZ = Math.max(-25, Math.min(25, caster.z + dirZ * stepDist));
+      const endZ = Math.max(-40, Math.min(40, caster.z + dirZ * stepDist));
 
       this.spawnVfxRing(caster.x, caster.z, 2.2, 0x06b6d4, 0.45);
       this.spawnVfxRing(midX, midZ, 2.6, 0x38bdf8, 0.55);
@@ -7208,7 +7359,7 @@ class MobaArena3D {
           } else {
             const pushAng = Math.atan2(u.x - caster.x, u.z - caster.z);
             u.x = Math.max(-64, Math.min(64, u.x + Math.sin(pushAng) * 3.5));
-            u.z = Math.max(-25, Math.min(25, u.z + Math.cos(pushAng) * 3.5));
+            u.z = Math.max(-40, Math.min(40, u.z + Math.cos(pushAng) * 3.5));
             if (u.mesh) u.mesh.position.set(u.x, 0, u.z);
             this.applyDamage(caster, u, rawDmg, "magic", true);
             this.applyCrowdControl(caster, u, "stun");
@@ -7264,7 +7415,7 @@ class MobaArena3D {
       if (nearVictim) {
         const vRot = nearVictim.mesh ? nearVictim.mesh.rotation.y : 0;
         caster.x = Math.max(-64, Math.min(64, nearVictim.x - Math.sin(vRot) * 1.35));
-        caster.z = Math.max(-25, Math.min(25, nearVictim.z - Math.cos(vRot) * 1.35));
+        caster.z = Math.max(-40, Math.min(40, nearVictim.z - Math.cos(vRot) * 1.35));
       } else {
         caster.x = aimX;
         caster.z = aimZ;
@@ -7702,7 +7853,7 @@ class MobaArena3D {
 
         // Kéo mục tiêu trên đường bay 15m lại sát Obito
         chainVictim.x = Math.max(-64, Math.min(64, caster.x + Math.sin(pullAng) * 1.85));
-        chainVictim.z = Math.max(-25, Math.min(25, caster.z + Math.cos(pullAng) * 1.85));
+        chainVictim.z = Math.max(-40, Math.min(40, caster.z + Math.cos(pullAng) * 1.85));
         if (chainVictim.mesh) chainVictim.mesh.position.set(chainVictim.x, 0, chainVictim.z);
 
         // Triệu hồi Trường Xích Lục Đạo + Siêu Hắc Bổng đâm xuyên mục tiêu!
@@ -7832,11 +7983,11 @@ class MobaArena3D {
           if (isPainForm2) {
             // Cường hoá Dạng 2: Đẩy ra 10m và nhận ST kèm 8% HP tối đa của mục tiêu đó
             u.x = Math.max(-64, Math.min(64, u.x + Math.sin(pushAngle) * 10.0));
-            u.z = Math.max(-25, Math.min(25, u.z + Math.cos(pushAngle) * 10.0));
+            u.z = Math.max(-40, Math.min(40, u.z + Math.cos(pushAngle) * 10.0));
           } else {
             // Dạng 1: Đẩy ra rìa bán kính 10m
             u.x = Math.max(-64, Math.min(64, caster.x + Math.sin(pushAngle) * 10.0));
-            u.z = Math.max(-25, Math.min(25, caster.z + Math.cos(pushAngle) * 10.0));
+            u.z = Math.max(-40, Math.min(40, caster.z + Math.cos(pushAngle) * 10.0));
           }
           if (u.mesh) u.mesh.position.set(u.x, 0, u.z);
           const totalShinraDmg = rawDmg + (isPainForm2 ? u.maxHp * 0.08 : 0);
@@ -7871,7 +8022,7 @@ class MobaArena3D {
         const pullAng = Math.atan2(victim.x - caster.x, victim.z - caster.z);
         caster.mesh.rotation.y = pullAng;
         victim.x = Math.max(-64, Math.min(64, caster.x + Math.sin(pullAng) * 1.85));
-        victim.z = Math.max(-25, Math.min(25, caster.z + Math.cos(pullAng) * 1.85));
+        victim.z = Math.max(-40, Math.min(40, caster.z + Math.cos(pullAng) * 1.85));
         if (victim.mesh) victim.mesh.position.set(victim.x, 0, victim.z);
 
         this.spawnBlackChakraRodStabVfx(victim.x, victim.z, isPainForm2);
@@ -8003,7 +8154,7 @@ class MobaArena3D {
 
       this.spawnVfxRing(caster.x, caster.z, 2.2, 0xc084fc, 0.45);
       caster.x = Math.max(-64, Math.min(64, destX));
-      caster.z = Math.max(-25, Math.min(25, destZ));
+      caster.z = Math.max(-40, Math.min(40, destZ));
       if (caster.mesh) caster.mesh.position.set(caster.x, 0, caster.z);
 
       this.spawnVfxRing(caster.x, caster.z, 4.5, 0xf97316, 0.85);
@@ -8341,12 +8492,12 @@ class MobaArena3D {
     return hitCount;
   }
 
-  // v2.2.0 Minato Namikaze New Passive Helper: Mỗi lần dịch chuyển giảm 0.5s hồi Chiêu 1 & Chiêu 2, nhận Khiên 5% Max HP (2s) và hồi 25 Mana!
+  // v2.3.0 Minato Namikaze Passive Helper: Mỗi lần dịch chuyển giảm 0.35s hồi Chiêu 1 & Chiêu 2 (giảm từ 0.5s), nhận Khiên 5% Max HP (2s) và hồi 25 Mana!
   triggerMinatoTeleportPassive(minato) {
     if (!minato || !minato.isHero || minato.heroData.id !== "minato") return;
     if (minato.skillCds) {
-      minato.skillCds[0] = Math.max(0, Number(((minato.skillCds[0] || 0) - 0.5).toFixed(2)));
-      minato.skillCds[1] = Math.max(0, Number(((minato.skillCds[1] || 0) - 0.5).toFixed(2)));
+      minato.skillCds[0] = Math.max(0, Number(((minato.skillCds[0] || 0) - 0.35).toFixed(2)));
+      minato.skillCds[1] = Math.max(0, Number(((minato.skillCds[1] || 0) - 0.35).toFixed(2)));
     }
     const tpShield = Math.round(minato.maxHp * 0.05);
     minato.shield = Math.max(minato.shield || 0, tpShield);
@@ -8501,7 +8652,7 @@ class MobaArena3D {
       if (target && !target.isStructure && target.raijinMarkTimer > 0) {
         target.raijinMarkTimer = 0;
         const behindX = Math.max(-64, Math.min(64, target.x + Math.sin(angleY) * 1.4));
-        const behindZ = Math.max(-25, Math.min(25, target.z + Math.cos(angleY) * 1.4));
+        const behindZ = Math.max(-40, Math.min(40, target.z + Math.cos(angleY) * 1.4));
         attacker.x = behindX;
         attacker.z = behindZ;
         if (attacker.mesh) attacker.mesh.position.set(attacker.x, 0, attacker.z);
@@ -8536,7 +8687,7 @@ class MobaArena3D {
         attacker.vexisStealthTimer = 0;
         const tRot = target.mesh ? (target.mesh.rotation.y || 0) : angleY;
         attacker.x = Math.max(-64, Math.min(64, target.x - Math.sin(tRot) * 1.3));
-        attacker.z = Math.max(-25, Math.min(25, target.z - Math.cos(tRot) * 1.3));
+        attacker.z = Math.max(-40, Math.min(40, target.z - Math.cos(tRot) * 1.3));
         if (attacker.mesh) attacker.mesh.position.set(attacker.x, 0, attacker.z);
         this.recalcHeroStats(attacker);
       }
@@ -9228,14 +9379,16 @@ class MobaArena3D {
 
       if (killer && killer.isHero && killer.team !== victim.team) {
         killer.kills++;
-        killer.gold += 220;
+        const goldBalMult = this.getHeroGoldBalanceMultiplier(killer);
+        const killGold = Math.round(220 * goldBalMult);
+        killer.gold += killGold;
         this.giveHeroExp(killer, 240);
 
-        // Multi-kill & First Blood tracking (v2.0.0)
+        // Multi-kill & First Blood tracking (v2.0.0 & v2.3.0 Resource Balance)
         const isFirstBlood = !this.firstBloodClaimed;
         if (isFirstBlood) {
           this.firstBloodClaimed = true;
-          killer.gold += 100; // Bonus First Blood gold
+          killer.gold += Math.round(100 * goldBalMult); // Bonus First Blood gold scaled by balance mult
         }
         if (killer.multiKillTimer > 0) {
           killer.killStreakCount = (killer.killStreakCount || 1) + 1;
@@ -9304,17 +9457,14 @@ class MobaArena3D {
       const goldR = victim.goldReward || 80;
       const expR = victim.expReward || 55;
 
-      // v2.0.0: Chia sẻ EXP và Vàng của Lính cho đồng đội ở gần trong phạm vi 20m:
-      // + Người kết liễu được lính nhận 60% EXP và Vàng, người ở gần trong 20m nhận 40% (nếu 2 người ở gần thì mỗi người 20%).
-      // + Lưu ý Nội tại Bảo Khí Nhẫn Cụ: Trước phút thứ 3 (matchTime < 180s), người sở hữu Bảo Khí Nhẫn Cụ tách khỏi cơ chế chia vàng của lính!
+      // v2.3.0: Chia sẻ EXP và Vàng của Lính cho đồng đội ở gần trong phạm vi 20m + Cân bằng tài nguyên (getHeroGoldBalanceMultiplier):
+      // + Trước phút thứ 5 (matchTime < 300s), người sở hữu Thiên Khí hoặc Bảo Khí Nhẫn Cụ tách khỏi cơ chế nhận vàng thông thường!
+      const isSeparatedFromGold = (h) => (this.matchTime < 300.0 && h.itemEffects && (h.itemEffects.has("thien_khi_support") || h.itemEffects.has("bao_khi_support")));
       if (victim.isMinion && killer && killer.isHero) {
         const nearbyAllies20m = this.units.filter(
           (h) => h.isHero && !h.dead && h.team === killer.team && h.id !== killer.id && Math.hypot(h.x - victim.x, h.z - victim.z) <= 20.0
         );
-        // Filter allies eligible for gold share (exclude Bảo Khí Nhẫn Cụ holders before 180s)
-        const goldEligibleAllies = nearbyAllies20m.filter(
-          (h) => !(this.matchTime < 180.0 && h.itemEffects && h.itemEffects.has("bao_khi_support"))
-        );
+        const goldEligibleAllies = nearbyAllies20m.filter((h) => !isSeparatedFromGold(h));
 
         // EXP Share (60% killer / 40% split among nearby allies within 20m)
         if (nearbyAllies20m.length === 0) {
@@ -9326,25 +9476,25 @@ class MobaArena3D {
           nearbyAllies20m.forEach((ally) => this.giveHeroExp(ally, allyExpEach));
         }
 
-        // Gold Share (60% killer / 40% split among gold-eligible allies within 20m)
-        const killerPre3BaoKhi = (this.matchTime < 180.0 && killer.itemEffects && killer.itemEffects.has("bao_khi_support"));
+        // Gold Share (60% killer / 40% split among gold-eligible allies within 20m, scaled by Anti-Snowball Balance Multiplier!)
+        const killerPre5Support = isSeparatedFromGold(killer);
+        const killerBalMult = this.getHeroGoldBalanceMultiplier(killer);
         if (goldEligibleAllies.length === 0) {
-          if (!killerPre3BaoKhi) {
-            killer.gold += goldR;
+          if (!killerPre5Support) {
+            const adjGold = Math.max(1, Math.round(goldR * killerBalMult));
+            killer.gold += adjGold;
             if (killer.isPlayer) {
               window.SFX.play("gold");
-              this.spawnFloatingText(victim.x, victim.z, `+${goldR} Vàng`, "text-yellow-300");
+              this.spawnFloatingText(victim.x, victim.z, `+${adjGold} Vàng`, "text-yellow-300");
             }
-          } else {
-            // Killer has Bảo Khí Nhẫn Cụ before 3m and no ally nearby -> still grant last-hit gold if solo, or if ally nearby give 100% to ally
-            killer.gold += goldR;
           }
         } else {
-          const killerGold = killerPre3BaoKhi ? 0 : Math.round(goldR * 0.60);
-          const remainingGoldPct = killerPre3BaoKhi ? 1.0 : 0.40;
-          const allyGoldEach = Math.round((goldR * remainingGoldPct) / goldEligibleAllies.length);
+          const killerGold = killerPre5Support ? 0 : Math.max(1, Math.round(goldR * 0.60 * killerBalMult));
+          const remainingGoldPct = killerPre5Support ? 1.0 : 0.40;
           killer.gold += killerGold;
           goldEligibleAllies.forEach((ally) => {
+            const allyBalMult = this.getHeroGoldBalanceMultiplier(ally);
+            const allyGoldEach = Math.max(1, Math.round(((goldR * remainingGoldPct) / goldEligibleAllies.length) * allyBalMult));
             ally.gold += allyGoldEach;
             if (ally.isPlayer) {
               this.spawnFloatingText(victim.x, victim.z, `+${allyGoldEach} Vàng (Chia sẻ 20m)`, "text-amber-200");
@@ -9356,11 +9506,13 @@ class MobaArena3D {
           }
         }
       } else if (killer && killer.isHero) {
-        // Quái rừng: Nếu có Kiếm Truy Hồn thì nhận thêm +30% vàng từ quái rừng!
+        // Quái rừng: Nếu có Kiếm Truy Hồn thì nhận thêm +30% vàng từ quái rừng, áp dụng hệ số Cân Bằng Tài Nguyên!
+        const killerBalMult = this.getHeroGoldBalanceMultiplier(killer);
         let finalMonsterGold = goldR;
         if (victim.isMonster && killer.itemEffects && killer.itemEffects.has("kiem_truy_hon_jg")) {
           finalMonsterGold = Math.round(goldR * 1.30);
         }
+        finalMonsterGold = Math.max(1, Math.round(finalMonsterGold * killerBalMult));
         killer.gold += finalMonsterGold;
         this.giveHeroExp(killer, expR);
         if (victim.isMonster) {
@@ -9381,6 +9533,16 @@ class MobaArena3D {
             this.recalcHeroStats(killer);
             if (killer.isPlayer) {
               this.spawnFloatingText(killer.x, killer.z, "🔵 BÙA THUẬT SĨ (80s: +20% Giảm Hồi Chiêu & +10% Tốc Chạy)!", "text-sky-300");
+            }
+          }
+          // v2.3.0 Cua Tinh Thạch: Nhận Lá Chắn Tinh Thạch 10% HP tối đa (15s) & hồi thêm 15% Mana tối đa!
+          else if (victim.campType === "cua_tinh_thach") {
+            const crabShield = Math.round(killer.maxHp * 0.10);
+            killer.shield = Math.max(killer.shield || 0, crabShield);
+            killer.shieldTimer = Math.max(killer.shieldTimer || 0, 15.0);
+            killer.mana = Math.min(killer.maxMana, killer.mana + Math.round(killer.maxMana * 0.15));
+            if (killer.isPlayer) {
+              this.spawnFloatingText(killer.x, killer.z, `🦀 CUA TINH THẠCH (+${crabShield} Khiên & +15% Mana)!`, "text-teal-300");
             }
           }
           // Rồng Kradus: +1000 Vàng & Lính của đội tiêu diệt có ST cao hơn 25%
@@ -9568,19 +9730,43 @@ class MobaArena3D {
     }
   }
 
+  getEffectiveItemCost(hero, itemObj) {
+    if (!itemObj) return 99999;
+    if (itemObj.id === "bao_khi_nhan_cu" && hero && hero.items && hero.items.some((it) => it.id === "thien_khi")) {
+      return Math.round(itemObj.cost * 0.60); // Giảm 40% giá vàng của Bảo Khí Nhẫn Cụ (1600 -> 960 Vàng)!
+    }
+    return itemObj.cost;
+  }
+
   buyItemForHero(hero, itemId) {
     if (!hero || !hero.isHero) return { ok: false, msg: "Không tìm thấy tướng" };
-    if (hero.items.length >= 6) return { ok: false, msg: "Đã đầy 6 ô trang bị!" };
     const itemObj = window.GAME_DATA.items.find((i) => i.id === itemId);
     if (!itemObj) return { ok: false, msg: "Trang bị không hợp lệ" };
-    // v2.0.0: Bảo Khí Nhẫn Cụ chỉ tướng Hỗ trợ / Đỡ đòn mới được mua!
+    // v2.3.0: Thiên Khí và Bảo Khí Nhẫn Cụ chỉ tướng Hỗ trợ / Đỡ đòn mới được mua!
     if (itemObj.supportTankOnly && hero.heroData && hero.heroData.roleKey !== "Support" && hero.heroData.roleKey !== "Tank") {
-      return { ok: false, msg: "Bảo Khí Nhẫn Cụ chỉ dành riêng cho tướng Hỗ Trợ hoặc Đỡ Đòn!" };
+      return { ok: false, msg: `${itemObj.name} chỉ dành riêng cho tướng Hỗ Trợ hoặc Đỡ Đòn!` };
     }
-    if (hero.gold < itemObj.cost) return { ok: false, msg: `Thiếu ${itemObj.cost - hero.gold} Vàng trong trận!` };
+    if (itemObj.id === "thien_khi" && hero.items.some((it) => it.id === "thien_khi" || it.id === "bao_khi_nhan_cu")) {
+      return { ok: false, msg: "Bạn đã sở hữu Thiên Khí hoặc Bảo Khí Nhẫn Cụ!" };
+    }
 
-    hero.gold -= itemObj.cost;
-    hero.items.push(itemObj);
+    const thienKhiIdx = (itemObj.id === "bao_khi_nhan_cu" && hero.items)
+      ? hero.items.findIndex((it) => it.id === "thien_khi")
+      : -1;
+    if (hero.items.length >= 6 && thienKhiIdx === -1) {
+      return { ok: false, msg: "Đã đầy 6 ô trang bị!" };
+    }
+
+    const effectiveCost = this.getEffectiveItemCost(hero, itemObj);
+    if (hero.gold < effectiveCost) return { ok: false, msg: `Thiếu ${effectiveCost - hero.gold} Vàng trong trận!` };
+
+    hero.gold -= effectiveCost;
+    // Khi mua Bảo Khí Nhẫn Cụ sẽ tự động xoá Thiên Khí khỏi ô đã mua!
+    if (thienKhiIdx !== -1) {
+      hero.items.splice(thienKhiIdx, 1, itemObj);
+    } else {
+      hero.items.push(itemObj);
+    }
     this.recalcHeroStats(hero);
     if (hero.isPlayer) {
       window.SFX.play("gold");
@@ -9622,12 +9808,17 @@ class MobaArena3D {
         }
       }
 
+      // v2.3.0: Bot Hỗ Trợ / Đỡ Đòn ưu tiên mua Thiên Khí (500g) đầu trận trước khi lên Bảo Khí Nhẫn Cụ
+      if (!nextItemId && (bot.heroData.roleKey === "Support" || bot.heroData.roleKey === "Tank") && !bot.items.some((i) => i.id === "thien_khi" || i.id === "bao_khi_nhan_cu")) {
+        nextItemId = "thien_khi";
+      }
       if (!nextItemId && preset && preset.items) {
         nextItemId = preset.items.find((id) => !bot.items.some((owned) => owned.id === id));
       }
       if (nextItemId) {
         const itemObj = window.GAME_DATA.items.find((i) => i.id === nextItemId);
-        if (itemObj && bot.gold >= itemObj.cost) {
+        const effCost = this.getEffectiveItemCost(bot, itemObj);
+        if (itemObj && bot.gold >= effCost) {
           this.buyItemForHero(bot, itemObj.id);
         }
       }
@@ -9717,9 +9908,9 @@ class MobaArena3D {
       }
     }
 
-    // 5a. v1.7.0 CHIẾN THUẬT: 1 Bot Sát Thủ ở Team Bạn (Red) có nhiệm vụ chuyên đi Farm Rừng (Team mình không có!)
-    if (bot.team === "red" && bot.isJungler && (bot.hp / bot.maxHp) > 0.35) {
-      // Only interrupt jungle farming if an enemy hero is right next to the jungler (< 5.8m)
+    // 5a. v2.3.0 CHIẾN THUẬT RỪNG 5v5 & HỖ TRỢ ĐẢO ĐƯỜNG (ROAM):
+    // - Bot Đi Rừng (Sát Thủ / Đấu Sĩ) ở cả 2 đội chuyên đi farm các bãi quái rừng của phe mình
+    if (bot.isJungler && (bot.hp / bot.maxHp) > 0.35) {
       const urgentEnemyHero = this.units.find(
         (u) => u.isHero && !u.dead && u.team !== bot.team && Math.hypot(u.x - bot.x, u.z - bot.z) <= 5.8
       );
@@ -9727,10 +9918,9 @@ class MobaArena3D {
         const aliveMonsters = this.units
           .filter((m) => m.isMonster && !m.dead && (!m.isKradus || bot.level >= 4))
           .sort((a, b) => {
-            // Prefer Red-side jungle camps (x >= 0) first, then nearest camp
-            const aRedSide = a.x >= 0 ? 0 : 25;
-            const bRedSide = b.x >= 0 ? 0 : 25;
-            return (Math.hypot(a.x - bot.x, a.z - bot.z) + aRedSide) - (Math.hypot(b.x - bot.x, b.z - bot.z) + bRedSide);
+            const aOwnSide = (bot.team === "blue" ? a.x <= 0 : a.x >= 0) ? 0 : 25;
+            const bOwnSide = (bot.team === "blue" ? b.x <= 0 : b.x >= 0) ? 0 : 25;
+            return (Math.hypot(a.x - bot.x, a.z - bot.z) + aOwnSide) - (Math.hypot(b.x - bot.x, b.z - bot.z) + bOwnSide);
           });
 
         if (aliveMonsters.length > 0) {
@@ -9750,10 +9940,20 @@ class MobaArena3D {
           }
           return;
         } else if (this.matchTime < 13.5) {
-          // Before 13s first jungle spawn, Red Jungler Bot heads straight to Red Lực Sĩ camp (x: 22, z: 16)
-          this.moveUnitTowards(bot, 22, 14, dt);
+          this.moveUnitTowards(bot, bot.team === "blue" ? -22 : 22, 14, dt);
           return;
         }
+      }
+    }
+
+    // - Bot Hỗ Trợ / Đỡ Đòn (isRoamer): Đi cùng Xạ Thủ ở Đường Vàng nhưng có thể đi khắp bản đồ để hỗ trợ đồng đội đang giao tranh (< 65% HP)
+    if (bot.isRoamer && this.matchTime > 45.0) {
+      const allyInNeed = this.units
+        .filter((a) => a.isHero && !a.dead && a.team === bot.team && a.id !== bot.id && (a.hp / a.maxHp) < 0.65)
+        .sort((a, b) => (a.hp / a.maxHp) - (b.hp / b.maxHp))[0];
+      if (allyInNeed && Math.hypot(allyInNeed.x - bot.x, allyInNeed.z - bot.z) > 6.5) {
+        this.moveUnitTowards(bot, allyInNeed.x, allyInNeed.z, dt);
+        return;
       }
     }
 
@@ -9805,7 +10005,7 @@ class MobaArena3D {
     }
 
     // 6. Jungle Farming Restriction (v1.7.0: Only the designated Red Jungler Bot farms jungle; Blue team bots stay in lane!)
-    if (bot.team === "red" && bot.isJungler && (bot.hp / bot.maxHp) > 0.35) {
+    if (bot.isJungler && (bot.hp / bot.maxHp) > 0.35) {
       const nearMob = this.units.find((m) => m.isMonster && !m.dead);
       if (nearMob) {
         const dMob = Math.hypot(nearMob.x - bot.x, nearMob.z - bot.z);
@@ -9818,10 +10018,11 @@ class MobaArena3D {
       }
     }
 
-    // 7. Advance smoothly along lane, pausing safely outside enemy tower if no minions are present
-    const enemyStructs = this.structures
-      .filter((s) => !s.dead && s.team === enemyTeam)
-      .sort((a, b) => Math.abs(a.x - bot.x) - Math.abs(b.x - bot.x));
+    // 7. Advance smoothly along assigned lane (EXP z = -26, MID z = 0, GOLD z = +26), pausing safely outside enemy tower if no minions are present
+    const desiredLane = (bot.assignedLane && bot.assignedLane !== "jungle") ? bot.assignedLane : "mid";
+    const laneTowerCandidates = this.structures.filter((s) => !s.dead && s.team === enemyTeam && (s.laneType === desiredLane || s.kind === "core"));
+    const enemyStructs = (laneTowerCandidates.length > 0 ? laneTowerCandidates : this.structures.filter((s) => !s.dead && s.team === enemyTeam))
+      .sort((a, b) => Math.hypot(a.x - bot.x, a.z - bot.z) - Math.hypot(b.x - bot.x, b.z - bot.z));
 
     if (enemyStructs.length > 0) {
       const frontSt = enemyStructs[0];
@@ -9859,7 +10060,7 @@ class MobaArena3D {
     const spdMult = unit.slowTimer > 0 ? 0.65 : 1.0;
     const step = (unit.moveSpeed || 4.2) * spdMult * dt;
     unit.x = Math.max(-65, Math.min(65, unit.x + (dx / dist) * Math.min(dist, step)));
-    unit.z = Math.max(-26, Math.min(26, unit.z + (dz / dist) * Math.min(dist, step)));
+    unit.z = Math.max(-40, Math.min(40, unit.z + (dz / dist) * Math.min(dist, step)));
     unit.mesh.position.set(unit.x, 0, unit.z);
     unit.mesh.rotation.y = Math.atan2(dx, dz);
   }
@@ -9875,10 +10076,15 @@ class MobaArena3D {
       this.goldTickTimer -= 1.0;
       this.units.forEach((u) => {
         if (u.isHero && !u.dead) {
-          u.gold += 4;
-          // v2.0.0 Bảo Khí Nhẫn Cụ: Trước phút thứ 3 (180s), mỗi 1s nhận thêm +10 vàng!
-          if (this.matchTime < 180.0 && u.itemEffects && u.itemEffects.has("bao_khi_support")) {
+          this.getHeroGoldBalanceMultiplier(u);
+          // v2.3.0: Trước phút thứ 5 (300s), Thiên Khí (+10 vàng/s) và Bảo Khí Nhẫn Cụ (+13 vàng/s) tách khỏi cơ chế nhận vàng thông thường!
+          // Hết 5 phút (>= 300s) trở về bình thường (+4 vàng/s).
+          if (this.matchTime < 300.0 && u.itemEffects && u.itemEffects.has("bao_khi_support")) {
+            u.gold += 13;
+          } else if (this.matchTime < 300.0 && u.itemEffects && u.itemEffects.has("thien_khi_support")) {
             u.gold += 10;
+          } else {
+            u.gold += 4;
           }
           const fX = u.team === "blue" ? -64 : 64;
           if (Math.hypot(u.x - fX, u.z) <= 6.5) {
@@ -10413,7 +10619,7 @@ class MobaArena3D {
         const prevZ = u.z;
         const dDir = u.grockDashDir || { x: 1, z: 0 };
         u.x = Math.max(-65, Math.min(65, u.x + dDir.x * step));
-        u.z = Math.max(-26, Math.min(26, u.z + dDir.z * step));
+        u.z = Math.max(-40, Math.min(40, u.z + dDir.z * step));
         u.grockDashDistRemaining = Math.max(0, Number((u.grockDashDistRemaining - step).toFixed(4)));
         if (u.mesh) u.mesh.position.set(u.x, 0, u.z);
         this.sweepGrockDashPath(u, prevX, prevZ, u.x, u.z);
@@ -10499,7 +10705,7 @@ class MobaArena3D {
             const shisuiChannelMult = u.shisuiFireTimer > 0 ? 0.50 : 1.0;
             const spd = u.moveSpeed * shisuiChannelMult * (u.slowTimer > 0 ? (1 - (u.slowPct || 0.35)) : 1.0);
             u.x = Math.max(-65, Math.min(65, u.x + mx * spd * dt));
-            u.z = Math.max(-26, Math.min(26, u.z + mz * spd * dt));
+            u.z = Math.max(-40, Math.min(40, u.z + mz * spd * dt));
             u.mesh.position.set(u.x, 0, u.z);
             u.mesh.rotation.y = Math.atan2(mx, mz);
           }
@@ -10569,10 +10775,12 @@ class MobaArena3D {
               this.moveUnitTowards(u, t.x, t.z, dt);
             }
           } else {
-            // 2. No enemy in 11.5m: march straight toward the enemy Main Core (±58)!
+            // 2. No enemy in 11.5m: march along the minion's lane (EXP z=-26, MID z=0, GOLD z=+26), then converge onto the enemy Main Core (±58, 0)!
             const enemyCoreX = u.team === "blue" ? 58 : -58;
-            const desiredZ = u.laneZ !== undefined ? u.laneZ : 0;
-            this.moveUnitTowards(u, enemyCoreX, desiredZ, dt);
+            const isPastOuterLane = u.team === "blue" ? (u.x >= 44) : (u.x <= -44);
+            const targetX = isPastOuterLane ? enemyCoreX : (u.team === "blue" ? 46 : -46);
+            const desiredZ = isPastOuterLane ? 0 : (u.laneZ !== undefined ? u.laneZ : 0);
+            this.moveUnitTowards(u, targetX, desiredZ, dt);
           }
         }
       } else if (u.isMonster) {
@@ -10891,11 +11099,16 @@ class MobaArena3D {
     ctx.fillStyle = "#0f172a";
     ctx.fillRect(0, 0, w, h);
 
+    // Draw 3 Lanes on Minimap: Top (EXP), Center (MID), Bottom (GOLD)
+    ctx.fillStyle = "#312e81";
+    ctx.fillRect(10, 8, w - 20, 8);
     ctx.fillStyle = "#334155";
-    ctx.fillRect(6, h / 2 - 8, w - 12, 16);
+    ctx.fillRect(8, h / 2 - 5, w - 16, 10);
+    ctx.fillStyle = "#78350f";
+    ctx.fillRect(10, h - 16, w - 20, 8);
 
     const mapX = (x) => ((x + 70) / 140) * w;
-    const mapZ = (z) => ((z + 30) / 60) * h;
+    const mapZ = (z) => ((z + 42) / 84) * h;
 
     this.structures.forEach((s) => {
       if (s.dead) return;
@@ -10950,10 +11163,10 @@ class MobaArena3D {
 
 window.MobaArena3D = MobaArena3D;
 
-  </script>
-  <script>
+</script>
+<script>
 // ============================================================================
-// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v2.2.0 META OVERHAUL)
+// LEGENDS OF ETERNIA 3D - UI & PROGRESSION CONTROLLER (v2.3.0 5v5 3-LANE & ECONOMY OVERHAUL)
 // ============================================================================
 
 class GameUIController {
@@ -11512,7 +11725,7 @@ class GameUIController {
             </div>
             <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700">
               <div class="font-bold text-sky-300">🏆 Nhận Ruby Sau Trận</div>
-              <p class="text-slate-300 mt-1">Mỗi trận đấu Xếp Hạng 3v3 hoàn thành đều thưởng thêm Ruby sự kiện và Vàng (Thắng 500–800 Vàng, Thua 50–120 Vàng).</p>
+              <p class="text-slate-300 mt-1">Mỗi trận đấu Xếp Hạng 5v5 hoàn thành đều thưởng thêm Ruby sự kiện và Vàng (Thắng 500–800 Vàng, Thua 50–120 Vàng).</p>
             </div>
             <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700">
               <div class="font-bold text-emerald-300">🛡️ Điểm Tinh Túy Bảo Hộ</div>
@@ -11875,7 +12088,7 @@ class GameUIController {
       this.arena3D.startMatch(this.selectedHeroId, eqSkin, rankObj);
     }
     this.renderInGameShop();
-    this.showAnnouncement(`🔥 Trận Đấu 3v3 Bắt Đầu! Bậc Rank: ${rankObj.name}`);
+    this.showAnnouncement(`🔥 Trận Đấu 5v5 (3 Đường) Bắt Đầu! Bậc Rank: ${rankObj.name}`);
   }
 
   leaveMatchToLobby() {
@@ -11980,7 +12193,9 @@ class GameUIController {
     }
 
     const selItem = window.GAME_DATA.items.find((i) => i.id === this.selectedShopItemId) || itemsList[0] || window.GAME_DATA.items[0];
-    const canBuySel = p.gold >= selItem.cost && p.items.length < 6;
+    const selEffCost = this.arena3D.getEffectiveItemCost ? this.arena3D.getEffectiveItemCost(p, selItem) : selItem.cost;
+    const selReplacesOwned = selItem.id === "bao_khi_nhan_cu" && p.items.some((o) => o.id === "thien_khi");
+    const canBuySel = p.gold >= selEffCost && (p.items.length < 6 || selReplacesOwned);
     const isPreOrdered = this.preOrderItemId === selItem.id;
 
     // 3. Render 2-Pane Split inside container: Left/Center Item Cards + Right Detailed Inspector & Pre-Order
@@ -12000,7 +12215,9 @@ class GameUIController {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           ${itemsList.map((it, idx) => {
             const isSel = selItem.id === it.id;
-            const affordable = p.gold >= it.cost && p.items.length < 6;
+            const effCost = this.arena3D.getEffectiveItemCost ? this.arena3D.getEffectiveItemCost(p, it) : it.cost;
+            const replacesOwned = it.id === "bao_khi_nhan_cu" && p.items.some((o) => o.id === "thien_khi");
+            const affordable = p.gold >= effCost && (p.items.length < 6 || replacesOwned);
             const isPre = this.preOrderItemId === it.id;
             const ownedCount = p.items.filter((o) => o.id === it.id).length;
 
@@ -12017,7 +12234,7 @@ class GameUIController {
                     </div>
                     <div class="text-[10px] text-emerald-300 truncate mt-0.5">${this.formatItemStats(it.stats)}</div>
                     <div class="flex items-center gap-2 mt-1">
-                      <span class="text-[11px] font-black ${affordable ? "text-amber-300" : "text-slate-400"}">🪙 ${it.cost} Vàng</span>
+                      <span class="text-[11px] font-black ${affordable ? "text-amber-300" : "text-slate-400"}">🪙 ${effCost} Vàng${effCost < it.cost ? ` <span class=\"text-emerald-300\">(-40% Thiên Khí)</span>` : ""}</span>
                       ${isPre ? `<span class="px-1.5 py-0.2 rounded bg-amber-500/20 border border-amber-400 text-amber-300 text-[9px] font-bold">📌 Đã Đặt Trước</span>` : ""}
                       ${ownedCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-sky-500/20 text-sky-300 text-[9px] font-bold">Đã có</span>` : ""}
                     </div>
@@ -12047,7 +12264,7 @@ class GameUIController {
             <div>
               <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[10px] font-bold">Nhánh ${selItem.category} • Cấp ${selItem.tier}</span>
               <h4 class="text-base font-black text-white mt-0.5">${selItem.name}</h4>
-              <div class="text-sm font-extrabold text-amber-300">🪙 Giá: ${selItem.cost} Vàng</div>
+              <div class="text-sm font-extrabold text-amber-300">🪙 Giá: ${selEffCost} Vàng${selEffCost < selItem.cost ? ` <span class="text-xs text-emerald-300">(Gốc ${selItem.cost}g • -40% Thiên Khí)</span>` : ""}</div>
             </div>
           </div>
 
@@ -12064,7 +12281,7 @@ class GameUIController {
 
         <div class="space-y-2 pt-3 border-t border-slate-800">
           <button onclick="window.UI.buyInGameItem('${selItem.id}')" class="w-full py-3 rounded-2xl font-black text-xs shadow-lg ${canBuySel ? "bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 text-slate-950" : "bg-slate-800 text-slate-500"}">
-            ${p.items.length >= 6 ? "ĐÃ ĐẦY 6 Ô TRANG BỊ" : (canBuySel ? `🛒 MUA NGAY (${selItem.cost} VÀNG)` : `CÒN THIẾU ${selItem.cost - p.gold} VÀNG`)}
+            ${(p.items.length >= 6 && !selReplacesOwned) ? "ĐÃ ĐẦY 6 Ô TRANG BỊ" : (canBuySel ? `🛒 MUA NGAY (${selEffCost} VÀNG${selReplacesOwned ? " • THAY THẾ THIÊN KHÍ" : ""})` : `CÒN THIẾU ${Math.max(0, selEffCost - p.gold)} VÀNG`)}
           </button>
           <button onclick="window.UI.togglePreOrderItem('${selItem.id}')" class="w-full py-2.5 rounded-2xl font-extrabold text-xs border transition ${isPreOrdered ? "bg-amber-500/20 border-amber-400 text-amber-300" : "bg-slate-900 hover:bg-slate-800 border-slate-700 text-sky-300"}">
             ${isPreOrdered ? "📌 ĐÃ ĐẶT TRƯỚC (Bấm để Hủy)" : "📌 ĐẶT TRƯỚC TRANG BỊ NÀY"}
@@ -12139,6 +12356,20 @@ class GameUIController {
     const buffBox = document.getElementById("hud-buffs-line");
     if (buffBox) {
       const badges = [];
+      if (p.assignedLane) {
+        const laneNames = { exp: "🟣 Đường EXP (+30% EXP)", mid: "⚪ Đường Giữa (Cân Bằng)", gold: "🟡 Đường Vàng (+30% Vàng)", jungle: "🌲 Đi Rừng (Sát Thủ/Đấu Sĩ)", EXP: "🟣 Đường EXP (+30% EXP)", MID: "⚪ Đường Giữa (Cân Bằng)", GOLD: "🟡 Đường Vàng (+30% Vàng)", JUNGLE: "🌲 Đi Rừng (Sát Thủ/Đấu Sĩ)" };
+        badges.push(`<span class="px-2 py-0.5 rounded bg-slate-800/90 border border-slate-600 text-slate-200 text-[9px] font-bold">${laneNames[p.assignedLane] || p.assignedLane}</span>`);
+      }
+      if (p.resourceGoldMult !== undefined && p.resourceGoldMult < 0.99) {
+        badges.push(`<span class="px-2 py-0.5 rounded bg-amber-900/50 border border-amber-400 text-amber-200 text-[9px] font-bold">⚖️ Cân Bằng Tài Nguyên: Hệ số Vàng ${Math.round(p.resourceGoldMult * 100)}% (Vượt TB Trận)</span>`);
+      }
+      if (arena.matchTime < 300 && p.itemEffects) {
+        if (p.itemEffects.has("bao_khi_active")) {
+          badges.push(`<span class="px-2 py-0.5 rounded bg-emerald-600/35 border border-emerald-300 text-emerald-100 text-[9px] font-bold">📿 Bảo Khí Nhẫn Cụ: +13 Vàng/s (Tách chia vàng lính • Còn ${Math.ceil(300 - arena.matchTime)}s)</span>`);
+        } else if (p.itemEffects.has("thien_khi_passive")) {
+          badges.push(`<span class="px-2 py-0.5 rounded bg-teal-600/35 border border-teal-300 text-teal-100 text-[9px] font-bold">🔮 Thiên Khí: +10 Vàng/s & -40% giá Bảo Khí (Còn ${Math.ceil(300 - arena.matchTime)}s)</span>`);
+        }
+      }
       if (p.lucSiBuffTimer > 0) {
         badges.push(`<span class="px-2 py-0.5 rounded bg-orange-500/25 border border-orange-400 text-orange-200 text-[9px] font-bold">🟠 Bùa Lực Sĩ: ${Math.ceil(p.lucSiBuffTimer)}s (+15% ST, +10% Chậm)</span>`);
       }
@@ -12286,36 +12517,38 @@ class GameUIController {
     const quickBtn = document.getElementById("hud-quick-buy-btn");
     const preStatusEl = document.getElementById("hud-preorder-status");
     if (quickBtn) {
-      if (p.items.length < 6) {
-        let targetItem = null;
-        let isExplicitPreOrder = false;
+      let targetItem = null;
+      let isExplicitPreOrder = false;
 
-        if (this.preOrderItemId) {
-          targetItem = window.GAME_DATA.items.find((it) => it.id === this.preOrderItemId);
-          isExplicitPreOrder = true;
-        } else {
-          // Use Hero's 6-Item Preset Build in order
-          const preset = window.GAME_DATA.presetBuilds && window.GAME_DATA.presetBuilds[p.heroData.id];
-          if (preset && preset.items) {
-            const nextPresetId = preset.items.find((id) => !p.items.some((owned) => owned.id === id));
-            if (nextPresetId) {
-              targetItem = window.GAME_DATA.items.find((it) => it.id === nextPresetId);
-            }
+      if (this.preOrderItemId) {
+        targetItem = window.GAME_DATA.items.find((it) => it.id === this.preOrderItemId);
+        isExplicitPreOrder = true;
+      } else {
+        const preset = window.GAME_DATA.presetBuilds && window.GAME_DATA.presetBuilds[p.heroData.id];
+        if (preset && preset.items) {
+          const nextPresetId = preset.items.find((id) => {
+            if (id === "thien_khi" && p.items.some((owned) => owned.id === "bao_khi_nhan_cu")) return false;
+            return !p.items.some((owned) => owned.id === id);
+          });
+          if (nextPresetId) {
+            targetItem = window.GAME_DATA.items.find((it) => it.id === nextPresetId);
           }
         }
+      }
 
-        if (targetItem && p.gold >= targetItem.cost) {
+      const replacesThienKhi = targetItem && targetItem.id === "bao_khi_nhan_cu" && p.items.some((o) => o.id === "thien_khi");
+      if (targetItem && (p.items.length < 6 || replacesThienKhi)) {
+        const effCost = arena.getEffectiveItemCost ? arena.getEffectiveItemCost(p, targetItem) : targetItem.cost;
+        if (p.gold >= effCost) {
           quickBtn.classList.remove("hidden");
           quickBtn.onclick = () => this.buyInGameItem(targetItem.id);
-          quickBtn.innerHTML = `${isExplicitPreOrder ? "📌 [ĐẶT TRƯỚC] MUA NGAY:" : "⚡ [ĐỀ XUẤT] MUA NGAY:"} ${targetItem.icon} ${targetItem.name.split(" (")[0]} (${targetItem.cost}g)`;
+          quickBtn.innerHTML = `${isExplicitPreOrder ? "📌 [ĐẶT TRƯỚC] MUA NGAY:" : "⚡ [ĐỀ XUẤT] MUA NGAY:"} ${targetItem.icon} ${targetItem.name.split(" (")[0]} (${effCost}g${effCost < targetItem.cost ? " -40%" : ""})`;
           if (preStatusEl) preStatusEl.classList.add("hidden");
         } else {
           quickBtn.classList.add("hidden");
-          if (preStatusEl && targetItem) {
+          if (preStatusEl) {
             preStatusEl.classList.remove("hidden");
-            preStatusEl.innerHTML = `📌 ${isExplicitPreOrder ? "Đặt trước" : "Món kế"}: <b>${targetItem.icon} ${targetItem.name.split(" (")[0]}</b> (${p.gold}/${targetItem.cost}g)`;
-          } else if (preStatusEl) {
-            preStatusEl.classList.add("hidden");
+            preStatusEl.innerHTML = `📌 ${isExplicitPreOrder ? "Đặt trước" : "Món kế"}: <b>${targetItem.icon} ${targetItem.name.split(" (")[0]}</b> (${p.gold}/${effCost}g)`;
           }
         }
       } else {
@@ -12470,6 +12703,6 @@ window.addEventListener("load", () => {
   window.UI.init();
 });
 
-  </script>
+</script>
 </body>
 </html>
